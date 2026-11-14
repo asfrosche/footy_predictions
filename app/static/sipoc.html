@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SIPOC Analysis · Footy Predictions</title>
+  <meta name="description" content="SIPOC analysis of the Footy Predictions application: suppliers, inputs, process, outputs and customers, based on the code in this repository.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2360a5fa'/%3E%3Cstop offset='1' stop-color='%231d4ed8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='%2305070d'/%3E%3Crect x='7' y='7' width='18' height='18' rx='5' fill='url(%23g)'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#05070d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/sipoc.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Footy<span class="brand-accent">Predictions</span></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/#/">Overview</a>
+        <a href="/#/matches">Matches</a>
+        <a href="/#/premier-league">Premier League</a>
+        <a href="/#/world-cup">World Cup</a>
+        <a href="/sipoc" aria-current="page">SIPOC</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="eyebrow">Process analysis</span>
+      <h1>SIPOC analysis</h1>
+      <p>What goes into this application, what it does with it, and what comes out. Every item is taken from the code in this repository. Items marked <span class="tag tag-unverified">Not verifiable here</span> depend on something outside this repo.</p>
+    </section>
+
+    <section class="card overview" aria-labelledby="overview-h">
+      <h2 id="overview-h">System overview</h2>
+      <p>Footy Predictions is a read-only web application. A FastAPI server loads seven JSON data files, turns them into fixtures, standings, group tables, market odds and team profiles, and serves them as JSON under <code>/api</code>. The same server hosts a static site (HTML, CSS and vanilla JavaScript) that calls the API and renders the results in the browser. Nothing is written back to storage, and no user accounts or database are involved.</p>
+      <ul class="facts">
+        <li><span>Backend</span> FastAPI 0.116, Uvicorn, Python 3.12</li>
+        <li><span>Frontend</span> Static HTML, CSS and JavaScript, no build step</li>
+        <li><span>Data</span> Seven JSON files in <code>data/</code></li>
+        <li><span>Tests</span> pytest suite in <code>tests/test_api.py</code></li>
+      </ul>
+    </section>
+
+    <section class="sipoc-section" aria-labelledby="table-h">
+      <h2 id="table-h" class="section-title">SIPOC table</h2>
+      <div class="sipoc-grid">
+
+        <article class="sipoc-col">
+          <header class="sipoc-head"><span class="letter">S</span><div><h3>Suppliers</h3><p>Sources of data, services and resources</p></div></header>
+          <ul class="sipoc-list">
+            <li>
+              <p><strong>Match results and fixtures</strong> · <code>data/matches.json</code>, <code>data/pl_matches.json</code></p>
+              <span class="tag tag-unverified">Origin not verifiable here</span>
+              <p class="note">The fetch step that produced these files is not in this repo.</p>
+            </li>
+            <li>
+              <p><strong>Bookmaker odds</strong> · <code>data/epl_odds.json</code></p>
+              <span class="tag tag-unverified">Origin not verifiable here</span>
+              <p class="note">Each entry is labelled <code>source: "builtin"</code>.</p>
+            </li>
+            <li>
+              <p><strong>Title odds</strong> · <code>data/epl_title_odds.json</code></p>
+              <span class="tag tag-unverified">Generator not in repo</span>
+              <p class="note">Its note says it is an approximation from implied head-to-head probabilities.</p>
+            </li>
+            <li>
+              <p><strong>Team and tactical reference data</strong> · <code>data/epl_teams.json</code>, <code>data/tactical_profiles.json</code>, <code>data/national_strength_modifiers.json</code></p>
+              <span class="tag tag-unverified">Origin not verifiable here</span>
+            </li>
+            <li>
+              <p><strong>Web fonts</strong> · Google Fonts (Inter, JetBrains Mono)</p>
+              <span class="tag tag-verified">Verified in code</span>
+            </li>
+            <li>
+              <p><strong>Python libraries</strong> · <code>requirements.txt</code></p>
+              <span class="tag tag-verified">Verified in code</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="sipoc-col">
+          <header class="sipoc-head"><span class="letter">I</span><div><h3>Inputs</h3><p>Data, requests and resources entering the system</p></div></header>
+          <ul class="sipoc-list">
+            <li>
+              <p><strong>HTTP GET requests</strong> to <code>/api/*</code></p>
+              <span class="tag tag-verified">Verified in code</span>
+              <p class="note"><code>app/routers/api.py</code></p>
+            </li>
+            <li>
+              <p><strong>Query parameters</strong> <code>competition</code>, <code>status</code>, <code>team</code></p>
+              <span class="tag tag-verified">Verified in code</span>
+              <p class="note">Validated by pattern and length, so bad values return 422.</p>
+            </li>
+            <li>
+              <p><strong>Path parameters</strong> <code>match_id</code>, team name</p>
+              <span class="tag tag-verified">Verified in code</span>
+            </li>
+            <li>
+              <p><strong>JSON data files</strong> in <code>data/</code></p>
+              <span class="tag tag-verified">Verified in code</span>
+              <p class="note">Read by <code>app/data.py</code>, cached after first load.</p>
+            </li>
+            <li>
+              <p><strong>Optional environment variable</strong> <code>FOOTY_DATA_DIR</code></p>
+              <span class="tag tag-verified">Verified in code</span>
+              <p class="note">Overrides where the data folder is read from.</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="sipoc-col">
+          <header class="sipoc-head"><span class="letter">P</span><div><h3>Process</h3><p>Key stages and workflows</p></div></header>
+          <ol class="sipoc-steps">
+            <li><strong>Load data</strong><span>Read JSON once and cache it · <code>data.load_json</code></span></li>
+            <li><strong>Normalise fixtures</strong><span>Merge completed and upcoming lists into one shape · <code>data.all_matches</code></span></li>
+            <li><strong>Filter</strong><span>Apply competition, status and team filters · <code>data.matches_for</code></span></li>
+            <li><strong>Compute tables</strong><span>Points 3/1/0, then goal difference and goals scored · <code>data.compute_standings</code></span></li>
+            <li><strong>Remove margin</strong><span>Turn decimal odds into percentages that sum to 100 · <code>data.implied_probabilities</code></span></li>
+            <li><strong>Assemble profiles</strong><span>Club or national view for one team · <code>data.team_profile</code></span></li>
+            <li><strong>Serve</strong><span>JSON under <code>/api</code>, site at <code>/</code>, page at <code>/sipoc</code> · <code>app/main.py</code></span></li>
+            <li><strong>Render in browser</strong><span>Fetch, escape and draw each view · <code>static/js/app.js</code></span></li>
+          </ol>
+          <p class="note split-note">Steps 1 to 7 run on the server. Step 8 runs in the visitor's browser.</p>
+        </article>
+
+        <article class="sipoc-col">
+          <header class="sipoc-head"><span class="letter">O</span><div><h3>Outputs</h3><p>Results, processed data and deliverables</p></div></header>
+          <ul class="sipoc-list">
+            <li>
+              <p><strong>JSON API responses</strong></p>
+              <span class="tag tag-verified">Verified in code</span>
+              <p class="note">Summary, matches, match detail, Premier League standings, title odds, match odds, World Cup groups, team profile.</p>
+            </li>
+            <li>
+              <p><strong>Error responses</strong></p>
+              <span class="tag tag-verified">Verified in code</span>
+              <p class="note">404 for an unknown match or team, 422 for an invalid filter.</p>
+            </li>
+            <li>
+              <p><strong>Web pages</strong> · Overview, Matches, Premier League, World Cup, Team, SIPOC</p>
+              <span class="tag tag-verified">Verified in code</span>
+            </li>
+            <li>
+              <p><strong>Interactive API docs</strong> · <code>/docs</code></p>
+              <span class="tag tag-verified">Verified in code</span>
+              <p class="note">FastAPI default, not disabled in <code>app/main.py</code>.</p>
+            </li>
+          </ul>
+        </article>
+
+        <article class="sipoc-col">
+          <header class="sipoc-head"><span class="letter">C</span><div><h3>Customers</h3><p>Users, stakeholders and systems that consume outputs</p></div></header>
+          <ul class="sipoc-list">
+            <li>
+              <p><strong>Website visitors</strong></p>
+              <span class="tag tag-verified">Verified in code</span>
+              <p class="note">The site is public and needs no login.</p>
+            </li>
+            <li>
+              <p><strong>API consumers</strong></p>
+              <span class="tag tag-unverified">None found in this repo</span>
+              <p class="note">Only the site's own JavaScript calls the API here.</p>
+            </li>
+            <li>
+              <p><strong>Discord bot</strong></p>
+              <span class="tag tag-unverified">Planned, not in this repo</span>
+              <p class="note">It was part of an earlier plan, not an existing integration.</p>
+            </li>
+            <li>
+              <p><strong>Project owner</strong></p>
+              <span class="tag tag-unverified">Role not verifiable here</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="card flow" aria-labelledby="flow-h">
+      <h2 id="flow-h">Primary workflow</h2>
+      <p class="muted small">A visitor opens a page. The browser asks the API for data. The API reads the JSON files, computes the answer and returns it.</p>
+      <div class="flow-wrap">
+        <svg viewBox="0 0 920 230" role="img" aria-labelledby="flow-title flow-desc" class="flow-svg">
+          <title id="flow-title">Primary request workflow</title>
+          <desc id="flow-desc">Visitor browser sends a request to the FastAPI server. The server loads data files, normalises and computes results, then returns JSON to the browser, which renders the page.</desc>
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#60a5fa"/>
+            </marker>
+          </defs>
+
+          <g class="node external">
+            <rect x="8" y="78" width="130" height="74" rx="12"/>
+            <text x="73" y="110" text-anchor="middle" class="node-title">Visitor</text>
+            <text x="73" y="130" text-anchor="middle" class="node-sub">browser</text>
+          </g>
+
+          <g class="node">
+            <rect x="184" y="78" width="150" height="74" rx="12"/>
+            <text x="259" y="110" text-anchor="middle" class="node-title">Static site</text>
+            <text x="259" y="130" text-anchor="middle" class="node-sub">app.js</text>
+          </g>
+
+          <g class="node">
+            <rect x="380" y="78" width="160" height="74" rx="12"/>
+            <text x="460" y="110" text-anchor="middle" class="node-title">FastAPI</text>
+            <text x="460" y="130" text-anchor="middle" class="node-sub">routers/api.py</text>
+          </g>
+
+          <g class="node">
+            <rect x="586" y="78" width="160" height="74" rx="12"/>
+            <text x="666" y="110" text-anchor="middle" class="node-title">Compute</text>
+            <text x="666" y="130" text-anchor="middle" class="node-sub">app/data.py</text>
+          </g>
+
+          <g class="node external">
+            <rect x="782" y="78" width="130" height="74" rx="12"/>
+            <text x="847" y="110" text-anchor="middle" class="node-title">JSON files</text>
+            <text x="847" y="130" text-anchor="middle" class="node-sub">data/</text>
+          </g>
+
+          <path class="edge" d="M138 115 L184 115" marker-end="url(#arrow)"/>
+          <path class="edge" d="M334 115 L380 115" marker-end="url(#arrow)"/>
+          <path class="edge" d="M540 115 L586 115" marker-end="url(#arrow)"/>
+          <path class="edge" d="M746 115 L782 115" marker-end="url(#arrow)"/>
+
+          <path class="edge return" d="M782 165 L666 165 L460 165 L259 165 L73 165" fill="none" marker-end="url(#arrow)"/>
+          <text x="460" y="190" text-anchor="middle" class="edge-label">JSON response returns to the browser, which renders the page</text>
+        </svg>
+      </div>
+      <p class="legend"><span class="swatch swatch-external"></span>External to the server <span class="swatch"></span>Internal to this app</p>
+    </section>
+
+    <section class="grid grid-2 limits" aria-labelledby="limits-h">
+      <article class="card">
+        <h2 id="limits-h">What this analysis cannot verify</h2>
+        <ul class="plain">
+          <li>Where the match, odds and team data originally came from, and how often it refreshes.</li>
+          <li>Whether the data is accurate. The app shows what the files contain.</li>
+          <li>The <code>last_updated</code> and <code>generated_at</code> dates, which are stored values and not checked against a live source.</li>
+          <li>Whether the app is deployed anywhere, and at which address.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h2>Not present in this code</h2>
+        <ul class="plain">
+          <li>Predictions from the match engine. The earlier <code>fifa_data/</code> engines were not copied, so the site shows market odds and approximations only.</li>
+          <li>Data fetching, scheduled refresh and provider integrations.</li>
+          <li>Accounts, a database and any write operation.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Analysis based on the repository code as of this page's build. Nothing here is betting advice.</p>
+    </div>
+  </footer>
+</body>
+</html>
