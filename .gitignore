@@ -7,3 +7,10 @@ venv/
 # Raw provider dumps and caches are regenerated, never committed.
 data/raw/
 data/cache/
+
+# fifa_data runtime caches (regenerated, never committed)
+fifa_data/data/raw/
+fifa_data/data/lineup_cache/
+fifa_data/data/provider_cache/
+fifa_data/data/pl_form_cache.json
+fifa_data/data/tournament_form_cache.json
