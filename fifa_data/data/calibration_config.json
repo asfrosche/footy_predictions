@@ -1,0 +1,56 @@
+{
+  "_description": "V3.1 Calibration Configuration",
+
+  "goals_per_attack_point": 0.12,
+  "goals_per_midfield_point": 0.04,
+  "goals_per_defense_point": 0.06,
+  "base_goals": 1.05,
+  "minimum_lambda": 0.05,
+
+  "attack_weight_defense": 0.70,
+  "attack_weight_goalkeeper": 0.30,
+  "midfield_control_weight": 0.25,
+
+  "strength_curve": {
+    "_description": "Non-linear amplification of rating differences. 1.0 = linear.",
+    "curve_factor": 3.0,
+    "max_multiplier": 3.0,
+    "min_multiplier": 0.20
+  },
+
+  "star_player_weights": {
+    "_description": "Weighted positional influence within each line. Sum to 1.0 per line.",
+    "attack": {
+      "ST": 0.40,
+      "WINGER": 0.30
+    },
+    "midfield": {
+      "CM": 0.35,
+      "DM": 0.30
+    },
+    "defense": {
+      "CB": 0.35,
+      "FB": 0.15
+    },
+    "goalkeeper": {
+      "GK": 1.00
+    }
+  },
+
+  "national_modifier": {
+    "_description": "Captures coaching, system, mentality not reflected in player ratings.",
+    "range": [-0.03, 0.03],
+    "source_confidence": 0.6
+  },
+
+  "v3_dynamic_multiplier": {
+    "_description": "Overall V3 dynamic state cap.",
+    "min": 0.90,
+    "max": 1.10
+  },
+
+  "extra_time_lambda_scale": 0.30,
+  "tiebreaker_base_probability": 0.50,
+  "tiebreaker_delta_scale": 0.0005,
+  "elo_dampening": 0.45
+}

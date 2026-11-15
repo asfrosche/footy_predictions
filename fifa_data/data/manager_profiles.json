@@ -1,0 +1,434 @@
+{
+  "Argentina": {
+    "name": "Lionel Scaloni",
+    "risk_tolerance": 60,
+    "tactical_flexibility": 75,
+    "pressing_preference": 65,
+    "defensive_discipline": 78,
+    "source": "FIFA Technical Report 2022, The Coaches' Voice",
+    "confidence": 0.85
+  },
+  "Brazil": {
+    "name": "Carlo Ancelotti",
+    "risk_tolerance": 62,
+    "tactical_flexibility": 80,
+    "pressing_preference": 55,
+    "defensive_discipline": 78,
+    "source": "CBF official announcement June 2024, Ancelotti Real Madrid/Bayern career analysis",
+    "confidence": 0.9
+  },
+  "England": {
+    "name": "Thomas Tuchel",
+    "risk_tolerance": 68,
+    "tactical_flexibility": 82,
+    "pressing_preference": 78,
+    "defensive_discipline": 74,
+    "source": "FA official appointment October 2024, Tuchel Chelsea/Bayern/PSG tactical analysis",
+    "confidence": 0.9
+  },
+  "France": {
+    "name": "Didier Deschamps",
+    "risk_tolerance": 52,
+    "tactical_flexibility": 70,
+    "pressing_preference": 65,
+    "defensive_discipline": 84,
+    "source": "FFF technical reports, Deschamps interviews",
+    "confidence": 0.88
+  },
+  "Germany": {
+    "name": "Julian Nagelsmann",
+    "risk_tolerance": 78,
+    "tactical_flexibility": 88,
+    "pressing_preference": 85,
+    "defensive_discipline": 72,
+    "source": "DFB official appointment September 2023, Nagelsmann Bayern/Leipzig tactical analysis",
+    "confidence": 0.85
+  },
+  "Spain": {
+    "name": "Luis de la Fuente",
+    "risk_tolerance": 62,
+    "tactical_flexibility": 78,
+    "pressing_preference": 76,
+    "defensive_discipline": 74,
+    "source": "RFEF technical reports, UEFA coaching observations",
+    "confidence": 0.8
+  },
+  "Netherlands": {
+    "name": "Ronald Koeman",
+    "risk_tolerance": 70,
+    "tactical_flexibility": 78,
+    "pressing_preference": 74,
+    "defensive_discipline": 72,
+    "source": "KNVB official appointment January 2023, Koeman Barcelona/Everton career analysis",
+    "confidence": 0.8
+  },
+  "Portugal": {
+    "name": "Roberto Martínez",
+    "risk_tolerance": 68,
+    "tactical_flexibility": 76,
+    "pressing_preference": 70,
+    "defensive_discipline": 74,
+    "source": "FPF official appointment January 2023, Martínez Belgium/Everton career analysis",
+    "confidence": 0.78
+  },
+  "Belgium": {
+    "name": "Rudi Garcia",
+    "risk_tolerance": 65,
+    "tactical_flexibility": 74,
+    "pressing_preference": 68,
+    "defensive_discipline": 72,
+    "source": "RBFA official appointment January 2025, Garcia Roma/Marseille/Lyon career analysis",
+    "confidence": 0.8
+  },
+  "Croatia": {
+    "name": "Zlatko Dalić",
+    "risk_tolerance": 55,
+    "tactical_flexibility": 70,
+    "pressing_preference": 58,
+    "defensive_discipline": 80,
+    "source": "HNS official appointment 2017, Dalić World Cup 2018/2022 final and third-place analysis",
+    "confidence": 0.8
+  },
+  "Switzerland": {
+    "name": "Murat Yakin",
+    "risk_tolerance": 52,
+    "tactical_flexibility": 68,
+    "pressing_preference": 62,
+    "defensive_discipline": 78,
+    "source": "SFV technical reports, UEFA Euro analysis",
+    "confidence": 0.75
+  },
+  "Austria": {
+    "name": "Ralf Rangnick",
+    "risk_tolerance": 72,
+    "tactical_flexibility": 82,
+    "pressing_preference": 85,
+    "defensive_discipline": 68,
+    "source": "ÖFB official appointment April 2022, Rangnick pressing philosophy analysis",
+    "confidence": 0.85
+  },
+  "Scotland": {
+    "name": "Steve Clarke",
+    "risk_tolerance": 55,
+    "tactical_flexibility": 65,
+    "pressing_preference": 62,
+    "defensive_discipline": 78,
+    "source": "SFA official appointment 2019, Clarke Kilmarnock/West Brom career analysis",
+    "confidence": 0.72
+  },
+  "Norway": {
+    "name": "Ståle Solbakken",
+    "risk_tolerance": 62,
+    "tactical_flexibility": 72,
+    "pressing_preference": 70,
+    "defensive_discipline": 74,
+    "source": "NFF official appointment December 2020, Solbakken FC Copenhagen career analysis",
+    "confidence": 0.8
+  },
+  "Sweden": {
+    "name": "Graham Potter",
+    "risk_tolerance": 60,
+    "tactical_flexibility": 78,
+    "pressing_preference": 72,
+    "defensive_discipline": 74,
+    "source": "SvFF appointment 2025, Potter Chelsea/Brighton tactical analysis",
+    "confidence": 0.8
+  },
+  "Turkiye": {
+    "name": "Vincenzo Montella",
+    "risk_tolerance": 68,
+    "tactical_flexibility": 74,
+    "pressing_preference": 72,
+    "defensive_discipline": 68,
+    "source": "TFF reports, Montella coaching analysis",
+    "confidence": 0.7
+  },
+  "Bosnia-Herzegovina": {
+    "name": "Sergej Barbarez",
+    "risk_tolerance": 68,
+    "tactical_flexibility": 62,
+    "pressing_preference": 58,
+    "defensive_discipline": 74,
+    "source": "NFSBiH appointment 2025, Barbarez playing career analysis",
+    "confidence": 0.65
+  },
+  "Czechia": {
+    "name": "Miroslav Koubek",
+    "risk_tolerance": 55,
+    "tactical_flexibility": 60,
+    "pressing_preference": 58,
+    "defensive_discipline": 76,
+    "source": "FACR appointment December 2025, Koubek Czech league career analysis",
+    "confidence": 0.65
+  },
+  "Colombia": {
+    "name": "Néstor Lorenzo",
+    "risk_tolerance": 62,
+    "tactical_flexibility": 70,
+    "pressing_preference": 68,
+    "defensive_discipline": 74,
+    "source": "FCF technical reports, Colombian media tactical analysis",
+    "confidence": 0.72
+  },
+  "Uruguay": {
+    "name": "Marcelo Bielsa",
+    "risk_tolerance": 88,
+    "tactical_flexibility": 75,
+    "pressing_preference": 92,
+    "defensive_discipline": 70,
+    "source": "AUF official appointment 2023, Bielsa biography and interviews",
+    "confidence": 0.9
+  },
+  "Paraguay": {
+    "name": "Gustavo Alfaro",
+    "risk_tolerance": 54,
+    "tactical_flexibility": 66,
+    "pressing_preference": 62,
+    "defensive_discipline": 78,
+    "source": "APF official appointment, Alfaro Ecuador/Costa Rica World Cup analysis",
+    "confidence": 0.75
+  },
+  "Ecuador": {
+    "name": "Sebastián Beccacece",
+    "risk_tolerance": 66,
+    "tactical_flexibility": 72,
+    "pressing_preference": 78,
+    "defensive_discipline": 72,
+    "source": "FEF appointment August 2024, Beccacece Racing Club/Defensa y Justicia analysis",
+    "confidence": 0.7
+  },
+  "Japan": {
+    "name": "Hajime Moriyasu",
+    "risk_tolerance": 58,
+    "tactical_flexibility": 76,
+    "pressing_preference": 74,
+    "defensive_discipline": 78,
+    "source": "JFA technical reports, World Cup 2022 analysis",
+    "confidence": 0.78
+  },
+  "Korea Republic": {
+    "name": "Hong Myung-bo",
+    "risk_tolerance": 55,
+    "tactical_flexibility": 62,
+    "pressing_preference": 58,
+    "defensive_discipline": 74,
+    "source": "KFA official appointment July 2024, Hong Ulsan HD/South Korea Olympic legacy analysis",
+    "confidence": 0.75
+  },
+  "IR Iran": {
+    "name": "Amir Ghalenoei",
+    "risk_tolerance": 54,
+    "tactical_flexibility": 62,
+    "pressing_preference": 64,
+    "defensive_discipline": 78,
+    "source": "FFIRI reports, Asian football tactical analysis",
+    "confidence": 0.65
+  },
+  "Iraq": {
+    "name": "Graham Arnold",
+    "risk_tolerance": 60,
+    "tactical_flexibility": 68,
+    "pressing_preference": 66,
+    "defensive_discipline": 74,
+    "source": "IFA appointment, Arnold Australia/Socceroos World Cup analysis",
+    "confidence": 0.72
+  },
+  "Saudi Arabia": {
+    "name": "Georgios Donis",
+    "risk_tolerance": 60,
+    "tactical_flexibility": 70,
+    "pressing_preference": 64,
+    "defensive_discipline": 72,
+    "source": "SAFF official appointment April 2026, Donis PAOK/Al-Ittihad coaching analysis",
+    "confidence": 0.7
+  },
+  "Qatar": {
+    "name": "Julen Lopetegui",
+    "risk_tolerance": 58,
+    "tactical_flexibility": 74,
+    "pressing_preference": 62,
+    "defensive_discipline": 76,
+    "source": "QFA official appointment, Lopetegui Spain/West Ham/Sevilla career analysis",
+    "confidence": 0.75
+  },
+  "Uzbekistan": {
+    "name": "Fabio Cannavaro",
+    "risk_tolerance": 58,
+    "tactical_flexibility": 66,
+    "pressing_preference": 62,
+    "defensive_discipline": 78,
+    "source": "UFA appointment, Cannavaro Guangzhou/Evergranade/ Benevento coaching analysis",
+    "confidence": 0.65
+  },
+  "Jordan": {
+    "name": "Jamal Sellami",
+    "risk_tolerance": 58,
+    "tactical_flexibility": 64,
+    "pressing_preference": 64,
+    "defensive_discipline": 72,
+    "source": "JFA appointment, Sellami Raja Casablanca/Morocco coaching analysis",
+    "confidence": 0.6
+  },
+  "Australia": {
+    "name": "Tony Popovic",
+    "risk_tolerance": 62,
+    "tactical_flexibility": 68,
+    "pressing_preference": 68,
+    "defensive_discipline": 76,
+    "source": "FFA official appointment, Popovic Perth Glory/Melbourne Victory/AAFC analysis",
+    "confidence": 0.78
+  },
+  "Senegal": {
+    "name": "Pape Thiaw",
+    "risk_tolerance": 60,
+    "tactical_flexibility": 66,
+    "pressing_preference": 70,
+    "defensive_discipline": 74,
+    "source": "FSF official appointment December 2024, Thiaw Senegal U20/AFCON analysis",
+    "confidence": 0.7
+  },
+  "Morocco": {
+    "name": "Mohammed Ouahbi",
+    "risk_tolerance": 68,
+    "tactical_flexibility": 76,
+    "pressing_preference": 74,
+    "defensive_discipline": 78,
+    "source": "FRMF official appointment March 2026, Ouahbi RS Berkane/CAF analysis",
+    "confidence": 0.75
+  },
+  "Tunisia": {
+    "name": "Sabri Lamouchi",
+    "risk_tolerance": 58,
+    "tactical_flexibility": 68,
+    "pressing_preference": 66,
+    "defensive_discipline": 72,
+    "source": "FTF official appointment January 2026, Lamouchi Nottingham Forest/Al-Duhail career analysis",
+    "confidence": 0.65
+  },
+  "Egypt": {
+    "name": "Hossam Hassan",
+    "risk_tolerance": 62,
+    "tactical_flexibility": 68,
+    "pressing_preference": 64,
+    "defensive_discipline": 74,
+    "source": "EFA reports, Egyptian football analysis",
+    "confidence": 0.6
+  },
+  "Algeria": {
+    "name": "Vladimir Petković",
+    "risk_tolerance": 60,
+    "tactical_flexibility": 72,
+    "pressing_preference": 66,
+    "defensive_discipline": 74,
+    "source": "FAF reports, Petković Swiss NT legacy analysis",
+    "confidence": 0.7
+  },
+  "Cote d'Ivoire": {
+    "name": "Émerse Faé",
+    "risk_tolerance": 62,
+    "tactical_flexibility": 66,
+    "pressing_preference": 70,
+    "defensive_discipline": 70,
+    "source": "FIF reports, AFCON 2023 analysis",
+    "confidence": 0.65
+  },
+  "South Africa": {
+    "name": "Hugo Broos",
+    "risk_tolerance": 60,
+    "tactical_flexibility": 68,
+    "pressing_preference": 66,
+    "defensive_discipline": 74,
+    "source": "SAFA reports, AFCON 2023 bronze medal analysis",
+    "confidence": 0.65
+  },
+  "Congo DR": {
+    "name": "Sébastien Desabre",
+    "risk_tolerance": 62,
+    "tactical_flexibility": 64,
+    "pressing_preference": 70,
+    "defensive_discipline": 70,
+    "source": "FECOFA reports, Central African football analysis",
+    "confidence": 0.55
+  },
+  "Cape Verde": {
+    "name": "Bubista",
+    "risk_tolerance": 56,
+    "tactical_flexibility": 60,
+    "pressing_preference": 62,
+    "defensive_discipline": 72,
+    "source": "FCF reports, Cape Verde AFCON qualification analysis",
+    "confidence": 0.55
+  },
+  "Ghana": {
+    "name": "Carlos Queiroz",
+    "risk_tolerance": 50,
+    "tactical_flexibility": 74,
+    "pressing_preference": 55,
+    "defensive_discipline": 82,
+    "source": "GFA official appointment April 2026, Queiroz Iran/Portugal/Egypt World Cup analysis",
+    "confidence": 0.75
+  },
+  "United States": {
+    "name": "Mauricio Pochettino",
+    "risk_tolerance": 70,
+    "tactical_flexibility": 80,
+    "pressing_preference": 78,
+    "defensive_discipline": 70,
+    "source": "USSF official appointment September 2024, Pochettino PSG/Chelsea/Tottenham analysis",
+    "confidence": 0.85
+  },
+  "Mexico": {
+    "name": "Javier Aguirre",
+    "risk_tolerance": 62,
+    "tactical_flexibility": 72,
+    "pressing_preference": 66,
+    "defensive_discipline": 74,
+    "source": "FMF official appointment, Aguirre Mexico/Japan/Egypt World Cup coaching analysis",
+    "confidence": 0.8
+  },
+  "Canada": {
+    "name": "Jesse Marsch",
+    "risk_tolerance": 74,
+    "tactical_flexibility": 76,
+    "pressing_preference": 82,
+    "defensive_discipline": 66,
+    "source": "Canada Soccer reports, Marsch RB Leipzig/Leeds coaching analysis",
+    "confidence": 0.75
+  },
+  "Panama": {
+    "name": "Thomas Christiansen",
+    "risk_tolerance": 58,
+    "tactical_flexibility": 64,
+    "pressing_preference": 66,
+    "defensive_discipline": 72,
+    "source": "FEPAFUT reports, CONCACAF analysis",
+    "confidence": 0.6
+  },
+  "Haiti": {
+    "name": "Sébastien Migné",
+    "risk_tolerance": 56,
+    "tactical_flexibility": 62,
+    "pressing_preference": 64,
+    "defensive_discipline": 70,
+    "source": "FHF appointment, Migné Kenya/Concordia analysis",
+    "confidence": 0.6
+  },
+  "Curacao": {
+    "name": "Dick Advocaat",
+    "risk_tolerance": 60,
+    "tactical_flexibility": 68,
+    "pressing_preference": 64,
+    "defensive_discipline": 70,
+    "source": "FFK reports, Advocaat international coaching analysis",
+    "confidence": 0.55
+  },
+  "New Zealand": {
+    "name": "Darren Bazeley",
+    "risk_tolerance": 56,
+    "tactical_flexibility": 62,
+    "pressing_preference": 62,
+    "defensive_discipline": 72,
+    "source": "NZF reports, OFC analysis",
+    "confidence": 0.5
+  }
+}

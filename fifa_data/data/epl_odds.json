@@ -1,0 +1,87 @@
+{
+  "matches": [
+    {
+      "home": "Arsenal",
+      "away": "Aston Villa",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    },
+    {
+      "home": "Bournemouth",
+      "away": "Brentford",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    },
+    {
+      "home": "Brighton & Hove Albion",
+      "away": "Chelsea",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    },
+    {
+      "home": "Coventry City",
+      "away": "Crystal Palace",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    },
+    {
+      "home": "Everton",
+      "away": "Fulham",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    },
+    {
+      "home": "Hull City",
+      "away": "Ipswich Town",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    },
+    {
+      "home": "Leeds United",
+      "away": "Liverpool",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    },
+    {
+      "home": "Manchester City",
+      "away": "Manchester United",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    },
+    {
+      "home": "Newcastle United",
+      "away": "Nottingham Forest",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    },
+    {
+      "home": "Sunderland",
+      "away": "Tottenham Hotspur",
+      "home_win": 2.4,
+      "draw": 3.3,
+      "away_win": 2.9,
+      "source": "builtin"
+    }
+  ],
+  "competition": "Premier League 2026/2027",
+  "season": "2026/2027",
+  "competition_format": "league"
+}

@@ -1,0 +1,3748 @@
+{
+  "Arsenal": {
+    "GK": [
+      [
+        "David Raya",
+        "SUPERSTAR",
+        87.0
+      ],
+      [
+        "Illan Meslier",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Kepa Arrizabalaga Revuelta",
+        "RESERVE",
+        57.76
+      ]
+    ],
+    "DF": [
+      [
+        "William Saliba",
+        "SUPERSTAR",
+        87.0
+      ],
+      [
+        "Piero Hincapié",
+        "STAR",
+        83.0
+      ],
+      [
+        "Jurriën Timber",
+        "STAR",
+        82.0
+      ],
+      [
+        "Gabriel dos Santos Magalhães",
+        "RESERVE",
+        71.2
+      ],
+      [
+        "Riccardo Calafiori",
+        "RESERVE",
+        66.88
+      ],
+      [
+        "Cristhian Mosquera",
+        "RESERVE",
+        65.92
+      ],
+      [
+        "Benjamin White",
+        "RESERVE",
+        65.44
+      ],
+      [
+        "Ezri Konsa Ngoyo",
+        "RESERVE",
+        60.64
+      ]
+    ],
+    "MF": [
+      [
+        "Bukayo Saka",
+        "SUPERSTAR",
+        88.0
+      ],
+      [
+        "Declan Rice",
+        "SUPERSTAR",
+        87.0
+      ],
+      [
+        "Eberechi Eze",
+        "STAR",
+        83.0
+      ],
+      [
+        "Mikel Merino",
+        "STAR",
+        83.0
+      ],
+      [
+        "Noni Madueke",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Martin Ødegaard",
+        "RESERVE",
+        69.28
+      ],
+      [
+        "Bruno Guimarães Rodriguez Moura",
+        "RESERVE",
+        65.67999999999999
+      ],
+      [
+        "Christos Tzolis",
+        "RESERVE",
+        64.96
+      ],
+      [
+        "Myles Lewis-Skelly",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Gabriel Martinelli Silva",
+        "RESERVE",
+        61.12
+      ],
+      [
+        "Martín Zubimendi Ibáñez",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Max Dowman",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Fábio Ferreira Vieira",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Reiss Nelson",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Ethan Nwaneri",
+        "RESERVE",
+        58.96
+      ]
+    ],
+    "AT": [
+      [
+        "Bukayo Saka",
+        "SUPERSTAR",
+        88.0
+      ],
+      [
+        "Viktor Gyökeres",
+        "SUPERSTAR",
+        87.0
+      ],
+      [
+        "Leandro Trossard",
+        "STAR",
+        83.0
+      ],
+      [
+        "Kai Havertz",
+        "STAR",
+        82.0
+      ],
+      [
+        "Gabriel Martinelli",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Noni Madueke",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Gabriel Fernando de Jesus",
+        "RESERVE",
+        60.16
+      ]
+    ]
+  },
+  "Aston Villa": {
+    "GK": [
+      [
+        "Emiliano Martínez",
+        "SUPERSTAR",
+        85.0
+      ],
+      [
+        "Zion Suzuki",
+        "RESERVE",
+        62.8
+      ],
+      [
+        "Marco Bizot",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "James Wright",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "DF": [
+      [
+        "Ezri Konsa",
+        "STAR",
+        82.0
+      ],
+      [
+        "Lucas Digne",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Tyrone Mings",
+        "RESERVE",
+        59.8
+      ],
+      [
+        "Ian Maatsen",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Matteo Ruggeri",
+        "RESERVE",
+        58.839999999999996
+      ],
+      [
+        "Victor Lindelöf",
+        "RESERVE",
+        58.72
+      ],
+      [
+        "Aaron Wan-Bissaka",
+        "RESERVE",
+        58.599999999999994
+      ],
+      [
+        "Matty Cash",
+        "RESERVE",
+        58.36
+      ],
+      [
+        "Pau Torres",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Taylor Harwood-Bellis",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Andrés García",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Kosta Nedeljkovic",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Triston Rowe",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "MF": [
+      [
+        "Youri Tielemans",
+        "SUPERSTAR",
+        85.0
+      ],
+      [
+        "Morgan Rogers",
+        "STAR",
+        82.0
+      ],
+      [
+        "Amadou Onana",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Donyell Malen",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Ross Barkley",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Johan Manzambi",
+        "RESERVE",
+        68.56
+      ],
+      [
+        "Emiliano Buendía Stati",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "John McGinn",
+        "RESERVE",
+        63.04
+      ],
+      [
+        "Boubacar Kamara",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Ibrahim Mbaye",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Alejandro Garnacho Ferreyra",
+        "RESERVE",
+        61.120000000000005
+      ],
+      [
+        "Joao Gomes",
+        "RESERVE",
+        60.400000000000006
+      ],
+      [
+        "Alysson Edward Franco da Rocha dos Santos",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Leon Goretzka",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Lamare Bogarde",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Leon Bailey",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "George Hemmings",
+        "RESERVE",
+        58.959999999999994
+      ],
+      [
+        "Samuel Iling-Junior",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Bradley Burrowes",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Luka Lynch",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "AT": [
+      [
+        "Ollie Watkins",
+        "STAR",
+        84.0
+      ],
+      [
+        "Evann Guessand",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Nicolas Jackson",
+        "RESERVE",
+        64.6
+      ],
+      [
+        "Tammy Abraham",
+        "RESERVE",
+        60.400000000000006
+      ],
+      [
+        "Brian Madjo",
+        "RESERVE",
+        58.96
+      ]
+    ]
+  },
+  "Bournemouth": {
+    "GK": [
+      [
+        "Đorđe Petrović",
+        "RESERVE",
+        58.959999999999994
+      ],
+      [
+        "Michele Di Gregorio",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Fraser Forster",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Will Dennis",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "DF": [
+      [
+        "James Hill",
+        "RESERVE",
+        62.080000000000005
+      ],
+      [
+        "Adrien Truffert",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "António João Pereira de Albuquerque Tavares da Silva",
+        "RESERVE",
+        61.12
+      ],
+      [
+        "Adam Smith",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Bafodé Diakité",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Veljko Milosavljevic",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Juanlu Sánchez",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Julián Araujo Zúñiga",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Julio Soler Barreto",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "MF": [
+      [
+        "Antoine Semenyo",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Justin Kluivert",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Ryan Christie",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Tyler Adams",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Marcus Tavernier",
+        "RESERVE",
+        68.08
+      ],
+      [
+        "Alex Scott",
+        "RESERVE",
+        67.84
+      ],
+      [
+        "Junior Kroupi",
+        "RESERVE",
+        63.760000000000005
+      ],
+      [
+        "Rayan Vitor Simplício Rocha",
+        "RESERVE",
+        63.519999999999996
+      ],
+      [
+        "Lewis Cook",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Alex Tóth",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Ben Gannon-Doak",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "David Brooks",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Amine Adli",
+        "RESERVE",
+        57.76
+      ]
+    ],
+    "AT": [
+      [
+        "Francisco Evanilson de Lima Barbosa",
+        "RESERVE",
+        64.72
+      ],
+      [
+        "Álvaro Rodríguez",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Daniel Jebbison",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Enes Ünal",
+        "RESERVE",
+        59.2
+      ]
+    ]
+  },
+  "Brentford": {
+    "GK": [
+      [
+        "Caoimhín Kelleher",
+        "RESERVE",
+        62.8
+      ],
+      [
+        "Hákon Rafn Valdimarsson",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Ellery Balcombe",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "DF": [
+      [
+        "Kristoffer Ajer",
+        "WISSEL",
+        75.0
+      ],
+      [
+        "Aaron Hickey",
+        "WISSEL",
+        74.0
+      ],
+      [
+        "Jannik Schuster",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "Nathan Collins",
+        "RESERVE",
+        62.92
+      ],
+      [
+        "Michael Kayode",
+        "RESERVE",
+        62.56
+      ],
+      [
+        "El Hadji Malick Diouf",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Rico Henry",
+        "RESERVE",
+        57.760000000000005
+      ],
+      [
+        "Sepp van den Berg",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Kim Ji-soo",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Benjamin Fredrick",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "MF": [
+      [
+        "Jordan Henderson",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Kevin Schade",
+        "RESERVE",
+        70.24
+      ],
+      [
+        "Mathias Jensen",
+        "RESERVE",
+        66.16
+      ],
+      [
+        "Fábio Freitas Gouveia Carvalho",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "Mamadou Sangaré",
+        "RESERVE",
+        64.72
+      ],
+      [
+        "Vitaly Janelt",
+        "RESERVE",
+        64.72
+      ],
+      [
+        "Keane Lewis-Potter",
+        "RESERVE",
+        64.48
+      ],
+      [
+        "Jaidon Anthony",
+        "RESERVE",
+        63.76
+      ],
+      [
+        "Dango Ouattara",
+        "RESERVE",
+        62.8
+      ],
+      [
+        "Mikkel Damsgaard",
+        "RESERVE",
+        62.8
+      ],
+      [
+        "Yehor Yarmoliuk",
+        "RESERVE",
+        59.67999999999999
+      ],
+      [
+        "Antoni Milambo",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Josh Dasilva",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Gustavo Nunes Fernandes Gomes",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "AT": [
+      [
+        "Igor Thiago",
+        "WISSEL",
+        75.0
+      ],
+      [
+        "Callum Wilson",
+        "RESERVE",
+        60.160000000000004
+      ],
+      [
+        "Kaye Furo",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Brighton & Hove Albion": {
+    "GK": [
+      [
+        "Bart Verbruggen",
+        "WISSEL",
+        78.0
+      ],
+      [
+        "Jason Steele",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "DF": [
+      [
+        "Jan Paul van Hecke",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Maxim De Cuyper",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Mats Wieffer",
+        "WISSEL",
+        78.0
+      ],
+      [
+        "Luka Vušković",
+        "RESERVE",
+        65.68
+      ],
+      [
+        "Lewis Dunk",
+        "RESERVE",
+        63.4
+      ],
+      [
+        "Olivier Boscagli",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "Pascal Struijk",
+        "RESERVE",
+        60.519999999999996
+      ],
+      [
+        "Ferdi Kadıoğlu",
+        "RESERVE",
+        60.400000000000006
+      ],
+      [
+        "Michael Svoboda",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "João Pedro Loureiro da Costa",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Diego Coppola",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Igor Julio dos Santos de Paulo",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Jaouen Hadjam",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "MF": [
+      [
+        "Jack Hinshelwood",
+        "STARTER",
+        79.36
+      ],
+      [
+        "Mats Wieffer",
+        "WISSEL",
+        78.0
+      ],
+      [
+        "Yasin Ayari",
+        "WISSEL",
+        75.0
+      ],
+      [
+        "Diego Gómez",
+        "RESERVE",
+        73.0
+      ],
+      [
+        "Pascal Groß",
+        "RESERVE",
+        71.2
+      ],
+      [
+        "José María Andrés Baixauli",
+        "RESERVE",
+        66.4
+      ],
+      [
+        "Malick Yalcouyé",
+        "RESERVE",
+        61.599999999999994
+      ],
+      [
+        "Matt O'Riley",
+        "RESERVE",
+        60.160000000000004
+      ],
+      [
+        "Mitoma Kaoru",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Yankuba Minteh",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Femi Azeez",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Ibrahim Osman",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Zadok Yohanna",
+        "RESERVE",
+        58.72
+      ],
+      [
+        "Amario Cozier-Duberry",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Facundo Buonanotte",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Tom Watson",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Harry Howell",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Nehemiah Oriola",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Younes Ibrahim",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "AT": [
+      [
+        "Charalampos Kostoulas",
+        "RESERVE",
+        66.16
+      ],
+      [
+        "Georginio Rutter",
+        "RESERVE",
+        62.32
+      ],
+      [
+        "Promise David",
+        "RESERVE",
+        60.76
+      ],
+      [
+        "Stefanos Tzimas",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Evan Ferguson",
+        "RESERVE",
+        58.0
+      ]
+    ]
+  },
+  "Chelsea": {
+    "GK": [
+      [
+        "Emiliano Martínez Romero",
+        "RESERVE",
+        60.64
+      ],
+      [
+        "Robert Lynch Sánchez",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Filip Jörgensen",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Mike Penders",
+        "RESERVE",
+        56.56
+      ]
+    ],
+    "MF": [
+      [
+        "Moisés Caicedo",
+        "SUPERSTAR",
+        87.0
+      ],
+      [
+        "Enzo Fernández",
+        "STAR",
+        84.0
+      ],
+      [
+        "Pedro Neto",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Cole Palmer",
+        "WISSEL",
+        76.0
+      ],
+      [
+        "Morgan Rogers",
+        "RESERVE",
+        71.44
+      ],
+      [
+        "Estêvão Almeida de Oliveira Gonçalves",
+        "RESERVE",
+        62.32
+      ],
+      [
+        "Roméo Lavia",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "Valentín Barco",
+        "RESERVE",
+        60.160000000000004
+      ],
+      [
+        "Jordan Henderson",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Geovany Quenda",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Jamie Bynoe-Gittens",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Mahdi Nicoll-Jazuli",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Dário Luís Essugo",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "AT": [
+      [
+        "João Pedro Junqueira de Jesus",
+        "WISSEL",
+        74.32000000000001
+      ],
+      [
+        "Danny Welbeck",
+        "RESERVE",
+        61.72
+      ],
+      [
+        "Marc Guiu Paz",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Emmanuel Emegha",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Shumaira Mheuka",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "DF": [
+      [
+        "Marc Cucurella",
+        "STAR",
+        84.0
+      ],
+      [
+        "Reece James",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Malo Gusto",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Jorrel Hato",
+        "WISSEL",
+        78.0
+      ],
+      [
+        "Maxence Lacroix",
+        "RESERVE",
+        63.279999999999994
+      ],
+      [
+        "Wesley Fofana",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Trevoh Chalobah",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Pep Chavarría",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Marco Palestra",
+        "RESERVE",
+        58.72
+      ],
+      [
+        "Levi Samuels Colwill",
+        "RESERVE",
+        58.48
+      ],
+      [
+        "Josh Acheampong",
+        "RESERVE",
+        58.239999999999995
+      ],
+      [
+        "Aaron Anselmino",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Benoît Badiashile Mukinayi",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Mamadou Sarr",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Coventry City": {
+    "DF": [
+      [
+        "Stephen Mfuni",
+        "RESERVE",
+        62.8
+      ],
+      [
+        "Bobby Thomas",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "Ethan Pinnock",
+        "RESERVE",
+        61.0
+      ],
+      [
+        "Jay Dasilva",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Milan van Ewijk",
+        "RESERVE",
+        57.4
+      ],
+      [
+        "Aurèle Amenda",
+        "RESERVE",
+        56.800000000000004
+      ],
+      [
+        "Joel Latibeaudiere",
+        "RESERVE",
+        56.800000000000004
+      ],
+      [
+        "Jake Bidwell",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Kaine Kesler-Hayden",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Liam Kitching",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Luke Woolfenden",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Miguel Brau",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "MF": [
+      [
+        "Jack Rudoni",
+        "RESERVE",
+        60.879999999999995
+      ],
+      [
+        "Frank Onyeka",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Loum Tchaouna",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Matt Grimes",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Gustavo Hamer",
+        "RESERVE",
+        60.160000000000004
+      ],
+      [
+        "Ephron Mason-Clark",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Victor Torp",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Caleb Yirenkyi",
+        "RESERVE",
+        59.67999999999999
+      ],
+      [
+        "Yann Gboho",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Tatsuhiro Sakamoto",
+        "RESERVE",
+        58.72
+      ],
+      [
+        "Josh Eccles",
+        "RESERVE",
+        57.519999999999996
+      ],
+      [
+        "Kai Andrews",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Raphael Borges Rodrigues",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "George Shepherd",
+        "RESERVE",
+        56.56
+      ]
+    ],
+    "GK": [
+      [
+        "Carl Rushworth",
+        "RESERVE",
+        60.64
+      ],
+      [
+        "Ben Wilson",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Dan Bentley",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Oliver Dovin",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "AT": [
+      [
+        "Brandon Thomas-Asante",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Taiwo Awoniyi",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Ellis Simms",
+        "RESERVE",
+        59.32
+      ],
+      [
+        "Sidiki Cherif",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Haji Wright",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Jahnoah Markelo",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Norman Bassette",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Crystal Palace": {
+    "MF": [
+      [
+        "Yeremy Pino",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Ismaïla Sarr",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Daichi Kamada",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Jefferson Lerma",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Adam Wharton",
+        "RESERVE",
+        61.84
+      ],
+      [
+        "Quinten Timber",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Dwight McNeil",
+        "RESERVE",
+        60.76
+      ],
+      [
+        "Darío Osorio",
+        "RESERVE",
+        60.400000000000006
+      ],
+      [
+        "Evann Guessand",
+        "RESERVE",
+        60.160000000000004
+      ],
+      [
+        "Zavier Gozo",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Justin Devenny",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Romain Esse",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Will Hughes",
+        "RESERVE",
+        57.760000000000005
+      ],
+      [
+        "Jesurun Rak-Sakyi",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Matheus França de Oliveira",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Cheick Doucouré",
+        "RESERVE",
+        57.519999999999996
+      ],
+      [
+        "Joél Drakes-Thomas",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "DF": [
+      [
+        "Marc Guéhi",
+        "STAR",
+        82.0
+      ],
+      [
+        "Daniel Muñoz",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Maxence Lacroix",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Chris Richards",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Chadi Riad Dnanou",
+        "RESERVE",
+        72.0
+      ],
+      [
+        "Anan Khalaili",
+        "RESERVE",
+        62.56
+      ],
+      [
+        "Tyrick Mitchell",
+        "RESERVE",
+        62.559999999999995
+      ],
+      [
+        "Ben Chilwell",
+        "RESERVE",
+        61.599999999999994
+      ],
+      [
+        "Jaydee Canvot",
+        "RESERVE",
+        60.519999999999996
+      ],
+      [
+        "Honest Ahanor",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Oscar Mingueza",
+        "RESERVE",
+        57.760000000000005
+      ],
+      [
+        "Takehiro Tomiyasu",
+        "RESERVE",
+        57.52
+      ],
+      [
+        "Axel Disasi",
+        "RESERVE",
+        57.16
+      ],
+      [
+        "Borna Sosa",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Rio Cardines",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "GK": [
+      [
+        "Dean Henderson",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Walter Benítez",
+        "RESERVE",
+        61.599999999999994
+      ],
+      [
+        "Remi Matthews",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "AT": [
+      [
+        "Jean-Philippe Mateta",
+        "STAR",
+        82.0
+      ],
+      [
+        "Jørgen Strand Larsen",
+        "RESERVE",
+        63.76
+      ],
+      [
+        "Eddie Nketiah",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Christantus Uche",
+        "RESERVE",
+        58.0
+      ]
+    ]
+  },
+  "Everton": {
+    "MF": [
+      [
+        "Idrissa Gueye",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Iliman Ndiaye",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Kiernan Dewsbury-Hall",
+        "RESERVE",
+        66.64
+      ],
+      [
+        "Tyrique George",
+        "RESERVE",
+        63.760000000000005
+      ],
+      [
+        "Jack Grealish",
+        "RESERVE",
+        63.4
+      ],
+      [
+        "James Garner",
+        "RESERVE",
+        63.04
+      ],
+      [
+        "Brennan Johnson",
+        "RESERVE",
+        62.31999999999999
+      ],
+      [
+        "Harrison Armstrong",
+        "RESERVE",
+        61.84
+      ],
+      [
+        "Hayden Hackney",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "Tyler Dibling",
+        "RESERVE",
+        60.160000000000004
+      ],
+      [
+        "Merlin Röhl",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Carlos Alcaraz Durán",
+        "RESERVE",
+        58.36
+      ],
+      [
+        "Christian Nørgaard",
+        "RESERVE",
+        57.519999999999996
+      ],
+      [
+        "Braiden Graham",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "GK": [
+      [
+        "Jordan Pickford",
+        "STAR",
+        84.0
+      ],
+      [
+        "Mark Travers",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Tom King",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "DF": [
+      [
+        "Nathan Patterson",
+        "RESERVE",
+        71.0
+      ],
+      [
+        "James Tarkowski",
+        "RESERVE",
+        70.96
+      ],
+      [
+        "Jarrad Branthwaite",
+        "RESERVE",
+        65.68
+      ],
+      [
+        "Ainsley Maitland-Niles",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "Vitalii Mykolenko",
+        "RESERVE",
+        63.519999999999996
+      ],
+      [
+        "Jake O'Brien",
+        "RESERVE",
+        58.72
+      ],
+      [
+        "Michael Keane",
+        "RESERVE",
+        57.519999999999996
+      ],
+      [
+        "Adam Aznou",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "AT": [
+      [
+        "Thierno Barry",
+        "RESERVE",
+        64.48
+      ],
+      [
+        "Norberto Bercique Gomes Betuncal",
+        "RESERVE",
+        60.160000000000004
+      ]
+    ]
+  },
+  "Fulham": {
+    "GK": [
+      [
+        "Bernd Leno",
+        "RESERVE",
+        61.12
+      ],
+      [
+        "Alfie McNally",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Benjamin Lecomte",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "DF": [
+      [
+        "Antonee Robinson",
+        "STAR",
+        82.0
+      ],
+      [
+        "Issa Diop",
+        "WISSEL",
+        76.0
+      ],
+      [
+        "Timothy Castagne",
+        "WISSEL",
+        76.0
+      ],
+      [
+        "David Affengruber",
+        "RESERVE",
+        64.0
+      ],
+      [
+        "Calvin Bassey",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Jorge Cuenca Barreno",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Joachim Andersen",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Ryan Sessegnon",
+        "RESERVE",
+        57.52
+      ],
+      [
+        "Kenny Tete",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Luc De Fougerolles",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "MF": [
+      [
+        "Sander Berge",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Josh King",
+        "RESERVE",
+        64.96000000000001
+      ],
+      [
+        "César Palacios",
+        "RESERVE",
+        62.56
+      ],
+      [
+        "Alex Iwobi",
+        "RESERVE",
+        62.32
+      ],
+      [
+        "Oscar Bobb",
+        "RESERVE",
+        62.32
+      ],
+      [
+        "Shea Charles",
+        "RESERVE",
+        61.12
+      ],
+      [
+        "Emile Smith Rowe",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Kevin Santos Lopes de Macedo",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Hugo Larsson",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Manuel Ángel Morán Ibáñez",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Tom Cairney",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Harrison Reed",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Macaulay Zepa",
+        "RESERVE",
+        56.56
+      ]
+    ],
+    "AT": [
+      [
+        "Raúl Jiménez",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Gonzalo García",
+        "RESERVE",
+        63.76
+      ],
+      [
+        "Rodrigo Muniz Carvalho",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Jonah Kusi-Asare",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Hull City": {
+    "MF": [
+      [
+        "Mohamed Belloumi",
+        "RESERVE",
+        65.67999999999999
+      ],
+      [
+        "Liam Millar",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Sorba Thomas",
+        "RESERVE",
+        60.760000000000005
+      ],
+      [
+        "Mohamed-Ali Cho",
+        "RESERVE",
+        60.64
+      ],
+      [
+        "Regan Slater",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Elliot Stroud",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Lucas Gourna-Douath",
+        "RESERVE",
+        59.56
+      ],
+      [
+        "Joe Gelhardt",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Hidemasa Morita",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Jens Hjertø-Dahl",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Tim Iroegbunam",
+        "RESERVE",
+        58.84
+      ],
+      [
+        "Abu Kamara",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Christos Mouzakitis",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "David Akintola",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Matt Crooks",
+        "RESERVE",
+        57.760000000000005
+      ],
+      [
+        "Abdülkadir Ömür",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Eliot Matazo",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Kieran Dowell",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Óscar Zambrano",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Darko Gyabi",
+        "RESERVE",
+        56.56
+      ]
+    ],
+    "GK": [
+      [
+        "Konstantinos Tzolakis",
+        "RESERVE",
+        65.44
+      ],
+      [
+        "Jack Butland",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Dillon Phillips",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Harvey Cartwright",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Thimothée Lo-Tutala",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "DF": [
+      [
+        "Nobel Mendy",
+        "RESERVE",
+        63.279999999999994
+      ],
+      [
+        "Semi Ajayi",
+        "RESERVE",
+        62.56
+      ],
+      [
+        "John Egan",
+        "RESERVE",
+        62.08
+      ],
+      [
+        "Ryan Giles",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "Lewie Coyle",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Cody Drameh",
+        "RESERVE",
+        56.800000000000004
+      ],
+      [
+        "Lucas Herrington",
+        "RESERVE",
+        56.800000000000004
+      ],
+      [
+        "Matt Targett",
+        "RESERVE",
+        56.800000000000004
+      ],
+      [
+        "Paddy McNair",
+        "RESERVE",
+        56.800000000000004
+      ],
+      [
+        "Brooke Norton-Cuffy",
+        "RESERVE",
+        56.2
+      ],
+      [
+        "Cathal McCarthy",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Charlie Hughes",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Matty Jacob",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "AT": [
+      [
+        "Oli McBurnie",
+        "RESERVE",
+        62.32
+      ],
+      [
+        "Robinio Vaz",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Ilyas Ansah",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Enis Destan",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Mason Burstow",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Ipswich Town": {
+    "DF": [
+      [
+        "Leif Davis",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Issa Diop",
+        "RESERVE",
+        58.480000000000004
+      ],
+      [
+        "Dara O'Shea",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Abdoul Ouattara",
+        "RESERVE",
+        57.04
+      ],
+      [
+        "Darnell Furlong",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Jacob Greaves",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Ben Johnson",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Cédric Kipré",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "MF": [
+      [
+        "Julio Enciso",
+        "RESERVE",
+        62.800000000000004
+      ],
+      [
+        "Jack Clarke",
+        "RESERVE",
+        62.32
+      ],
+      [
+        "Exequiel Palacios",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "Marcelino Núñez",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "Abdul Fatawu",
+        "RESERVE",
+        60.88
+      ],
+      [
+        "Daizen Maeda",
+        "RESERVE",
+        60.64
+      ],
+      [
+        "Saša Lukić",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Jaden Philogene",
+        "RESERVE",
+        60.160000000000004
+      ],
+      [
+        "Florentino Ibrain Morris Luís",
+        "RESERVE",
+        58.72
+      ],
+      [
+        "Sam Szmodics",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Wes Burns",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Kasey McAteer",
+        "RESERVE",
+        57.760000000000005
+      ],
+      [
+        "Azor Matusiwa",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Chiedozie Ogbene",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Anis Mehmeti",
+        "RESERVE",
+        57.519999999999996
+      ],
+      [
+        "Cameron Humphreys",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Jack Taylor",
+        "RESERVE",
+        56.56
+      ]
+    ],
+    "GK": [
+      [
+        "Christian Walton",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Kjell Scherpen",
+        "RESERVE",
+        58.959999999999994
+      ],
+      [
+        "Kayne van Oevelen",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Alex Palmer",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "David Button",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "AT": [
+      [
+        "Emersonn Correia da Silva",
+        "RESERVE",
+        65.44
+      ],
+      [
+        "Zian Flemming",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Chuba Akpom",
+        "RESERVE",
+        60.76
+      ],
+      [
+        "Ali Al-Hamadi",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "George Hirst",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Sindre Walle Egeli",
+        "RESERVE",
+        58.0
+      ]
+    ]
+  },
+  "Leeds United": {
+    "MF": [
+      [
+        "Ao Tanaka",
+        "WISSEL",
+        76.0
+      ],
+      [
+        "Noah Okafor",
+        "WISSEL",
+        76.0
+      ],
+      [
+        "Brenden Aaronson",
+        "WISSEL",
+        74.0
+      ],
+      [
+        "Anton Stach",
+        "RESERVE",
+        66.88
+      ],
+      [
+        "Ethan Ampadu",
+        "RESERVE",
+        64.0
+      ],
+      [
+        "Harry Wilson",
+        "RESERVE",
+        62.31999999999999
+      ],
+      [
+        "Jean-Mattéo Bahoya",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Daniel James",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Sean Longstaff",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Ilia Gruev",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Jack Harrison",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Wilfried Gnonto",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Alfie Cresswell",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "GK": [
+      [
+        "James Trafford",
+        "RESERVE",
+        64.72
+      ],
+      [
+        "Lucas Estella Perri",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Alex Cairns",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Michael Zetterer",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "DF": [
+      [
+        "Gabriel Gudmundsson",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Jayden Bogle",
+        "RESERVE",
+        67.12
+      ],
+      [
+        "Tarik Muharemović",
+        "RESERVE",
+        64.48
+      ],
+      [
+        "James Justin",
+        "RESERVE",
+        63.04
+      ],
+      [
+        "Jaka Bijol",
+        "RESERVE",
+        62.8
+      ],
+      [
+        "Nico Elvedi",
+        "RESERVE",
+        60.64
+      ],
+      [
+        "Joe Rodon",
+        "RESERVE",
+        60.52
+      ],
+      [
+        "Melvin Bard",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Sebastiaan Bornauw",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Jayden Lienou",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "AT": [
+      [
+        "Noah Okafor",
+        "WISSEL",
+        76.0
+      ],
+      [
+        "Dominic Calvert-Lewin",
+        "RESERVE",
+        65.67999999999999
+      ],
+      [
+        "Lukas Nmecha",
+        "RESERVE",
+        61.120000000000005
+      ],
+      [
+        "Joël Piroe",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Mateo Joseph Fernández-Regatillo",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Liverpool": {
+    "GK": [
+      [
+        "Alisson",
+        "SUPERSTAR",
+        89.0
+      ],
+      [
+        "Alisson Becker",
+        "RESERVE",
+        65.68
+      ],
+      [
+        "Giorgi Mamardashvili",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Armin Pecsi",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Freddie Woodman",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Harvey Davies",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Vitezslav Jaros",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "DF": [
+      [
+        "Virgil van Dijk",
+        "SUPERSTAR",
+        90.0
+      ],
+      [
+        "Ibrahima Konaté",
+        "SUPERSTAR",
+        86.0
+      ],
+      [
+        "Andrew Robertson",
+        "STAR",
+        82.0
+      ],
+      [
+        "Ronald Araujo",
+        "RESERVE",
+        64.24
+      ],
+      [
+        "Jeremy Jacquet",
+        "RESERVE",
+        63.76
+      ],
+      [
+        "Milos Kerkez",
+        "RESERVE",
+        62.08
+      ],
+      [
+        "Jeremie Frimpong",
+        "RESERVE",
+        59.56
+      ],
+      [
+        "Kostas Tsimikas",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Conor Bradley",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Joe Gomez",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Calvin Ramsay",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Giovanni Leoni",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Wellity Lucky",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "MF": [
+      [
+        "Mohamed Salah",
+        "SUPERSTAR",
+        91.0
+      ],
+      [
+        "Florian Wirtz",
+        "SUPERSTAR",
+        89.0
+      ],
+      [
+        "Alexis Mac Allister",
+        "SUPERSTAR",
+        87.0
+      ],
+      [
+        "Ryan Gravenberch",
+        "SUPERSTAR",
+        85.0
+      ],
+      [
+        "Cody Gakpo",
+        "STAR",
+        84.0
+      ],
+      [
+        "Wataru Endo",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Bradley Barcola",
+        "RESERVE",
+        67.96000000000001
+      ],
+      [
+        "Dominik Szoboszlai",
+        "RESERVE",
+        67.6
+      ],
+      [
+        "Victor Munoz",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "Rio Ngumoha",
+        "RESERVE",
+        61.24
+      ],
+      [
+        "Curtis Jones",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Lewis Koumas",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Harvey Elliott",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Trey Nyoni",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Federico Chiesa",
+        "RESERVE",
+        58.72
+      ],
+      [
+        "Stefan Bajčetić Maquieira",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "James McConnell",
+        "RESERVE",
+        56.56
+      ]
+    ],
+    "AT": [
+      [
+        "Alexander Isak",
+        "SUPERSTAR",
+        88.0
+      ],
+      [
+        "Hugo Ekitiké",
+        "RESERVE",
+        63.760000000000005
+      ],
+      [
+        "Jayden Danns",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Manchester City": {
+    "MF": [
+      [
+        "Rodri",
+        "SUPERSTAR",
+        90.0
+      ],
+      [
+        "Tijjani Reijnders",
+        "SUPERSTAR",
+        86.0
+      ],
+      [
+        "Bernardo Silva",
+        "STAR",
+        84.0
+      ],
+      [
+        "Mateo Kovačić",
+        "STAR",
+        83.0
+      ],
+      [
+        "Rayan Cherki",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Jérémy Doku",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Nico González",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Antoine Semenyo",
+        "WISSEL",
+        74.08
+      ],
+      [
+        "Enzo Fernández",
+        "RESERVE",
+        66.4
+      ],
+      [
+        "Iliman Ndiaye",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "Phil Foden",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "Elliot Anderson",
+        "RESERVE",
+        64.72
+      ],
+      [
+        "Rodrigo 'Rodri' Hernandez Cascante",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Ayyoub Bouaddi",
+        "RESERVE",
+        60.400000000000006
+      ],
+      [
+        "Allan Andrade Elias",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Kalvin Phillips",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Ryan McAidoo",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Claudio Echeverri",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Jeremy Monga",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Divine Mukasa",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Floyd Samba",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "GK": [
+      [
+        "James Trafford",
+        "WISSEL",
+        76.0
+      ],
+      [
+        "Gianluigi Donnarumma",
+        "RESERVE",
+        63.760000000000005
+      ],
+      [
+        "Gerónimo Rulli",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Marcus Bettinelli",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "DF": [
+      [
+        "Rúben Dias",
+        "SUPERSTAR",
+        86.0
+      ],
+      [
+        "Joško Gvardiol",
+        "STAR",
+        84.0
+      ],
+      [
+        "Nathan Aké",
+        "STAR",
+        83.0
+      ],
+      [
+        "John Stones",
+        "STAR",
+        82.0
+      ],
+      [
+        "Rayan Aït-Nouri",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Matheus Nunes",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Abdukodir Khusanov",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Marc Guéhi",
+        "RESERVE",
+        67.6
+      ],
+      [
+        "Nico O'Reilly",
+        "RESERVE",
+        62.919999999999995
+      ],
+      [
+        "Max Alleyne",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Rico Lewis",
+        "RESERVE",
+        57.760000000000005
+      ],
+      [
+        "Kaden Braithwaite",
+        "RESERVE",
+        56.800000000000004
+      ]
+    ],
+    "AT": [
+      [
+        "Erling Haaland",
+        "SUPERSTAR",
+        90.0
+      ],
+      [
+        "Omar Marmoush",
+        "STAR",
+        84.0
+      ],
+      [
+        "Rayan Cherki",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Jérémy Doku",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Oscar Bobb",
+        "RESERVE",
+        72.0
+      ]
+    ]
+  },
+  "Manchester United": {
+    "MF": [
+      [
+        "Bruno Fernandes",
+        "SUPERSTAR",
+        87.0
+      ],
+      [
+        "Matheus Cunha",
+        "STAR",
+        83.0
+      ],
+      [
+        "Casemiro",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Manuel Ugarte",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Kobbie Mainoo",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Bryan Mbeumo",
+        "RESERVE",
+        70.96000000000001
+      ],
+      [
+        "Marcus Rashford",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "Youri Tielemans",
+        "RESERVE",
+        63.28
+      ],
+      [
+        "Patrick Dorgu",
+        "RESERVE",
+        62.32
+      ],
+      [
+        "Mason Mount",
+        "RESERVE",
+        60.160000000000004
+      ],
+      [
+        "Amad Diallo",
+        "RESERVE",
+        59.68
+      ],
+      [
+        "Andrey Nascimento dos Santos",
+        "RESERVE",
+        59.08
+      ],
+      [
+        "Shea Lacey",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Toby Collyer",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Carlos Baleba",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Jack Fletcher",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Bendito Mantato",
+        "RESERVE",
+        56.56
+      ]
+    ],
+    "GK": [
+      [
+        "Senne Lammens",
+        "WISSEL",
+        78.0
+      ],
+      [
+        "Altay Bayındır",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Karl Darlow",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Tom Heaton",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "DF": [
+      [
+        "Lisandro Martínez",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Noussair Mazraoui",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Diogo Dalot",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Harry Maguire",
+        "RESERVE",
+        59.919999999999995
+      ],
+      [
+        "Luke Shaw",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Leny Yoro",
+        "RESERVE",
+        58.72
+      ],
+      [
+        "Matthijs de Ligt",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Ayden Heaven",
+        "RESERVE",
+        57.760000000000005
+      ],
+      [
+        "Harry Amass",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Tyler Fredricson",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "AT": [
+      [
+        "Benjamin Sesko",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "Joshua Zirkzee",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Chido Obi",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Newcastle United": {
+    "MF": [
+      [
+        "Bruno Guimarães",
+        "SUPERSTAR",
+        86.0
+      ],
+      [
+        "Anthony Elanga",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Harvey Barnes",
+        "RESERVE",
+        67.36
+      ],
+      [
+        "Joe Willock",
+        "RESERVE",
+        63.28
+      ],
+      [
+        "Bazoumana Touré",
+        "RESERVE",
+        63.160000000000004
+      ],
+      [
+        "Lewis Miley",
+        "RESERVE",
+        62.080000000000005
+      ],
+      [
+        "Nico González Iglesias",
+        "RESERVE",
+        61.24
+      ],
+      [
+        "Jacob Murphy",
+        "RESERVE",
+        60.879999999999995
+      ],
+      [
+        "Jacob Ramsey",
+        "RESERVE",
+        60.519999999999996
+      ],
+      [
+        "Sean Steur",
+        "RESERVE",
+        59.68
+      ],
+      [
+        "Aladji Bamba",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Joelinton Cássio Apolinário de Lira",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Kyran Thompson",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Michael Mills",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "GK": [
+      [
+        "Lukás Hornícek",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "Nick Pope",
+        "RESERVE",
+        57.76
+      ],
+      [
+        "Mark Gillespie",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Ewen Jaouen",
+        "RESERVE",
+        56.56
+      ]
+    ],
+    "DF": [
+      [
+        "Tino Livramento",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Dan Burn",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Malick Thiaw",
+        "WISSEL",
+        78.0
+      ],
+      [
+        "Lewis Hall",
+        "RESERVE",
+        66.16
+      ],
+      [
+        "Sven Botman",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Amar Dedic",
+        "RESERVE",
+        60.64
+      ],
+      [
+        "Fabian Schär",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Alex Murphy",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Leo Shahar",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Miodrag Pivas",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "AT": [
+      [
+        "Anthony Gordon",
+        "STAR",
+        83.0
+      ],
+      [
+        "Yoane Wissa",
+        "STAR",
+        82.0
+      ],
+      [
+        "Anthony Elanga",
+        "STARTER",
+        81.0
+      ],
+      [
+        "Nick Woltemade",
+        "STARTER",
+        79.0
+      ],
+      [
+        "William Osula",
+        "RESERVE",
+        64.72
+      ],
+      [
+        "Matias Fernandez-Pardo",
+        "RESERVE",
+        61.96
+      ],
+      [
+        "Sean Neave",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Vakhtang Salia",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Nottingham Forest": {
+    "AT": [
+      [
+        "Chris Wood",
+        "STAR",
+        82.0
+      ],
+      [
+        "Igor Jesus Maciel da Cruz",
+        "RESERVE",
+        62.800000000000004
+      ],
+      [
+        "Liam Delap",
+        "RESERVE",
+        62.08
+      ],
+      [
+        "Arnaud Kalimuendo",
+        "RESERVE",
+        60.160000000000004
+      ]
+    ],
+    "DF": [
+      [
+        "Murillo Costa dos Santos",
+        "RESERVE",
+        64.72
+      ],
+      [
+        "Nikola Milenković",
+        "RESERVE",
+        63.76
+      ],
+      [
+        "Neco Williams",
+        "RESERVE",
+        62.56
+      ],
+      [
+        "Ousmane Diomande",
+        "RESERVE",
+        61.72
+      ],
+      [
+        "Daniel Muñoz Mejía",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Jair Paula da Cunha Filho",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Ola Aina",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Felipe Rodrigues da Silva",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Luca Netz",
+        "RESERVE",
+        57.760000000000005
+      ],
+      [
+        "Nicolò Savona",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Omar Richards",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Tyler Bindon",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Zach Abbott",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "GK": [
+      [
+        "Angus Gunn",
+        "RESERVE",
+        72.0
+      ],
+      [
+        "Matz Sels",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "John Victor Maciel Furtado",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Steven Benda",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "MF": [
+      [
+        "Elliot Anderson",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Dan Ndoye",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Ibrahim Sangaré",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Morgan Gibbs-White",
+        "RESERVE",
+        71.92
+      ],
+      [
+        "James McAtee",
+        "RESERVE",
+        62.080000000000005
+      ],
+      [
+        "Callum Hudson-Odoi",
+        "RESERVE",
+        61.120000000000005
+      ],
+      [
+        "Xaver Schlager",
+        "RESERVE",
+        61.12
+      ],
+      [
+        "Dilane Bakwa",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Nicolás Domínguez",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Omari Hutchinson",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Ryan Yates",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "Tottenham Hotspur": {
+    "DF": [
+      [
+        "Cristian Romero",
+        "STAR",
+        82.0
+      ],
+      [
+        "Micky van de Ven",
+        "STAR",
+        82.0
+      ],
+      [
+        "Pedro Porro Sauceda",
+        "STAR",
+        82.0
+      ],
+      [
+        "Kevin Danso",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Djed Spence",
+        "WISSEL",
+        78.0
+      ],
+      [
+        "Marcos Senesi Barón",
+        "RESERVE",
+        63.52
+      ],
+      [
+        "Andrew Robertson",
+        "RESERVE",
+        60.64
+      ],
+      [
+        "Destiny Udogie",
+        "RESERVE",
+        59.32
+      ],
+      [
+        "Tosin Adarabioyo",
+        "RESERVE",
+        57.760000000000005
+      ],
+      [
+        "Ashley Phillips",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Ben Davies",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "James Rowswell",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "João Victor de Souza Menezes",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Jun'ai Byfield",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "AT": [
+      [
+        "Omar Marmoush",
+        "RESERVE",
+        65.2
+      ],
+      [
+        "Richarlison de Andrade",
+        "RESERVE",
+        62.559999999999995
+      ],
+      [
+        "Dominic Solanke-Mitchell",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Dane Scarlett",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "MF": [
+      [
+        "Rodrigo Bentancur",
+        "STARTER",
+        80.0
+      ],
+      [
+        "Pape Matar Sarr",
+        "STARTER",
+        79.0
+      ],
+      [
+        "Lucas Bergvall",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Sávio Moreira de Oliveira",
+        "RESERVE",
+        64.84
+      ],
+      [
+        "Mohammed Kudus",
+        "RESERVE",
+        63.760000000000005
+      ],
+      [
+        "Conor Gallagher",
+        "RESERVE",
+        62.32
+      ],
+      [
+        "James Maddison",
+        "RESERVE",
+        62.32
+      ],
+      [
+        "Mathys Tel",
+        "RESERVE",
+        62.08
+      ],
+      [
+        "Sandro Tonali",
+        "RESERVE",
+        62.08
+      ],
+      [
+        "Dejan Kulusevski",
+        "RESERVE",
+        61.6
+      ],
+      [
+        "Mateus Fernandes",
+        "RESERVE",
+        61.36
+      ],
+      [
+        "Archie Gray",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Xavi Simons",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Mykhailo Mudryk",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Mikey Moore",
+        "RESERVE",
+        59.8
+      ],
+      [
+        "Wilson Odobert",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Luca Williams-Barnett",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Callum Olusesi",
+        "RESERVE",
+        56.56
+      ]
+    ],
+    "GK": [
+      [
+        "Antonín Kinský",
+        "RESERVE",
+        61.12
+      ],
+      [
+        "Guglielmo Vicario",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Brandon Austin",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Martin Dubravka",
+        "RESERVE",
+        56.0
+      ]
+    ]
+  },
+  "Sunderland": {
+    "DF": [
+      [
+        "Omar Alderete",
+        "WISSEL",
+        78.0
+      ],
+      [
+        "Arthur Masuaku",
+        "WISSEL",
+        75.0
+      ],
+      [
+        "Nordi Mukiele",
+        "RESERVE",
+        62.8
+      ],
+      [
+        "Daniel Ballard",
+        "RESERVE",
+        61.12
+      ],
+      [
+        "Thomas Meunier",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Trai Hume",
+        "RESERVE",
+        59.32
+      ],
+      [
+        "Kevin Danso",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Reinildo Mandava",
+        "RESERVE",
+        58.72
+      ],
+      [
+        "Jenson Seelt",
+        "RESERVE",
+        56.8
+      ],
+      [
+        "Luke O'Nien",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Dayann Méthalie",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Leo Fuhr Hjelde",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "GK": [
+      [
+        "Robin Roefs",
+        "WISSEL",
+        74.0
+      ],
+      [
+        "Melker Ellborg",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Anthony Patterson",
+        "RESERVE",
+        56.0
+      ]
+    ],
+    "MF": [
+      [
+        "Granit Xhaka",
+        "SUPERSTAR",
+        85.0
+      ],
+      [
+        "Habib Diarra",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Simon Adingra",
+        "WISSEL",
+        76.0
+      ],
+      [
+        "Noah Sadiki",
+        "WISSEL",
+        74.0
+      ],
+      [
+        "Chemsdine Talbi",
+        "RESERVE",
+        73.0
+      ],
+      [
+        "Enzo Le Fée",
+        "RESERVE",
+        64.0
+      ],
+      [
+        "Nilson Angulo",
+        "RESERVE",
+        61.84
+      ],
+      [
+        "Malick Fofana",
+        "RESERVE",
+        60.400000000000006
+      ],
+      [
+        "Chris Rigg",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Romaine Mundle",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Djiamgone Jocelin Ta Bi",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Jules Ahoka",
+        "RESERVE",
+        56.8
+      ]
+    ],
+    "AT": [
+      [
+        "Brian Brobbey",
+        "WISSEL",
+        77.0
+      ],
+      [
+        "Wilson Isidor",
+        "RESERVE",
+        72.0
+      ],
+      [
+        "Juan Angulo",
+        "RESERVE",
+        56.8
+      ]
+    ]
+  },
+  "_competition": {
+    "competition": "Premier League 2026/2027",
+    "season": "2026/2027",
+    "competition_format": "league",
+    "_reserved": true
+  }
+}
