@@ -4,6 +4,8 @@ import random
 from pathlib import Path
 from typing import Any
 
+from numpy.random import poisson
+
 from ..models.match_event import EventType, MatchEvent
 from ..models.match_state import (
     EXTRA_TIME_PHASES,
@@ -28,6 +30,7 @@ from ..services.substitution_manager import FatigueService, SubstitutionService
 from ..services.tactical_analysis import compute_tactical_matchup
 from ..services.v2_data_loader import load_v2_squads
 from .base_engine import MatchEngine
+from .v3_dynamic_engine import _load_config
 from .v4_tactical_engine import V4TacticalEngine
 
 
@@ -55,9 +58,14 @@ class V5MatchStateEngine(MatchEngine):
 
         self.minimum_lambda = self._v4.minimum_lambda
         self.max_xg = 4.0
+        self.use_tactical = False
         self.extra_time_lambda_scale = self._v4.extra_time_lambda_scale
         self.tiebreaker_base_probability = self._v4.tiebreaker_base_probability
         self.tiebreaker_delta_scale = self._v4.tiebreaker_delta_scale
+
+        # Goals are drawn from the calibrated phase rate, not from the shot
+        # conversion chain (that chain did not reproduce the expected goals).
+        self.goal_rate_scale = float(_load_config().get("v5_goal_rate_scale", 1.0))
 
         self.fatigue_service = FatigueService()
         self.card_service = CardService()
@@ -66,6 +74,7 @@ class V5MatchStateEngine(MatchEngine):
         self.match_state_service = MatchStateService()
         self.substitution_service = SubstitutionService(self.fatigue_service)
         self.event_engine = EventEngine(self.card_service, self.momentum_service)
+        self.event_engine.generate_goals = False
         self.game_script_service = GameScriptService()
 
         self._match_number = 0
@@ -123,6 +132,9 @@ class V5MatchStateEngine(MatchEngine):
 
         squad1.current_starting_xi = list(squad1.preferred_starting_xi)
         squad2.current_starting_xi = list(squad2.preferred_starting_xi)
+        # Momentum is per match: without this reset, the previous match's
+        # residual momentum (measured up to 41) leaked into the next kick-off.
+        self.momentum_service.reset()
 
         state = self.match_state_service.initialize_match_state(team1, team2, squad1, squad2)
         self.last_match_state = state
@@ -140,8 +152,12 @@ class V5MatchStateEngine(MatchEngine):
         )
         self._v4.last_tactical_report = tactical_report
 
-        lambda1 = max(self.minimum_lambda, min(tactical_report.final_xg_a, self.max_xg))
-        lambda2 = max(self.minimum_lambda, min(tactical_report.final_xg_b, self.max_xg))
+        # The V4 tactical layer is off by default: on the World Cup walk-forward it
+        # did not improve log loss beyond noise (see the V4 vs V3 comparison).
+        xg_a = tactical_report.final_xg_a if self.use_tactical else base_lambda1
+        xg_b = tactical_report.final_xg_b if self.use_tactical else base_lambda2
+        lambda1 = max(self.minimum_lambda, min(xg_a, self.max_xg))
+        lambda2 = max(self.minimum_lambda, min(xg_b, self.max_xg))
 
         manager1 = get_manager(team1)
         manager2 = get_manager(team2)
@@ -164,8 +180,9 @@ class V5MatchStateEngine(MatchEngine):
         if not can_draw and g1 == g2:
             state.is_extra_time = True
             for phase in EXTRA_TIME_PHASES:
-                et_lambda1 = lambda1 * self.extra_time_lambda_scale * 0.7
-                et_lambda2 = lambda2 * self.extra_time_lambda_scale * 0.7
+                # Extra time totals extra_time_lambda_scale * lambda, shared across the two periods.
+                et_lambda1 = lambda1 * self.extra_time_lambda_scale / len(EXTRA_TIME_PHASES)
+                et_lambda2 = lambda2 * self.extra_time_lambda_scale / len(EXTRA_TIME_PHASES)
                 self._run_phase(state, team1, team2, squad1, squad2, phase,
                                 et_lambda1, et_lambda2, manager1, manager2,
                                 is_extra_time=True)
@@ -191,10 +208,7 @@ class V5MatchStateEngine(MatchEngine):
 
         squad1 = self.squads[team1]
         squad2 = self.squads[team2]
-        self._v4._v3.continuity_service.record_lineup(team1, [p.name for p in squad1.current_starting_xi])
-        self._v4._v3.continuity_service.record_lineup(team2, [p.name for p in squad2.current_starting_xi])
-        self._v4._v3.momentum_service.record_result(team1, int(g1), int(g2), is_real=False)
-        self._v4._v3.momentum_service.record_result(team2, int(g2), int(g1), is_real=False)
+        # Simulated results are not written back into V3 state (see V3 simulate_match_debug).
 
         self.last_match_state = state
         self.last_match_events = state.events
@@ -266,6 +280,7 @@ class V5MatchStateEngine(MatchEngine):
             phase, is_extra_time,
         )
         state.events.extend(phase_events)
+        self._sample_phase_goals(state, squad1, squad2, phase_lambda_a, phase_lambda_b, phase)
 
         state.momentum_a = self.momentum_service.team_a_momentum
         state.momentum_b = self.momentum_service.team_b_momentum
@@ -321,6 +336,43 @@ class V5MatchStateEngine(MatchEngine):
                     event_type=EventType.TACTICAL_CHANGE,
                     detail=f"{old_plan} -> {new_plan_b}",
                 ))
+
+    def _sample_phase_goals(
+        self,
+        state: MatchState,
+        squad1: Squad,
+        squad2: Squad,
+        lambda_a: float,
+        lambda_b: float,
+        phase: MatchPhase,
+    ) -> None:
+        """Draw this phase's goals from Poisson(rate), then attach goal events.
+
+        The phase rate already carries the match-state modifiers, so the mean
+        goal count follows the model's expected goals (times one calibration scale).
+        """
+        start = self.event_engine._phase_start_minute(phase)
+        for team, squad, lam, opponent_squad in (
+            (state.team_a, squad1, lambda_a, squad2),
+            (state.team_b, squad2, lambda_b, squad1),
+        ):
+            n_goals = int(poisson(max(0.0, lam * self.goal_rate_scale)))
+            if n_goals == 0:
+                continue
+            per_goal_xg = round(lam / n_goals, 3)
+            for _ in range(n_goals):
+                minute = start + random.randint(0, 14)
+                scorer = (
+                    self.event_engine._select_event_player(squad, "ST")
+                    or self.event_engine._select_event_player(squad, "CM")
+                )
+                assist = (
+                    self.event_engine._select_event_player(squad, "CM")
+                    if random.random() < 0.6 else None
+                )
+                state.events.append(
+                    self.event_engine._create_goal_event(state, team, minute, scorer, assist, per_goal_xg)
+                )
 
     def _compute_phase_xg(
         self,

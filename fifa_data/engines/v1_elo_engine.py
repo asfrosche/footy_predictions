@@ -4,7 +4,7 @@ import random
 
 from numpy.random import poisson
 
-from .base_engine import MatchEngine
+from .base_engine import MatchEngine, shootout_leader_probability
 
 
 class V1EloMatchEngine(MatchEngine):
@@ -47,6 +47,9 @@ class V1EloMatchEngine(MatchEngine):
         pele = float(metrics.get("PELE", 1500))
         return {"elo": elo, "pele": pele, "combined": (elo + pele) / 2.0}
 
+    def _upset_factor(self, delta: float) -> float:
+        return max(self.upset_factor_min, min(self.upset_factor_max, 1.0 + delta / self.upset_factor_slope))
+
     def simulate_match(
         self,
         team1: str,
@@ -56,16 +59,11 @@ class V1EloMatchEngine(MatchEngine):
         r1 = self._rating(team1)
         r2 = self._rating(team2)
         raw_delta = r1 - r2
-
-        upset_factor = max(
-            self.upset_factor_min,
-            min(
-                self.upset_factor_max,
-                1.0 + (raw_delta / self.upset_factor_slope),
-            ),
-        )
-        lam1 = self.base_goals * upset_factor
-        lam2 = max(self.minimum_lambda, self.base_goals * max(0.20, 1.5 - 0.5 * upset_factor))
+        # One symmetric strength curve: team1 gets f(d), team2 gets f(-d).
+        # The old formula gave the underdog a different slope, so the same
+        # fixture produced different totals depending on which side was listed first.
+        lam1 = self.base_goals * self._upset_factor(raw_delta)
+        lam2 = self.base_goals * self._upset_factor(-raw_delta)
         g1 = poisson(max(self.minimum_lambda, lam1))
         g2 = poisson(max(self.minimum_lambda, lam2))
         if not can_draw and g1 == g2:
@@ -75,9 +73,10 @@ class V1EloMatchEngine(MatchEngine):
                 g1 += g1_et
                 g2 += g2_et
             else:
-                if random.random() < (
-                    self.tiebreaker_base_probability + (raw_delta * self.tiebreaker_delta_scale)
-                ):
+                leader = shootout_leader_probability(
+                    self.tiebreaker_base_probability, lam1 - lam2, self.tiebreaker_delta_scale,
+                )
+                if random.random() < leader:
                     g1 += 1
                 else:
                     g2 += 1

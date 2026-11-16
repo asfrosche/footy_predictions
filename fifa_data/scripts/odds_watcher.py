@@ -161,16 +161,24 @@ def synthetic_odds_for_fixtures() -> list[dict[str, Any]]:
     return matches
 
 
-def write_odds(matches: list[dict[str, Any]]) -> None:
+def write_odds(matches: list[dict[str, Any]], source: str | None = None) -> None:
     from ..competitions.premier_league import _competition_stamp
 
     DATA.mkdir(parents=True, exist_ok=True)
-    DATA.joinpath("epl_odds.json").write_text(json.dumps({"matches": matches, **_competition_stamp()}, indent=2, ensure_ascii=False), encoding="utf-8")
+    payload: dict[str, Any] = {"matches": matches, **_competition_stamp()}
+    if source:
+        payload["source"] = source
+    DATA.joinpath("epl_odds.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     _log(f"wrote epl_odds.json ({len(matches)} fixtures)")
 
 
 def write_title_odds(matches: list[dict[str, Any]]) -> None:
     """Derive a per-club title-odds approximation from match win probabilities."""
+    # Only real market prices may feed title odds; ELO-derived prices may not.
+    matches = [m for m in matches if m.get("source") not in (None, "", "builtin", "synthetic-elo", "unavailable")]
+    if not matches:
+        _log("no real odds; epl_title_odds.json not written")
+        return
     share: dict[str, float] = {}
     total = 0.0
     for match in matches:
@@ -214,11 +222,11 @@ def refresh(once_only: bool = False) -> list[dict[str, Any]]:
             write_odds(matches)
             write_title_odds(matches)
             return matches
-    matches = synthetic_odds_for_fixtures()
-    write_odds(matches)
-    write_title_odds(matches)
-    _log("no live odds source — wrote synthetic ELO odds")
-    return matches
+    # No live source: write an empty odds file rather than ELO-derived prices,
+    # which the app would otherwise show as market odds.
+    write_odds([], source="unavailable")
+    _log("no live odds source — wrote empty epl_odds.json (synthetic ELO odds are not written)")
+    return []
 
 
 def run_forever(interval_minutes: int = 60) -> None:

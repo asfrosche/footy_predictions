@@ -4,7 +4,10 @@ Runs V5 simulations for all matches and captures detailed predictions.
 """
 from __future__ import annotations
 
+import copy
+import json
 import os
+import tempfile
 import time
 from pathlib import Path
 
@@ -20,6 +23,30 @@ from fifa_data.engines.v5_match_state_engine import V5MatchStateEngine
 from fifa_data.services.tournament_form_service import TournamentFormService
 
 
+def _completed_matches_sorted() -> list[dict]:
+    with open(FIFA_DATA / "data" / "matches.json", encoding="utf-8") as f:
+        completed = json.load(f).get("completed", [])
+    return sorted(completed, key=lambda m: m.get("date", ""))
+
+
+def _walk_forward_engine(prior: list[dict], base_metrics: dict, snapshot_dir: Path, idx: int):
+    """Build a V5 engine whose ELO, tournament form and xG deltas use only ``prior``."""
+    snap = snapshot_dir / f"prior_{idx:03d}.json"
+    snap.write_text(json.dumps({"completed": prior}), encoding="utf-8")
+    cache = snapshot_dir / f"form_cache_{idx:03d}.json"
+
+    metrics = copy.deepcopy(base_metrics)
+    update_elo_from_matches(metrics, matches_file=str(snap))
+    tfs = TournamentFormService(metrics, matches_file=snap, cache_file=cache)
+    tfs.compute(force=True)
+    return V5MatchStateEngine(
+        data_dir=FIFA_DATA,
+        team_metrics=metrics,
+        tournament_form=tfs.get_all_forms(),
+        matches_file=snap,
+    )
+
+
 def simulate_all_matches(
     real_matches: list[dict],
     groups: dict[str, list[str]],
@@ -31,21 +58,19 @@ def simulate_all_matches(
     For each real match, runs the V5 engine to produce predictions.
     Returns list of dicts with simulation results.
     """
-    update_elo_from_matches(TEAM_METRICS)
-    tfs = TournamentFormService(TEAM_METRICS)
-    tfs.compute()
-    tournament_form = tfs.get_all_forms()
-
-    engine = V5MatchStateEngine(
-        data_dir=FIFA_DATA,
-        team_metrics=TEAM_METRICS,
-        tournament_form=tournament_form,
-    )
+    # Walk-forward: every prediction uses only results dated before that match.
+    # The previous version fitted ELO, tournament form and xG deltas on all 104
+    # completed matches and then scored those same matches (look-ahead).
+    base_metrics = copy.deepcopy(TEAM_METRICS)
+    all_completed = _completed_matches_sorted()
+    snapshot_dir = Path(tempfile.mkdtemp(prefix="walkforward_"))
 
     results = []
     total = len(real_matches)
 
     for idx, match in enumerate(real_matches):
+        prior = [m for m in all_completed if m.get("date", "") < match.get("date", "")]
+        engine = _walk_forward_engine(prior, base_metrics, snapshot_dir, idx)
         home = match["home_name"]
         away = match["away_name"]
         stage = match["stage"]

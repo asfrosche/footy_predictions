@@ -13,7 +13,7 @@ from ..services.tactical_analysis import (
     format_tactical_report,
 )
 from ..services.v2_data_loader import load_v2_squads
-from .base_engine import MatchEngine
+from .base_engine import MatchEngine, shootout_leader_probability
 from .v3_dynamic_engine import V3DynamicEngine
 
 
@@ -106,15 +106,18 @@ class V4TacticalEngine(MatchEngine):
                 g2 += g2_et
                 extra_time_used = True
             else:
-                leader_prob = self.tiebreaker_base_probability + (raw_diff * self.tiebreaker_delta_scale * 10)
                 dyn1 = self._v3.get_dynamic_state(team1, is_knockout=False)
                 dyn2 = self._v3.get_dynamic_state(team2, is_knockout=False)
-                leader_prob += (dyn1.leadership.value - dyn2.leadership.value) * 0.5
-                leader_prob += (dyn1.experience.value - dyn2.experience.value) * 0.3
                 nat1 = self._v3.national_modifiers.get(team1, 0.0)
                 nat2 = self._v3.national_modifiers.get(team2, 0.0)
-                leader_prob += (nat1 - nat2) * 2.0
-                leader_prob = max(0.05, min(0.95, leader_prob))
+                adjustment = (
+                    (dyn1.leadership.value - dyn2.leadership.value) * 0.5
+                    + (dyn1.experience.value - dyn2.experience.value) * 0.3
+                    + (nat1 - nat2) * 2.0
+                )
+                leader_prob = shootout_leader_probability(
+                    self.tiebreaker_base_probability, raw_diff, self.tiebreaker_delta_scale, adjustment,
+                )
                 if random.random() < leader_prob:
                     g1 += 1
                 else:
@@ -123,11 +126,7 @@ class V4TacticalEngine(MatchEngine):
 
         score = (int(g1), int(g2))
 
-        # Update V3 tracking services
-        self._v3.continuity_service.record_lineup(team1, [p.name for p in squad1.current_starting_xi])
-        self._v3.continuity_service.record_lineup(team2, [p.name for p in squad2.current_starting_xi])
-        self._v3.momentum_service.record_result(team1, int(g1), int(g2), is_real=False)
-        self._v3.momentum_service.record_result(team2, int(g2), int(g1), is_real=False)
+        # Simulated results are not recorded into V3 momentum/continuity state (see V3).
 
         self.last_match_debug = self._format_v4_debug(
             team1, team2, strength1, strength2,

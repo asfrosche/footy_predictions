@@ -19,7 +19,7 @@ from ..services.v3_modifiers import (
     ChemistryService, ContinuityService, ExperienceService,
     FormService, LeadershipService, MomentumService,
 )
-from .base_engine import MatchEngine
+from .base_engine import MatchEngine, shootout_leader_probability
 
 HERE = Path(__file__).resolve().parents[1]
 
@@ -135,15 +135,18 @@ class V3DynamicEngine(MatchEngine):
                 g2 += g2_et
                 extra_time_used = True
             else:
-                leader_prob = self.tiebreaker_base_probability + (raw_diff * self.tiebreaker_delta_scale * 10)
                 dyn1 = self._compute_dynamic_state(team1, is_knockout=False)
                 dyn2 = self._compute_dynamic_state(team2, is_knockout=False)
-                leader_prob += (dyn1.leadership.value - dyn2.leadership.value) * 0.5
-                leader_prob += (dyn1.experience.value - dyn2.experience.value) * 0.3
                 nat1 = self.national_modifiers.get(team1, 0.0)
                 nat2 = self.national_modifiers.get(team2, 0.0)
-                leader_prob += (nat1 - nat2) * 2.0
-                leader_prob = max(0.05, min(0.95, leader_prob))
+                adjustment = (
+                    (dyn1.leadership.value - dyn2.leadership.value) * 0.5
+                    + (dyn1.experience.value - dyn2.experience.value) * 0.3
+                    + (nat1 - nat2) * 2.0
+                )
+                leader_prob = shootout_leader_probability(
+                    self.tiebreaker_base_probability, raw_diff, self.tiebreaker_delta_scale, adjustment,
+                )
                 if random.random() < leader_prob:
                     g1 += 1
                 else:
@@ -152,16 +155,11 @@ class V3DynamicEngine(MatchEngine):
 
         score = (int(g1), int(g2))
 
-        squad1 = self.squads[team1]
-        squad2 = self.squads[team2]
-        self.continuity_service.record_lineup(team1, [p.name for p in squad1.current_starting_xi])
-        self.continuity_service.record_lineup(team2, [p.name for p in squad2.current_starting_xi])
-
+        # Simulated results are NOT written back into momentum/continuity history.
+        # Only real results (notify_match) update that state; otherwise each
+        # simulated match changes the inputs to the next one (order-dependent drift).
         ls1 = self._compute_dynamic_state(team1, is_knockout, extra_time_used, penalties_used)
         ls2 = self._compute_dynamic_state(team2, is_knockout, extra_time_used, penalties_used)
-
-        self.momentum_service.record_result(team1, int(g1), int(g2), is_real=False)
-        self.momentum_service.record_result(team2, int(g2), int(g1), is_real=False)
 
         self.last_match_debug = self.format_match_debug(
             team1, team2, strength1, strength2, ls1, ls2, (lambda1, lambda2), score,
@@ -294,7 +292,7 @@ class V3DynamicEngine(MatchEngine):
             lines.append(f"  {c.component}: {c.value:+.2%}  [{c.source}]")
         lines.append(f"  Combined: {dyn2.combined_multiplier():.4f}x")
         lines.append("")
-        lines.append("Adjusted Ratings (star-weighted * nat_mod * v3_mult):")
+        lines.append("Adjusted Ratings (display only; xG uses the star-weighted ratings with v3_mult, nat_mod and ELO/form, not these values):")
         lines.append(f"  {team1}: A={team1_strength.attack_rating:.1f} M={team1_strength.midfield_rating:.1f} D={team1_strength.defense_rating:.1f} GK={team1_strength.goalkeeper_rating:.1f}")
         lines.append(f"  {team2}: A={team2_strength.attack_rating:.1f} M={team2_strength.midfield_rating:.1f} D={team2_strength.defense_rating:.1f} GK={team2_strength.goalkeeper_rating:.1f}")
         lines.append("")

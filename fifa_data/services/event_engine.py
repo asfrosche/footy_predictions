@@ -20,6 +20,9 @@ class EventEngine:
     ) -> None:
         self.card_service = card_service
         self.momentum_service = momentum_service
+        # When False, shots never become goals here; V5 draws goals from the
+        # calibrated phase rate instead (see V5MatchStateEngine._sample_phase_goals).
+        self.generate_goals = True
 
     def generate_phase_events(
         self,
@@ -37,12 +40,9 @@ class EventEngine:
         minutes_in_phase = 15
         phase_min_start = self._phase_start_minute(phase)
 
+        # Extra-time rates are already scaled by the caller; no second scaling here.
         xg_a = v4_xg_a
         xg_b = v4_xg_b
-
-        if is_extra_time:
-            xg_a *= 0.7
-            xg_b *= 0.7
 
         total_attack_events_a = self._estimate_attacks(xg_a, match_state.team_a_players, match_state.momentum_a)
         total_attack_events_b = self._estimate_attacks(xg_b, match_state.team_b_players, match_state.momentum_b)
@@ -169,7 +169,7 @@ class EventEngine:
                 ))
 
                 if is_sot:
-                    if random.random() < goal_prob:
+                    if self.generate_goals and random.random() < goal_prob:
                         scorer = taker or self._select_event_player(squad, "ST")
                         assist = self._select_event_player(squad, "CM") if random.random() < (0.70 if is_big_chance else 0.60) else None
                         events.append(self._create_goal_event(

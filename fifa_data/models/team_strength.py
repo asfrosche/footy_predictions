@@ -160,8 +160,9 @@ def role_rating(
         raise ValueError(f"Unknown role formula: {role}")
 
     weighted_sum = 0.0
+    fallback = _missing_attribute_default(player)
     for attribute, weight in formula.items():
-        value = _attribute_value(player.attributes, attribute)
+        value = _attribute_value(player.attributes, attribute, fallback)
         weighted_sum += value * weight
     return round(weighted_sum, 4)
 
@@ -288,12 +289,24 @@ def infer_formation(starting_xi: list[Player]) -> str:
     return f"{defense}-{midfield}-{attack}"
 
 
-def _attribute_value(attributes: dict[str, float], attribute: str) -> float:
+def _missing_attribute_default(player: Player) -> float:
+    """Value used when a player has no attribute for a formula input.
+
+    Prefer the player's own roster overall over a constant: a missing
+    attribute on a 85-rated player should not be scored as 70.
+    """
+    rating = getattr(player, "roster_rating", None)
+    if rating is not None and float(rating) > 0:
+        return float(rating)
+    return 70.0
+
+
+def _attribute_value(attributes: dict[str, float], attribute: str, default: float = 70.0) -> float:
     normalized = attribute.lower().replace(" ", "_")
     for key, value in attributes.items():
         if key.lower().replace(" ", "_") == normalized:
             return float(value)
-    return 70.0
+    return default
 
 
 def _rating_breakdown(
@@ -302,8 +315,9 @@ def _rating_breakdown(
     formulas: dict[str, dict[str, float]] | None,
 ) -> dict[str, float]:
     formula = (formulas or DEFAULT_POSITION_FORMULAS).get(role.upper(), {})
+    fallback = _missing_attribute_default(player)
     return {
-        attribute: _attribute_value(player.attributes, attribute)
+        attribute: _attribute_value(player.attributes, attribute, fallback)
         for attribute in formula
     }
 

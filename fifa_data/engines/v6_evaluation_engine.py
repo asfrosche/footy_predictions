@@ -411,6 +411,56 @@ def _regularized_gamma_q(a: float, x: float) -> float:
     return f * math.exp(-x + a * math.log(x) - math.lgamma(a))
 
 
+def _betacf(a: float, b: float, x: float) -> float:
+    """Continued fraction for the regularized incomplete beta (modified Lentz method)."""
+    fpmin = 1e-300
+    qab, qap, qam = a + b, a + 1.0, a - 1.0
+    c = 1.0
+    d = 1.0 - qab * x / qap
+    if abs(d) < fpmin:
+        d = fpmin
+    d = 1.0 / d
+    h = d
+    for m in range(1, 301):
+        m2 = 2 * m
+        aa = m * (b - m) * x / ((qam + m2) * (a + m2))
+        d = 1.0 + aa * d
+        d = fpmin if abs(d) < fpmin else d
+        c = 1.0 + aa / c
+        c = fpmin if abs(c) < fpmin else c
+        d = 1.0 / d
+        h *= d * c
+        aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2))
+        d = 1.0 + aa * d
+        d = fpmin if abs(d) < fpmin else d
+        c = 1.0 + aa / c
+        c = fpmin if abs(c) < fpmin else c
+        d = 1.0 / d
+        delta = d * c
+        h *= delta
+        if abs(delta - 1.0) < 3e-14:
+            break
+    return h
+
+
+def _regularized_beta(a: float, b: float, x: float) -> float:
+    if x <= 0.0:
+        return 0.0
+    if x >= 1.0:
+        return 1.0
+    bt = math.exp(math.lgamma(a + b) - math.lgamma(a) - math.lgamma(b) + a * math.log(x) + b * math.log(1.0 - x))
+    if x < (a + 1.0) / (a + b + 2.0):
+        return bt * _betacf(a, b, x) / a
+    return 1.0 - bt * _betacf(b, a, 1.0 - x) / b
+
+
+def _student_t_two_sided_p(t: float, df: float) -> float:
+    """Two-sided p-value from the Student t distribution (not the normal approximation)."""
+    if df <= 0:
+        return 1.0
+    return _regularized_beta(df / 2.0, 0.5, df / (df + t * t))
+
+
 def one_sample_t_test(values: list[float], hypothesized_mean: float = 0.0) -> dict[str, Any]:
     n = len(values)
     if n < 3:
@@ -420,8 +470,7 @@ def one_sample_t_test(values: list[float], hypothesized_mean: float = 0.0) -> di
     if se == 0:
         return {"t_stat": 0.0, "p_approx": 1.0, "significant": False, "n": n}
     t_stat = (m - hypothesized_mean) / se
-    z = abs(t_stat)
-    p_approx = 2.0 * (1.0 - _normal_cdf(z))
+    p_approx = _student_t_two_sided_p(t_stat, n - 1)
     return {
         "t_stat": round(t_stat, 4),
         "p_approx": round(p_approx, 4),
@@ -445,12 +494,14 @@ def two_sample_t_test(
     if se == 0:
         return {"t_stat": 0.0, "p_approx": 1.0, "significant": False, "n_a": n_a, "n_b": n_b}
     t_stat = (m_a - m_b) / se
-    z = abs(t_stat)
-    p_approx = 2.0 * (1.0 - _normal_cdf(z))
+    denom = (se_a ** 2) / (n_a - 1) + (se_b ** 2) / (n_b - 1)
+    welch_df = (se ** 4) / denom if denom > 0 else 1.0
+    p_approx = _student_t_two_sided_p(t_stat, welch_df)
     return {
         "t_stat": round(t_stat, 4),
         "p_approx": round(p_approx, 4),
         "significant": p_approx < 0.05,
+        "df": round(welch_df, 2),
         "mean_a": round(m_a, 4),
         "mean_b": round(m_b, 4),
         "label_a": label_a,
@@ -461,47 +512,45 @@ def two_sample_t_test(
 
 
 def chi_square_calibration_test(
-    predicted_probs: list[float], outcomes: list[int], n_bins: int = 5
+    predicted_probs: list[float], outcomes: list[int], n_bins: int = 10
 ) -> dict[str, Any]:
+    """Hosmer-Lemeshow goodness-of-fit for predicted probabilities.
+
+    Bins are quantile-based (equal counts), so each bin has enough matches for the
+    chi-square approximation. For each bin with expected count E, observed O and
+    size n_b: term = (O - E)^2 / (E * (1 - E / n_b)). df = bins used - 2.
+    """
     if len(predicted_probs) != len(outcomes):
         return {"chi2": 0.0, "p_approx": 1.0, "significant": False}
     n = len(predicted_probs)
     if n < 10:
         return {"chi2": 0.0, "p_approx": 1.0, "significant": False, "n": n}
-    bin_edges = [i / n_bins for i in range(n_bins + 1)]
-    bins = [{} for _ in range(n_bins)]
-    for prob, outcome in zip(predicted_probs, outcomes):
-        for i in range(n_bins):
-            if bin_edges[i] <= prob < bin_edges[i + 1] or (i == n_bins - 1 and prob == 1.0):
-                if "predicted" not in bins[i]:
-                    bins[i]["predicted"] = []
-                    bins[i]["actual"] = []
-                bins[i]["predicted"].append(prob)
-                bins[i]["actual"].append(outcome)
-                break
+    pairs = sorted(zip(predicted_probs, outcomes), key=lambda t: t[0])
+    n_bins = max(3, min(n_bins, n // 5))
+    size = n / n_bins
     chi2 = 0.0
-    total_used = 0
-    for b in bins:
-        if "predicted" not in b or len(b["predicted"]) < 3:
+    bins_used = 0
+    for i in range(n_bins):
+        chunk = pairs[int(round(i * size)): int(round((i + 1) * size))]
+        n_b = len(chunk)
+        if n_b == 0:
             continue
-        obs_predicted = sum(b["predicted"])
-        obs_actual = sum(b["actual"])
-        expected = obs_actual
-        if expected > 0:
-            chi2 += (obs_predicted - expected) ** 2 / expected
-        if expected < len(b["actual"]):
-            chi2 += ((len(b["actual"]) - obs_actual) - (len(b["predicted"]) - obs_predicted)) ** 2 / max(
-                len(b["actual"]) - expected, 0.01
-            )
-        total_used += len(b["predicted"])
-    df = max(total_used - n_bins, 1)
+        expected = sum(p for p, _ in chunk)
+        observed = sum(o for _, o in chunk)
+        var = expected * (1.0 - expected / n_b)
+        if var <= 1e-12:
+            continue
+        chi2 += (observed - expected) ** 2 / var
+        bins_used += 1
+    df = max(bins_used - 2, 1)
     p_approx = 1.0 - _chi2_cdf(chi2, df)
     return {
         "chi2": round(chi2, 4),
         "df": df,
         "p_approx": round(p_approx, 4),
         "significant": p_approx < 0.05,
-        "n": total_used,
+        "n": n,
+        "bins_used": bins_used,
     }
 
 
@@ -550,7 +599,7 @@ def detect_systematic_biases(match_metrics: list[dict], threshold_pct: float = 0
             "direction": "under",
             "evidence": t,
         })
-    elif len(over) > min_count:
+    if len(over) > min_count:
         biases.append({
             "bias_name": "Goals Overestimation",
             "description": f"V5 predicted more goals than actual in {len(over)}/{n} matches",
@@ -560,22 +609,21 @@ def detect_systematic_biases(match_metrics: list[dict], threshold_pct: float = 0
             "evidence": {},
         })
 
-    home_favored = [m for m in valid if m.get("predicted_xg_home", 0) > m.get("predicted_xg_away", 0)]
-    home_actual_wins = [m for m in valid if m.get("actual_winner") == m.get("home")]
-    if len(home_favored) > min_count:
-        fav_pct = len(home_favored) / n * 100
-        actual_home_pct = len(home_actual_wins) / n * 100 if home_actual_wins else 0
-        if abs(fav_pct - actual_home_pct) > 10:
+    # Compare like with like: mean predicted home-win probability vs actual home-win rate.
+    if valid and all("v5_home_prob" in m for m in valid):
+        pred_home = _mean([m["v5_home_prob"] for m in valid])
+        actual_home = _mean([1.0 if m.get("actual_winner") == m.get("home") else 0.0 for m in valid])
+        if abs(pred_home - actual_home) > 0.10:
             biases.append({
                 "bias_name": "Home Advantage Calibration",
                 "description": (
-                    f"V5 favors home in {fav_pct:.0f}% of matches "
-                    f"vs {actual_home_pct:.0f}% actual home win rate"
+                    f"Mean predicted home-win probability {pred_home:.1%} "
+                    f"vs actual home-win rate {actual_home:.1%}"
                 ),
-                "affected_matches": len(home_favored),
-                "affected_pct": round(fav_pct, 1),
-                "direction": "home" if fav_pct > actual_home_pct else "away",
-                "evidence": {},
+                "affected_matches": n,
+                "affected_pct": 100.0,
+                "direction": "home" if pred_home > actual_home else "away",
+                "evidence": {"predicted": round(pred_home, 4), "actual": round(actual_home, 4)},
             })
 
     fav_correct = [m for m in valid if m.get("v5_winner_correct")]
@@ -591,12 +639,14 @@ def detect_systematic_biases(match_metrics: list[dict], threshold_pct: float = 0
                 "evidence": {"accuracy": accuracy},
             })
 
-    for strength in ["Toss-up", "Slight favorite", "Moderate favorite", "Heavy favorite", "Major favorite"]:
+    strengths = ["Toss-up", "Slight favorite", "Moderate favorite", "Heavy favorite", "Major favorite"]
+    for strength in strengths:
         subset = [m for m in valid if m.get("favorite_strength") == strength]
         if len(subset) >= 5:
             errors = [m.get("predicted_xg_home", 0) - m.get("actual_home_goals", 0) for m in subset]
             t = one_sample_t_test(errors)
-            if t["significant"]:
+            # Bonferroni: five buckets are tested, so each uses alpha / 5.
+            if t["p_approx"] < 0.05 / len(strengths):
                 biases.append({
                     "bias_name": f"xG Bias ({strength})",
                     "description": f"V5 xG home predictions significantly off for {strength} matches",
@@ -1422,7 +1472,7 @@ class V6AdaptiveEngine(MatchEngine):
         self._pending_predictions: dict[str, float] = {}
         self._real_matches_observed: int = 0
 
-        self._min_matches = 3
+        self._min_matches = 5
         self._max_correction = 0.3
         self._blend_ceiling = 10.0
 
@@ -1536,7 +1586,9 @@ class V6AdaptiveEngine(MatchEngine):
                 self._corrections[team] = 0.0
                 continue
             avg_error = (sum(scores) / n) - (sum(xgs) / n)
-            blend = min(1.0, n / self._blend_ceiling)
+            # Ridge-style shrinkage: n / (n + K). A small sample moves the
+            # correction little; it approaches the full mean residual only slowly.
+            blend = n / (n + self._blend_ceiling)
             raw = avg_error * blend
             self._corrections[team] = max(
                 -self._max_correction,
@@ -1677,7 +1729,8 @@ class V6AdaptiveEngine(MatchEngine):
             actual_home_adv = 1.0 if m.get("actual_winner") == m.get("home") else (
                 -1.0 if m.get("actual_winner") == m.get("away") else 0.0
             )
-            home_adv_diffs.append(pred_home_adv - actual_home_adv * 0.15)
+            # Predicted edge minus realised edge: zero on average if calibrated.
+            home_adv_diffs.append(pred_home_adv - actual_home_adv)
         home_adv_ttest = one_sample_t_test(home_adv_diffs, hypothesized_mean=0.0)
 
         v5_draw_probs = [m.get("v5_draw_prob", 0.25) for m in valid]

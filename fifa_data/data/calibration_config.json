@@ -1,56 +1,51 @@
 {
   "_description": "V3.1 Calibration Configuration",
-
-  "goals_per_attack_point": 0.12,
-  "goals_per_midfield_point": 0.04,
-  "goals_per_defense_point": 0.06,
   "base_goals": 1.05,
   "minimum_lambda": 0.05,
-
-  "attack_weight_defense": 0.70,
-  "attack_weight_goalkeeper": 0.30,
+  "attack_weight_defense": 0.7,
+  "attack_weight_goalkeeper": 0.3,
   "midfield_control_weight": 0.25,
-
   "strength_curve": {
     "_description": "Non-linear amplification of rating differences. 1.0 = linear.",
     "curve_factor": 3.0,
     "max_multiplier": 3.0,
-    "min_multiplier": 0.20
+    "min_multiplier": 0.2
   },
-
   "star_player_weights": {
     "_description": "Weighted positional influence within each line. Sum to 1.0 per line.",
     "attack": {
-      "ST": 0.40,
-      "WINGER": 0.30
+      "ST": 0.4,
+      "WINGER": 0.3
     },
     "midfield": {
       "CM": 0.35,
-      "DM": 0.30
+      "DM": 0.3
     },
     "defense": {
       "CB": 0.35,
       "FB": 0.15
     },
     "goalkeeper": {
-      "GK": 1.00
+      "GK": 1.0
     }
   },
-
   "national_modifier": {
     "_description": "Captures coaching, system, mentality not reflected in player ratings.",
-    "range": [-0.03, 0.03],
+    "range": [
+      -0.03,
+      0.03
+    ],
     "source_confidence": 0.6
   },
-
   "v3_dynamic_multiplier": {
     "_description": "Overall V3 dynamic state cap.",
-    "min": 0.90,
-    "max": 1.10
+    "min": 0.9,
+    "max": 1.1
   },
-
-  "extra_time_lambda_scale": 0.30,
-  "tiebreaker_base_probability": 0.50,
+  "extra_time_lambda_scale": 0.3,
+  "tiebreaker_base_probability": 0.5,
   "tiebreaker_delta_scale": 0.0005,
-  "elo_dampening": 0.45
+  "elo_dampening": 0.45,
+  "v5_goal_rate_scale": 1.029,
+  "_v5_goal_rate_scale_note": "Fitted once: pooled mean goals / V4 tactical lambda = 0.972 over 12 PL fixtures at 150 sims each (V5, pre-calibration). Scale = 1/0.972. Re-fit if the phase modifiers change."
 }

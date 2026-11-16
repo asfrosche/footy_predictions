@@ -36,27 +36,27 @@
       [
         "Gabriel dos Santos Magalhães",
         "RESERVE",
-        71.2
+        73.36
       ],
       [
         "Riccardo Calafiori",
         "RESERVE",
-        66.88
-      ],
-      [
-        "Cristhian Mosquera",
-        "RESERVE",
-        65.92
+        67.0
       ],
       [
         "Benjamin White",
+        "RESERVE",
+        66.16
+      ],
+      [
+        "Cristhian Mosquera",
         "RESERVE",
         65.44
       ],
       [
         "Ezri Konsa Ngoyo",
         "RESERVE",
-        60.64
+        65.32
       ]
     ],
     "MF": [
@@ -88,22 +88,17 @@
       [
         "Martin Ødegaard",
         "RESERVE",
-        69.28
+        68.08
       ],
       [
         "Bruno Guimarães Rodriguez Moura",
         "RESERVE",
-        65.67999999999999
+        66.28
       ],
       [
         "Christos Tzolis",
         "RESERVE",
-        64.96
-      ],
-      [
-        "Myles Lewis-Skelly",
-        "RESERVE",
-        61.6
+        64.36
       ],
       [
         "Gabriel Martinelli Silva",
@@ -111,14 +106,19 @@
         61.12
       ],
       [
-        "Martín Zubimendi Ibáñez",
+        "Myles Lewis-Skelly",
         "RESERVE",
-        59.92
+        61.0
       ],
       [
         "Max Dowman",
         "RESERVE",
         59.92
+      ],
+      [
+        "Martín Zubimendi Ibáñez",
+        "RESERVE",
+        59.68000000000001
       ],
       [
         "Fábio Ferreira Vieira",
@@ -184,7 +184,7 @@
       [
         "Zion Suzuki",
         "RESERVE",
-        62.8
+        62.08
       ],
       [
         "Marco Bizot",
@@ -211,37 +211,42 @@
       [
         "Tyrone Mings",
         "RESERVE",
-        59.8
-      ],
-      [
-        "Ian Maatsen",
-        "RESERVE",
-        59.2
-      ],
-      [
-        "Matteo Ruggeri",
-        "RESERVE",
-        58.839999999999996
+        60.4
       ],
       [
         "Victor Lindelöf",
         "RESERVE",
-        58.72
+        59.919999999999995
       ],
       [
         "Aaron Wan-Bissaka",
         "RESERVE",
-        58.599999999999994
+        59.44
       ],
       [
         "Matty Cash",
+        "RESERVE",
+        58.96
+      ],
+      [
+        "Ian Maatsen",
+        "RESERVE",
+        58.84
+      ],
+      [
+        "Matteo Ruggeri",
         "RESERVE",
         58.36
       ],
       [
         "Pau Torres",
         "RESERVE",
-        58.0
+        58.24
+      ],
+      [
+        "Modou Kéba Cissé",
+        "RESERVE",
+        56.8
       ],
       [
         "Taylor Harwood-Bellis",
@@ -293,47 +298,47 @@
       [
         "Johan Manzambi",
         "RESERVE",
-        68.56
-      ],
-      [
-        "Emiliano Buendía Stati",
-        "RESERVE",
-        65.2
+        67.72
       ],
       [
         "John McGinn",
         "RESERVE",
-        63.04
+        64.24
       ],
       [
-        "Boubacar Kamara",
+        "Emiliano Buendía Stati",
         "RESERVE",
-        61.6
-      ],
-      [
-        "Ibrahim Mbaye",
-        "RESERVE",
-        61.6
-      ],
-      [
-        "Alejandro Garnacho Ferreyra",
-        "RESERVE",
-        61.120000000000005
-      ],
-      [
-        "Joao Gomes",
-        "RESERVE",
-        60.400000000000006
-      ],
-      [
-        "Alysson Edward Franco da Rocha dos Santos",
-        "RESERVE",
-        60.4
+        64.0
       ],
       [
         "Leon Goretzka",
         "RESERVE",
-        60.16
+        63.519999999999996
+      ],
+      [
+        "Boubacar Kamara",
+        "RESERVE",
+        62.08
+      ],
+      [
+        "Ibrahim Mbaye",
+        "RESERVE",
+        62.08
+      ],
+      [
+        "Joao Gomes",
+        "RESERVE",
+        61.480000000000004
+      ],
+      [
+        "Alysson Edward Franco da Rocha dos Santos",
+        "RESERVE",
+        61.48
+      ],
+      [
+        "Alejandro Garnacho Ferreyra",
+        "RESERVE",
+        60.88
       ],
       [
         "Lamare Bogarde",
@@ -348,7 +353,7 @@
       [
         "George Hemmings",
         "RESERVE",
-        58.959999999999994
+        58.6
       ],
       [
         "Samuel Iling-Junior",
@@ -356,14 +361,14 @@
         58.0
       ],
       [
-        "Bradley Burrowes",
+        "Luka Lynch",
         "RESERVE",
         56.8
       ],
       [
-        "Luka Lynch",
+        "Bradley Burrowes",
         "RESERVE",
-        56.8
+        56.56
       ]
     ],
     "AT": [
@@ -380,7 +385,7 @@
       [
         "Nicolas Jackson",
         "RESERVE",
-        64.6
+        70.24
       ],
       [
         "Tammy Abraham",
@@ -390,7 +395,7 @@
       [
         "Brian Madjo",
         "RESERVE",
-        58.96
+        59.32
       ]
     ]
   },
@@ -399,7 +404,7 @@
       [
         "Đorđe Petrović",
         "RESERVE",
-        58.959999999999994
+        60.4
       ],
       [
         "Michele Di Gregorio",
@@ -421,27 +426,32 @@
       [
         "James Hill",
         "RESERVE",
-        62.080000000000005
-      ],
-      [
-        "Adrien Truffert",
-        "RESERVE",
-        61.36
+        64.48
       ],
       [
         "António João Pereira de Albuquerque Tavares da Silva",
         "RESERVE",
-        61.12
+        63.03999999999999
+      ],
+      [
+        "Adrien Truffert",
+        "RESERVE",
+        62.92
       ],
       [
         "Adam Smith",
         "RESERVE",
-        57.76
+        59.559999999999995
       ],
       [
         "Bafodé Diakité",
         "RESERVE",
-        57.76
+        58.96
+      ],
+      [
+        "Juanlu Sánchez",
+        "RESERVE",
+        57.760000000000005
       ],
       [
         "Veljko Milosavljevic",
@@ -449,19 +459,14 @@
         57.76
       ],
       [
-        "Juanlu Sánchez",
+        "Julio Soler Barreto",
         "RESERVE",
-        56.56
+        56.800000000000004
       ],
       [
         "Julián Araujo Zúñiga",
         "RESERVE",
         56.56
-      ],
-      [
-        "Julio Soler Barreto",
-        "RESERVE",
-        56.0
       ]
     ],
     "MF": [
@@ -488,27 +493,32 @@
       [
         "Marcus Tavernier",
         "RESERVE",
-        68.08
+        69.03999999999999
       ],
       [
         "Alex Scott",
         "RESERVE",
-        67.84
+        67.36
       ],
       [
         "Junior Kroupi",
         "RESERVE",
-        63.760000000000005
+        65.92
       ],
       [
         "Rayan Vitor Simplício Rocha",
         "RESERVE",
-        63.519999999999996
+        64.72
+      ],
+      [
+        "Amine Adli",
+        "RESERVE",
+        60.879999999999995
       ],
       [
         "Lewis Cook",
         "RESERVE",
-        59.92
+        60.28
       ],
       [
         "Alex Tóth",
@@ -518,24 +528,19 @@
       [
         "Ben Gannon-Doak",
         "RESERVE",
-        58.96
+        58.72
       ],
       [
         "David Brooks",
         "RESERVE",
-        58.96
-      ],
-      [
-        "Amine Adli",
-        "RESERVE",
-        57.76
+        58.72
       ]
     ],
     "AT": [
       [
         "Francisco Evanilson de Lima Barbosa",
         "RESERVE",
-        64.72
+        68.92
       ],
       [
         "Álvaro Rodríguez",
@@ -559,12 +564,12 @@
       [
         "Caoimhín Kelleher",
         "RESERVE",
-        62.8
+        62.2
       ],
       [
         "Hákon Rafn Valdimarsson",
         "RESERVE",
-        56.8
+        56.56
       ],
       [
         "Ellery Balcombe",
@@ -586,32 +591,32 @@
       [
         "Jannik Schuster",
         "RESERVE",
-        65.2
+        63.4
       ],
       [
         "Nathan Collins",
         "RESERVE",
-        62.92
+        62.32
+      ],
+      [
+        "Sepp van den Berg",
+        "RESERVE",
+        61.96
       ],
       [
         "Michael Kayode",
         "RESERVE",
-        62.56
+        60.879999999999995
       ],
       [
         "El Hadji Malick Diouf",
         "RESERVE",
-        58.0
+        57.760000000000005
       ],
       [
         "Rico Henry",
         "RESERVE",
         57.760000000000005
-      ],
-      [
-        "Sepp van den Berg",
-        "RESERVE",
-        57.76
       ],
       [
         "Kim Ji-soo",
@@ -633,11 +638,6 @@
       [
         "Kevin Schade",
         "RESERVE",
-        70.24
-      ],
-      [
-        "Mathias Jensen",
-        "RESERVE",
         66.16
       ],
       [
@@ -646,19 +646,14 @@
         65.2
       ],
       [
-        "Mamadou Sangaré",
+        "Dango Ouattara",
         "RESERVE",
-        64.72
-      ],
-      [
-        "Vitaly Janelt",
-        "RESERVE",
-        64.72
+        63.99999999999999
       ],
       [
         "Keane Lewis-Potter",
         "RESERVE",
-        64.48
+        63.88
       ],
       [
         "Jaidon Anthony",
@@ -666,19 +661,29 @@
         63.76
       ],
       [
-        "Dango Ouattara",
+        "Vitaly Janelt",
+        "RESERVE",
+        62.92
+      ],
+      [
+        "Mamadou Sangaré",
         "RESERVE",
         62.8
+      ],
+      [
+        "Mathias Jensen",
+        "RESERVE",
+        61.72
       ],
       [
         "Mikkel Damsgaard",
         "RESERVE",
-        62.8
+        61.6
       ],
       [
         "Yehor Yarmoliuk",
         "RESERVE",
-        59.67999999999999
+        59.68
       ],
       [
         "Antoni Milambo",
@@ -688,7 +693,7 @@
       [
         "Josh Dasilva",
         "RESERVE",
-        57.76
+        57.519999999999996
       ],
       [
         "Gustavo Nunes Fernandes Gomes",
@@ -705,12 +710,12 @@
       [
         "Callum Wilson",
         "RESERVE",
-        60.160000000000004
+        59.8
       ],
       [
         "Kaye Furo",
         "RESERVE",
-        56.8
+        56.56
       ]
     ]
   },
@@ -746,27 +751,32 @@
       [
         "Luka Vušković",
         "RESERVE",
-        65.68
+        67.12
       ],
       [
         "Lewis Dunk",
         "RESERVE",
-        63.4
+        62.31999999999999
       ],
       [
         "Olivier Boscagli",
         "RESERVE",
-        61.36
-      ],
-      [
-        "Pascal Struijk",
-        "RESERVE",
-        60.519999999999996
+        62.08
       ],
       [
         "Ferdi Kadıoğlu",
         "RESERVE",
-        60.400000000000006
+        61.24
+      ],
+      [
+        "Jaouen Hadjam",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "João Pedro Loureiro da Costa",
+        "RESERVE",
+        59.32
       ],
       [
         "Michael Svoboda",
@@ -774,9 +784,9 @@
         59.2
       ],
       [
-        "João Pedro Loureiro da Costa",
+        "Pascal Struijk",
         "RESERVE",
-        57.76
+        59.199999999999996
       ],
       [
         "Diego Coppola",
@@ -787,19 +797,9 @@
         "Igor Julio dos Santos de Paulo",
         "RESERVE",
         56.8
-      ],
-      [
-        "Jaouen Hadjam",
-        "RESERVE",
-        56.8
       ]
     ],
     "MF": [
-      [
-        "Jack Hinshelwood",
-        "STARTER",
-        79.36
-      ],
       [
         "Mats Wieffer",
         "WISSEL",
@@ -818,17 +818,22 @@
       [
         "Pascal Groß",
         "RESERVE",
-        71.2
+        69.52
+      ],
+      [
+        "Jack Hinshelwood",
+        "RESERVE",
+        66.16
       ],
       [
         "José María Andrés Baixauli",
         "RESERVE",
-        66.4
+        62.68
       ],
       [
-        "Malick Yalcouyé",
+        "Yankuba Minteh",
         "RESERVE",
-        61.599999999999994
+        61.120000000000005
       ],
       [
         "Matt O'Riley",
@@ -841,9 +846,9 @@
         60.16
       ],
       [
-        "Yankuba Minteh",
+        "Malick Yalcouyé",
         "RESERVE",
-        59.92
+        59.56
       ],
       [
         "Femi Azeez",
@@ -853,7 +858,7 @@
       [
         "Ibrahim Osman",
         "RESERVE",
-        59.2
+        58.96
       ],
       [
         "Zadok Yohanna",
@@ -881,26 +886,26 @@
         56.8
       ],
       [
-        "Nehemiah Oriola",
+        "Younes Ibrahim",
         "RESERVE",
         56.8
       ],
       [
-        "Younes Ibrahim",
+        "Nehemiah Oriola",
         "RESERVE",
-        56.8
+        56.56
       ]
     ],
     "AT": [
       [
         "Charalampos Kostoulas",
         "RESERVE",
-        66.16
+        65.56
       ],
       [
         "Georginio Rutter",
         "RESERVE",
-        62.32
+        61.12
       ],
       [
         "Promise David",
@@ -915,7 +920,7 @@
       [
         "Evan Ferguson",
         "RESERVE",
-        58.0
+        57.76
       ]
     ]
   },
@@ -924,7 +929,7 @@
       [
         "Emiliano Martínez Romero",
         "RESERVE",
-        60.64
+        61.72
       ],
       [
         "Robert Lynch Sánchez",
@@ -932,14 +937,19 @@
         60.16
       ],
       [
+        "Mike Penders",
+        "RESERVE",
+        59.2
+      ],
+      [
         "Filip Jörgensen",
         "RESERVE",
         58.0
       ],
       [
-        "Mike Penders",
+        "Teddy Sharman-Lowe",
         "RESERVE",
-        56.56
+        56.0
       ]
     ],
     "MF": [
@@ -961,40 +971,40 @@
       [
         "Cole Palmer",
         "WISSEL",
-        76.0
+        75.16
       ],
       [
         "Morgan Rogers",
         "RESERVE",
-        71.44
-      ],
-      [
-        "Estêvão Almeida de Oliveira Gonçalves",
-        "RESERVE",
-        62.32
-      ],
-      [
-        "Roméo Lavia",
-        "RESERVE",
-        61.36
-      ],
-      [
-        "Valentín Barco",
-        "RESERVE",
-        60.160000000000004
+        71.91999999999999
       ],
       [
         "Jordan Henderson",
         "RESERVE",
-        60.16
+        64.24
+      ],
+      [
+        "Estêvão Almeida de Oliveira Gonçalves",
+        "RESERVE",
+        62.559999999999995
+      ],
+      [
+        "Roméo Lavia",
+        "RESERVE",
+        61.48
       ],
       [
         "Geovany Quenda",
         "RESERVE",
-        59.92
+        60.040000000000006
       ],
       [
         "Jamie Bynoe-Gittens",
+        "RESERVE",
+        59.92
+      ],
+      [
+        "Valentín Barco",
         "RESERVE",
         59.92
       ],
@@ -1012,23 +1022,23 @@
     "AT": [
       [
         "João Pedro Junqueira de Jesus",
-        "WISSEL",
-        74.32000000000001
+        "RESERVE",
+        73.6
       ],
       [
         "Danny Welbeck",
         "RESERVE",
-        61.72
+        61.24
+      ],
+      [
+        "Emmanuel Emegha",
+        "RESERVE",
+        58.96
       ],
       [
         "Marc Guiu Paz",
         "RESERVE",
         58.0
-      ],
-      [
-        "Emmanuel Emegha",
-        "RESERVE",
-        57.76
       ],
       [
         "Shumaira Mheuka",
@@ -1060,37 +1070,37 @@
       [
         "Maxence Lacroix",
         "RESERVE",
-        63.279999999999994
+        63.52
       ],
       [
         "Wesley Fofana",
         "RESERVE",
+        61.96
+      ],
+      [
+        "Marco Palestra",
+        "RESERVE",
+        61.12
+      ],
+      [
+        "Josh Acheampong",
+        "RESERVE",
         60.4
+      ],
+      [
+        "Levi Samuels Colwill",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Pep Chavarría",
+        "RESERVE",
+        59.68
       ],
       [
         "Trevoh Chalobah",
         "RESERVE",
         59.2
-      ],
-      [
-        "Pep Chavarría",
-        "RESERVE",
-        58.96
-      ],
-      [
-        "Marco Palestra",
-        "RESERVE",
-        58.72
-      ],
-      [
-        "Levi Samuels Colwill",
-        "RESERVE",
-        58.48
-      ],
-      [
-        "Josh Acheampong",
-        "RESERVE",
-        58.239999999999995
       ],
       [
         "Aaron Anselmino",
@@ -1106,53 +1116,58 @@
         "Mamadou Sarr",
         "RESERVE",
         56.8
+      ],
+      [
+        "Olutayo Subuloye",
+        "RESERVE",
+        56.0
       ]
     ]
   },
   "Coventry City": {
     "DF": [
       [
-        "Stephen Mfuni",
+        "Ethan Pinnock",
         "RESERVE",
-        62.8
+        60.519999999999996
       ],
       [
         "Bobby Thomas",
         "RESERVE",
-        61.36
+        60.4
       ],
       [
-        "Ethan Pinnock",
+        "Stephen Mfuni",
         "RESERVE",
-        61.0
+        60.160000000000004
       ],
       [
         "Jay Dasilva",
         "RESERVE",
-        60.4
+        59.2
       ],
       [
         "Milan van Ewijk",
         "RESERVE",
-        57.4
+        58.0
       ],
       [
         "Aurèle Amenda",
         "RESERVE",
-        56.800000000000004
+        56.56
       ],
       [
         "Joel Latibeaudiere",
         "RESERVE",
-        56.800000000000004
-      ],
-      [
-        "Jake Bidwell",
-        "RESERVE",
-        56.0
+        56.56
       ],
       [
         "Kaine Kesler-Hayden",
+        "RESERVE",
+        56.56
+      ],
+      [
+        "Jake Bidwell",
         "RESERVE",
         56.0
       ],
@@ -1174,54 +1189,54 @@
     ],
     "MF": [
       [
+        "Yann Gboho",
+        "RESERVE",
+        65.2
+      ],
+      [
         "Jack Rudoni",
         "RESERVE",
-        60.879999999999995
-      ],
-      [
-        "Frank Onyeka",
-        "RESERVE",
-        60.4
-      ],
-      [
-        "Loum Tchaouna",
-        "RESERVE",
-        60.4
-      ],
-      [
-        "Matt Grimes",
-        "RESERVE",
-        60.4
-      ],
-      [
-        "Gustavo Hamer",
-        "RESERVE",
-        60.160000000000004
-      ],
-      [
-        "Ephron Mason-Clark",
-        "RESERVE",
-        60.16
+        62.44
       ],
       [
         "Victor Torp",
         "RESERVE",
-        59.92
+        61.12
       ],
       [
-        "Caleb Yirenkyi",
+        "Ephron Mason-Clark",
         "RESERVE",
-        59.67999999999999
-      ],
-      [
-        "Yann Gboho",
-        "RESERVE",
-        59.2
+        60.4
       ],
       [
         "Tatsuhiro Sakamoto",
         "RESERVE",
-        58.72
+        60.279999999999994
+      ],
+      [
+        "Loum Tchaouna",
+        "RESERVE",
+        60.16
+      ],
+      [
+        "Caleb Yirenkyi",
+        "RESERVE",
+        59.8
+      ],
+      [
+        "Matt Grimes",
+        "RESERVE",
+        59.8
+      ],
+      [
+        "Gustavo Hamer",
+        "RESERVE",
+        59.68000000000001
+      ],
+      [
+        "Frank Onyeka",
+        "RESERVE",
+        59.559999999999995
       ],
       [
         "Josh Eccles",
@@ -1248,7 +1263,7 @@
       [
         "Carl Rushworth",
         "RESERVE",
-        60.64
+        59.919999999999995
       ],
       [
         "Ben Wilson",
@@ -1268,29 +1283,29 @@
     ],
     "AT": [
       [
-        "Brandon Thomas-Asante",
+        "Sidiki Cherif",
         "RESERVE",
-        60.16
+        61.6
       ],
       [
         "Taiwo Awoniyi",
         "RESERVE",
-        59.92
+        61.36
+      ],
+      [
+        "Brandon Thomas-Asante",
+        "RESERVE",
+        60.76
       ],
       [
         "Ellis Simms",
         "RESERVE",
-        59.32
-      ],
-      [
-        "Sidiki Cherif",
-        "RESERVE",
-        59.2
+        60.76
       ],
       [
         "Haji Wright",
         "RESERVE",
-        58.96
+        58.72
       ],
       [
         "Jahnoah Markelo",
@@ -1329,7 +1344,7 @@
       [
         "Adam Wharton",
         "RESERVE",
-        61.84
+        62.199999999999996
       ],
       [
         "Quinten Timber",
@@ -1337,19 +1352,19 @@
         61.6
       ],
       [
-        "Dwight McNeil",
-        "RESERVE",
-        60.76
-      ],
-      [
         "Darío Osorio",
         "RESERVE",
-        60.400000000000006
+        61.120000000000005
+      ],
+      [
+        "Dwight McNeil",
+        "RESERVE",
+        60.4
       ],
       [
         "Evann Guessand",
         "RESERVE",
-        60.160000000000004
+        59.92
       ],
       [
         "Zavier Gozo",
@@ -1367,11 +1382,6 @@
         58.0
       ],
       [
-        "Will Hughes",
-        "RESERVE",
-        57.760000000000005
-      ],
-      [
         "Jesurun Rak-Sakyi",
         "RESERVE",
         57.76
@@ -1382,14 +1392,19 @@
         57.76
       ],
       [
+        "Will Hughes",
+        "RESERVE",
+        57.52
+      ],
+      [
         "Cheick Doucouré",
         "RESERVE",
-        57.519999999999996
+        57.28
       ],
       [
         "Joél Drakes-Thomas",
         "RESERVE",
-        56.8
+        56.56
       ]
     ],
     "DF": [
@@ -1419,44 +1434,44 @@
         72.0
       ],
       [
+        "Ben Chilwell",
+        "RESERVE",
+        61.36
+      ],
+      [
         "Anan Khalaili",
         "RESERVE",
-        62.56
+        60.76
       ],
       [
         "Tyrick Mitchell",
         "RESERVE",
-        62.559999999999995
-      ],
-      [
-        "Ben Chilwell",
-        "RESERVE",
-        61.599999999999994
+        60.76
       ],
       [
         "Jaydee Canvot",
         "RESERVE",
-        60.519999999999996
-      ],
-      [
-        "Honest Ahanor",
-        "RESERVE",
-        60.4
-      ],
-      [
-        "Oscar Mingueza",
-        "RESERVE",
-        57.760000000000005
-      ],
-      [
-        "Takehiro Tomiyasu",
-        "RESERVE",
-        57.52
+        59.8
       ],
       [
         "Axel Disasi",
         "RESERVE",
-        57.16
+        58.6
+      ],
+      [
+        "Honest Ahanor",
+        "RESERVE",
+        58.0
+      ],
+      [
+        "Oscar Mingueza",
+        "RESERVE",
+        57.28
+      ],
+      [
+        "Takehiro Tomiyasu",
+        "RESERVE",
+        57.28
       ],
       [
         "Borna Sosa",
@@ -1478,7 +1493,7 @@
       [
         "Walter Benítez",
         "RESERVE",
-        61.599999999999994
+        59.919999999999995
       ],
       [
         "Remi Matthews",
@@ -1495,12 +1510,12 @@
       [
         "Jørgen Strand Larsen",
         "RESERVE",
-        63.76
+        63.63999999999999
       ],
       [
         "Eddie Nketiah",
         "RESERVE",
-        61.6
+        61.24
       ],
       [
         "Christantus Uche",
@@ -1524,52 +1539,52 @@
       [
         "Kiernan Dewsbury-Hall",
         "RESERVE",
-        66.64
-      ],
-      [
-        "Tyrique George",
-        "RESERVE",
-        63.760000000000005
+        68.08
       ],
       [
         "Jack Grealish",
         "RESERVE",
-        63.4
+        63.64
       ],
       [
         "James Garner",
         "RESERVE",
-        63.04
+        63.4
+      ],
+      [
+        "Tyrique George",
+        "RESERVE",
+        62.800000000000004
       ],
       [
         "Brennan Johnson",
         "RESERVE",
-        62.31999999999999
+        61.72
       ],
       [
         "Harrison Armstrong",
         "RESERVE",
-        61.84
+        61.36
       ],
       [
         "Hayden Hackney",
         "RESERVE",
-        61.36
-      ],
-      [
-        "Tyler Dibling",
-        "RESERVE",
-        60.160000000000004
+        60.64
       ],
       [
         "Merlin Röhl",
+        "RESERVE",
+        60.28
+      ],
+      [
+        "Tyler Dibling",
         "RESERVE",
         60.16
       ],
       [
         "Carlos Alcaraz Durán",
         "RESERVE",
-        58.36
+        58.48
       ],
       [
         "Christian Nørgaard",
@@ -1579,7 +1594,7 @@
       [
         "Braiden Graham",
         "RESERVE",
-        56.8
+        56.56
       ]
     ],
     "GK": [
@@ -1608,32 +1623,32 @@
       [
         "James Tarkowski",
         "RESERVE",
-        70.96
+        67.6
       ],
       [
         "Jarrad Branthwaite",
         "RESERVE",
-        65.68
+        64.96000000000001
       ],
       [
         "Ainsley Maitland-Niles",
         "RESERVE",
-        65.2
+        63.04
       ],
       [
         "Vitalii Mykolenko",
         "RESERVE",
-        63.519999999999996
+        62.68
       ],
       [
         "Jake O'Brien",
         "RESERVE",
-        58.72
+        60.16
       ],
       [
         "Michael Keane",
         "RESERVE",
-        57.519999999999996
+        58.480000000000004
       ],
       [
         "Adam Aznou",
@@ -1645,7 +1660,7 @@
       [
         "Thierno Barry",
         "RESERVE",
-        64.48
+        66.28
       ],
       [
         "Norberto Bercique Gomes Betuncal",
@@ -1659,7 +1674,7 @@
       [
         "Bernd Leno",
         "RESERVE",
-        61.12
+        61.48
       ],
       [
         "Alfie McNally",
@@ -1691,17 +1706,17 @@
       [
         "David Affengruber",
         "RESERVE",
-        64.0
+        62.31999999999999
       ],
       [
         "Calvin Bassey",
         "RESERVE",
-        60.4
+        61.12
       ],
       [
         "Jorge Cuenca Barreno",
         "RESERVE",
-        60.4
+        60.160000000000004
       ],
       [
         "Joachim Andersen",
@@ -1711,12 +1726,12 @@
       [
         "Ryan Sessegnon",
         "RESERVE",
-        57.52
+        58.12
       ],
       [
         "Kenny Tete",
         "RESERVE",
-        56.56
+        57.52
       ],
       [
         "Luc De Fougerolles",
@@ -1733,42 +1748,47 @@
       [
         "Josh King",
         "RESERVE",
-        64.96000000000001
-      ],
-      [
-        "César Palacios",
-        "RESERVE",
-        62.56
+        63.88
       ],
       [
         "Alex Iwobi",
         "RESERVE",
-        62.32
+        63.76
       ],
       [
         "Oscar Bobb",
         "RESERVE",
-        62.32
+        63.400000000000006
+      ],
+      [
+        "César Palacios",
+        "RESERVE",
+        61.6
       ],
       [
         "Shea Charles",
         "RESERVE",
-        61.12
-      ],
-      [
-        "Emile Smith Rowe",
-        "RESERVE",
-        59.92
+        61.0
       ],
       [
         "Kevin Santos Lopes de Macedo",
         "RESERVE",
-        59.92
+        59.68000000000001
       ],
       [
         "Hugo Larsson",
         "RESERVE",
-        59.2
+        59.56
+      ],
+      [
+        "Emile Smith Rowe",
+        "RESERVE",
+        59.440000000000005
+      ],
+      [
+        "Tom Cairney",
+        "RESERVE",
+        58.6
       ],
       [
         "Manuel Ángel Morán Ibáñez",
@@ -1776,19 +1796,14 @@
         58.0
       ],
       [
-        "Tom Cairney",
+        "Macaulay Zepa",
         "RESERVE",
-        57.76
+        56.56
       ],
       [
         "Harrison Reed",
         "RESERVE",
-        56.56
-      ],
-      [
-        "Macaulay Zepa",
-        "RESERVE",
-        56.56
+        56.32
       ]
     ],
     "AT": [
@@ -1800,17 +1815,17 @@
       [
         "Gonzalo García",
         "RESERVE",
-        63.76
+        63.04
       ],
       [
         "Rodrigo Muniz Carvalho",
         "RESERVE",
-        59.92
+        60.64
       ],
       [
         "Jonah Kusi-Asare",
         "RESERVE",
-        56.8
+        56.32
       ]
     ]
   },
@@ -1819,7 +1834,12 @@
       [
         "Mohamed Belloumi",
         "RESERVE",
-        65.67999999999999
+        65.08
+      ],
+      [
+        "Sorba Thomas",
+        "RESERVE",
+        62.32
       ],
       [
         "Liam Millar",
@@ -1827,19 +1847,14 @@
         61.6
       ],
       [
-        "Sorba Thomas",
+        "Tim Iroegbunam",
         "RESERVE",
-        60.760000000000005
+        61.48
       ],
       [
-        "Mohamed-Ali Cho",
+        "Joe Gelhardt",
         "RESERVE",
         60.64
-      ],
-      [
-        "Regan Slater",
-        "RESERVE",
-        60.4
       ],
       [
         "Elliot Stroud",
@@ -1847,14 +1862,24 @@
         60.16
       ],
       [
-        "Lucas Gourna-Douath",
+        "Mohamed-Ali Cho",
         "RESERVE",
-        59.56
+        60.04
       ],
       [
-        "Joe Gelhardt",
+        "Regan Slater",
+        "RESERVE",
+        59.68
+      ],
+      [
+        "Christos Mouzakitis",
         "RESERVE",
         59.2
+      ],
+      [
+        "Lucas Gourna-Douath",
+        "RESERVE",
+        59.199999999999996
       ],
       [
         "Hidemasa Morita",
@@ -1864,20 +1889,10 @@
       [
         "Jens Hjertø-Dahl",
         "RESERVE",
-        58.96
-      ],
-      [
-        "Tim Iroegbunam",
-        "RESERVE",
-        58.84
+        58.72
       ],
       [
         "Abu Kamara",
-        "RESERVE",
-        58.0
-      ],
-      [
-        "Christos Mouzakitis",
         "RESERVE",
         58.0
       ],
@@ -1894,7 +1909,7 @@
       [
         "Abdülkadir Ömür",
         "RESERVE",
-        57.76
+        57.519999999999996
       ],
       [
         "Eliot Matazo",
@@ -1902,26 +1917,26 @@
         56.8
       ],
       [
-        "Kieran Dowell",
+        "Darko Gyabi",
         "RESERVE",
-        56.8
+        56.56
       ],
       [
         "Óscar Zambrano",
         "RESERVE",
-        56.8
+        56.56
       ],
       [
-        "Darko Gyabi",
+        "Kieran Dowell",
         "RESERVE",
-        56.56
+        56.32
       ]
     ],
     "GK": [
       [
         "Konstantinos Tzolakis",
         "RESERVE",
-        65.44
+        63.160000000000004
       ],
       [
         "Jack Butland",
@@ -1948,27 +1963,27 @@
       [
         "Nobel Mendy",
         "RESERVE",
-        63.279999999999994
+        61.72
       ],
       [
         "Semi Ajayi",
         "RESERVE",
-        62.56
+        61.12
       ],
       [
         "John Egan",
         "RESERVE",
-        62.08
+        60.4
       ],
       [
         "Ryan Giles",
         "RESERVE",
-        61.36
+        59.32
       ],
       [
         "Lewie Coyle",
         "RESERVE",
-        58.96
+        58.6
       ],
       [
         "Cody Drameh",
@@ -1978,22 +1993,22 @@
       [
         "Lucas Herrington",
         "RESERVE",
-        56.800000000000004
+        56.8
       ],
       [
         "Matt Targett",
         "RESERVE",
-        56.800000000000004
+        56.56
       ],
       [
         "Paddy McNair",
         "RESERVE",
-        56.800000000000004
+        56.56
       ],
       [
         "Brooke Norton-Cuffy",
         "RESERVE",
-        56.2
+        56.32
       ],
       [
         "Cathal McCarthy",
@@ -2015,7 +2030,7 @@
       [
         "Oli McBurnie",
         "RESERVE",
-        62.32
+        63.760000000000005
       ],
       [
         "Robinio Vaz",
@@ -2025,7 +2040,7 @@
       [
         "Ilyas Ansah",
         "RESERVE",
-        58.0
+        57.76
       ],
       [
         "Enis Destan",
@@ -2042,24 +2057,24 @@
   "Ipswich Town": {
     "DF": [
       [
-        "Leif Davis",
+        "Abdoul Ouattara",
         "RESERVE",
-        61.6
-      ],
-      [
-        "Issa Diop",
-        "RESERVE",
-        58.480000000000004
+        59.08
       ],
       [
         "Dara O'Shea",
         "RESERVE",
-        58.0
+        58.96
       ],
       [
-        "Abdoul Ouattara",
+        "Leif Davis",
         "RESERVE",
-        57.04
+        58.96
+      ],
+      [
+        "Issa Diop",
+        "RESERVE",
+        57.88
       ],
       [
         "Darnell Furlong",
@@ -2069,7 +2084,7 @@
       [
         "Jacob Greaves",
         "RESERVE",
-        56.56
+        56.32
       ],
       [
         "Ben Johnson",
@@ -2086,47 +2101,52 @@
       [
         "Julio Enciso",
         "RESERVE",
-        62.800000000000004
+        63.760000000000005
       ],
       [
         "Jack Clarke",
         "RESERVE",
-        62.32
+        61.96
       ],
       [
         "Exequiel Palacios",
         "RESERVE",
-        61.36
-      ],
-      [
-        "Marcelino Núñez",
-        "RESERVE",
-        61.36
+        61.6
       ],
       [
         "Abdul Fatawu",
         "RESERVE",
-        60.88
+        61.24
       ],
       [
         "Daizen Maeda",
         "RESERVE",
-        60.64
+        61.24
       ],
       [
-        "Saša Lukić",
+        "Marcelino Núñez",
         "RESERVE",
-        60.4
-      ],
-      [
-        "Jaden Philogene",
-        "RESERVE",
-        60.160000000000004
+        61.12
       ],
       [
         "Florentino Ibrain Morris Luís",
         "RESERVE",
-        58.72
+        60.99999999999999
+      ],
+      [
+        "Jaden Philogene",
+        "RESERVE",
+        60.76
+      ],
+      [
+        "Saša Lukić",
+        "RESERVE",
+        60.76
+      ],
+      [
+        "Azor Matusiwa",
+        "RESERVE",
+        60.16
       ],
       [
         "Sam Szmodics",
@@ -2139,24 +2159,19 @@
         58.0
       ],
       [
-        "Kasey McAteer",
-        "RESERVE",
-        57.760000000000005
-      ],
-      [
-        "Azor Matusiwa",
-        "RESERVE",
-        57.76
-      ],
-      [
         "Chiedozie Ogbene",
         "RESERVE",
         57.76
       ],
       [
+        "Kasey McAteer",
+        "RESERVE",
+        57.52
+      ],
+      [
         "Anis Mehmeti",
         "RESERVE",
-        57.519999999999996
+        57.28
       ],
       [
         "Cameron Humphreys",
@@ -2178,7 +2193,7 @@
       [
         "Kjell Scherpen",
         "RESERVE",
-        58.959999999999994
+        58.72
       ],
       [
         "Kayne van Oevelen",
@@ -2200,17 +2215,17 @@
       [
         "Emersonn Correia da Silva",
         "RESERVE",
-        65.44
+        63.04
       ],
       [
         "Zian Flemming",
         "RESERVE",
-        61.6
+        61.36
       ],
       [
         "Chuba Akpom",
         "RESERVE",
-        60.76
+        59.8
       ],
       [
         "Ali Al-Hamadi",
@@ -2249,37 +2264,37 @@
       [
         "Anton Stach",
         "RESERVE",
-        66.88
+        64.84
       ],
       [
         "Ethan Ampadu",
         "RESERVE",
-        64.0
+        62.44
       ],
       [
         "Harry Wilson",
         "RESERVE",
-        62.31999999999999
+        62.44
       ],
       [
-        "Jean-Mattéo Bahoya",
+        "Ilia Gruev",
         "RESERVE",
         59.2
       ],
       [
         "Daniel James",
         "RESERVE",
-        58.96
+        59.199999999999996
       ],
       [
         "Sean Longstaff",
         "RESERVE",
-        58.96
+        58.959999999999994
       ],
       [
-        "Ilia Gruev",
+        "Jean-Mattéo Bahoya",
         "RESERVE",
-        58.0
+        58.72
       ],
       [
         "Jack Harrison",
@@ -2301,7 +2316,7 @@
       [
         "James Trafford",
         "RESERVE",
-        64.72
+        64.48
       ],
       [
         "Lucas Estella Perri",
@@ -2326,24 +2341,24 @@
         77.0
       ],
       [
-        "Jayden Bogle",
-        "RESERVE",
-        67.12
-      ],
-      [
         "Tarik Muharemović",
         "RESERVE",
-        64.48
+        64.96
       ],
       [
-        "James Justin",
+        "Jayden Bogle",
         "RESERVE",
-        63.04
+        64.47999999999999
       ],
       [
         "Jaka Bijol",
         "RESERVE",
-        62.8
+        63.04
+      ],
+      [
+        "James Justin",
+        "RESERVE",
+        62.919999999999995
       ],
       [
         "Nico Elvedi",
@@ -2353,7 +2368,7 @@
       [
         "Joe Rodon",
         "RESERVE",
-        60.52
+        59.32
       ],
       [
         "Melvin Bard",
@@ -2380,12 +2395,12 @@
       [
         "Dominic Calvert-Lewin",
         "RESERVE",
-        65.67999999999999
+        65.08
       ],
       [
         "Lukas Nmecha",
         "RESERVE",
-        61.120000000000005
+        60.4
       ],
       [
         "Joël Piroe",
@@ -2395,7 +2410,7 @@
       [
         "Mateo Joseph Fernández-Regatillo",
         "RESERVE",
-        56.8
+        56.56
       ]
     ]
   },
@@ -2409,12 +2424,12 @@
       [
         "Alisson Becker",
         "RESERVE",
-        65.68
+        64.24000000000001
       ],
       [
         "Giorgi Mamardashvili",
         "RESERVE",
-        57.76
+        57.519999999999996
       ],
       [
         "Armin Pecsi",
@@ -2456,22 +2471,27 @@
       [
         "Ronald Araujo",
         "RESERVE",
-        64.24
+        64.48
       ],
       [
         "Jeremy Jacquet",
         "RESERVE",
-        63.76
+        63.519999999999996
       ],
       [
         "Milos Kerkez",
         "RESERVE",
-        62.08
+        61.72
       ],
       [
         "Jeremie Frimpong",
         "RESERVE",
-        59.56
+        59.199999999999996
+      ],
+      [
+        "Joe Gomez",
+        "RESERVE",
+        58.96
       ],
       [
         "Kostas Tsimikas",
@@ -2480,11 +2500,6 @@
       ],
       [
         "Conor Bradley",
-        "RESERVE",
-        58.0
-      ],
-      [
-        "Joe Gomez",
         "RESERVE",
         57.76
       ],
@@ -2538,12 +2553,12 @@
       [
         "Bradley Barcola",
         "RESERVE",
-        67.96000000000001
+        69.16
       ],
       [
         "Dominik Szoboszlai",
         "RESERVE",
-        67.6
+        66.4
       ],
       [
         "Victor Munoz",
@@ -2553,15 +2568,20 @@
       [
         "Rio Ngumoha",
         "RESERVE",
-        61.24
+        61.0
       ],
       [
-        "Curtis Jones",
+        "Federico Chiesa",
         "RESERVE",
-        59.2
+        59.92
       ],
       [
         "Lewis Koumas",
+        "RESERVE",
+        59.32
+      ],
+      [
+        "Curtis Jones",
         "RESERVE",
         59.2
       ],
@@ -2572,11 +2592,6 @@
       ],
       [
         "Trey Nyoni",
-        "RESERVE",
-        58.96
-      ],
-      [
-        "Federico Chiesa",
         "RESERVE",
         58.72
       ],
@@ -2648,28 +2663,33 @@
       ],
       [
         "Antoine Semenyo",
-        "WISSEL",
-        74.08
+        "RESERVE",
+        72.03999999999999
       ],
       [
         "Enzo Fernández",
         "RESERVE",
-        66.4
-      ],
-      [
-        "Iliman Ndiaye",
-        "RESERVE",
-        65.2
+        65.68
       ],
       [
         "Phil Foden",
         "RESERVE",
-        65.2
+        65.44
       ],
       [
         "Elliot Anderson",
         "RESERVE",
-        64.72
+        64.36
+      ],
+      [
+        "Iliman Ndiaye",
+        "RESERVE",
+        64.36
+      ],
+      [
+        "Allan Andrade Elias",
+        "RESERVE",
+        61.6
       ],
       [
         "Rodrigo 'Rodri' Hernandez Cascante",
@@ -2682,17 +2702,7 @@
         60.400000000000006
       ],
       [
-        "Allan Andrade Elias",
-        "RESERVE",
-        60.4
-      ],
-      [
         "Kalvin Phillips",
-        "RESERVE",
-        58.0
-      ],
-      [
-        "Ryan McAidoo",
         "RESERVE",
         58.0
       ],
@@ -2707,6 +2717,11 @@
         57.76
       ],
       [
+        "Ryan McAidoo",
+        "RESERVE",
+        57.400000000000006
+      ],
+      [
         "Divine Mukasa",
         "RESERVE",
         56.8
@@ -2714,7 +2729,7 @@
       [
         "Floyd Samba",
         "RESERVE",
-        56.8
+        56.56
       ]
     ],
     "GK": [
@@ -2726,17 +2741,17 @@
       [
         "Gianluigi Donnarumma",
         "RESERVE",
-        63.760000000000005
+        62.92
       ],
       [
         "Gerónimo Rulli",
         "RESERVE",
-        58.0
+        57.76
       ],
       [
         "Marcus Bettinelli",
         "RESERVE",
-        56.8
+        56.56
       ]
     ],
     "DF": [
@@ -2778,12 +2793,12 @@
       [
         "Marc Guéhi",
         "RESERVE",
-        67.6
+        65.32
       ],
       [
         "Nico O'Reilly",
         "RESERVE",
-        62.919999999999995
+        63.16
       ],
       [
         "Max Alleyne",
@@ -2793,12 +2808,12 @@
       [
         "Rico Lewis",
         "RESERVE",
-        57.760000000000005
+        57.52
       ],
       [
         "Kaden Braithwaite",
         "RESERVE",
-        56.800000000000004
+        56.56
       ]
     ],
     "AT": [
@@ -2859,37 +2874,42 @@
       [
         "Bryan Mbeumo",
         "RESERVE",
-        70.96000000000001
+        70.48
       ],
       [
         "Marcus Rashford",
         "RESERVE",
-        65.2
-      ],
-      [
-        "Youri Tielemans",
-        "RESERVE",
-        63.28
+        64.48
       ],
       [
         "Patrick Dorgu",
         "RESERVE",
-        62.32
+        63.88
       ],
       [
-        "Mason Mount",
+        "Youri Tielemans",
         "RESERVE",
-        60.160000000000004
+        63.519999999999996
       ],
       [
         "Amad Diallo",
         "RESERVE",
-        59.68
+        61.84
+      ],
+      [
+        "Mason Mount",
+        "RESERVE",
+        60.4
+      ],
+      [
+        "Carlos Baleba",
+        "RESERVE",
+        60.16
       ],
       [
         "Andrey Nascimento dos Santos",
         "RESERVE",
-        59.08
+        59.32
       ],
       [
         "Shea Lacey",
@@ -2900,11 +2920,6 @@
         "Toby Collyer",
         "RESERVE",
         58.0
-      ],
-      [
-        "Carlos Baleba",
-        "RESERVE",
-        57.76
       ],
       [
         "Jack Fletcher",
@@ -2956,9 +2971,14 @@
         79.0
       ],
       [
+        "Leny Yoro",
+        "RESERVE",
+        59.8
+      ],
+      [
         "Harry Maguire",
         "RESERVE",
-        59.919999999999995
+        58.96
       ],
       [
         "Luke Shaw",
@@ -2966,19 +2986,14 @@
         58.96
       ],
       [
-        "Leny Yoro",
-        "RESERVE",
-        58.72
-      ],
-      [
         "Matthijs de Ligt",
         "RESERVE",
-        58.0
+        57.76
       ],
       [
         "Ayden Heaven",
         "RESERVE",
-        57.760000000000005
+        56.8
       ],
       [
         "Harry Amass",
@@ -2995,12 +3010,12 @@
       [
         "Benjamin Sesko",
         "RESERVE",
-        65.2
+        64.96000000000001
       ],
       [
         "Joshua Zirkzee",
         "RESERVE",
-        59.92
+        60.519999999999996
       ],
       [
         "Chido Obi",
@@ -3024,52 +3039,52 @@
       [
         "Harvey Barnes",
         "RESERVE",
-        67.36
-      ],
-      [
-        "Joe Willock",
-        "RESERVE",
-        63.28
-      ],
-      [
-        "Bazoumana Touré",
-        "RESERVE",
-        63.160000000000004
-      ],
-      [
-        "Lewis Miley",
-        "RESERVE",
-        62.080000000000005
-      ],
-      [
-        "Nico González Iglesias",
-        "RESERVE",
-        61.24
+        65.92
       ],
       [
         "Jacob Murphy",
         "RESERVE",
-        60.879999999999995
+        62.919999999999995
       ],
       [
-        "Jacob Ramsey",
+        "Nico González Iglesias",
         "RESERVE",
-        60.519999999999996
+        62.800000000000004
       ],
       [
-        "Sean Steur",
+        "Bazoumana Touré",
         "RESERVE",
-        59.68
+        61.84
       ],
       [
-        "Aladji Bamba",
+        "Joe Willock",
         "RESERVE",
-        58.96
+        61.6
+      ],
+      [
+        "Lewis Miley",
+        "RESERVE",
+        61.6
       ],
       [
         "Joelinton Cássio Apolinário de Lira",
         "RESERVE",
-        58.96
+        60.76
+      ],
+      [
+        "Sean Steur",
+        "RESERVE",
+        59.2
+      ],
+      [
+        "Jacob Ramsey",
+        "RESERVE",
+        58.959999999999994
+      ],
+      [
+        "Aladji Bamba",
+        "RESERVE",
+        58.72
       ],
       [
         "Kyran Thompson",
@@ -3086,12 +3101,12 @@
       [
         "Lukás Hornícek",
         "RESERVE",
-        61.36
+        61.6
       ],
       [
         "Nick Pope",
         "RESERVE",
-        57.76
+        57.519999999999996
       ],
       [
         "Mark Gillespie",
@@ -3123,22 +3138,22 @@
       [
         "Lewis Hall",
         "RESERVE",
-        66.16
+        64.0
       ],
       [
         "Sven Botman",
         "RESERVE",
-        61.6
+        62.44
       ],
       [
         "Amar Dedic",
         "RESERVE",
-        60.64
+        60.88
       ],
       [
         "Fabian Schär",
         "RESERVE",
-        58.96
+        60.64
       ],
       [
         "Alex Murphy",
@@ -3180,12 +3195,12 @@
       [
         "William Osula",
         "RESERVE",
-        64.72
+        63.52
       ],
       [
         "Matias Fernandez-Pardo",
         "RESERVE",
-        61.96
+        61.480000000000004
       ],
       [
         "Sean Neave",
@@ -3207,14 +3222,14 @@
         82.0
       ],
       [
-        "Igor Jesus Maciel da Cruz",
-        "RESERVE",
-        62.800000000000004
-      ],
-      [
         "Liam Delap",
         "RESERVE",
-        62.08
+        62.68
+      ],
+      [
+        "Igor Jesus Maciel da Cruz",
+        "RESERVE",
+        61.839999999999996
       ],
       [
         "Arnaud Kalimuendo",
@@ -3226,37 +3241,32 @@
       [
         "Murillo Costa dos Santos",
         "RESERVE",
-        64.72
-      ],
-      [
-        "Nikola Milenković",
-        "RESERVE",
-        63.76
+        63.400000000000006
       ],
       [
         "Neco Williams",
         "RESERVE",
-        62.56
+        61.839999999999996
       ],
       [
-        "Ousmane Diomande",
+        "Nikola Milenković",
         "RESERVE",
         61.72
       ],
       [
+        "Ousmane Diomande",
+        "RESERVE",
+        61.12
+      ],
+      [
         "Daniel Muñoz Mejía",
         "RESERVE",
-        60.4
+        60.760000000000005
       ],
       [
         "Jair Paula da Cunha Filho",
         "RESERVE",
-        60.16
-      ],
-      [
-        "Ola Aina",
-        "RESERVE",
-        58.96
+        60.28
       ],
       [
         "Felipe Rodrigues da Silva",
@@ -3264,9 +3274,14 @@
         58.0
       ],
       [
+        "Ola Aina",
+        "RESERVE",
+        57.879999999999995
+      ],
+      [
         "Luca Netz",
         "RESERVE",
-        57.760000000000005
+        57.52
       ],
       [
         "Nicolò Savona",
@@ -3298,17 +3313,17 @@
       [
         "Matz Sels",
         "RESERVE",
-        61.36
-      ],
-      [
-        "John Victor Maciel Furtado",
-        "RESERVE",
-        56.8
+        60.76
       ],
       [
         "Steven Benda",
         "RESERVE",
         56.8
+      ],
+      [
+        "John Victor Maciel Furtado",
+        "RESERVE",
+        56.56
       ]
     ],
     "MF": [
@@ -3330,32 +3345,32 @@
       [
         "Morgan Gibbs-White",
         "RESERVE",
-        71.92
+        69.88
       ],
       [
         "James McAtee",
         "RESERVE",
-        62.080000000000005
-      ],
-      [
-        "Callum Hudson-Odoi",
-        "RESERVE",
-        61.120000000000005
+        62.440000000000005
       ],
       [
         "Xaver Schlager",
         "RESERVE",
-        61.12
+        61.72
+      ],
+      [
+        "Callum Hudson-Odoi",
+        "RESERVE",
+        60.88
+      ],
+      [
+        "Nicolás Domínguez",
+        "RESERVE",
+        59.919999999999995
       ],
       [
         "Dilane Bakwa",
         "RESERVE",
         59.2
-      ],
-      [
-        "Nicolás Domínguez",
-        "RESERVE",
-        58.96
       ],
       [
         "Omari Hutchinson",
@@ -3365,7 +3380,7 @@
       [
         "Ryan Yates",
         "RESERVE",
-        56.8
+        58.36
       ]
     ]
   },
@@ -3399,32 +3414,32 @@
       [
         "Marcos Senesi Barón",
         "RESERVE",
-        63.52
+        62.68
       ],
       [
         "Andrew Robertson",
         "RESERVE",
-        60.64
+        61.36
+      ],
+      [
+        "Ben Davies",
+        "RESERVE",
+        60.16
       ],
       [
         "Destiny Udogie",
         "RESERVE",
-        59.32
+        58.96
       ],
       [
         "Tosin Adarabioyo",
         "RESERVE",
-        57.760000000000005
+        58.12
       ],
       [
         "Ashley Phillips",
         "RESERVE",
         56.8
-      ],
-      [
-        "Ben Davies",
-        "RESERVE",
-        56.0
       ],
       [
         "James Rowswell",
@@ -3446,17 +3461,17 @@
       [
         "Omar Marmoush",
         "RESERVE",
-        65.2
+        66.03999999999999
+      ],
+      [
+        "Dominic Solanke-Mitchell",
+        "RESERVE",
+        62.56
       ],
       [
         "Richarlison de Andrade",
         "RESERVE",
         62.559999999999995
-      ],
-      [
-        "Dominic Solanke-Mitchell",
-        "RESERVE",
-        61.6
       ],
       [
         "Dane Scarlett",
@@ -3481,49 +3496,49 @@
         77.0
       ],
       [
-        "Sávio Moreira de Oliveira",
-        "RESERVE",
-        64.84
-      ],
-      [
         "Mohammed Kudus",
         "RESERVE",
-        63.760000000000005
+        65.56
       ],
       [
-        "Conor Gallagher",
+        "Sávio Moreira de Oliveira",
         "RESERVE",
-        62.32
+        64.36
       ],
       [
         "James Maddison",
         "RESERVE",
-        62.32
+        63.63999999999999
       ],
       [
         "Mathys Tel",
         "RESERVE",
-        62.08
-      ],
-      [
-        "Sandro Tonali",
-        "RESERVE",
-        62.08
+        63.04
       ],
       [
         "Dejan Kulusevski",
         "RESERVE",
-        61.6
+        62.800000000000004
+      ],
+      [
+        "Sandro Tonali",
+        "RESERVE",
+        62.8
       ],
       [
         "Mateus Fernandes",
         "RESERVE",
-        61.36
+        62.32
       ],
       [
         "Archie Gray",
         "RESERVE",
-        60.4
+        61.0
+      ],
+      [
+        "Conor Gallagher",
+        "RESERVE",
+        61.0
       ],
       [
         "Xavi Simons",
@@ -3548,7 +3563,7 @@
       [
         "Luca Williams-Barnett",
         "RESERVE",
-        56.8
+        57.760000000000005
       ],
       [
         "Callum Olusesi",
@@ -3560,7 +3575,7 @@
       [
         "Antonín Kinský",
         "RESERVE",
-        61.12
+        61.36
       ],
       [
         "Guglielmo Vicario",
@@ -3569,6 +3584,11 @@
       ],
       [
         "Brandon Austin",
+        "RESERVE",
+        56.0
+      ],
+      [
+        "Luca Gunter",
         "RESERVE",
         56.0
       ],
@@ -3594,47 +3614,47 @@
       [
         "Nordi Mukiele",
         "RESERVE",
-        62.8
+        63.04
       ],
       [
         "Daniel Ballard",
         "RESERVE",
-        61.12
+        60.64
       ],
       [
-        "Thomas Meunier",
+        "Luke O'Nien",
         "RESERVE",
         60.16
       ],
       [
-        "Trai Hume",
+        "Thomas Meunier",
         "RESERVE",
-        59.32
+        59.68
       ],
       [
-        "Kevin Danso",
+        "Trai Hume",
         "RESERVE",
-        59.2
+        59.68
       ],
       [
         "Reinildo Mandava",
         "RESERVE",
-        58.72
+        59.440000000000005
+      ],
+      [
+        "Kevin Danso",
+        "RESERVE",
+        58.24
+      ],
+      [
+        "Dayann Méthalie",
+        "RESERVE",
+        56.8
       ],
       [
         "Jenson Seelt",
         "RESERVE",
         56.8
-      ],
-      [
-        "Luke O'Nien",
-        "RESERVE",
-        56.56
-      ],
-      [
-        "Dayann Méthalie",
-        "RESERVE",
-        56.0
       ],
       [
         "Leo Fuhr Hjelde",
@@ -3688,37 +3708,42 @@
       [
         "Enzo Le Fée",
         "RESERVE",
-        64.0
+        65.2
       ],
       [
         "Nilson Angulo",
         "RESERVE",
-        61.84
+        60.88
       ],
       [
         "Malick Fofana",
         "RESERVE",
-        60.400000000000006
+        60.160000000000004
+      ],
+      [
+        "Jules Ahoka",
+        "RESERVE",
+        59.56
       ],
       [
         "Chris Rigg",
+        "RESERVE",
+        59.08
+      ],
+      [
+        "Djiamgone Jocelin Ta Bi",
         "RESERVE",
         58.96
       ],
       [
         "Romaine Mundle",
         "RESERVE",
-        58.96
+        58.72
       ],
       [
-        "Djiamgone Jocelin Ta Bi",
+        "Tymur Tutierov",
         "RESERVE",
-        58.0
-      ],
-      [
-        "Jules Ahoka",
-        "RESERVE",
-        56.8
+        58.72
       ]
     ],
     "AT": [
@@ -3735,7 +3760,7 @@
       [
         "Juan Angulo",
         "RESERVE",
-        56.8
+        58.0
       ]
     ]
   },

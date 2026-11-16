@@ -15,7 +15,8 @@ from ..models.team_strength import (
     build_team_strength,
 )
 from ..services.v2_data_loader import load_v2_squads
-from .base_engine import MatchEngine
+from .base_engine import MatchEngine, shootout_leader_probability
+from .v3_dynamic_engine import _load_config
 
 
 class V2PlayerMatchEngine(MatchEngine):
@@ -25,15 +26,30 @@ class V2PlayerMatchEngine(MatchEngine):
         squads: dict[str, Squad] | None = None,
         formulas: dict[str, dict[str, float]] | None = None,
         tournament_form: dict[str, float] | None = None,
-        base_goals: float = 1.10,
+        base_goals: float | None = None,
         attack_weight_defense: float = 0.70,
         attack_weight_goalkeeper: float = 0.30,
         midfield_control_weight: float = 0.25,
-        minimum_lambda: float = 0.05,
-        extra_time_lambda_scale: float = 0.30,
-        tiebreaker_base_probability: float = 0.50,
-        tiebreaker_delta_scale: float = 0.0005,
+        minimum_lambda: float | None = None,
+        extra_time_lambda_scale: float | None = None,
+        tiebreaker_base_probability: float | None = None,
+        tiebreaker_delta_scale: float | None = None,
+        curve_factor: float | None = None,
+        curve_min: float | None = None,
+        curve_max: float | None = None,
     ) -> None:
+        # Share calibration with V3 so the two engines do not disagree on the
+        # same squads (V2 previously hardcoded a 2.5 curve and a 1.10 base).
+        cfg = _load_config()
+        sc = cfg.get("strength_curve", {})
+        base_goals = cfg.get("base_goals", 1.10) if base_goals is None else base_goals
+        minimum_lambda = cfg.get("minimum_lambda", 0.05) if minimum_lambda is None else minimum_lambda
+        extra_time_lambda_scale = cfg.get("extra_time_lambda_scale", 0.30) if extra_time_lambda_scale is None else extra_time_lambda_scale
+        tiebreaker_base_probability = cfg.get("tiebreaker_base_probability", 0.50) if tiebreaker_base_probability is None else tiebreaker_base_probability
+        tiebreaker_delta_scale = cfg.get("tiebreaker_delta_scale", 0.0005) if tiebreaker_delta_scale is None else tiebreaker_delta_scale
+        self.curve_factor = sc.get("curve_factor", 3.0) if curve_factor is None else curve_factor
+        self.curve_min = sc.get("min_multiplier", 0.20) if curve_min is None else curve_min
+        self.curve_max = sc.get("max_multiplier", 3.0) if curve_max is None else curve_max
         self.data_dir = Path(data_dir) if data_dir else None
         self.squads = squads if squads is not None else load_v2_squads(self.data_dir)
         self.formulas = formulas or DEFAULT_POSITION_FORMULAS
@@ -69,14 +85,16 @@ class V2PlayerMatchEngine(MatchEngine):
         g1 = poisson(max(self.minimum_lambda, lambda1))
         g2 = poisson(max(self.minimum_lambda, lambda2))
         if not can_draw and g1 == g2:
-            raw_delta = strength1.attack_rating - strength2.attack_rating
             g1_et = poisson(lambda1 * self.extra_time_lambda_scale)
             g2_et = poisson(lambda2 * self.extra_time_lambda_scale)
             if g1_et != g2_et:
                 g1 += g1_et
                 g2 += g2_et
             else:
-                if random.random() < (self.tiebreaker_base_probability + (raw_delta * self.tiebreaker_delta_scale)):
+                leader = shootout_leader_probability(
+                    self.tiebreaker_base_probability, lambda1 - lambda2, self.tiebreaker_delta_scale,
+                )
+                if random.random() < leader:
                     g1 += 1
                 else:
                     g2 += 1
@@ -146,8 +164,8 @@ class V2PlayerMatchEngine(MatchEngine):
         midfield_modifier = 1.0 + self.midfield_control_weight * (
             (attacking.midfield_rating - defending.midfield_rating) / 100.0
         )
-        curve_value = attack_ratio ** 2.5
-        curve_value = max(0.30, min(3.0, curve_value))
+        curve_value = attack_ratio ** self.curve_factor
+        curve_value = max(self.curve_min, min(self.curve_max, curve_value))
         xg = self.base_goals * curve_value * midfield_modifier
         team = attacking.team
         form_mult = 1.0 + self._tournament_form.get(team, 0.0) / 1500.0

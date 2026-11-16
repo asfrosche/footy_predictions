@@ -319,7 +319,9 @@ def _team_names_and_metrics(data_dir: Path) -> tuple[list[str], list[str], dict[
             order.append(team)
         elo = float(info.get("elo") or EPL_ELO.get(team, 1800))
         metric_teams[team]["ELO"] = elo
-        metric_teams[team]["PELE"] = float(info.get("pele") or elo - 60)
+        # No independent PELE source exists for the PL; a neutral PELE = ELO
+        # avoids inventing a constant 60-point offset for every club.
+        metric_teams[team]["PELE"] = float(info.get("pele") or elo)
     return order, order, metric_teams
 
 

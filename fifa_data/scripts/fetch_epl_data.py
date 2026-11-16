@@ -644,25 +644,21 @@ def fetch_odds() -> None:
 
 
 def _write_builtin_odds() -> None:
-    from ..competitions.premier_league import EPL_CLUBS
+    """Record that no live odds are available. Never invent prices.
 
-    matches = []
-    for i in range(0, len(EPL_CLUBS), 2):
-        if i + 1 >= len(EPL_CLUBS):
-            break
-        matches.append(
-            {
-                "home": EPL_CLUBS[i],
-                "away": EPL_CLUBS[i + 1],
-                "home_win": 2.4,
-                "draw": 3.3,
-                "away_win": 2.9,
-                "source": "builtin",
-            }
-        )
+    The previous version wrote a fixed 2.4/3.3/2.9 line for every fixture,
+    which downstream code then presented as market odds.
+    """
     from ..competitions.premier_league import _competition_stamp
 
-    DATA.joinpath("epl_odds.json").write_text(json.dumps({"matches": matches, **_competition_stamp()}, indent=2), encoding="utf-8")
+    payload = {
+        "matches": [],
+        "source": "unavailable",
+        "note": "No live odds source configured or reachable; no prices written.",
+        **_competition_stamp(),
+    }
+    DATA.joinpath("epl_odds.json").write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    log("no live odds available; wrote empty epl_odds.json (no placeholder prices)")
 
 
 # ── Real lineups ──────────────────────────────────────────────────

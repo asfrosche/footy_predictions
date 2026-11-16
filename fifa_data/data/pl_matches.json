@@ -3,8 +3,8 @@
   "season": "2026/2027",
   "competition_format": "league",
   "last_updated": "",
-  "completed_count": 50,
-  "upcoming_count": 330,
+  "completed_count": 100,
+  "upcoming_count": 280,
   "completed": [
     {
       "id": "pl_2645195",
@@ -2185,7 +2185,7 @@
             "name": "Tarik Muharemović"
           }
         ],
-        "formation": "3-5-2"
+        "formation": "3-4-2-1"
       },
       "winner": null,
       "status": 0
@@ -2311,9 +2311,6 @@
             "name": "Erling Haaland"
           },
           {
-            "name": "Enzo Fernández"
-          },
-          {
             "name": "Joško Gvardiol"
           },
           {
@@ -2324,6 +2321,9 @@
           },
           {
             "name": "Abdukodir Khusanov"
+          },
+          {
+            "name": "Nico O'Reilly"
           }
         ],
         "formation": "4-2-3-1"
@@ -2352,9 +2352,6 @@
             "name": "Erling Haaland"
           },
           {
-            "name": "Enzo Fernández"
-          },
-          {
             "name": "Josko Gvardiol"
           },
           {
@@ -2365,6 +2362,9 @@
           },
           {
             "name": "Abdukodir Khusanov"
+          },
+          {
+            "name": "Nico O'Reilly"
           }
         ],
         "formation": "4-2-3-1"
@@ -3600,7 +3600,7 @@
             "name": "Ao Tanaka"
           }
         ],
-        "formation": "3-5-2"
+        "formation": "3-4-2-1"
       },
       "away": {
         "name": "Newcastle United",
@@ -3641,7 +3641,7 @@
             "name": "Ao Tanaka"
           }
         ],
-        "formation": "3-5-2"
+        "formation": "3-4-2-1"
       },
       "winner": "Leeds United",
       "status": 0
@@ -4555,9 +4555,7 @@
       },
       "winner": null,
       "status": 0
-    }
-  ],
-  "upcoming": [
+    },
     {
       "id": "pl_2645245",
       "date": "2026-10-10T11:30:00Z",
@@ -4566,18 +4564,88 @@
       "matchday": 6,
       "home": {
         "name": "Arsenal",
-        "score": null,
+        "score": 2,
         "id": 1,
-        "players": []
+        "players": [
+          {
+            "name": "Ezri Konsa"
+          },
+          {
+            "name": "Kai Havertz"
+          },
+          {
+            "name": "Riccardo Calafiori"
+          },
+          {
+            "name": "Martin Ødegaard"
+          },
+          {
+            "name": "Myles Lewis-Skelly"
+          },
+          {
+            "name": "Noni Madueke"
+          },
+          {
+            "name": "Benjamin White"
+          },
+          {
+            "name": "Gabriel dos Santos Magalhães"
+          },
+          {
+            "name": "Declan Rice"
+          },
+          {
+            "name": "Bukayo Saka"
+          },
+          {
+            "name": "David Raya"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Leeds United",
-        "score": null,
+        "score": 1,
         "id": 13,
-        "players": []
+        "players": [
+          {
+            "name": "Gabriel Gudmundsson"
+          },
+          {
+            "name": "Noah Okafor"
+          },
+          {
+            "name": "Anton Stach"
+          },
+          {
+            "name": "Ao Tanaka"
+          },
+          {
+            "name": "Tarik Muharemović"
+          },
+          {
+            "name": "Dominic Calvert-Lewin"
+          },
+          {
+            "name": "Nico Elvedi"
+          },
+          {
+            "name": "James Justin"
+          },
+          {
+            "name": "Jayden Bogle"
+          },
+          {
+            "name": "Ethan Ampadu"
+          },
+          {
+            "name": "James Trafford"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Arsenal",
+      "status": 0
     },
     {
       "id": "pl_2645246",
@@ -4587,18 +4655,88 @@
       "matchday": 6,
       "home": {
         "name": "Aston Villa",
-        "score": null,
+        "score": 2,
         "id": 2,
-        "players": []
+        "players": [
+          {
+            "name": "John McGinn"
+          },
+          {
+            "name": "Nicolas Jackson"
+          },
+          {
+            "name": "Johan Manzambi"
+          },
+          {
+            "name": "Matty Cash"
+          },
+          {
+            "name": "Matteo Ruggeri"
+          },
+          {
+            "name": "Boubacar Kamara"
+          },
+          {
+            "name": "Joao Gomes"
+          },
+          {
+            "name": "Emiliano Buendía"
+          },
+          {
+            "name": "Victor Lindelöf"
+          },
+          {
+            "name": "Zion Suzuki"
+          },
+          {
+            "name": "Tyrone Mings"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Brentford",
-        "score": null,
+        "score": 2,
         "id": 4,
-        "players": []
+        "players": [
+          {
+            "name": "Caoimhín Kelleher"
+          },
+          {
+            "name": "Kevin Schade"
+          },
+          {
+            "name": "Jannik Schuster"
+          },
+          {
+            "name": "Yehor Yarmoliuk"
+          },
+          {
+            "name": "Vitaly Janelt"
+          },
+          {
+            "name": "Keane Lewis-Potter"
+          },
+          {
+            "name": "Kristoffer Ajer"
+          },
+          {
+            "name": "Michael Kayode"
+          },
+          {
+            "name": "Igor Thiago"
+          },
+          {
+            "name": "Jaidon Anthony"
+          },
+          {
+            "name": "El Hadji Malick Diouf"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645247",
@@ -4608,18 +4746,88 @@
       "matchday": 6,
       "home": {
         "name": "Chelsea",
-        "score": null,
+        "score": 5,
         "id": 6,
-        "players": []
+        "players": [
+          {
+            "name": "Morgan Rogers"
+          },
+          {
+            "name": "Pep Chavarría"
+          },
+          {
+            "name": "Pedro Neto"
+          },
+          {
+            "name": "Emiliano Martínez"
+          },
+          {
+            "name": "Moisés Caicedo"
+          },
+          {
+            "name": "Josh Acheampong"
+          },
+          {
+            "name": "Jordan Henderson"
+          },
+          {
+            "name": "João Pedro"
+          },
+          {
+            "name": "Maxence Lacroix"
+          },
+          {
+            "name": "Cole Palmer"
+          },
+          {
+            "name": "Levi Samuels Colwill"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Bournemouth",
-        "score": null,
+        "score": 1,
         "id": 3,
-        "players": []
+        "players": [
+          {
+            "name": "Tyler Adams"
+          },
+          {
+            "name": "Ryan Christie"
+          },
+          {
+            "name": "Evanilson"
+          },
+          {
+            "name": "Rayan"
+          },
+          {
+            "name": "Marcus Tavernier"
+          },
+          {
+            "name": "António João Pereira de Albuquerque Tavares da Silva"
+          },
+          {
+            "name": "Đorđe Petrović"
+          },
+          {
+            "name": "David Brooks"
+          },
+          {
+            "name": "Adrien Truffert"
+          },
+          {
+            "name": "Adam Smith"
+          },
+          {
+            "name": "James Hill"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Chelsea",
+      "status": 0
     },
     {
       "id": "pl_2645251",
@@ -4629,18 +4837,88 @@
       "matchday": 6,
       "home": {
         "name": "Ipswich Town",
-        "score": null,
+        "score": 2,
         "id": 12,
-        "players": []
+        "players": [
+          {
+            "name": "Julio Enciso"
+          },
+          {
+            "name": "Daizen Maeda"
+          },
+          {
+            "name": "Christian Walton"
+          },
+          {
+            "name": "Jaden Philogene"
+          },
+          {
+            "name": "Dara O'Shea"
+          },
+          {
+            "name": "Emersonn"
+          },
+          {
+            "name": "Abdoul Ouattara"
+          },
+          {
+            "name": "Leif Davis"
+          },
+          {
+            "name": "Issa Diop"
+          },
+          {
+            "name": "Saša Lukić"
+          },
+          {
+            "name": "Florentino"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Fulham",
-        "score": null,
+        "score": 1,
         "id": 10,
-        "players": []
+        "players": [
+          {
+            "name": "Calvin Bassey"
+          },
+          {
+            "name": "Bernd Leno"
+          },
+          {
+            "name": "Alex Iwobi"
+          },
+          {
+            "name": "Shea Charles"
+          },
+          {
+            "name": "Josh King"
+          },
+          {
+            "name": "David Affengruber"
+          },
+          {
+            "name": "Ryan Sessegnon"
+          },
+          {
+            "name": "Gonzalo García"
+          },
+          {
+            "name": "Sander Berge"
+          },
+          {
+            "name": "Kenny Tete"
+          },
+          {
+            "name": "Oscar Bobb"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Ipswich Town",
+      "status": 0
     },
     {
       "id": "pl_2645254",
@@ -4650,18 +4928,88 @@
       "matchday": 6,
       "home": {
         "name": "Sunderland",
-        "score": null,
+        "score": 0,
         "id": 20,
-        "players": []
+        "players": [
+          {
+            "name": "Nilson Angulo"
+          },
+          {
+            "name": "Trai Hume"
+          },
+          {
+            "name": "Thomas Meunier"
+          },
+          {
+            "name": "Wilson Isidor"
+          },
+          {
+            "name": "Kevin Danso"
+          },
+          {
+            "name": "Noah Sadiki"
+          },
+          {
+            "name": "Granit Xhaka"
+          },
+          {
+            "name": "Robin Roefs"
+          },
+          {
+            "name": "Reinildo Mandava"
+          },
+          {
+            "name": "Nordi Mukiele"
+          },
+          {
+            "name": "Enzo Le Fée"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Brighton & Hove Albion",
-        "score": null,
+        "score": 2,
         "id": 5,
-        "players": []
+        "players": [
+          {
+            "name": "Bart Verbruggen"
+          },
+          {
+            "name": "Diego Gómez"
+          },
+          {
+            "name": "Pascal Struijk"
+          },
+          {
+            "name": "Charalampos Kostoulas"
+          },
+          {
+            "name": "Chema Andrés"
+          },
+          {
+            "name": "Pascal Groß"
+          },
+          {
+            "name": "Yasin Ayari"
+          },
+          {
+            "name": "Maxim De Cuyper"
+          },
+          {
+            "name": "Olivier Boscagli"
+          },
+          {
+            "name": "Luka Vušković"
+          },
+          {
+            "name": "Ferdi Kadioglu"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Brighton & Hove Albion",
+      "status": 0
     },
     {
       "id": "pl_2645253",
@@ -4671,18 +5019,88 @@
       "matchday": 6,
       "home": {
         "name": "Manchester United",
-        "score": null,
+        "score": 1,
         "id": 16,
-        "players": []
+        "players": [
+          {
+            "name": "Harry Maguire"
+          },
+          {
+            "name": "Kobbie Mainoo"
+          },
+          {
+            "name": "Lisandro Martínez"
+          },
+          {
+            "name": "Youri Tielemans"
+          },
+          {
+            "name": "Bruno Fernandes"
+          },
+          {
+            "name": "Bryan Mbeumo"
+          },
+          {
+            "name": "Amad Diallo"
+          },
+          {
+            "name": "Leny Yoro"
+          },
+          {
+            "name": "Senne Lammens"
+          },
+          {
+            "name": "Luke Shaw"
+          },
+          {
+            "name": "Matheus Cunha"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Tottenham Hotspur",
-        "score": null,
+        "score": 1,
         "id": 19,
-        "players": []
+        "players": [
+          {
+            "name": "Conor Gallagher"
+          },
+          {
+            "name": "Destiny Udogie"
+          },
+          {
+            "name": "Mohammed Kudus"
+          },
+          {
+            "name": "Dominic Solanke"
+          },
+          {
+            "name": "Sávio"
+          },
+          {
+            "name": "Archie Gray"
+          },
+          {
+            "name": "Marcos Senesi"
+          },
+          {
+            "name": "Sandro Tonali"
+          },
+          {
+            "name": "Lucas Bergvall"
+          },
+          {
+            "name": "Jan Paul van Hecke"
+          },
+          {
+            "name": "Antonín Kinský"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645249",
@@ -4692,18 +5110,88 @@
       "matchday": 6,
       "home": {
         "name": "Crystal Palace",
-        "score": null,
+        "score": 3,
         "id": 8,
-        "players": []
+        "players": [
+          {
+            "name": "Jaydee Canvot"
+          },
+          {
+            "name": "Daichi Kamada"
+          },
+          {
+            "name": "Walter Benítez"
+          },
+          {
+            "name": "Anan Khalaili"
+          },
+          {
+            "name": "Jørgen Strand Larsen"
+          },
+          {
+            "name": "Jefferson Lerma"
+          },
+          {
+            "name": "Quinten Timber"
+          },
+          {
+            "name": "Chris Richards"
+          },
+          {
+            "name": "Adam Wharton"
+          },
+          {
+            "name": "Tyrick Mitchell"
+          },
+          {
+            "name": "Yeremy Pino"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "away": {
         "name": "Nottingham Forest",
-        "score": null,
+        "score": 1,
         "id": 18,
-        "players": []
+        "players": [
+          {
+            "name": "Neco Williams"
+          },
+          {
+            "name": "Liam Delap"
+          },
+          {
+            "name": "Dan Ndoye"
+          },
+          {
+            "name": "Ousmane Diomande"
+          },
+          {
+            "name": "Ola Aina"
+          },
+          {
+            "name": "James McAtee"
+          },
+          {
+            "name": "Daniel Muñoz"
+          },
+          {
+            "name": "Morgan Gibbs-White"
+          },
+          {
+            "name": "Murillo"
+          },
+          {
+            "name": "Xaver Schlager"
+          },
+          {
+            "name": "Matz Sels"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Crystal Palace",
+      "status": 0
     },
     {
       "id": "pl_2645250",
@@ -4713,18 +5201,88 @@
       "matchday": 6,
       "home": {
         "name": "Hull City",
-        "score": null,
+        "score": 2,
         "id": 11,
-        "players": []
+        "players": [
+          {
+            "name": "Nobel Mendy"
+          },
+          {
+            "name": "Sorba Thomas"
+          },
+          {
+            "name": "Konstantinos Tzolakis"
+          },
+          {
+            "name": "Lewie Coyle"
+          },
+          {
+            "name": "John Egan"
+          },
+          {
+            "name": "Regan Slater"
+          },
+          {
+            "name": "Ryan Giles"
+          },
+          {
+            "name": "Semi Ajayi"
+          },
+          {
+            "name": "Joe Gelhardt"
+          },
+          {
+            "name": "Oli McBurnie"
+          },
+          {
+            "name": "Matt Crooks"
+          }
+        ],
+        "formation": "5-4-1"
       },
       "away": {
         "name": "Everton",
-        "score": null,
+        "score": 2,
         "id": 9,
-        "players": []
+        "players": [
+          {
+            "name": "Harrison Armstrong"
+          },
+          {
+            "name": "Jordan Pickford"
+          },
+          {
+            "name": "James Garner"
+          },
+          {
+            "name": "James Tarkowski"
+          },
+          {
+            "name": "Jarrad Branthwaite"
+          },
+          {
+            "name": "Brennan Johnson"
+          },
+          {
+            "name": "Michael Keane"
+          },
+          {
+            "name": "Thierno Barry"
+          },
+          {
+            "name": "Ainsley Maitland-Niles"
+          },
+          {
+            "name": "Kiernan Dewsbury-Hall"
+          },
+          {
+            "name": "Jack Grealish"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645252",
@@ -4734,18 +5292,88 @@
       "matchday": 6,
       "home": {
         "name": "Liverpool",
-        "score": null,
+        "score": 0,
         "id": 14,
-        "players": []
+        "players": [
+          {
+            "name": "Alisson Becker"
+          },
+          {
+            "name": "Virgil van Dijk"
+          },
+          {
+            "name": "Bradley Barcola"
+          },
+          {
+            "name": "Jeremy Jacquet"
+          },
+          {
+            "name": "Ronald Araujo"
+          },
+          {
+            "name": "Ryan Gravenberch"
+          },
+          {
+            "name": "Alexis Mac Allister"
+          },
+          {
+            "name": "Lewis Koumas"
+          },
+          {
+            "name": "Victor Munoz"
+          },
+          {
+            "name": "Milos Kerkez"
+          },
+          {
+            "name": "Florian Wirtz"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Manchester City",
-        "score": null,
+        "score": 3,
         "id": 15,
-        "players": []
+        "players": [
+          {
+            "name": "Marc Guéhi"
+          },
+          {
+            "name": "Nico O'Reilly"
+          },
+          {
+            "name": "Elliot Anderson"
+          },
+          {
+            "name": "Enzo Fernández"
+          },
+          {
+            "name": "Gianluigi Donnarumma"
+          },
+          {
+            "name": "Antoine Semenyo"
+          },
+          {
+            "name": "Erling Haaland"
+          },
+          {
+            "name": "Matheus Nunes"
+          },
+          {
+            "name": "Iliman Ndiaye"
+          },
+          {
+            "name": "Rúben Dias"
+          },
+          {
+            "name": "Rayan Cherki"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Manchester City",
+      "status": 0
     },
     {
       "id": "pl_2645248",
@@ -4755,18 +5383,88 @@
       "matchday": 6,
       "home": {
         "name": "Coventry City",
-        "score": null,
+        "score": 4,
         "id": 7,
-        "players": []
+        "players": [
+          {
+            "name": "Caleb Yirenkyi"
+          },
+          {
+            "name": "Jack Rudoni"
+          },
+          {
+            "name": "Bobby Thomas"
+          },
+          {
+            "name": "Jay Dasilva"
+          },
+          {
+            "name": "Carl Rushworth"
+          },
+          {
+            "name": "Ephron Mason-Clark"
+          },
+          {
+            "name": "Sidiki Cherif"
+          },
+          {
+            "name": "Matt Grimes"
+          },
+          {
+            "name": "Brandon Thomas-Asante"
+          },
+          {
+            "name": "Ethan Pinnock"
+          },
+          {
+            "name": "Milan van Ewijk"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Newcastle United",
-        "score": null,
+        "score": 1,
         "id": 17,
-        "players": []
+        "players": [
+          {
+            "name": "Lewis Miley"
+          },
+          {
+            "name": "Matias Fernandez-Pardo"
+          },
+          {
+            "name": "Malick Thiaw"
+          },
+          {
+            "name": "Harvey Barnes"
+          },
+          {
+            "name": "Joe Willock"
+          },
+          {
+            "name": "Yoane Wissa"
+          },
+          {
+            "name": "Sven Botman"
+          },
+          {
+            "name": "Jacob Murphy"
+          },
+          {
+            "name": "Nico González"
+          },
+          {
+            "name": "Lewis Hall"
+          },
+          {
+            "name": "Lukás Hornícek"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Coventry City",
+      "status": 0
     },
     {
       "id": "pl_2645258",
@@ -4776,18 +5474,88 @@
       "matchday": 7,
       "home": {
         "name": "Everton",
-        "score": null,
+        "score": 0,
         "id": 9,
-        "players": []
+        "players": [
+          {
+            "name": "Kiernan Dewsbury-Hall"
+          },
+          {
+            "name": "Jordan Pickford"
+          },
+          {
+            "name": "Ainsley Maitland-Niles"
+          },
+          {
+            "name": "Vitalii Mykolenko"
+          },
+          {
+            "name": "Jarrad Branthwaite"
+          },
+          {
+            "name": "Jack Grealish"
+          },
+          {
+            "name": "James Garner"
+          },
+          {
+            "name": "Merlin Röhl"
+          },
+          {
+            "name": "Thierno Barry"
+          },
+          {
+            "name": "James Tarkowski"
+          },
+          {
+            "name": "Harrison Armstrong"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Chelsea",
-        "score": null,
+        "score": 2,
         "id": 6,
-        "players": []
+        "players": [
+          {
+            "name": "Maxence Lacroix"
+          },
+          {
+            "name": "Cole Palmer"
+          },
+          {
+            "name": "Pedro Neto"
+          },
+          {
+            "name": "Jorrel Hato"
+          },
+          {
+            "name": "Moisés Caicedo"
+          },
+          {
+            "name": "Morgan Rogers"
+          },
+          {
+            "name": "Levi Samuels Colwill"
+          },
+          {
+            "name": "Josh Acheampong"
+          },
+          {
+            "name": "João Pedro"
+          },
+          {
+            "name": "Emiliano Martínez"
+          },
+          {
+            "name": "Jordan Henderson"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Chelsea",
+      "status": 0
     },
     {
       "id": "pl_2645256",
@@ -4797,18 +5565,88 @@
       "matchday": 7,
       "home": {
         "name": "Brentford",
-        "score": null,
+        "score": 1,
         "id": 4,
-        "players": []
+        "players": [
+          {
+            "name": "Yehor Yarmoliuk"
+          },
+          {
+            "name": "Dango Ouattara"
+          },
+          {
+            "name": "Kristoffer Ajer"
+          },
+          {
+            "name": "Michael Kayode"
+          },
+          {
+            "name": "Jaidon Anthony"
+          },
+          {
+            "name": "Vitaly Janelt"
+          },
+          {
+            "name": "Sepp van den Berg"
+          },
+          {
+            "name": "Caoimhín Kelleher"
+          },
+          {
+            "name": "Igor Thiago"
+          },
+          {
+            "name": "Keane Lewis-Potter"
+          },
+          {
+            "name": "Mathias Jensen"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Liverpool",
-        "score": null,
+        "score": 2,
         "id": 14,
-        "players": []
+        "players": [
+          {
+            "name": "Virgil van Dijk"
+          },
+          {
+            "name": "Jeremy Jacquet"
+          },
+          {
+            "name": "Alexis Mac Allister"
+          },
+          {
+            "name": "Florian Wirtz"
+          },
+          {
+            "name": "Alexander Isak"
+          },
+          {
+            "name": "Victor Munoz"
+          },
+          {
+            "name": "Dominik Szoboszlai"
+          },
+          {
+            "name": "Milos Kerkez"
+          },
+          {
+            "name": "Ronald Araujo"
+          },
+          {
+            "name": "Alisson Becker"
+          },
+          {
+            "name": "Bradley Barcola"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Liverpool",
+      "status": 0
     },
     {
       "id": "pl_2645259",
@@ -4818,18 +5656,88 @@
       "matchday": 7,
       "home": {
         "name": "Fulham",
-        "score": null,
+        "score": 1,
         "id": 10,
-        "players": []
+        "players": [
+          {
+            "name": "Gonzalo García"
+          },
+          {
+            "name": "Alex Iwobi"
+          },
+          {
+            "name": "Oscar Bobb"
+          },
+          {
+            "name": "Calvin Bassey"
+          },
+          {
+            "name": "Timothy Castagne"
+          },
+          {
+            "name": "Shea Charles"
+          },
+          {
+            "name": "Sander Berge"
+          },
+          {
+            "name": "David Affengruber"
+          },
+          {
+            "name": "Josh King"
+          },
+          {
+            "name": "Antonee Robinson"
+          },
+          {
+            "name": "Bernd Leno"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Hull City",
-        "score": null,
+        "score": 0,
         "id": 11,
-        "players": []
+        "players": [
+          {
+            "name": "Konstantinos Tzolakis"
+          },
+          {
+            "name": "Sorba Thomas"
+          },
+          {
+            "name": "Lucas Herrington"
+          },
+          {
+            "name": "Lewie Coyle"
+          },
+          {
+            "name": "Brooke Norton-Cuffy"
+          },
+          {
+            "name": "Matt Crooks"
+          },
+          {
+            "name": "John Egan"
+          },
+          {
+            "name": "Semi Ajayi"
+          },
+          {
+            "name": "Oli McBurnie"
+          },
+          {
+            "name": "Mohamed Belloumi"
+          },
+          {
+            "name": "Regan Slater"
+          }
+        ],
+        "formation": "5-4-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Fulham",
+      "status": 0
     },
     {
       "id": "pl_2645261",
@@ -4839,18 +5747,88 @@
       "matchday": 7,
       "home": {
         "name": "Manchester City",
-        "score": null,
+        "score": 3,
         "id": 15,
-        "players": []
+        "players": [
+          {
+            "name": "Marc Guéhi"
+          },
+          {
+            "name": "Matheus Nunes"
+          },
+          {
+            "name": "Nico O'Reilly"
+          },
+          {
+            "name": "Ayyoub Bouaddi"
+          },
+          {
+            "name": "Gianluigi Donnarumma"
+          },
+          {
+            "name": "Rúben Dias"
+          },
+          {
+            "name": "Erling Haaland"
+          },
+          {
+            "name": "Jérémy Doku"
+          },
+          {
+            "name": "Mateo Kovačić"
+          },
+          {
+            "name": "Iliman Ndiaye"
+          },
+          {
+            "name": "Phil Foden"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Ipswich Town",
-        "score": null,
+        "score": 2,
         "id": 12,
-        "players": []
+        "players": [
+          {
+            "name": "Dara O'Shea"
+          },
+          {
+            "name": "Abdoul Ouattara"
+          },
+          {
+            "name": "Issa Diop"
+          },
+          {
+            "name": "Julio Enciso"
+          },
+          {
+            "name": "Christian Walton"
+          },
+          {
+            "name": "Leif Davis"
+          },
+          {
+            "name": "Emersonn"
+          },
+          {
+            "name": "Exequiel Palacios"
+          },
+          {
+            "name": "Florentino"
+          },
+          {
+            "name": "Jacob Greaves"
+          },
+          {
+            "name": "Daizen Maeda"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Manchester City",
+      "status": 0
     },
     {
       "id": "pl_2645262",
@@ -4860,18 +5838,88 @@
       "matchday": 7,
       "home": {
         "name": "Newcastle United",
-        "score": null,
+        "score": 0,
         "id": 17,
-        "players": []
+        "players": [
+          {
+            "name": "Matias Fernandez-Pardo"
+          },
+          {
+            "name": "Joelinton"
+          },
+          {
+            "name": "Sven Botman"
+          },
+          {
+            "name": "Harvey Barnes"
+          },
+          {
+            "name": "Joe Willock"
+          },
+          {
+            "name": "Lewis Hall"
+          },
+          {
+            "name": "Yoane Wissa"
+          },
+          {
+            "name": "Lewis Miley"
+          },
+          {
+            "name": "Malick Thiaw"
+          },
+          {
+            "name": "Lukás Hornícek"
+          },
+          {
+            "name": "Nico González"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Aston Villa",
-        "score": null,
+        "score": 1,
         "id": 2,
-        "players": []
+        "players": [
+          {
+            "name": "Matty Cash"
+          },
+          {
+            "name": "Emiliano Buendía"
+          },
+          {
+            "name": "Joao Gomes"
+          },
+          {
+            "name": "Nicolas Jackson"
+          },
+          {
+            "name": "Alysson"
+          },
+          {
+            "name": "Zion Suzuki"
+          },
+          {
+            "name": "Victor Lindelöf"
+          },
+          {
+            "name": "Boubacar Kamara"
+          },
+          {
+            "name": "Tyrone Mings"
+          },
+          {
+            "name": "Johan Manzambi"
+          },
+          {
+            "name": "Aaron Wan-Bissaka"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Aston Villa",
+      "status": 0
     },
     {
       "id": "pl_2645255",
@@ -4881,18 +5929,88 @@
       "matchday": 7,
       "home": {
         "name": "Bournemouth",
-        "score": null,
+        "score": 2,
         "id": 3,
-        "players": []
+        "players": [
+          {
+            "name": "Đorđe Petrović"
+          },
+          {
+            "name": "Ryan Christie"
+          },
+          {
+            "name": "Adrien Truffert"
+          },
+          {
+            "name": "Marcus Tavernier"
+          },
+          {
+            "name": "Evanilson"
+          },
+          {
+            "name": "Tyler Adams"
+          },
+          {
+            "name": "António João Pereira de Albuquerque Tavares da Silva"
+          },
+          {
+            "name": "Lewis Cook"
+          },
+          {
+            "name": "Rayan"
+          },
+          {
+            "name": "James Hill"
+          },
+          {
+            "name": "Adam Smith"
+          }
+        ],
+        "formation": "4-1-4-1"
       },
       "away": {
         "name": "Sunderland",
-        "score": null,
+        "score": 0,
         "id": 20,
-        "players": []
+        "players": [
+          {
+            "name": "Nordi Mukiele"
+          },
+          {
+            "name": "Trai Hume"
+          },
+          {
+            "name": "Kevin Danso"
+          },
+          {
+            "name": "Omar Alderete"
+          },
+          {
+            "name": "Noah Sadiki"
+          },
+          {
+            "name": "Reinildo Mandava"
+          },
+          {
+            "name": "Granit Xhaka"
+          },
+          {
+            "name": "Tymur Tutierov"
+          },
+          {
+            "name": "Robin Roefs"
+          },
+          {
+            "name": "Enzo Le Fée"
+          },
+          {
+            "name": "Chris Rigg"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Bournemouth",
+      "status": 0
     },
     {
       "id": "pl_2645257",
@@ -4902,18 +6020,88 @@
       "matchday": 7,
       "home": {
         "name": "Brighton & Hove Albion",
-        "score": null,
+        "score": 5,
         "id": 5,
-        "players": []
+        "players": [
+          {
+            "name": "Chema Andrés"
+          },
+          {
+            "name": "Yasin Ayari"
+          },
+          {
+            "name": "Maxim De Cuyper"
+          },
+          {
+            "name": "Olivier Boscagli"
+          },
+          {
+            "name": "Ferdi Kadioglu"
+          },
+          {
+            "name": "Diego Gómez"
+          },
+          {
+            "name": "Pascal Groß"
+          },
+          {
+            "name": "Lewis Dunk"
+          },
+          {
+            "name": "Luka Vušković"
+          },
+          {
+            "name": "Charalampos Kostoulas"
+          },
+          {
+            "name": "Bart Verbruggen"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Crystal Palace",
-        "score": null,
+        "score": 0,
         "id": 8,
-        "players": []
+        "players": [
+          {
+            "name": "Walter Benítez"
+          },
+          {
+            "name": "Honest Ahanor"
+          },
+          {
+            "name": "Anan Khalaili"
+          },
+          {
+            "name": "Chris Richards"
+          },
+          {
+            "name": "Jaydee Canvot"
+          },
+          {
+            "name": "Jørgen Strand Larsen"
+          },
+          {
+            "name": "Adam Wharton"
+          },
+          {
+            "name": "Daichi Kamada"
+          },
+          {
+            "name": "Yeremy Pino"
+          },
+          {
+            "name": "Tyrick Mitchell"
+          },
+          {
+            "name": "Quinten Timber"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Brighton & Hove Albion",
+      "status": 0
     },
     {
       "id": "pl_2645260",
@@ -4923,18 +6111,88 @@
       "matchday": 7,
       "home": {
         "name": "Leeds United",
-        "score": null,
+        "score": 1,
         "id": 13,
-        "players": []
+        "players": [
+          {
+            "name": "Noah Okafor"
+          },
+          {
+            "name": "Gabriel Gudmundsson"
+          },
+          {
+            "name": "Tarik Muharemović"
+          },
+          {
+            "name": "Ao Tanaka"
+          },
+          {
+            "name": "James Justin"
+          },
+          {
+            "name": "Dominic Calvert-Lewin"
+          },
+          {
+            "name": "Jayden Bogle"
+          },
+          {
+            "name": "Ethan Ampadu"
+          },
+          {
+            "name": "Nico Elvedi"
+          },
+          {
+            "name": "Anton Stach"
+          },
+          {
+            "name": "James Trafford"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "away": {
         "name": "Manchester United",
-        "score": null,
+        "score": 1,
         "id": 16,
-        "players": []
+        "players": [
+          {
+            "name": "Noah Okafor"
+          },
+          {
+            "name": "Gabriel Gudmundsson"
+          },
+          {
+            "name": "Tarik Muharemovic"
+          },
+          {
+            "name": "Ao Tanaka"
+          },
+          {
+            "name": "James Justin"
+          },
+          {
+            "name": "Dominic Calvert-Lewin"
+          },
+          {
+            "name": "Jayden Bogle"
+          },
+          {
+            "name": "Ethan Ampadu"
+          },
+          {
+            "name": "Nico Elvedi"
+          },
+          {
+            "name": "Anton Stach"
+          },
+          {
+            "name": "James Trafford"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645263",
@@ -4944,18 +6202,88 @@
       "matchday": 7,
       "home": {
         "name": "Nottingham Forest",
-        "score": null,
+        "score": 0,
         "id": 18,
-        "players": []
+        "players": [
+          {
+            "name": "Daniel Muñoz"
+          },
+          {
+            "name": "James McAtee"
+          },
+          {
+            "name": "Murillo"
+          },
+          {
+            "name": "Nicolás Domínguez"
+          },
+          {
+            "name": "Liam Delap"
+          },
+          {
+            "name": "Neco Williams"
+          },
+          {
+            "name": "Ousmane Diomande"
+          },
+          {
+            "name": "Xaver Schlager"
+          },
+          {
+            "name": "Matz Sels"
+          },
+          {
+            "name": "Jair Cunha"
+          },
+          {
+            "name": "Dan Ndoye"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "away": {
         "name": "Arsenal",
-        "score": null,
+        "score": 1,
         "id": 1,
-        "players": []
+        "players": [
+          {
+            "name": "Riccardo Calafiori"
+          },
+          {
+            "name": "Martin Ødegaard"
+          },
+          {
+            "name": "Kai Havertz"
+          },
+          {
+            "name": "Eberechi Eze"
+          },
+          {
+            "name": "David Raya"
+          },
+          {
+            "name": "Bukayo Saka"
+          },
+          {
+            "name": "Ezri Konsa"
+          },
+          {
+            "name": "Gabriel dos Santos Magalhães"
+          },
+          {
+            "name": "Benjamin White"
+          },
+          {
+            "name": "Bruno Guimarães"
+          },
+          {
+            "name": "Declan Rice"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Arsenal",
+      "status": 0
     },
     {
       "id": "pl_2645264",
@@ -4965,18 +6293,88 @@
       "matchday": 7,
       "home": {
         "name": "Tottenham Hotspur",
-        "score": null,
+        "score": 3,
         "id": 19,
-        "players": []
+        "players": [
+          {
+            "name": "Sandro Tonali"
+          },
+          {
+            "name": "Jan Paul van Hecke"
+          },
+          {
+            "name": "James Maddison"
+          },
+          {
+            "name": "Tosin Adarabioyo"
+          },
+          {
+            "name": "Archie Gray"
+          },
+          {
+            "name": "Omar Marmoush"
+          },
+          {
+            "name": "Andrew Robertson"
+          },
+          {
+            "name": "Antonín Kinský"
+          },
+          {
+            "name": "Micky van de Ven"
+          },
+          {
+            "name": "Mohammed Kudus"
+          },
+          {
+            "name": "Dominic Solanke"
+          }
+        ],
+        "formation": "3-1-4-2"
       },
       "away": {
         "name": "Coventry City",
-        "score": null,
+        "score": 1,
         "id": 7,
-        "players": []
+        "players": [
+          {
+            "name": "Caleb Yirenkyi"
+          },
+          {
+            "name": "Bobby Thomas"
+          },
+          {
+            "name": "Milan van Ewijk"
+          },
+          {
+            "name": "Matt Grimes"
+          },
+          {
+            "name": "Brandon Thomas-Asante"
+          },
+          {
+            "name": "Jack Rudoni"
+          },
+          {
+            "name": "Ethan Pinnock"
+          },
+          {
+            "name": "Jay Dasilva"
+          },
+          {
+            "name": "Sidiki Cherif"
+          },
+          {
+            "name": "Tatsuhiro Sakamoto"
+          },
+          {
+            "name": "Carl Rushworth"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Tottenham Hotspur",
+      "status": 0
     },
     {
       "id": "pl_2645271",
@@ -4986,18 +6384,88 @@
       "matchday": 8,
       "home": {
         "name": "Ipswich Town",
-        "score": null,
+        "score": 1,
         "id": 12,
-        "players": []
+        "players": [
+          {
+            "name": "Christian Walton"
+          },
+          {
+            "name": "Exequiel Palacios"
+          },
+          {
+            "name": "Leif Davis"
+          },
+          {
+            "name": "Florentino"
+          },
+          {
+            "name": "Dara O'Shea"
+          },
+          {
+            "name": "Jaden Philogene"
+          },
+          {
+            "name": "Abdul Fatawu"
+          },
+          {
+            "name": "Abdoul Ouattara"
+          },
+          {
+            "name": "Julio Enciso"
+          },
+          {
+            "name": "Emersonn"
+          },
+          {
+            "name": "Issa Diop"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Nottingham Forest",
-        "score": null,
+        "score": 1,
         "id": 18,
-        "players": []
+        "players": [
+          {
+            "name": "Matz Sels"
+          },
+          {
+            "name": "Neco Williams"
+          },
+          {
+            "name": "Nikola Milenković"
+          },
+          {
+            "name": "Dan Ndoye"
+          },
+          {
+            "name": "Xaver Schlager"
+          },
+          {
+            "name": "James McAtee"
+          },
+          {
+            "name": "Daniel Muñoz"
+          },
+          {
+            "name": "Liam Delap"
+          },
+          {
+            "name": "Morgan Gibbs-White"
+          },
+          {
+            "name": "Jair Cunha"
+          },
+          {
+            "name": "Murillo"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645266",
@@ -5007,18 +6475,88 @@
       "matchday": 8,
       "home": {
         "name": "Aston Villa",
-        "score": null,
+        "score": 2,
         "id": 2,
-        "players": []
+        "players": [
+          {
+            "name": "Alysson"
+          },
+          {
+            "name": "John McGinn"
+          },
+          {
+            "name": "Ian Maatsen"
+          },
+          {
+            "name": "Zion Suzuki"
+          },
+          {
+            "name": "Victor Lindelöf"
+          },
+          {
+            "name": "Boubacar Kamara"
+          },
+          {
+            "name": "Nicolas Jackson"
+          },
+          {
+            "name": "Pau Torres"
+          },
+          {
+            "name": "Johan Manzambi"
+          },
+          {
+            "name": "Matty Cash"
+          },
+          {
+            "name": "Joao Gomes"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Manchester City",
-        "score": null,
+        "score": 1,
         "id": 15,
-        "players": []
+        "players": [
+          {
+            "name": "Joško Gvardiol"
+          },
+          {
+            "name": "Gianluigi Donnarumma"
+          },
+          {
+            "name": "Marc Guéhi"
+          },
+          {
+            "name": "Rayan Cherki"
+          },
+          {
+            "name": "Enzo Fernández"
+          },
+          {
+            "name": "Elliot Anderson"
+          },
+          {
+            "name": "Rúben Dias"
+          },
+          {
+            "name": "Erling Haaland"
+          },
+          {
+            "name": "Iliman Ndiaye"
+          },
+          {
+            "name": "Jérémy Doku"
+          },
+          {
+            "name": "Abdukodir Khusanov"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Aston Villa",
+      "status": 0
     },
     {
       "id": "pl_2645265",
@@ -5028,18 +6566,88 @@
       "matchday": 8,
       "home": {
         "name": "Arsenal",
-        "score": null,
+        "score": 2,
         "id": 1,
-        "players": []
+        "players": [
+          {
+            "name": "Noni Madueke"
+          },
+          {
+            "name": "Myles Lewis-Skelly"
+          },
+          {
+            "name": "Eberechi Eze"
+          },
+          {
+            "name": "Viktor Gyökeres"
+          },
+          {
+            "name": "Mikel Merino"
+          },
+          {
+            "name": "Gabriel dos Santos Magalhães"
+          },
+          {
+            "name": "Benjamin White"
+          },
+          {
+            "name": "Martin Ødegaard"
+          },
+          {
+            "name": "David Raya"
+          },
+          {
+            "name": "Declan Rice"
+          },
+          {
+            "name": "Ezri Konsa"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Everton",
-        "score": null,
+        "score": 0,
         "id": 9,
-        "players": []
+        "players": [
+          {
+            "name": "Jordan Pickford"
+          },
+          {
+            "name": "James Tarkowski"
+          },
+          {
+            "name": "Vitalii Mykolenko"
+          },
+          {
+            "name": "James Garner"
+          },
+          {
+            "name": "Kiernan Dewsbury-Hall"
+          },
+          {
+            "name": "Merlin Röhl"
+          },
+          {
+            "name": "Tyrique George"
+          },
+          {
+            "name": "Thierno Barry"
+          },
+          {
+            "name": "Harrison Armstrong"
+          },
+          {
+            "name": "Brennan Johnson"
+          },
+          {
+            "name": "Jake O'Brien"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Arsenal",
+      "status": 0
     },
     {
       "id": "pl_2645268",
@@ -5049,18 +6657,88 @@
       "matchday": 8,
       "home": {
         "name": "Coventry City",
-        "score": null,
+        "score": 0,
         "id": 7,
-        "players": []
+        "players": [
+          {
+            "name": "Bobby Thomas"
+          },
+          {
+            "name": "Brandon Thomas-Asante"
+          },
+          {
+            "name": "Milan van Ewijk"
+          },
+          {
+            "name": "Jay Dasilva"
+          },
+          {
+            "name": "Jack Rudoni"
+          },
+          {
+            "name": "Tatsuhiro Sakamoto"
+          },
+          {
+            "name": "Caleb Yirenkyi"
+          },
+          {
+            "name": "Sidiki Cherif"
+          },
+          {
+            "name": "Matt Grimes"
+          },
+          {
+            "name": "Carl Rushworth"
+          },
+          {
+            "name": "Ethan Pinnock"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Fulham",
-        "score": null,
+        "score": 1,
         "id": 10,
-        "players": []
+        "players": [
+          {
+            "name": "Calvin Bassey"
+          },
+          {
+            "name": "Josh King"
+          },
+          {
+            "name": "Shea Charles"
+          },
+          {
+            "name": "Timothy Castagne"
+          },
+          {
+            "name": "David Affengruber"
+          },
+          {
+            "name": "Bernd Leno"
+          },
+          {
+            "name": "Oscar Bobb"
+          },
+          {
+            "name": "Antonee Robinson"
+          },
+          {
+            "name": "Alex Iwobi"
+          },
+          {
+            "name": "Hugo Larsson"
+          },
+          {
+            "name": "Gonzalo García"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Fulham",
+      "status": 0
     },
     {
       "id": "pl_2645267",
@@ -5070,18 +6748,88 @@
       "matchday": 8,
       "home": {
         "name": "Chelsea",
-        "score": null,
+        "score": 0,
         "id": 6,
-        "players": []
+        "players": [
+          {
+            "name": "Maxence Lacroix"
+          },
+          {
+            "name": "Cole Palmer"
+          },
+          {
+            "name": "Pedro Neto"
+          },
+          {
+            "name": "Levi Samuels Colwill"
+          },
+          {
+            "name": "Moisés Caicedo"
+          },
+          {
+            "name": "Mike Penders"
+          },
+          {
+            "name": "Morgan Rogers"
+          },
+          {
+            "name": "Jordan Henderson"
+          },
+          {
+            "name": "Geovany Quenda"
+          },
+          {
+            "name": "Josh Acheampong"
+          },
+          {
+            "name": "Jorrel Hato"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Tottenham Hotspur",
-        "score": null,
+        "score": 2,
         "id": 19,
-        "players": []
+        "players": [
+          {
+            "name": "Jan Paul van Hecke"
+          },
+          {
+            "name": "James Maddison"
+          },
+          {
+            "name": "Antonín Kinský"
+          },
+          {
+            "name": "Sandro Tonali"
+          },
+          {
+            "name": "Mohammed Kudus"
+          },
+          {
+            "name": "Omar Marmoush"
+          },
+          {
+            "name": "Archie Gray"
+          },
+          {
+            "name": "Micky van de Ven"
+          },
+          {
+            "name": "Andrew Robertson"
+          },
+          {
+            "name": "Mathys Tel"
+          },
+          {
+            "name": "Mateus Fernandes"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Tottenham Hotspur",
+      "status": 0
     },
     {
       "id": "pl_2645269",
@@ -5091,18 +6839,88 @@
       "matchday": 8,
       "home": {
         "name": "Crystal Palace",
-        "score": null,
+        "score": 0,
         "id": 8,
-        "players": []
+        "players": [
+          {
+            "name": "Anan Khalaili"
+          },
+          {
+            "name": "Chris Richards"
+          },
+          {
+            "name": "Dwight McNeil"
+          },
+          {
+            "name": "Axel Disasi"
+          },
+          {
+            "name": "Jaydee Canvot"
+          },
+          {
+            "name": "Yeremy Pino"
+          },
+          {
+            "name": "Adam Wharton"
+          },
+          {
+            "name": "Walter Benítez"
+          },
+          {
+            "name": "Tyrick Mitchell"
+          },
+          {
+            "name": "Jean-Philippe Mateta"
+          },
+          {
+            "name": "Daichi Kamada"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "away": {
         "name": "Newcastle United",
-        "score": null,
+        "score": 2,
         "id": 17,
-        "players": []
+        "players": [
+          {
+            "name": "Joelinton"
+          },
+          {
+            "name": "Harvey Barnes"
+          },
+          {
+            "name": "William Osula"
+          },
+          {
+            "name": "Amar Dedic"
+          },
+          {
+            "name": "Joe Willock"
+          },
+          {
+            "name": "Jacob Murphy"
+          },
+          {
+            "name": "Fabian Schär"
+          },
+          {
+            "name": "Lewis Hall"
+          },
+          {
+            "name": "Lukás Hornícek"
+          },
+          {
+            "name": "Nico González"
+          },
+          {
+            "name": "Dan Burn"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Newcastle United",
+      "status": 0
     },
     {
       "id": "pl_2645270",
@@ -5112,18 +6930,88 @@
       "matchday": 8,
       "home": {
         "name": "Hull City",
-        "score": null,
+        "score": 1,
         "id": 11,
-        "players": []
+        "players": [
+          {
+            "name": "Oli McBurnie"
+          },
+          {
+            "name": "Mohamed Belloumi"
+          },
+          {
+            "name": "John Egan"
+          },
+          {
+            "name": "Semi Ajayi"
+          },
+          {
+            "name": "Elliot Stroud"
+          },
+          {
+            "name": "Lewie Coyle"
+          },
+          {
+            "name": "Ryan Giles"
+          },
+          {
+            "name": "Tim Iroegbunam"
+          },
+          {
+            "name": "Konstantinos Tzolakis"
+          },
+          {
+            "name": "Lucas Herrington"
+          },
+          {
+            "name": "Regan Slater"
+          }
+        ],
+        "formation": "5-4-1"
       },
       "away": {
         "name": "Brentford",
-        "score": null,
+        "score": 1,
         "id": 4,
-        "players": []
+        "players": [
+          {
+            "name": "Caoimhín Kelleher"
+          },
+          {
+            "name": "Aaron Hickey"
+          },
+          {
+            "name": "Igor Thiago"
+          },
+          {
+            "name": "Sepp van den Berg"
+          },
+          {
+            "name": "Kristoffer Ajer"
+          },
+          {
+            "name": "Keane Lewis-Potter"
+          },
+          {
+            "name": "Michael Kayode"
+          },
+          {
+            "name": "Mamadou Sangaré"
+          },
+          {
+            "name": "Kevin Schade"
+          },
+          {
+            "name": "Mathias Jensen"
+          },
+          {
+            "name": "Dango Ouattara"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645272",
@@ -5133,18 +7021,88 @@
       "matchday": 8,
       "home": {
         "name": "Liverpool",
-        "score": null,
+        "score": 2,
         "id": 14,
-        "players": []
+        "players": [
+          {
+            "name": "Florian Wirtz"
+          },
+          {
+            "name": "Alisson Becker"
+          },
+          {
+            "name": "Jeremy Jacquet"
+          },
+          {
+            "name": "Ryan Gravenberch"
+          },
+          {
+            "name": "Milos Kerkez"
+          },
+          {
+            "name": "Alexis Mac Allister"
+          },
+          {
+            "name": "Alexander Isak"
+          },
+          {
+            "name": "Ronald Araujo"
+          },
+          {
+            "name": "Bradley Barcola"
+          },
+          {
+            "name": "Virgil van Dijk"
+          },
+          {
+            "name": "Cody Gakpo"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Brighton & Hove Albion",
-        "score": null,
+        "score": 0,
         "id": 5,
-        "players": []
+        "players": [
+          {
+            "name": "Yasin Ayari"
+          },
+          {
+            "name": "Bart Verbruggen"
+          },
+          {
+            "name": "Lewis Dunk"
+          },
+          {
+            "name": "Ferdi Kadioglu"
+          },
+          {
+            "name": "Luka Vušković"
+          },
+          {
+            "name": "Maxim De Cuyper"
+          },
+          {
+            "name": "Diego Gómez"
+          },
+          {
+            "name": "Pascal Groß"
+          },
+          {
+            "name": "Chema Andrés"
+          },
+          {
+            "name": "Charalampos Kostoulas"
+          },
+          {
+            "name": "Olivier Boscagli"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Liverpool",
+      "status": 0
     },
     {
       "id": "pl_2645273",
@@ -5154,18 +7112,88 @@
       "matchday": 8,
       "home": {
         "name": "Manchester United",
-        "score": null,
+        "score": 0,
         "id": 16,
-        "players": []
+        "players": [
+          {
+            "name": "Carlos Baleba"
+          },
+          {
+            "name": "Senne Lammens"
+          },
+          {
+            "name": "Mason Mount"
+          },
+          {
+            "name": "Youri Tielemans"
+          },
+          {
+            "name": "Amad Diallo"
+          },
+          {
+            "name": "Andrey Nascimento dos Santos"
+          },
+          {
+            "name": "Diogo Dalot"
+          },
+          {
+            "name": "Ayden Heaven"
+          },
+          {
+            "name": "Leny Yoro"
+          },
+          {
+            "name": "Harry Maguire"
+          },
+          {
+            "name": "Bryan Mbeumo"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Bournemouth",
-        "score": null,
+        "score": 3,
         "id": 3,
-        "players": []
+        "players": [
+          {
+            "name": "Rayan"
+          },
+          {
+            "name": "Tyler Adams"
+          },
+          {
+            "name": "Đorđe Petrović"
+          },
+          {
+            "name": "Evanilson"
+          },
+          {
+            "name": "António João Pereira de Albuquerque Tavares da Silva"
+          },
+          {
+            "name": "Adam Smith"
+          },
+          {
+            "name": "Lewis Cook"
+          },
+          {
+            "name": "James Hill"
+          },
+          {
+            "name": "Justin Kluivert"
+          },
+          {
+            "name": "Adrien Truffert"
+          },
+          {
+            "name": "Marcus Tavernier"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Bournemouth",
+      "status": 0
     },
     {
       "id": "pl_2645274",
@@ -5175,18 +7203,88 @@
       "matchday": 8,
       "home": {
         "name": "Sunderland",
-        "score": null,
+        "score": 0,
         "id": 20,
-        "players": []
+        "players": [
+          {
+            "name": "Reinildo Mandava"
+          },
+          {
+            "name": "Trai Hume"
+          },
+          {
+            "name": "Nilson Angulo"
+          },
+          {
+            "name": "Granit Xhaka"
+          },
+          {
+            "name": "Chris Rigg"
+          },
+          {
+            "name": "Enzo Le Fée"
+          },
+          {
+            "name": "Robin Roefs"
+          },
+          {
+            "name": "Nordi Mukiele"
+          },
+          {
+            "name": "Noah Sadiki"
+          },
+          {
+            "name": "Brian Brobbey"
+          },
+          {
+            "name": "Luke O'Nien"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Leeds United",
-        "score": null,
+        "score": 0,
         "id": 13,
-        "players": []
+        "players": [
+          {
+            "name": "Jayden Bogle"
+          },
+          {
+            "name": "Harry Wilson"
+          },
+          {
+            "name": "Gabriel Gudmundsson"
+          },
+          {
+            "name": "Brenden Aaronson"
+          },
+          {
+            "name": "James Trafford"
+          },
+          {
+            "name": "Ethan Ampadu"
+          },
+          {
+            "name": "Ao Tanaka"
+          },
+          {
+            "name": "Dominic Calvert-Lewin"
+          },
+          {
+            "name": "James Justin"
+          },
+          {
+            "name": "Tarik Muharemović"
+          },
+          {
+            "name": "Jaka Bijol"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645278",
@@ -5196,18 +7294,88 @@
       "matchday": 9,
       "home": {
         "name": "Chelsea",
-        "score": null,
+        "score": 2,
         "id": 6,
-        "players": []
+        "players": [
+          {
+            "name": "Moisés Caicedo"
+          },
+          {
+            "name": "Morgan Rogers"
+          },
+          {
+            "name": "Marco Palestra"
+          },
+          {
+            "name": "Josh Acheampong"
+          },
+          {
+            "name": "Pedro Neto"
+          },
+          {
+            "name": "Wesley Fofana"
+          },
+          {
+            "name": "Mike Penders"
+          },
+          {
+            "name": "Levi Samuels Colwill"
+          },
+          {
+            "name": "Estêvão"
+          },
+          {
+            "name": "Roméo Lavia"
+          },
+          {
+            "name": "Cole Palmer"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Manchester United",
-        "score": null,
+        "score": 0,
         "id": 16,
-        "players": []
+        "players": [
+          {
+            "name": "Bryan Mbeumo"
+          },
+          {
+            "name": "Andrey Nascimento dos Santos"
+          },
+          {
+            "name": "Senne Lammens"
+          },
+          {
+            "name": "Diogo Dalot"
+          },
+          {
+            "name": "Bruno Fernandes"
+          },
+          {
+            "name": "Lisandro Martínez"
+          },
+          {
+            "name": "Amad Diallo"
+          },
+          {
+            "name": "Harry Maguire"
+          },
+          {
+            "name": "Carlos Baleba"
+          },
+          {
+            "name": "Matheus Cunha"
+          },
+          {
+            "name": "Leny Yoro"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Chelsea",
+      "status": 0
     },
     {
       "id": "pl_2645275",
@@ -5217,18 +7385,88 @@
       "matchday": 9,
       "home": {
         "name": "Bournemouth",
-        "score": null,
+        "score": 2,
         "id": 3,
-        "players": []
+        "players": [
+          {
+            "name": "Tyler Adams"
+          },
+          {
+            "name": "Ryan Christie"
+          },
+          {
+            "name": "Marcus Tavernier"
+          },
+          {
+            "name": "Rayan"
+          },
+          {
+            "name": "Adrien Truffert"
+          },
+          {
+            "name": "António João Pereira de Albuquerque Tavares da Silva"
+          },
+          {
+            "name": "Đorđe Petrović"
+          },
+          {
+            "name": "Evanilson"
+          },
+          {
+            "name": "Adam Smith"
+          },
+          {
+            "name": "Justin Kluivert"
+          },
+          {
+            "name": "James Hill"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Leeds United",
-        "score": null,
+        "score": 0,
         "id": 13,
-        "players": []
+        "players": [
+          {
+            "name": "Dominic Calvert-Lewin"
+          },
+          {
+            "name": "Gabriel Gudmundsson"
+          },
+          {
+            "name": "Harry Wilson"
+          },
+          {
+            "name": "Tarik Muharemović"
+          },
+          {
+            "name": "Ao Tanaka"
+          },
+          {
+            "name": "James Justin"
+          },
+          {
+            "name": "Jayden Bogle"
+          },
+          {
+            "name": "Ethan Ampadu"
+          },
+          {
+            "name": "Nico Elvedi"
+          },
+          {
+            "name": "Daniel James"
+          },
+          {
+            "name": "James Trafford"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Bournemouth",
+      "status": 0
     },
     {
       "id": "pl_2645277",
@@ -5238,18 +7476,88 @@
       "matchday": 9,
       "home": {
         "name": "Brentford",
-        "score": null,
+        "score": 2,
         "id": 4,
-        "players": []
+        "players": [
+          {
+            "name": "Sepp van den Berg"
+          },
+          {
+            "name": "Mathias Jensen"
+          },
+          {
+            "name": "Dango Ouattara"
+          },
+          {
+            "name": "Caoimhín Kelleher"
+          },
+          {
+            "name": "Mamadou Sangaré"
+          },
+          {
+            "name": "Igor Thiago"
+          },
+          {
+            "name": "Vitaly Janelt"
+          },
+          {
+            "name": "Kristoffer Ajer"
+          },
+          {
+            "name": "Kevin Schade"
+          },
+          {
+            "name": "Michael Kayode"
+          },
+          {
+            "name": "Keane Lewis-Potter"
+          }
+        ],
+        "formation": "4-3-3"
       },
       "away": {
         "name": "Nottingham Forest",
-        "score": null,
+        "score": 0,
         "id": 18,
-        "players": []
+        "players": [
+          {
+            "name": "Jair Cunha"
+          },
+          {
+            "name": "Xaver Schlager"
+          },
+          {
+            "name": "Murillo"
+          },
+          {
+            "name": "Dan Ndoye"
+          },
+          {
+            "name": "James McAtee"
+          },
+          {
+            "name": "Morgan Gibbs-White"
+          },
+          {
+            "name": "Neco Williams"
+          },
+          {
+            "name": "Liam Delap"
+          },
+          {
+            "name": "Nikola Milenković"
+          },
+          {
+            "name": "Ola Aina"
+          },
+          {
+            "name": "Matz Sels"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Brentford",
+      "status": 0
     },
     {
       "id": "pl_2645279",
@@ -5259,18 +7567,88 @@
       "matchday": 9,
       "home": {
         "name": "Coventry City",
-        "score": null,
+        "score": 3,
         "id": 7,
-        "players": []
+        "players": [
+          {
+            "name": "Taiwo Awoniyi"
+          },
+          {
+            "name": "Milan van Ewijk"
+          },
+          {
+            "name": "Yann Gboho"
+          },
+          {
+            "name": "Stephen Mfuni"
+          },
+          {
+            "name": "Jay Dasilva"
+          },
+          {
+            "name": "Jack Rudoni"
+          },
+          {
+            "name": "Tatsuhiro Sakamoto"
+          },
+          {
+            "name": "Victor Torp"
+          },
+          {
+            "name": "Ethan Pinnock"
+          },
+          {
+            "name": "Carl Rushworth"
+          },
+          {
+            "name": "Caleb Yirenkyi"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Sunderland",
-        "score": null,
+        "score": 1,
         "id": 20,
-        "players": []
+        "players": [
+          {
+            "name": "Luke O'Nien"
+          },
+          {
+            "name": "Brian Brobbey"
+          },
+          {
+            "name": "Robin Roefs"
+          },
+          {
+            "name": "Trai Hume"
+          },
+          {
+            "name": "Omar Alderete"
+          },
+          {
+            "name": "Noah Sadiki"
+          },
+          {
+            "name": "Reinildo Mandava"
+          },
+          {
+            "name": "Granit Xhaka"
+          },
+          {
+            "name": "Chris Rigg"
+          },
+          {
+            "name": "Nilson Angulo"
+          },
+          {
+            "name": "Enzo Le Fée"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Coventry City",
+      "status": 0
     },
     {
       "id": "pl_2645280",
@@ -5280,18 +7658,88 @@
       "matchday": 9,
       "home": {
         "name": "Hull City",
-        "score": null,
+        "score": 2,
         "id": 11,
-        "players": []
+        "players": [
+          {
+            "name": "Nobel Mendy"
+          },
+          {
+            "name": "Regan Slater"
+          },
+          {
+            "name": "John Egan"
+          },
+          {
+            "name": "Semi Ajayi"
+          },
+          {
+            "name": "Mohamed Belloumi"
+          },
+          {
+            "name": "Oli McBurnie"
+          },
+          {
+            "name": "Ryan Giles"
+          },
+          {
+            "name": "Konstantinos Tzolakis"
+          },
+          {
+            "name": "Tim Iroegbunam"
+          },
+          {
+            "name": "Lewie Coyle"
+          },
+          {
+            "name": "Elliot Stroud"
+          }
+        ],
+        "formation": "5-4-1"
       },
       "away": {
         "name": "Ipswich Town",
-        "score": null,
+        "score": 2,
         "id": 12,
-        "players": []
+        "players": [
+          {
+            "name": "Florentino"
+          },
+          {
+            "name": "Abdoul Ouattara"
+          },
+          {
+            "name": "Emersonn"
+          },
+          {
+            "name": "Christian Walton"
+          },
+          {
+            "name": "Abdul Fatawu"
+          },
+          {
+            "name": "Leif Davis"
+          },
+          {
+            "name": "Dara O'Shea"
+          },
+          {
+            "name": "Issa Diop"
+          },
+          {
+            "name": "Exequiel Palacios"
+          },
+          {
+            "name": "Julio Enciso"
+          },
+          {
+            "name": "Jaden Philogene"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645282",
@@ -5301,18 +7749,88 @@
       "matchday": 9,
       "home": {
         "name": "Manchester City",
-        "score": null,
+        "score": 0,
         "id": 15,
-        "players": []
+        "players": [
+          {
+            "name": "Rúben Dias"
+          },
+          {
+            "name": "Enzo Fernández"
+          },
+          {
+            "name": "Matheus Nunes"
+          },
+          {
+            "name": "Gianluigi Donnarumma"
+          },
+          {
+            "name": "Elliot Anderson"
+          },
+          {
+            "name": "Joško Gvardiol"
+          },
+          {
+            "name": "Ayyoub Bouaddi"
+          },
+          {
+            "name": "Erling Haaland"
+          },
+          {
+            "name": "Iliman Ndiaye"
+          },
+          {
+            "name": "Abdukodir Khusanov"
+          },
+          {
+            "name": "Jérémy Doku"
+          }
+        ],
+        "formation": "4-3-3"
       },
       "away": {
         "name": "Brighton & Hove Albion",
-        "score": null,
+        "score": 1,
         "id": 5,
-        "players": []
+        "players": [
+          {
+            "name": "Diego Gómez"
+          },
+          {
+            "name": "Bart Verbruggen"
+          },
+          {
+            "name": "Pascal Groß"
+          },
+          {
+            "name": "Charalampos Kostoulas"
+          },
+          {
+            "name": "Maxim De Cuyper"
+          },
+          {
+            "name": "Olivier Boscagli"
+          },
+          {
+            "name": "Chema Andrés"
+          },
+          {
+            "name": "Lewis Dunk"
+          },
+          {
+            "name": "Yasin Ayari"
+          },
+          {
+            "name": "Costinha"
+          },
+          {
+            "name": "Luka Vušković"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Brighton & Hove Albion",
+      "status": 0
     },
     {
       "id": "pl_2645284",
@@ -5322,18 +7840,88 @@
       "matchday": 9,
       "home": {
         "name": "Tottenham Hotspur",
-        "score": null,
+        "score": 2,
         "id": 19,
-        "players": []
+        "players": [
+          {
+            "name": "Antonín Kinský"
+          },
+          {
+            "name": "Mateus Fernandes"
+          },
+          {
+            "name": "Andrew Robertson"
+          },
+          {
+            "name": "Mathys Tel"
+          },
+          {
+            "name": "Archie Gray"
+          },
+          {
+            "name": "Sandro Tonali"
+          },
+          {
+            "name": "Jan Paul van Hecke"
+          },
+          {
+            "name": "Mohammed Kudus"
+          },
+          {
+            "name": "Omar Marmoush"
+          },
+          {
+            "name": "Dominic Solanke"
+          },
+          {
+            "name": "Micky van de Ven"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Crystal Palace",
-        "score": null,
+        "score": 0,
         "id": 8,
-        "players": []
+        "players": [
+          {
+            "name": "Axel Disasi"
+          },
+          {
+            "name": "Dwight McNeil"
+          },
+          {
+            "name": "Chris Richards"
+          },
+          {
+            "name": "Daichi Kamada"
+          },
+          {
+            "name": "Dean Henderson"
+          },
+          {
+            "name": "Jaydee Canvot"
+          },
+          {
+            "name": "Tyrick Mitchell"
+          },
+          {
+            "name": "Adam Wharton"
+          },
+          {
+            "name": "Yeremy Pino"
+          },
+          {
+            "name": "Jean-Philippe Mateta"
+          },
+          {
+            "name": "Oscar Mingueza"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Tottenham Hotspur",
+      "status": 0
     },
     {
       "id": "pl_2645276",
@@ -5343,18 +7931,88 @@
       "matchday": 9,
       "home": {
         "name": "Aston Villa",
-        "score": null,
+        "score": 1,
         "id": 2,
-        "players": []
+        "players": [
+          {
+            "name": "Victor Lindelöf"
+          },
+          {
+            "name": "Boubacar Kamara"
+          },
+          {
+            "name": "John McGinn"
+          },
+          {
+            "name": "Nicolas Jackson"
+          },
+          {
+            "name": "Pau Torres"
+          },
+          {
+            "name": "Leon Goretzka"
+          },
+          {
+            "name": "Ian Maatsen"
+          },
+          {
+            "name": "Matty Cash"
+          },
+          {
+            "name": "Alysson"
+          },
+          {
+            "name": "Zion Suzuki"
+          },
+          {
+            "name": "Johan Manzambi"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Fulham",
-        "score": null,
+        "score": 1,
         "id": 10,
-        "players": []
+        "players": [
+          {
+            "name": "David Affengruber"
+          },
+          {
+            "name": "Bernd Leno"
+          },
+          {
+            "name": "Antonee Robinson"
+          },
+          {
+            "name": "Josh King"
+          },
+          {
+            "name": "Gonzalo García"
+          },
+          {
+            "name": "Shea Charles"
+          },
+          {
+            "name": "Calvin Bassey"
+          },
+          {
+            "name": "Timothy Castagne"
+          },
+          {
+            "name": "Sander Berge"
+          },
+          {
+            "name": "Oscar Bobb"
+          },
+          {
+            "name": "Alex Iwobi"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645281",
@@ -5364,18 +8022,88 @@
       "matchday": 9,
       "home": {
         "name": "Liverpool",
-        "score": null,
+        "score": 0,
         "id": 14,
-        "players": []
+        "players": [
+          {
+            "name": "Alisson Becker"
+          },
+          {
+            "name": "Virgil van Dijk"
+          },
+          {
+            "name": "Ronald Araujo"
+          },
+          {
+            "name": "Alexander Isak"
+          },
+          {
+            "name": "Milos Kerkez"
+          },
+          {
+            "name": "Florian Wirtz"
+          },
+          {
+            "name": "Trey Nyoni"
+          },
+          {
+            "name": "Jeremy Jacquet"
+          },
+          {
+            "name": "Cody Gakpo"
+          },
+          {
+            "name": "Alexis Mac Allister"
+          },
+          {
+            "name": "Bradley Barcola"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Arsenal",
-        "score": null,
+        "score": 1,
         "id": 1,
-        "players": []
+        "players": [
+          {
+            "name": "David Raya"
+          },
+          {
+            "name": "Jurriën Timber"
+          },
+          {
+            "name": "Riccardo Calafiori"
+          },
+          {
+            "name": "Christos Tzolis"
+          },
+          {
+            "name": "Gabriel dos Santos Magalhães"
+          },
+          {
+            "name": "Ezri Konsa"
+          },
+          {
+            "name": "Noni Madueke"
+          },
+          {
+            "name": "Bruno Guimarães"
+          },
+          {
+            "name": "Declan Rice"
+          },
+          {
+            "name": "Martin Ødegaard"
+          },
+          {
+            "name": "Kai Havertz"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Arsenal",
+      "status": 0
     },
     {
       "id": "pl_2645283",
@@ -5385,18 +8113,88 @@
       "matchday": 9,
       "home": {
         "name": "Newcastle United",
-        "score": null,
+        "score": 0,
         "id": 17,
-        "players": []
+        "players": [
+          {
+            "name": "Harvey Barnes"
+          },
+          {
+            "name": "Joe Willock"
+          },
+          {
+            "name": "Lewis Hall"
+          },
+          {
+            "name": "Joelinton"
+          },
+          {
+            "name": "Nico González"
+          },
+          {
+            "name": "Anthony Elanga"
+          },
+          {
+            "name": "Fabian Schär"
+          },
+          {
+            "name": "Dan Burn"
+          },
+          {
+            "name": "William Osula"
+          },
+          {
+            "name": "Lukás Hornícek"
+          },
+          {
+            "name": "Amar Dedic"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Everton",
-        "score": null,
+        "score": 1,
         "id": 9,
-        "players": []
+        "players": [
+          {
+            "name": "Jordan Pickford"
+          },
+          {
+            "name": "Jake O'Brien"
+          },
+          {
+            "name": "Jarrad Branthwaite"
+          },
+          {
+            "name": "Kiernan Dewsbury-Hall"
+          },
+          {
+            "name": "Vitalii Mykolenko"
+          },
+          {
+            "name": "Harrison Armstrong"
+          },
+          {
+            "name": "James Garner"
+          },
+          {
+            "name": "James Tarkowski"
+          },
+          {
+            "name": "Tyrique George"
+          },
+          {
+            "name": "Thierno Barry"
+          },
+          {
+            "name": "Merlin Röhl"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Everton",
+      "status": 0
     },
     {
       "id": "pl_2645288",
@@ -5406,18 +8204,88 @@
       "matchday": 10,
       "home": {
         "name": "Everton",
-        "score": null,
+        "score": 3,
         "id": 9,
-        "players": []
+        "players": [
+          {
+            "name": "Tyler Dibling"
+          },
+          {
+            "name": "Kiernan Dewsbury-Hall"
+          },
+          {
+            "name": "James Tarkowski"
+          },
+          {
+            "name": "Tyrique George"
+          },
+          {
+            "name": "Thierno Barry"
+          },
+          {
+            "name": "Merlin Röhl"
+          },
+          {
+            "name": "James Garner"
+          },
+          {
+            "name": "Harrison Armstrong"
+          },
+          {
+            "name": "Jarrad Branthwaite"
+          },
+          {
+            "name": "Jordan Pickford"
+          },
+          {
+            "name": "Vitalii Mykolenko"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Coventry City",
-        "score": null,
+        "score": 1,
         "id": 7,
-        "players": []
+        "players": [
+          {
+            "name": "Jack Rudoni"
+          },
+          {
+            "name": "Milan van Ewijk"
+          },
+          {
+            "name": "Caleb Yirenkyi"
+          },
+          {
+            "name": "Tatsuhiro Sakamoto"
+          },
+          {
+            "name": "Taiwo Awoniyi"
+          },
+          {
+            "name": "Stephen Mfuni"
+          },
+          {
+            "name": "Yann Gboho"
+          },
+          {
+            "name": "Ethan Pinnock"
+          },
+          {
+            "name": "Victor Torp"
+          },
+          {
+            "name": "Carl Rushworth"
+          },
+          {
+            "name": "Jay Dasilva"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Everton",
+      "status": 0
     },
     {
       "id": "pl_2645291",
@@ -5427,18 +8295,88 @@
       "matchday": 10,
       "home": {
         "name": "Leeds United",
-        "score": null,
+        "score": 1,
         "id": 13,
-        "players": []
+        "players": [
+          {
+            "name": "Ethan Ampadu"
+          },
+          {
+            "name": "Sean Longstaff"
+          },
+          {
+            "name": "James Justin"
+          },
+          {
+            "name": "Jayden Bogle"
+          },
+          {
+            "name": "James Trafford"
+          },
+          {
+            "name": "Nico Elvedi"
+          },
+          {
+            "name": "Tarik Muharemović"
+          },
+          {
+            "name": "Gabriel Gudmundsson"
+          },
+          {
+            "name": "Dominic Calvert-Lewin"
+          },
+          {
+            "name": "Ao Tanaka"
+          },
+          {
+            "name": "Lukas Nmecha"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "away": {
         "name": "Tottenham Hotspur",
-        "score": null,
+        "score": 0,
         "id": 19,
-        "players": []
+        "players": [
+          {
+            "name": "Antonín Kinský"
+          },
+          {
+            "name": "Omar Marmoush"
+          },
+          {
+            "name": "Micky van de Ven"
+          },
+          {
+            "name": "Archie Gray"
+          },
+          {
+            "name": "Mateus Fernandes"
+          },
+          {
+            "name": "Mohammed Kudus"
+          },
+          {
+            "name": "Pedro Porro"
+          },
+          {
+            "name": "Mathys Tel"
+          },
+          {
+            "name": "Andrew Robertson"
+          },
+          {
+            "name": "Jan Paul van Hecke"
+          },
+          {
+            "name": "Sandro Tonali"
+          }
+        ],
+        "formation": "4-3-3"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Leeds United",
+      "status": 0
     },
     {
       "id": "pl_2645285",
@@ -5448,18 +8386,88 @@
       "matchday": 10,
       "home": {
         "name": "Arsenal",
-        "score": null,
+        "score": 1,
         "id": 1,
-        "players": []
+        "players": [
+          {
+            "name": "Ezri Konsa"
+          },
+          {
+            "name": "Noni Madueke"
+          },
+          {
+            "name": "Kai Havertz"
+          },
+          {
+            "name": "Bruno Guimarães"
+          },
+          {
+            "name": "Declan Rice"
+          },
+          {
+            "name": "Riccardo Calafiori"
+          },
+          {
+            "name": "David Raya"
+          },
+          {
+            "name": "Gabriel dos Santos Magalhães"
+          },
+          {
+            "name": "Jurriën Timber"
+          },
+          {
+            "name": "Christos Tzolis"
+          },
+          {
+            "name": "Martin Ødegaard"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Hull City",
-        "score": null,
+        "score": 0,
         "id": 11,
-        "players": []
+        "players": [
+          {
+            "name": "Mohamed-Ali Cho"
+          },
+          {
+            "name": "Lewie Coyle"
+          },
+          {
+            "name": "Lucas Gourna-Douath"
+          },
+          {
+            "name": "Semi Ajayi"
+          },
+          {
+            "name": "John Egan"
+          },
+          {
+            "name": "Regan Slater"
+          },
+          {
+            "name": "Oli McBurnie"
+          },
+          {
+            "name": "Elliot Stroud"
+          },
+          {
+            "name": "Konstantinos Tzolakis"
+          },
+          {
+            "name": "Nobel Mendy"
+          },
+          {
+            "name": "Tim Iroegbunam"
+          }
+        ],
+        "formation": "5-3-2"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Arsenal",
+      "status": 0
     },
     {
       "id": "pl_2645289",
@@ -5469,18 +8477,88 @@
       "matchday": 10,
       "home": {
         "name": "Fulham",
-        "score": null,
+        "score": 1,
         "id": 10,
-        "players": []
+        "players": [
+          {
+            "name": "Bernd Leno"
+          },
+          {
+            "name": "Alex Iwobi"
+          },
+          {
+            "name": "Calvin Bassey"
+          },
+          {
+            "name": "David Affengruber"
+          },
+          {
+            "name": "Josh King"
+          },
+          {
+            "name": "Sander Berge"
+          },
+          {
+            "name": "Antonee Robinson"
+          },
+          {
+            "name": "Shea Charles"
+          },
+          {
+            "name": "Gonzalo García"
+          },
+          {
+            "name": "Oscar Bobb"
+          },
+          {
+            "name": "Timothy Castagne"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Newcastle United",
-        "score": null,
+        "score": 1,
         "id": 17,
-        "players": []
+        "players": [
+          {
+            "name": "Dan Burn"
+          },
+          {
+            "name": "Yoane Wissa"
+          },
+          {
+            "name": "Nico González"
+          },
+          {
+            "name": "Lukás Hornícek"
+          },
+          {
+            "name": "Sean Steur"
+          },
+          {
+            "name": "Malick Thiaw"
+          },
+          {
+            "name": "Harvey Barnes"
+          },
+          {
+            "name": "Amar Dedic"
+          },
+          {
+            "name": "William Osula"
+          },
+          {
+            "name": "Jacob Murphy"
+          },
+          {
+            "name": "Lewis Hall"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "winner": null,
-      "status": 1
+      "status": 0
     },
     {
       "id": "pl_2645293",
@@ -5490,18 +8568,88 @@
       "matchday": 10,
       "home": {
         "name": "Nottingham Forest",
-        "score": null,
+        "score": 3,
         "id": 18,
-        "players": []
+        "players": [
+          {
+            "name": "Ryan Yates"
+          },
+          {
+            "name": "James McAtee"
+          },
+          {
+            "name": "Nikola Milenković"
+          },
+          {
+            "name": "Liam Delap"
+          },
+          {
+            "name": "Matz Sels"
+          },
+          {
+            "name": "Murillo"
+          },
+          {
+            "name": "Morgan Gibbs-White"
+          },
+          {
+            "name": "Xaver Schlager"
+          },
+          {
+            "name": "Daniel Muñoz"
+          },
+          {
+            "name": "Neco Williams"
+          },
+          {
+            "name": "Jair Cunha"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "away": {
         "name": "Manchester City",
-        "score": null,
+        "score": 1,
         "id": 15,
-        "players": []
+        "players": [
+          {
+            "name": "Jérémy Doku"
+          },
+          {
+            "name": "Iliman Ndiaye"
+          },
+          {
+            "name": "Gianluigi Donnarumma"
+          },
+          {
+            "name": "Erling Haaland"
+          },
+          {
+            "name": "Rayan Cherki"
+          },
+          {
+            "name": "Joško Gvardiol"
+          },
+          {
+            "name": "Abdukodir Khusanov"
+          },
+          {
+            "name": "Rúben Dias"
+          },
+          {
+            "name": "Elliot Anderson"
+          },
+          {
+            "name": "Marc Guéhi"
+          },
+          {
+            "name": "Enzo Fernández"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Nottingham Forest",
+      "status": 0
     },
     {
       "id": "pl_2645286",
@@ -5511,18 +8659,88 @@
       "matchday": 10,
       "home": {
         "name": "Brighton & Hove Albion",
-        "score": null,
+        "score": 2,
         "id": 5,
-        "players": []
+        "players": [
+          {
+            "name": "Chema Andrés"
+          },
+          {
+            "name": "Charalampos Kostoulas"
+          },
+          {
+            "name": "Bart Verbruggen"
+          },
+          {
+            "name": "Costinha"
+          },
+          {
+            "name": "Lewis Dunk"
+          },
+          {
+            "name": "Yasin Ayari"
+          },
+          {
+            "name": "Olivier Boscagli"
+          },
+          {
+            "name": "Diego Gómez"
+          },
+          {
+            "name": "Maxim De Cuyper"
+          },
+          {
+            "name": "Pascal Groß"
+          },
+          {
+            "name": "Luka Vušković"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Brentford",
-        "score": null,
+        "score": 0,
         "id": 4,
-        "players": []
+        "players": [
+          {
+            "name": "Caoimhín Kelleher"
+          },
+          {
+            "name": "Aaron Hickey"
+          },
+          {
+            "name": "Kevin Schade"
+          },
+          {
+            "name": "Kristoffer Ajer"
+          },
+          {
+            "name": "Mamadou Sangaré"
+          },
+          {
+            "name": "Vitaly Janelt"
+          },
+          {
+            "name": "Dango Ouattara"
+          },
+          {
+            "name": "Igor Thiago"
+          },
+          {
+            "name": "Sepp van den Berg"
+          },
+          {
+            "name": "Michael Kayode"
+          },
+          {
+            "name": "Keane Lewis-Potter"
+          }
+        ],
+        "formation": "4-4-2"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Brighton & Hove Albion",
+      "status": 0
     },
     {
       "id": "pl_2645287",
@@ -5532,18 +8750,88 @@
       "matchday": 10,
       "home": {
         "name": "Crystal Palace",
-        "score": null,
+        "score": 1,
         "id": 8,
-        "players": []
+        "players": [
+          {
+            "name": "Jefferson Lerma"
+          },
+          {
+            "name": "Jørgen Strand Larsen"
+          },
+          {
+            "name": "Chris Richards"
+          },
+          {
+            "name": "Yeremy Pino"
+          },
+          {
+            "name": "Quinten Timber"
+          },
+          {
+            "name": "Dean Henderson"
+          },
+          {
+            "name": "Adam Wharton"
+          },
+          {
+            "name": "Axel Disasi"
+          },
+          {
+            "name": "Tyrick Mitchell"
+          },
+          {
+            "name": "Oscar Mingueza"
+          },
+          {
+            "name": "Daichi Kamada"
+          }
+        ],
+        "formation": "3-4-2-1"
       },
       "away": {
         "name": "Liverpool",
-        "score": null,
+        "score": 3,
         "id": 14,
-        "players": []
+        "players": [
+          {
+            "name": "Alisson Becker"
+          },
+          {
+            "name": "Virgil van Dijk"
+          },
+          {
+            "name": "Florian Wirtz"
+          },
+          {
+            "name": "Alexis Mac Allister"
+          },
+          {
+            "name": "Cody Gakpo"
+          },
+          {
+            "name": "Alexander Isak"
+          },
+          {
+            "name": "Ronald Araujo"
+          },
+          {
+            "name": "Jeremy Jacquet"
+          },
+          {
+            "name": "Bradley Barcola"
+          },
+          {
+            "name": "Dominik Szoboszlai"
+          },
+          {
+            "name": "Milos Kerkez"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Liverpool",
+      "status": 0
     },
     {
       "id": "pl_2645290",
@@ -5553,18 +8841,88 @@
       "matchday": 10,
       "home": {
         "name": "Ipswich Town",
-        "score": null,
+        "score": 1,
         "id": 12,
-        "players": []
+        "players": [
+          {
+            "name": "Dara O'Shea"
+          },
+          {
+            "name": "Abdoul Ouattara"
+          },
+          {
+            "name": "Exequiel Palacios"
+          },
+          {
+            "name": "Julio Enciso"
+          },
+          {
+            "name": "Emersonn"
+          },
+          {
+            "name": "Leif Davis"
+          },
+          {
+            "name": "Daizen Maeda"
+          },
+          {
+            "name": "Florentino"
+          },
+          {
+            "name": "Christian Walton"
+          },
+          {
+            "name": "Jaden Philogene"
+          },
+          {
+            "name": "Issa Diop"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Bournemouth",
-        "score": null,
+        "score": 2,
         "id": 3,
-        "players": []
+        "players": [
+          {
+            "name": "Marcus Tavernier"
+          },
+          {
+            "name": "Ryan Christie"
+          },
+          {
+            "name": "António João Pereira de Albuquerque Tavares da Silva"
+          },
+          {
+            "name": "Rayan"
+          },
+          {
+            "name": "Adrien Truffert"
+          },
+          {
+            "name": "Đorđe Petrović"
+          },
+          {
+            "name": "Justin Kluivert"
+          },
+          {
+            "name": "Tyler Adams"
+          },
+          {
+            "name": "Evanilson"
+          },
+          {
+            "name": "James Hill"
+          },
+          {
+            "name": "Adam Smith"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Bournemouth",
+      "status": 0
     },
     {
       "id": "pl_2645294",
@@ -5574,18 +8932,88 @@
       "matchday": 10,
       "home": {
         "name": "Sunderland",
-        "score": null,
+        "score": 1,
         "id": 20,
-        "players": []
+        "players": [
+          {
+            "name": "Thomas Meunier"
+          },
+          {
+            "name": "Chemsdine Talbi"
+          },
+          {
+            "name": "Brian Brobbey"
+          },
+          {
+            "name": "Robin Roefs"
+          },
+          {
+            "name": "Granit Xhaka"
+          },
+          {
+            "name": "Reinildo Mandava"
+          },
+          {
+            "name": "Enzo Le Fée"
+          },
+          {
+            "name": "Luke O'Nien"
+          },
+          {
+            "name": "Nordi Mukiele"
+          },
+          {
+            "name": "Trai Hume"
+          },
+          {
+            "name": "Noah Sadiki"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Chelsea",
-        "score": null,
+        "score": 0,
         "id": 6,
-        "players": []
+        "players": [
+          {
+            "name": "Mike Penders"
+          },
+          {
+            "name": "Wesley Fofana"
+          },
+          {
+            "name": "Cole Palmer"
+          },
+          {
+            "name": "Roméo Lavia"
+          },
+          {
+            "name": "Marco Palestra"
+          },
+          {
+            "name": "Moisés Caicedo"
+          },
+          {
+            "name": "Pedro Neto"
+          },
+          {
+            "name": "Levi Samuels Colwill"
+          },
+          {
+            "name": "Morgan Rogers"
+          },
+          {
+            "name": "Jordan Henderson"
+          },
+          {
+            "name": "Pep Chavarría"
+          }
+        ],
+        "formation": "4-3-2-1"
       },
-      "winner": null,
-      "status": 1
+      "winner": "Sunderland",
+      "status": 0
     },
     {
       "id": "pl_2645292",
@@ -5595,19 +9023,91 @@
       "matchday": 10,
       "home": {
         "name": "Manchester United",
-        "score": null,
+        "score": 4,
         "id": 16,
-        "players": []
+        "players": [
+          {
+            "name": "Bruno Fernandes"
+          },
+          {
+            "name": "Amad Diallo"
+          },
+          {
+            "name": "Bryan Mbeumo"
+          },
+          {
+            "name": "Diogo Dalot"
+          },
+          {
+            "name": "Noussair Mazraoui"
+          },
+          {
+            "name": "Youri Tielemans"
+          },
+          {
+            "name": "Kobbie Mainoo"
+          },
+          {
+            "name": "Harry Maguire"
+          },
+          {
+            "name": "Senne Lammens"
+          },
+          {
+            "name": "Leny Yoro"
+          },
+          {
+            "name": "Matheus Cunha"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "away": {
         "name": "Aston Villa",
-        "score": null,
+        "score": 4,
         "id": 2,
-        "players": []
+        "players": [
+          {
+            "name": "Leon Goretzka"
+          },
+          {
+            "name": "Taylor Harwood-Bellis"
+          },
+          {
+            "name": "Nicolas Jackson"
+          },
+          {
+            "name": "Victor Lindelöf"
+          },
+          {
+            "name": "Johan Manzambi"
+          },
+          {
+            "name": "Ian Maatsen"
+          },
+          {
+            "name": "Alysson"
+          },
+          {
+            "name": "Boubacar Kamara"
+          },
+          {
+            "name": "John McGinn"
+          },
+          {
+            "name": "Pau Torres"
+          },
+          {
+            "name": "Zion Suzuki"
+          }
+        ],
+        "formation": "4-2-3-1"
       },
       "winner": null,
-      "status": 1
-    },
+      "status": 0
+    }
+  ],
+  "upcoming": [
     {
       "id": "pl_2645302",
       "date": "2026-11-21T12:30:00Z",
@@ -6029,92 +9529,8 @@
       "status": 1
     },
     {
-      "id": "pl_2645316",
-      "date": "2026-12-02T20:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 13,
-      "home": {
-        "name": "Aston Villa",
-        "score": null,
-        "id": 2,
-        "players": []
-      },
-      "away": {
-        "name": "Everton",
-        "score": null,
-        "id": 9,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645315",
-      "date": "2026-12-02T20:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 13,
-      "home": {
-        "name": "Bournemouth",
-        "score": null,
-        "id": 3,
-        "players": []
-      },
-      "away": {
-        "name": "Brighton & Hove Albion",
-        "score": null,
-        "id": 5,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645317",
-      "date": "2026-12-02T20:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 13,
-      "home": {
-        "name": "Brentford",
-        "score": null,
-        "id": 4,
-        "players": []
-      },
-      "away": {
-        "name": "Arsenal",
-        "score": null,
-        "id": 1,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645318",
-      "date": "2026-12-02T20:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 13,
-      "home": {
-        "name": "Chelsea",
-        "score": null,
-        "id": 6,
-        "players": []
-      },
-      "away": {
-        "name": "Crystal Palace",
-        "score": null,
-        "id": 8,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
       "id": "pl_2645319",
-      "date": "2026-12-02T20:00:00Z",
+      "date": "2026-12-01T20:00:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 13,
@@ -6134,8 +9550,29 @@
       "status": 1
     },
     {
+      "id": "pl_2645318",
+      "date": "2026-12-02T19:30:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 13,
+      "home": {
+        "name": "Chelsea",
+        "score": null,
+        "id": 6,
+        "players": []
+      },
+      "away": {
+        "name": "Crystal Palace",
+        "score": null,
+        "id": 8,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
       "id": "pl_2645320",
-      "date": "2026-12-02T20:00:00Z",
+      "date": "2026-12-02T19:30:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 13,
@@ -6156,7 +9593,7 @@
     },
     {
       "id": "pl_2645321",
-      "date": "2026-12-02T20:00:00Z",
+      "date": "2026-12-02T19:30:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 13,
@@ -6177,7 +9614,7 @@
     },
     {
       "id": "pl_2645322",
-      "date": "2026-12-02T20:00:00Z",
+      "date": "2026-12-02T19:30:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 13,
@@ -6197,8 +9634,71 @@
       "status": 1
     },
     {
+      "id": "pl_2645316",
+      "date": "2026-12-02T20:15:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 13,
+      "home": {
+        "name": "Aston Villa",
+        "score": null,
+        "id": 2,
+        "players": []
+      },
+      "away": {
+        "name": "Everton",
+        "score": null,
+        "id": 9,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645315",
+      "date": "2026-12-02T20:15:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 13,
+      "home": {
+        "name": "Bournemouth",
+        "score": null,
+        "id": 3,
+        "players": []
+      },
+      "away": {
+        "name": "Brighton & Hove Albion",
+        "score": null,
+        "id": 5,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645317",
+      "date": "2026-12-02T20:15:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 13,
+      "home": {
+        "name": "Brentford",
+        "score": null,
+        "id": 4,
+        "players": []
+      },
+      "away": {
+        "name": "Arsenal",
+        "score": null,
+        "id": 1,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
       "id": "pl_2645323",
-      "date": "2026-12-02T20:00:00Z",
+      "date": "2026-12-02T20:15:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 13,
@@ -6219,7 +9719,7 @@
     },
     {
       "id": "pl_2645324",
-      "date": "2026-12-02T20:00:00Z",
+      "date": "2026-12-03T20:00:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 13,
@@ -6233,6 +9733,27 @@
         "name": "Fulham",
         "score": null,
         "id": 10,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645328",
+      "date": "2026-12-05T12:30:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 14,
+      "home": {
+        "name": "Chelsea",
+        "score": null,
+        "id": 6,
+        "players": []
+      },
+      "away": {
+        "name": "Liverpool",
+        "score": null,
+        "id": 14,
         "players": []
       },
       "winner": null,
@@ -6281,69 +9802,6 @@
       "status": 1
     },
     {
-      "id": "pl_2645327",
-      "date": "2026-12-05T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 14,
-      "home": {
-        "name": "Brentford",
-        "score": null,
-        "id": 4,
-        "players": []
-      },
-      "away": {
-        "name": "Manchester City",
-        "score": null,
-        "id": 15,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645328",
-      "date": "2026-12-05T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 14,
-      "home": {
-        "name": "Chelsea",
-        "score": null,
-        "id": 6,
-        "players": []
-      },
-      "away": {
-        "name": "Liverpool",
-        "score": null,
-        "id": 14,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645329",
-      "date": "2026-12-05T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 14,
-      "home": {
-        "name": "Everton",
-        "score": null,
-        "id": 9,
-        "players": []
-      },
-      "away": {
-        "name": "Fulham",
-        "score": null,
-        "id": 10,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
       "id": "pl_2645330",
       "date": "2026-12-05T15:00:00Z",
       "stage": "Regular Season",
@@ -6386,29 +9844,8 @@
       "status": 1
     },
     {
-      "id": "pl_2645332",
-      "date": "2026-12-05T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 14,
-      "home": {
-        "name": "Newcastle United",
-        "score": null,
-        "id": 17,
-        "players": []
-      },
-      "away": {
-        "name": "Sunderland",
-        "score": null,
-        "id": 20,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
       "id": "pl_2645333",
-      "date": "2026-12-05T15:00:00Z",
+      "date": "2026-12-05T17:30:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 14,
@@ -6428,8 +9865,71 @@
       "status": 1
     },
     {
+      "id": "pl_2645327",
+      "date": "2026-12-05T20:00:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 14,
+      "home": {
+        "name": "Brentford",
+        "score": null,
+        "id": 4,
+        "players": []
+      },
+      "away": {
+        "name": "Manchester City",
+        "score": null,
+        "id": 15,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645329",
+      "date": "2026-12-06T14:00:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 14,
+      "home": {
+        "name": "Everton",
+        "score": null,
+        "id": 9,
+        "players": []
+      },
+      "away": {
+        "name": "Fulham",
+        "score": null,
+        "id": 10,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645332",
+      "date": "2026-12-06T14:00:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 14,
+      "home": {
+        "name": "Newcastle United",
+        "score": null,
+        "id": 17,
+        "players": []
+      },
+      "away": {
+        "name": "Sunderland",
+        "score": null,
+        "id": 20,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
       "id": "pl_2645334",
-      "date": "2026-12-05T15:00:00Z",
+      "date": "2026-12-06T16:30:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 14,
@@ -6443,90 +9943,6 @@
         "name": "Arsenal",
         "score": null,
         "id": 1,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645335",
-      "date": "2026-12-12T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 15,
-      "home": {
-        "name": "Arsenal",
-        "score": null,
-        "id": 1,
-        "players": []
-      },
-      "away": {
-        "name": "Bournemouth",
-        "score": null,
-        "id": 3,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645336",
-      "date": "2026-12-12T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 15,
-      "home": {
-        "name": "Brighton & Hove Albion",
-        "score": null,
-        "id": 5,
-        "players": []
-      },
-      "away": {
-        "name": "Everton",
-        "score": null,
-        "id": 9,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645337",
-      "date": "2026-12-12T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 15,
-      "home": {
-        "name": "Coventry City",
-        "score": null,
-        "id": 7,
-        "players": []
-      },
-      "away": {
-        "name": "Aston Villa",
-        "score": null,
-        "id": 2,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645338",
-      "date": "2026-12-12T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 15,
-      "home": {
-        "name": "Crystal Palace",
-        "score": null,
-        "id": 8,
-        "players": []
-      },
-      "away": {
-        "name": "Manchester United",
-        "score": null,
-        "id": 16,
         "players": []
       },
       "winner": null,
@@ -6548,27 +9964,6 @@
         "name": "Brentford",
         "score": null,
         "id": 4,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645340",
-      "date": "2026-12-12T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 15,
-      "home": {
-        "name": "Hull City",
-        "score": null,
-        "id": 11,
-        "players": []
-      },
-      "away": {
-        "name": "Tottenham Hotspur",
-        "score": null,
-        "id": 19,
         "players": []
       },
       "winner": null,
@@ -6618,7 +10013,7 @@
     },
     {
       "id": "pl_2645343",
-      "date": "2026-12-12T15:00:00Z",
+      "date": "2026-12-12T17:30:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 15,
@@ -6638,8 +10033,50 @@
       "status": 1
     },
     {
+      "id": "pl_2645335",
+      "date": "2026-12-13T14:00:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 15,
+      "home": {
+        "name": "Arsenal",
+        "score": null,
+        "id": 1,
+        "players": []
+      },
+      "away": {
+        "name": "Bournemouth",
+        "score": null,
+        "id": 3,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645336",
+      "date": "2026-12-13T14:00:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 15,
+      "home": {
+        "name": "Brighton & Hove Albion",
+        "score": null,
+        "id": 5,
+        "players": []
+      },
+      "away": {
+        "name": "Everton",
+        "score": null,
+        "id": 9,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
       "id": "pl_2645344",
-      "date": "2026-12-12T15:00:00Z",
+      "date": "2026-12-13T14:00:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 15,
@@ -6659,21 +10096,84 @@
       "status": 1
     },
     {
-      "id": "pl_2645346",
-      "date": "2026-12-19T15:00:00Z",
+      "id": "pl_2645337",
+      "date": "2026-12-13T16:30:00Z",
       "stage": "Regular Season",
       "group": null,
-      "matchday": 16,
+      "matchday": 15,
       "home": {
-        "name": "Arsenal",
+        "name": "Coventry City",
         "score": null,
-        "id": 1,
+        "id": 7,
+        "players": []
+      },
+      "away": {
+        "name": "Aston Villa",
+        "score": null,
+        "id": 2,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645338",
+      "date": "2026-12-13T19:00:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 15,
+      "home": {
+        "name": "Crystal Palace",
+        "score": null,
+        "id": 8,
         "players": []
       },
       "away": {
         "name": "Manchester United",
         "score": null,
         "id": 16,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645340",
+      "date": "2026-12-14T20:00:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 15,
+      "home": {
+        "name": "Hull City",
+        "score": null,
+        "id": 11,
+        "players": []
+      },
+      "away": {
+        "name": "Tottenham Hotspur",
+        "score": null,
+        "id": 19,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645347",
+      "date": "2026-12-19T12:30:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 16,
+      "home": {
+        "name": "Brentford",
+        "score": null,
+        "id": 4,
+        "players": []
+      },
+      "away": {
+        "name": "Newcastle United",
+        "score": null,
+        "id": 17,
         "players": []
       },
       "winner": null,
@@ -6701,69 +10201,6 @@
       "status": 1
     },
     {
-      "id": "pl_2645347",
-      "date": "2026-12-19T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 16,
-      "home": {
-        "name": "Brentford",
-        "score": null,
-        "id": 4,
-        "players": []
-      },
-      "away": {
-        "name": "Newcastle United",
-        "score": null,
-        "id": 17,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645348",
-      "date": "2026-12-19T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 16,
-      "home": {
-        "name": "Brighton & Hove Albion",
-        "score": null,
-        "id": 5,
-        "players": []
-      },
-      "away": {
-        "name": "Ipswich Town",
-        "score": null,
-        "id": 12,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645349",
-      "date": "2026-12-19T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 16,
-      "home": {
-        "name": "Chelsea",
-        "score": null,
-        "id": 6,
-        "players": []
-      },
-      "away": {
-        "name": "Aston Villa",
-        "score": null,
-        "id": 2,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
       "id": "pl_2645350",
       "date": "2026-12-19T15:00:00Z",
       "stage": "Regular Season",
@@ -6779,27 +10216,6 @@
         "name": "Fulham",
         "score": null,
         "id": 10,
-        "players": []
-      },
-      "winner": null,
-      "status": 1
-    },
-    {
-      "id": "pl_2645351",
-      "date": "2026-12-19T15:00:00Z",
-      "stage": "Regular Season",
-      "group": null,
-      "matchday": 16,
-      "home": {
-        "name": "Liverpool",
-        "score": null,
-        "id": 14,
-        "players": []
-      },
-      "away": {
-        "name": "Tottenham Hotspur",
-        "score": null,
-        "id": 19,
         "players": []
       },
       "winner": null,
@@ -6827,8 +10243,50 @@
       "status": 1
     },
     {
+      "id": "pl_2645351",
+      "date": "2026-12-19T17:30:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 16,
+      "home": {
+        "name": "Liverpool",
+        "score": null,
+        "id": 14,
+        "players": []
+      },
+      "away": {
+        "name": "Tottenham Hotspur",
+        "score": null,
+        "id": 19,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645348",
+      "date": "2026-12-20T14:00:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 16,
+      "home": {
+        "name": "Brighton & Hove Albion",
+        "score": null,
+        "id": 5,
+        "players": []
+      },
+      "away": {
+        "name": "Ipswich Town",
+        "score": null,
+        "id": 12,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
       "id": "pl_2645353",
-      "date": "2026-12-19T15:00:00Z",
+      "date": "2026-12-20T14:00:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 16,
@@ -6849,7 +10307,7 @@
     },
     {
       "id": "pl_2645354",
-      "date": "2026-12-19T15:00:00Z",
+      "date": "2026-12-20T14:00:00Z",
       "stage": "Regular Season",
       "group": null,
       "matchday": 16,
@@ -6863,6 +10321,48 @@
         "name": "Crystal Palace",
         "score": null,
         "id": 8,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645346",
+      "date": "2026-12-20T16:30:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 16,
+      "home": {
+        "name": "Arsenal",
+        "score": null,
+        "id": 1,
+        "players": []
+      },
+      "away": {
+        "name": "Manchester United",
+        "score": null,
+        "id": 16,
+        "players": []
+      },
+      "winner": null,
+      "status": 1
+    },
+    {
+      "id": "pl_2645349",
+      "date": "2026-12-21T20:00:00Z",
+      "stage": "Regular Season",
+      "group": null,
+      "matchday": 16,
+      "home": {
+        "name": "Chelsea",
+        "score": null,
+        "id": 6,
+        "players": []
+      },
+      "away": {
+        "name": "Aston Villa",
+        "score": null,
+        "id": 2,
         "players": []
       },
       "winner": null,
