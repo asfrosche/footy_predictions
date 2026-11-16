@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+import json
+
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import StreamingResponse
 
 from .. import data
 
@@ -33,6 +36,12 @@ def summary() -> dict:
     }
 
 
+@router.get("/home")
+def home() -> dict:
+    """Homepage data: featured fixtures with odds, favourites, title race, results and fixtures."""
+    return data.home_summary()
+
+
 @router.get("/matches")
 def list_matches(
     competition: str | None = Query(None, pattern="^(world-cup|premier-league)$"),
@@ -63,6 +72,59 @@ def premier_league_title_odds() -> dict:
         "generated_at": raw.get("generated_at"),
         "teams": data.title_odds(),
     }
+
+
+@router.get("/premier-league/upcoming")
+def premier_league_upcoming() -> dict:
+    """Upcoming fixtures by gameweek, with market odds and the six model versions."""
+    return data.upcoming_by_gameweek()
+
+
+@router.get("/premier-league/fixtures/{fixture_id}")
+def premier_league_fixture(
+    fixture_id: str,
+    run: bool = False,
+    sims: int = Query(200, ge=50, le=1000),
+) -> dict:
+    """One fixture with market odds and the six model versions.
+
+    Stored results are returned by default. Pass run=true to run the models now,
+    using the given number of simulations per version.
+    """
+    detail = data.fixture_detail(fixture_id)
+    if detail is None:
+        raise HTTPException(status_code=404, detail="Fixture not found")
+    if run:
+        from ..model_runner import predict
+
+        detail["models"] = predict(detail["home"], detail["away"], sims)
+        detail["models_source"] = {"type": "live", "simulations_per_model": sims}
+    return detail
+
+
+@router.get("/premier-league/fixtures/{fixture_id}/run-stream")
+def run_fixture_models_stream(
+    fixture_id: str,
+    sims: int = Query(200, ge=50, le=1000),
+) -> StreamingResponse:
+    """Run the six model versions and stream the running results as newline-delimited JSON.
+
+    Each line is one snapshot: done / total simulations per version, and the current
+    home / draw / away shares for every version. The last line has finished=true.
+    """
+    detail = data.fixture_detail(fixture_id)
+    if detail is None:
+        raise HTTPException(status_code=404, detail="Fixture not found")
+    from ..model_runner import predict_stream
+
+    def lines():
+        try:
+            for snap in predict_stream(detail["home"], detail["away"], sims):
+                yield json.dumps(snap) + "\n"
+        except ValueError as exc:
+            yield json.dumps({"error": str(exc), "finished": True}) + "\n"
+
+    return StreamingResponse(lines(), media_type="application/x-ndjson")
 
 
 @router.get("/premier-league/odds")

@@ -109,8 +109,8 @@ def test_static_site_served(client):
     res = client.get("/")
     assert res.status_code == 200
     assert "Footy" in res.text
-    assert client.get("/css/style.css").status_code == 200
-    assert client.get("/js/app.js").status_code == 200
+    assert client.get("/matches/").status_code == 200
+    assert client.get("/img/logo.png").status_code == 200
 
 
 def test_sipoc_route_serves_page_directly(client):
@@ -128,3 +128,17 @@ def test_sipoc_linked_from_main_nav(client):
 
 def test_api_docs_available(client):
     assert client.get("/docs").status_code == 200
+
+
+def test_home_endpoint_shape(client):
+    body = client.get("/api/home").json()
+    for key in ("matches_tracked", "completed_count", "upcoming_count", "leagues",
+                "featured", "favourites", "title_race", "latest_results", "next_fixtures"):
+        assert key in body, key
+    assert body["matches_tracked"] == body["completed_count"] + body["upcoming_count"]
+    assert len(body["featured"]) <= 3
+    for m in body["featured"]:
+        p = m["implied_probability"]
+        assert abs(p["home"] + p["draw"] + p["away"] - 100) < 0.5
+        assert m["status"] == "scheduled"
+        assert m["date"] >= body["generated_at"]

@@ -159,9 +159,18 @@ def implied_probabilities(home_win: float, draw: float, away_win: float) -> dict
     return {k: round(v / total * 100, 1) for k, v in raw.items()}
 
 
+def _odds_rows() -> list[dict]:
+    """Live cache from scripts/fetch_odds.py if it exists, otherwise the bundled odds file."""
+    live = DATA_DIR / "odds_live.json"
+    if live.exists():
+        with live.open(encoding="utf-8") as fh:
+            return json.load(fh)["matches"]
+    return load_json("epl_odds.json")["matches"]
+
+
 def premier_league_odds() -> list[dict]:
     result = []
-    for m in load_json("epl_odds.json")["matches"]:
+    for m in _odds_rows():
         result.append({
             "home": m["home"],
             "away": m["away"],
@@ -207,3 +216,150 @@ def team_profile(name: str) -> dict | None:
             "tactical_profile": tactical.get(name),
         }
     return profile
+
+
+def _now_iso() -> str:
+    """Current UTC time in the same format as fixture dates, for string comparison."""
+    from datetime import datetime, timezone
+
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _odds_by_fixture() -> dict[tuple[str, str], dict]:
+    return {(o["home"], o["away"]): o for o in premier_league_odds()}
+
+
+def home_summary() -> dict:
+    """Everything the homepage needs, in one response.
+
+    Only real data is used: fixtures and results from the match files, odds from
+    epl_odds.json (margin removed), and title odds from epl_title_odds.json.
+    """
+    now = _now_iso()
+    matches = list(all_matches())
+    completed = [m for m in matches if m["status"] == "completed"]
+    upcoming = [m for m in matches if m["status"] == "scheduled" and (m["date"] or "") >= now]
+    odds = _odds_by_fixture()
+
+    def with_odds(m: dict) -> dict | None:
+        row = odds.get((m["home"], m["away"]))
+        if row is None:
+            return None
+        return {**m, "decimal_odds": row["decimal_odds"], "implied_probability": row["implied_probability"]}
+
+    # Upcoming fixtures that have a market price, soonest first.
+    priced_upcoming = [x for x in (with_odds(m) for m in upcoming if m["competition"] == "premier-league") if x]
+
+    # Odds rows not tied to a fixture in the match files still count as market prices.
+    fixture_keys = {(m["home"], m["away"]) for m in upcoming}
+    priced_other = [
+        {"home": o["home"], "away": o["away"], "date": None, "competition": "premier-league",
+         "competition_name": COMPETITIONS["premier-league"], "status": "scheduled",
+         "decimal_odds": o["decimal_odds"], "implied_probability": o["implied_probability"]}
+        for o in premier_league_odds() if (o["home"], o["away"]) not in fixture_keys
+    ]
+
+    def strongest(x: dict) -> float:
+        p = x["implied_probability"]
+        return max(p["home"], p["away"])
+
+    favourites = sorted(priced_upcoming + priced_other, key=strongest, reverse=True)[:5]
+
+    return {
+        "leagues": len(COMPETITIONS),
+        "matches_tracked": len(completed) + len(upcoming),
+        "completed_count": len(completed),
+        "upcoming_count": len(upcoming),
+        "featured": priced_upcoming[:3],
+        "favourites": favourites,
+        "title_race": title_odds()[:5],
+        "latest_results": list(reversed(completed))[:6],
+        "next_fixtures": upcoming[:6],
+        "generated_at": now,
+    }
+
+
+def model_predictions() -> dict:
+    """Per-fixture results from scripts/run_model_predictions.py, if that run has happened."""
+    path = DATA_DIR / "model_predictions.json"
+    if not path.exists():
+        return {"generated_at": None, "simulations_per_model": None, "fixtures": {}}
+    with path.open(encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def upcoming_by_gameweek() -> dict:
+    """Premier League fixtures from today on, grouped by gameweek (matchday).
+
+    Each fixture carries the market odds (if any) and the six model versions' results.
+    """
+    now = _now_iso()
+    preds = model_predictions()
+    odds = _odds_by_fixture()
+    fixtures = [
+        m for m in all_matches()
+        if m["competition"] == "premier-league" and m["status"] == "scheduled" and (m["date"] or "") >= now
+    ]
+
+    weeks: dict[object, list[dict]] = {}
+    for m in fixtures:
+        row = odds.get((m["home"], m["away"]))
+        pred = preds["fixtures"].get(m["id"])
+        weeks.setdefault(m["matchday"], []).append({
+            "id": m["id"],
+            "date": m["date"],
+            "home": m["home"],
+            "away": m["away"],
+            "market": row["implied_probability"] if row else None,
+            "models": pred["models"] if pred else None,
+        })
+
+    gameweeks = []
+    for gw in sorted(weeks, key=lambda g: (g is None, g or 0)):
+        rows = sorted(weeks[gw], key=lambda r: r["date"] or "")
+        gameweeks.append({
+            "gameweek": gw,
+            "start": rows[0]["date"],
+            "fixtures": rows,
+        })
+
+    simulated = sum(1 for g in gameweeks for f in g["fixtures"] if f["models"])
+    total = sum(len(g["fixtures"]) for g in gameweeks)
+    return {
+        "generated_at": now,
+        "model_run": {
+            "generated_at": preds.get("generated_at"),
+            "simulations_per_model": preds.get("simulations_per_model"),
+            "fixtures_simulated": simulated,
+            "fixtures_total": total,
+        },
+        "gameweeks": gameweeks,
+    }
+
+
+def fixture_detail(fixture_id: str) -> dict | None:
+    """One Premier League fixture with its market odds and the stored model results."""
+    fixture = next(
+        (m for m in all_matches() if m["id"] == fixture_id and m["competition"] == "premier-league"),
+        None,
+    )
+    if fixture is None:
+        return None
+    row = _odds_by_fixture().get((fixture["home"], fixture["away"]))
+    stored = model_predictions()["fixtures"].get(fixture_id)
+    return {
+        "id": fixture["id"],
+        "competition_name": fixture["competition_name"],
+        "date": fixture["date"],
+        "matchday": fixture["matchday"],
+        "status": fixture["status"],
+        "home": fixture["home"],
+        "away": fixture["away"],
+        "market": row["implied_probability"] if row else None,
+        "market_prices": row["decimal_odds"] if row else None,
+        "models": stored["models"] if stored else None,
+        "models_source": (
+            {"type": "stored", "simulations_per_model": model_predictions().get("simulations_per_model")}
+            if stored else None
+        ),
+    }
