@@ -1,68 +1,76 @@
 # Footy Predictions
 
-Fixtures, results, league tables, World Cup group tables and market odds, served by a FastAPI backend with a black-and-blue static site.
+Football fixtures, results, league tables, market odds and model results for the Premier League and the World Cup.
 
-## Pages
+- **Backend:** FastAPI (`app/`), serving JSON under `/api`.
+- **Frontend:** Next.js and TypeScript (`web/`), built to static files and served by FastAPI.
+- **Model:** six match-engine versions, v1 to v6 (`simulator/`), run per fixture on the Premier League.
 
-| Route | What it shows |
+## Layout
+
+| Folder | What it holds |
 |---|---|
-| `/` | Overview: headline numbers, latest results, next fixtures, title favourites |
-| `/#/matches` | All matches, filterable by competition, status and team |
-| `/#/premier-league` | League table, title odds, match odds with the margin removed |
-| `/#/world-cup` | Group tables built from each group's fixtures |
-| `/#/team/<name>` | Team profile and fixtures |
-| `/sipoc` | SIPOC analysis of the application (suppliers, inputs, process, outputs, customers) |
-| `/docs` | Interactive API docs (FastAPI) |
+| `app/` | The API: `main.py` (app and site), `routers/api.py` (endpoints), `data.py` (loads and derives data), `live_odds.py` (The Odds API client), `model_runner.py` (runs v1 to v6), `legacy/` (the SIPOC page) |
+| `web/` | The Next.js site. `npm run build` writes it to `web/out/`, which FastAPI serves |
+| `simulator/` | The engines v1 to v6 and their competition configs. Only the parts the site uses are kept here |
+| `data/inputs/` | Fixtures, ratings and odds the site reads |
+| `data/generated/` | Written by the scripts: the live odds cache and stored model results |
+| `data/backups/` | Backups made before results are rewritten. Git-ignored |
+| `scripts/` | Refreshing results and odds, and running the models |
+| `tests/` | API, live odds and lineup script tests |
+| `simulator/tests/` | Engine and data-loading tests |
+| `archive/` | Tools the site does not use (the Discord draft bot, odds watchers, benchmark reports, evaluation). Kept for reference, not run |
+| `docs/` | The build plan and the logo source |
 
-## API
-
-All endpoints are under `/api`.
-
-- `GET /api/health`
-- `GET /api/summary`
-- `GET /api/matches?competition=world-cup|premier-league&status=completed|scheduled&team=...`
-- `GET /api/matches/{match_id}`
-- `GET /api/premier-league/standings`
-- `GET /api/premier-league/title-odds`
-- `GET /api/premier-league/odds`
-- `GET /api/world-cup/groups`
-- `GET /api/teams/{name}`
-
-## Run it
+## Set up
 
 ```bash
 python -m venv .venv
-. .venv/Scripts/activate        # Windows (Git Bash: source .venv/Scripts/activate)
+.venv\Scripts\activate            # Git Bash: source .venv/Scripts/activate
 pip install -r requirements-dev.txt
-uvicorn app.main:app --reload
+
+cd web
+npm install
 ```
 
-Then open http://127.0.0.1:8000.
+Copy `.env.example` to `.env` if you want live odds. `.env` is git-ignored.
 
-## Test
+## Run
+
+Build the site. The build reads the fixture and team lists from the API, so start the API first:
 
 ```bash
-python -m pytest
+uvicorn app.main:app --port 8765    # terminal 1
+cd web && npm run build             # terminal 2, once the API is up
+```
+
+Then open http://127.0.0.1:8765. Each new Premier League fixture needs a rebuild to get its match page. Data updates do not.
+
+For development with hot reload, keep the API running and start the Next.js dev server:
+
+```bash
+cd web
+NEXT_PUBLIC_API_BASE=http://127.0.0.1:8765 npm run dev -- --port 3001
 ```
 
 ## Data
 
-The app reads JSON files from `data/`. Set `FOOTY_DATA_DIR` to point it at another folder.
-
-| File | Contents |
+| Task | Command |
 |---|---|
-| `matches.json` | World Cup fixtures and results |
-| `pl_matches.json` | Premier League fixtures and results |
-| `epl_teams.json` | Premier League clubs (code, Elo) |
-| `epl_odds.json` | Premier League match odds (decimal) |
-| `epl_title_odds.json` | Title-win approximation |
-| `tactical_profiles.json` | National team tactical profiles |
-| `national_strength_modifiers.json` | National team strength modifiers |
+| Refresh finished results | `python scripts/fetch_football_data.py 2627` then `python scripts/refresh_results.py --write` |
+| Live odds (uses credits) | set `ODDS_SOURCE=the_odds_api` and `ODDS_API_KEY` in `.env`, then `python scripts/fetch_odds.py --confirm` |
+| Stored model results (about 30 minutes) | `python scripts/run_model_predictions.py` |
 
-Data is copied from the earlier `fifa_data/` work. Personal data (`draft_data.json` holds Discord IDs) is deliberately not included. Cached provider dumps are excluded too.
+Set `FOOTY_DATA_DIR` to read data from another folder.
+
+## Test
+
+```bash
+python -m pytest tests
+```
 
 ## Notes
 
-- Odds shown are bookmaker prices with the margin removed. Title odds are a model approximation.
-- The match prediction engine from `fifa_data/` is not included yet, so the site shows market odds and approximations, not engine predictions.
+- Odds are bookmaker prices with the margin removed. Model results are simulations, not guarantees.
 - Nothing here is betting advice.
+- The Discord draft data is not in the repo. It holds personal IDs and stays on the machine that uses it.

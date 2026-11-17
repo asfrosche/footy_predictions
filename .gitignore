@@ -8,12 +8,23 @@ venv/
 data/raw/
 data/cache/
 
-# fifa_data runtime caches (regenerated, never committed)
-fifa_data/data/raw/
-fifa_data/data/lineup_cache/
-fifa_data/data/provider_cache/
-fifa_data/data/pl_form_cache.json
-fifa_data/data/tournament_form_cache.json
+# simulator runtime caches (regenerated, never committed)
+simulator/data/raw/
+simulator/data/lineup_cache/
+simulator/data/provider_cache/
+simulator/data/pl_form_cache.json
+simulator/data/tournament_form_cache.json
 
 # Backups of data files written by scripts/refresh_results.py
 data/backups/
+
+# Personal data kept out of git (Discord draft bot). See archive/draft_bot/.
+archive/draft_bot/private/
+
+# Local build output and dependencies
+web/out/
+web/.next/
+web/node_modules/
+
+# Written by scripts/ (live odds cache, stored model results). Regenerated, not versioned.
+data/generated/

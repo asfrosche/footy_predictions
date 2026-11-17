@@ -9,10 +9,10 @@ Each feature is built, tested and reviewed on its own before the next one starts
 
 | # | Feature | Status | Notes |
 |---|---|---|---|
-| 1 | Homepage | Done (uncommitted) | `/api/home`, big matches, tabs, toolkit, disclaimer |
-| 2 | Fixtures and results | Exists | `/#/matches` with filters |
-| 3 | League tables and team pages | Exists | Premier League, World Cup groups, team profiles |
-| 4 | Match detail page | Next | Probabilities, scoreline grid, form, head-to-head |
+| 1 | Homepage | Done | `/api/home`, big matches, tabs, toolkit, disclaimer |
+| 2 | Fixtures and results | Done | `/matches/`, sorted by proximity to today, team dropdown |
+| 3 | League tables and team pages | Done | Premier League, World Cup groups, team profiles |
+| 4 | Match page | Done | `/match/<id>/` with odds and the six model versions; run models with live progress |
 | 5 | AI predictions | Planned | Dixon-Coles model, backtested, prediction log |
 | 6 | Value bets | Planned | Model vs market, edge and EV, min odds and edge filters |
 | 7 | Dropping odds | Planned | Needs odds snapshots stored over time |
@@ -46,7 +46,7 @@ Known limits, to fix in feature 4 or 5:
 ## Conventions
 
 - Add a feature as a function in `app/data.py`, an endpoint in `app/routers/api.py`, a renderer
-  in `app/static/js/app.js`, and styles in `app/static/css/style.css`.
+  in `web/src/views/` (Next.js), and styles in `web/src/app/globals.css`.
 - Every feature gets a test in `tests/test_api.py`.
 - Check each page at 390px wide (for example in an iframe) before calling it done. Headless
   Chrome has a 482px minimum viewport, so a plain 390px screenshot is misleading.
@@ -54,8 +54,8 @@ Known limits, to fix in feature 4 or 5:
 
 ## Data notes
 
-- Odds source for the Premier League is `data/epl_odds.json`. It has 10 fixtures.
-- Title odds are a model approximation in `data/epl_title_odds.json`.
+- Odds source for the Premier League is `data/inputs/epl_odds.json`. It has 10 fixtures.
+- Title odds are a model approximation in `data/inputs/epl_title_odds.json`.
 - Feature 5 will need a model that takes team strength and produces full match probabilities.
   Don't present market probabilities as predictions.
 - Check the terms of any odds or stats provider before adding one.
