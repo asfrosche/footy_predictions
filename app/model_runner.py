@@ -1,6 +1,6 @@
 """Run the six model versions (v1-v6) on one Premier League fixture.
 
-The engines come from fifa_data/. They are built once, on first use, because
+The engines come from simulator/. They are built once, on first use, because
 building them takes a few seconds. A lock keeps two requests from running the
 engines at the same time.
 """
@@ -28,8 +28,8 @@ def _load() -> None:
     global _engines, _teams
     if _engines is not None:
         return
-    from fifa_data.competitions.premier_league import get_pl_config
-    from fifa_data.services import simulation_service as svc
+    from simulator.competitions.premier_league import get_pl_config
+    from simulator.services import simulation_service as svc
 
     config = get_pl_config()
     _teams = set(config.teams)

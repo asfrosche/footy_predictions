@@ -2,7 +2,7 @@
 
 For each fixture and each version, the match is simulated N times with that
 version's own simulate_match(). The result is the share of home / draw / away
-wins and the most common scoreline. Output: data/model_predictions.json.
+wins and the most common scoreline. Output: data/generated/model_predictions.json.
 
 Slow: about 30 ms per fixture per simulation across all six versions. The
 default N=200 takes roughly 30 minutes for a full season. Results are saved
@@ -27,11 +27,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from fifa_data.competitions.premier_league import get_pl_config  # noqa: E402
-from fifa_data.services import simulation_service as svc  # noqa: E402
+from simulator.competitions.premier_league import get_pl_config  # noqa: E402
+from simulator.services import simulation_service as svc  # noqa: E402
 
-FIXTURES = ROOT / "data" / "pl_matches.json"
-OUT = ROOT / "data" / "model_predictions.json"
+FIXTURES = ROOT / "data" / "inputs" / "pl_matches.json"
+OUT = ROOT / "data" / "generated" / "model_predictions.json"
 MODELS = ["v1", "v2", "v3", "v4", "v5", "v6"]
 
 

@@ -1,4 +1,4 @@
-"""Upcoming Premier League odds from The Odds API, cached to data/odds_live.json.
+"""Upcoming Premier League odds from The Odds API, cached to data/generated/odds_live.json.
 
 Only the fetch step talks to the network. Parsing and caching are plain functions,
 so they can be tested without a key or any credits.
@@ -16,7 +16,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = Path(os.environ.get("FOOTY_DATA_DIR") or ROOT / "data")
-CACHE_FILE = DATA_DIR / "odds_live.json"
+CACHE_FILE = DATA_DIR / "generated" / "odds_live.json"
 
 API_BASE = "https://api.the-odds-api.com/v4"
 SPORT_KEY = "soccer_epl"  # Premier League
@@ -103,7 +103,7 @@ def parse_events(events: list[dict]) -> list[dict]:
 
 
 def write_cache(matches: list[dict], source: str) -> Path:
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "source": source,

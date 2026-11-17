@@ -1,4 +1,4 @@
-"""Move finished Premier League matches from football-data.co.uk into data/pl_matches.json.
+"""Move finished Premier League matches from football-data.co.uk into data/inputs/pl_matches.json.
 
 Reads data/raw/football_data_E0_<season>.csv (run scripts/fetch_football_data.py first).
 Each finished match is moved from "upcoming" to "completed" with its score. Names are
@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-FIXTURES = ROOT / "data" / "pl_matches.json"
+FIXTURES = ROOT / "data" / "inputs" / "pl_matches.json"
 RAW = ROOT / "data" / "raw" / "football_data_E0_2627.csv"
 BACKUP_DIR = ROOT / "data" / "backups"
 

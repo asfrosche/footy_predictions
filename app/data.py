@@ -13,6 +13,8 @@ from pathlib import Path
 from typing import Any
 
 DATA_DIR = Path(os.environ.get("FOOTY_DATA_DIR") or Path(__file__).resolve().parent.parent / "data")
+INPUTS_DIR = DATA_DIR / "inputs"  # hand-kept data and fixture files
+GENERATED_DIR = DATA_DIR / "generated"  # written by scripts/ (odds cache, model results)
 
 COMPETITIONS = {
     "world-cup": "World Cup",
@@ -22,7 +24,7 @@ COMPETITIONS = {
 
 @lru_cache(maxsize=None)
 def load_json(name: str) -> Any:
-    with (DATA_DIR / name).open(encoding="utf-8") as fh:
+    with (INPUTS_DIR / name).open(encoding="utf-8") as fh:
         return json.load(fh)
 
 
@@ -161,7 +163,7 @@ def implied_probabilities(home_win: float, draw: float, away_win: float) -> dict
 
 def _odds_rows() -> list[dict]:
     """Live cache from scripts/fetch_odds.py if it exists, otherwise the bundled odds file."""
-    live = DATA_DIR / "odds_live.json"
+    live = GENERATED_DIR / "odds_live.json"
     if live.exists():
         with live.open(encoding="utf-8") as fh:
             return json.load(fh)["matches"]
@@ -281,7 +283,7 @@ def home_summary() -> dict:
 
 def model_predictions() -> dict:
     """Per-fixture results from scripts/run_model_predictions.py, if that run has happened."""
-    path = DATA_DIR / "model_predictions.json"
+    path = GENERATED_DIR / "model_predictions.json"
     if not path.exists():
         return {"generated_at": None, "simulations_per_model": None, "fixtures": {}}
     with path.open(encoding="utf-8") as fh:

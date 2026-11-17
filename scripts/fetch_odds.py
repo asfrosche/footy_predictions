@@ -38,7 +38,7 @@ def main() -> int:
         path = fetch_football_data.fetch("2627")
         print(f"football-data.co.uk saved to {path}")
         print("Note: this file has finished matches only, so it has no upcoming prices.")
-        print("The homepage keeps using data/epl_odds.json until a live source is set.")
+        print("The homepage keeps using data/inputs/epl_odds.json until a live source is set.")
         return 0
 
     if source == "the_odds_api":
