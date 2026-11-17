@@ -27,6 +27,11 @@ def create_app() -> FastAPI:
     )
     app.include_router(api_router, prefix="/api")
 
+    @app.on_event("startup")
+    def _warm_models() -> None:
+        from .model_runner import warm_up
+        warm_up()
+
     @app.get("/sipoc", include_in_schema=False)
     def sipoc_page() -> FileResponse:
         return FileResponse(LEGACY_DIR / "sipoc.html", media_type="text/html")
@@ -35,7 +40,9 @@ def create_app() -> FastAPI:
     app.mount("/css", StaticFiles(directory=LEGACY_DIR / "css"), name="legacy-css")
 
     # Mounted last so /api, /sipoc and /css take precedence over the site.
-    app.mount("/", StaticFiles(directory=SITE_DIR, html=True), name="site")
+    # Skipped when the site has not been built (for example in the Vercel function bundle).
+    if SITE_DIR.is_dir():
+        app.mount("/", StaticFiles(directory=SITE_DIR, html=True), name="site")
     return app
 
 

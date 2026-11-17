@@ -1,0 +1,20 @@
+# Keep the deployed bundle small and free of private or licensed data.
+.git
+.venv
+venv
+.env
+.env.*
+archive
+docs
+tests
+simulator/tests
+scripts
+data/raw
+data/backups
+data/generated/odds_live.json
+web/node_modules
+web/.next
+web/src
+web/public
+**/__pycache__
+**/*.pyc

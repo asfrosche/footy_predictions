@@ -28,3 +28,6 @@ web/node_modules/
 
 # Written by scripts/ (live odds cache, stored model results). Regenerated, not versioned.
 data/generated/
+
+# Third-party datasets: licence terms restrict redistribution (see data/inputs/external/MANIFEST.md)
+data/inputs/external/

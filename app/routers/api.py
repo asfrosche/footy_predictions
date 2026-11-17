@@ -127,6 +127,23 @@ def run_fixture_models_stream(
     return StreamingResponse(lines(), media_type="application/x-ndjson")
 
 
+@router.get("/players")
+def players(
+    team: str | None = Query(None, max_length=80),
+    position: str | None = Query(None, pattern="^(GKP|DEF|MID|FWD)$"),
+    sort: str = Query("total_points", pattern="^(total_points|price|form|selected_by_percent|expected_goals|ep_next)$"),
+    limit: int = Query(100, ge=1, le=700),
+) -> dict:
+    """Fantasy Premier League player stats, filtered and sorted."""
+    rows = data.fpl_players()
+    if team:
+        rows = [p for p in rows if p["team"] == team]
+    if position:
+        rows = [p for p in rows if p["position"] == position]
+    rows = sorted(rows, key=lambda p: p[sort], reverse=True)[:limit]
+    return {"count": len(rows), "players": rows}
+
+
 @router.get("/premier-league/odds")
 def premier_league_odds() -> list[dict]:
     return data.premier_league_odds()

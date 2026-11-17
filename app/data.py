@@ -123,7 +123,8 @@ def _blank(name: str) -> dict:
 
 
 def premier_league_teams() -> list[str]:
-    return list(load_json("epl_teams.json").keys())
+    # Keys starting with "_" are metadata, not clubs.
+    return [k for k in load_json("epl_teams.json").keys() if not k.startswith("_")]
 
 
 def premier_league_standings() -> list[dict]:
@@ -339,6 +340,99 @@ def upcoming_by_gameweek() -> dict:
     }
 
 
+@lru_cache(maxsize=1)
+def lineups_file() -> dict:
+    """Predicted formations and XIs, written by simulator/scripts/export_lineups.py."""
+    path = GENERATED_DIR / "lineups.json"
+    if not path.exists():
+        return {"teams": {}}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _league_positions() -> dict[str, dict]:
+    return {row["team"]: row for row in premier_league_standings()}
+
+
+def previous_matches(team: str, n: int = 5) -> list[dict]:
+    """The team's last n completed Premier League matches, newest first.
+
+    Each result carries the opponent's current league position, so the page can show
+    the quality of the opposition as well as the result.
+    """
+    positions = _league_positions()
+    done = [
+        m for m in all_matches()
+        if m["competition"] == "premier-league" and m["status"] == "completed"
+        and m["home_score"] is not None and team in (m["home"], m["away"])
+    ]
+    out = []
+    for m in done[-n:][::-1]:
+        is_home = m["home"] == team
+        gf = m["home_score"] if is_home else m["away_score"]
+        ga = m["away_score"] if is_home else m["home_score"]
+        opponent = m["away"] if is_home else m["home"]
+        out.append({
+            "id": m["id"],
+            "date": m["date"],
+            "venue": "home" if is_home else "away",
+            "opponent": opponent,
+            "opponent_position": positions.get(opponent, {}).get("position"),
+            "score": f"{gf}-{ga}",
+            "result": "W" if gf > ga else ("L" if gf < ga else "D"),
+        })
+    return out
+
+
+def _next_premier_league_fixture_id(team: str) -> str | None:
+    """The team's next scheduled Premier League fixture. The stored XI is for this match."""
+    upcoming = [
+        m for m in all_matches()
+        if m["competition"] == "premier-league" and m["status"] == "scheduled"
+        and team in (m["home"], m["away"])
+    ]
+    return min(upcoming, key=lambda m: m["date"])["id"] if upcoming else None
+
+
+def _lineup_side(team: str, fixture_id: str) -> dict:
+    info = lineups_file().get("teams", {}).get(team, {})
+    table_row = _league_positions().get(team, {})
+    previous = previous_matches(team)
+    return {
+        "team": team,
+        "manager": _club_managers().get(team),
+        "formation": info.get("formation"),
+        "predicted_xi": info.get("predicted_xi"),
+        "predicted_xi_lines": info.get("predicted_xi_lines"),
+        "xi_source": info.get("xi_source"),
+        "confidence": info.get("confidence"),
+        "notes": info.get("notes") or [],
+        # The predicted XI is for the club's next match. Other fixtures get it flagged.
+        "for_this_match": _next_premier_league_fixture_id(team) == fixture_id,
+        "position": table_row.get("position"),
+        "points": table_row.get("points"),
+        "played": table_row.get("played"),
+        # Oldest first, the usual reading order for form.
+        "form": "".join(m["result"] for m in reversed(previous)),
+        "previous": previous,
+    }
+
+
+def key_players(team: str, count: int = 3) -> list[dict]:
+    """The club's highest scorers in Fantasy Premier League so far, from the FPL API."""
+    squad = [p for p in fpl_players() if p["team"] == team]
+    squad.sort(key=lambda p: p["total_points"], reverse=True)
+    keep = ("id", "name", "full_name", "position", "price", "total_points", "form", "goals", "assists", "status")
+    return [{k: p[k] for k in keep} for p in squad[:count]]
+
+
+def _club_managers() -> dict[str, str]:
+    """Current manager per club, from data/inputs/club_managers.json (sourced, see its file)."""
+    try:
+        return load_json("club_managers.json").get("managers", {})
+    except FileNotFoundError:
+        return {}
+
+
 def fixture_detail(fixture_id: str) -> dict | None:
     """One Premier League fixture with its market odds and the stored model results."""
     fixture = next(
@@ -349,7 +443,7 @@ def fixture_detail(fixture_id: str) -> dict | None:
         return None
     row = _odds_by_fixture().get((fixture["home"], fixture["away"]))
     stored = model_predictions()["fixtures"].get(fixture_id)
-    return {
+    detail = {
         "id": fixture["id"],
         "competition_name": fixture["competition_name"],
         "date": fixture["date"],
@@ -365,3 +459,22 @@ def fixture_detail(fixture_id: str) -> dict | None:
             if stored else None
         ),
     }
+    detail["lineups"] = {
+        "home": _lineup_side(fixture["home"], fixture_id),
+        "away": _lineup_side(fixture["away"], fixture_id),
+    }
+    detail["key_players"] = {"home": key_players(fixture["home"]), "away": key_players(fixture["away"])}
+    detail["injuries"] = {
+        "home": None, "away": None,
+        "note": "Not available: no injury source has been verified for use.",
+    }
+    return detail
+
+
+def fpl_players() -> list[dict]:
+    """Player stats from the Fantasy Premier League API, built by scripts/fetch_fpl_data.py."""
+    path = GENERATED_DIR / "fpl_players.json"
+    if not path.exists():
+        return []
+    with path.open(encoding="utf-8") as fh:
+        return json.load(fh)["players"]
