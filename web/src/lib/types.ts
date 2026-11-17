@@ -66,6 +66,33 @@ export type UpcomingResponse = {
   gameweeks: { gameweek: number | null; start: string | null; fixtures: UpcomingFixture[] }[];
 };
 
+export type PreviousMatch = {
+  id: string;
+  date: string | null;
+  venue: "home" | "away";
+  opponent: string;
+  opponent_position: number | null;
+  score: string;
+  result: "W" | "D" | "L";
+};
+
+export type LineupSide = {
+  team: string;
+  manager: string | null;
+  formation: string | null;
+  predicted_xi: string[] | null;
+  predicted_xi_lines: ("GK" | "DEF" | "MID" | "FWD")[] | null;
+  xi_source: string | null;
+  confidence: number | null;
+  notes: string[];
+  for_this_match: boolean;
+  position: number | null;
+  points: number | null;
+  played: number | null;
+  form: string;
+  previous: PreviousMatch[];
+};
+
 export type FixtureDetail = {
   id: string;
   competition_name: string;
@@ -78,6 +105,9 @@ export type FixtureDetail = {
   market_prices: MarketPrices | null;
   models: Record<string, ModelResult> | null;
   models_source: { type: "stored" | "live"; simulations_per_model: number | null } | null;
+  lineups: { home: LineupSide; away: LineupSide };
+  key_players: { home: KeyPlayer[]; away: KeyPlayer[] };
+  injuries: { home: string[] | null; away: string[] | null; note: string };
 };
 
 export type TitleOdds = { note: string | null; generated_at: string | null; teams: { team: string; probability: number }[] };
@@ -101,4 +131,40 @@ export type TeamProfile = {
     title_probability: number | null;
   };
   national: null | { strength_modifier: number | null; tactical_profile: Record<string, unknown> | null };
+};
+
+export type FplPlayer = {
+  id: number;
+  name: string;
+  full_name: string;
+  team: string;
+  position: "GKP" | "DEF" | "MID" | "FWD";
+  price: number;
+  total_points: number;
+  points_per_game: number;
+  form: number;
+  selected_by_percent: number;
+  minutes: number;
+  goals: number;
+  assists: number;
+  clean_sheets: number;
+  expected_goals: number;
+  expected_assists: number;
+  ep_next: number;
+  status: string;
+  news: string;
+};
+export type PlayersResponse = { count: number; players: FplPlayer[] };
+
+export type KeyPlayer = {
+  id: number;
+  name: string;
+  full_name: string;
+  position: "GKP" | "DEF" | "MID" | "FWD";
+  price: number;
+  total_points: number;
+  form: number;
+  goals: number;
+  assists: number;
+  status: string;
 };

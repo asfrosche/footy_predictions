@@ -3,18 +3,18 @@ import { crestSrc, initials } from "@/lib/crests";
 import { fmtDate, fmtPct, pathSegment } from "@/lib/format";
 import type { MatchSummary, ModelResult, Outcome, Standing } from "@/lib/types";
 
-export function Crest({ team, large = false }: { team: string; large?: boolean }) {
+export function Crest({ team, large = false, size }: { team: string; large?: boolean; size?: number }) {
   const src = crestSrc(team);
   if (!src) return null;
-  return (
-    <img className={large ? "crest crest-lg" : "crest"} src={src} alt="" width={large ? 56 : 20} height={large ? 56 : 20} />
-  );
+  const px = size ?? (large ? 56 : 28);
+  return <img className={large ? "crest crest-lg" : "crest"} src={src} alt="" width={px} height={px} style={{ width: px, height: px }} />;
 }
 
-export function TeamLink({ team }: { team: string }) {
+export function TeamLink({ team, crestSize = 28 }: { team: string; crestSize?: number }) {
   return (
-    <Link className="team-link" href={`/team/${pathSegment(team)}/`}>
-      {team}
+    <Link prefetch={false} className="team-link team-with-crest" href={`/team/${pathSegment(team)}/`}>
+      <Crest team={team} size={crestSize} />
+      <span>{team}</span>
     </Link>
   );
 }
@@ -67,7 +67,7 @@ export function MatchRow({ m }: { m: MatchSummary }) {
   // World Cup matches have no model runs, so they stay as plain rows.
   if (m.competition === "premier-league") {
     return (
-      <Link className="match match-link" href={`/match/${pathSegment(m.id)}/`}>
+      <Link prefetch={false} className="match match-link" href={`/match/${pathSegment(m.id)}/`}>
         {body}
       </Link>
     );
@@ -101,13 +101,30 @@ export function ProbRow({ p }: { p: Outcome }) {
   );
 }
 
-export function ModelCard({ name, p }: { name: string; p: ModelResult | undefined }) {
+export const MODEL_BLURBS: Record<string, string> = {
+  v1: "Elo ratings set each side's expected goals, with a capped upset factor.",
+  v2: "Squad player ratings, weighted by position, set expected goals.",
+  v3: "V2 strength adjusted for form, chemistry, momentum and experience.",
+  v4: "V3 plus a tactical matchup adjustment.",
+  v5: "Minute-by-minute match simulation, with goals drawn from V3's rates.",
+  v6: "V5 with per-team attacking corrections from results so far.",
+  vcopy1: "Small neural net on each team's last 10 matches, then a scoreline.",
+};
+
+// Worst-case 95% margin for one outcome share over n simulations, in percentage points.
+export function marginOfError(n: number): number {
+  return Math.round(100 * 1.96 * Math.sqrt(0.25 / n));
+}
+
+export function ModelCard({ name, p, sims }: { name: string; p: ModelResult | undefined; sims?: number | null }) {
+  const blurb = MODEL_BLURBS[name];
   if (!p) {
     return (
       <div className="model-card">
         <div className="model-head">
           <span className="model-name">{name}</span>
         </div>
+        {blurb && <p className="faint small" style={{ margin: "2px 0 6px" }}>{blurb}</p>}
         <p className="faint small">Not simulated yet.</p>
       </div>
     );
@@ -116,10 +133,15 @@ export function ModelCard({ name, p }: { name: string; p: ModelResult | undefine
     <div className="model-card">
       <div className="model-head">
         <span className="model-name">{name}</span>
-        <span className="score mono">{p.likely_score}</span>
       </div>
+      {blurb && <p className="faint small" style={{ margin: "2px 0 6px" }}>{blurb}</p>}
       <OutcomeBar p={p} />
       <ProbRow p={p} />
+      {sims ? (
+        <p className="faint small" style={{ margin: "6px 0 0" }}>
+          Each share can be about ±{marginOfError(sims)} points just from the number of runs ({sims} per version).
+        </p>
+      ) : null}
     </div>
   );
 }

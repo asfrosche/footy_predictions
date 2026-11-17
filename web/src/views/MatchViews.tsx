@@ -4,15 +4,16 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { API_BASE, useApi } from "@/lib/api";
 import { fmtDate, fmtPct, pathSegment } from "@/lib/format";
-import type { FixtureDetail, MatchSummary, ModelResult, TeamProfile, UpcomingResponse } from "@/lib/types";
+import type { FixtureDetail, KeyPlayer, LineupSide, MatchSummary, ModelResult, TeamProfile, UpcomingResponse } from "@/lib/types";
 import { Crest, Empty, ErrorBox, Loading, MatchRow, ModelCard, OutcomeBar, ProbRow } from "@/components/ui";
 
-const MODEL_KEYS = ["v1", "v2", "v3", "v4", "v5", "v6"];
+const MODEL_KEYS = ["v1", "v2", "v3", "v4", "v5", "v6", "vcopy1"];
 
 type RunSnapshot = {
   done: number;
   total: number;
   finished: boolean;
+  status?: string;
   models?: Record<string, ModelResult>;
   error?: string;
 };
@@ -44,7 +45,7 @@ export function UpcomingView() {
           </div>
           <div className="fixture-list">
             {g.fixtures.map((f) => (
-              <Link className="fixture" href={`/match/${pathSegment(f.id)}/`} key={f.id}>
+              <Link prefetch={false} className="fixture" href={`/match/${pathSegment(f.id)}/`} key={f.id}>
                 <span className="fixture-date faint small">{fmtDate(f.date)}</span>
                 <span className="fixture-teams">
                   <span className="team-name home with-crest">
@@ -67,6 +68,149 @@ export function UpcomingView() {
   );
 }
 
+// Short display name: the first two names only, e.g. "António João Pereira ... Silva" -> "António João".
+function shortName(full: string): string {
+  return full.trim().split(/\s+/).slice(0, 2).join(" ");
+}
+
+// Orders the XI as a pitch read from the top: forwards at the top, keeper at the bottom.
+// Each outfield row is sized by the formation's numbers, e.g. 4-2-3-1.
+// Falls back to grouping by line when the XI doesn't fit the formation.
+function arrangeXi(side: LineupSide): string[][] {
+  const names = side.predicted_xi ?? [];
+  const lines = side.predicted_xi_lines ?? names.map(() => "MID");
+  const rank: Record<string, number> = { DEF: 0, MID: 1, FWD: 2 };
+  const keepers = names.filter((_, i) => lines[i] === "GK");
+  const outfield = names
+    .map((name, i) => ({ name, line: lines[i] }))
+    .filter((p) => p.line !== "GK")
+    .sort((a, b) => (rank[a.line] ?? 1) - (rank[b.line] ?? 1))
+    .map((p) => p.name);
+
+  const sizes = (side.formation ?? "").split("-").map(Number);
+  const fits =
+    keepers.length === 1 &&
+    sizes.length > 0 &&
+    sizes.every((n) => Number.isInteger(n) && n > 0) &&
+    sizes.reduce((a, b) => a + b, 0) === outfield.length;
+
+  if (!fits) {
+    const groups = ["GK", "DEF", "MID", "FWD"].map((line) =>
+      names.filter((_, i) => lines[i] === line),
+    );
+    return groups.filter((g) => g.length).reverse();
+  }
+
+  const rows: string[][] = [keepers];
+  let cursor = 0;
+  for (const n of sizes) {
+    rows.push(outfield.slice(cursor, cursor + n));
+    cursor += n;
+  }
+  return rows.reverse();
+}
+
+function KeyPlayerList({ team, players }: { team: string; players: KeyPlayer[] }) {
+  return (
+    <div>
+      <h3 style={{ margin: "0 0 8px", fontSize: "1rem" }}>{team}</h3>
+      {players.length === 0 ? (
+        <p className="faint small">No Fantasy data for this club.</p>
+      ) : (
+        <ul className="plain-list">
+          {players.map((p) => (
+            <li key={p.id} className="small">
+              <strong>{p.name}</strong> <span className="faint">{p.position}</span>{" "}
+              <span className="mono">{p.total_points} pts</span>{" "}
+              <span className="faint">· form {p.form.toFixed(1)} · {p.goals}G {p.assists}A · £{p.price.toFixed(1)}m</span>
+              {p.status !== "a" && <span className="faint"> · unavailable</span>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+function LineupCard({ side }: { side: LineupSide }) {
+  return (
+    <div>
+      <h3 style={{ margin: "0 0 4px", fontSize: "1rem" }}>{side.team}</h3>
+      <p className="small" style={{ margin: "0 0 4px" }}>
+        Manager: <span style={{ fontWeight: 600 }}>{side.manager ?? "not available"}</span>
+      </p>
+      <p className="muted small" style={{ margin: "0 0 8px" }}>
+        League position: <span className="mono">{side.position ?? "–"}</span>
+        {" · "}Points: <span className="mono">{side.points ?? "–"}</span>
+        {" · "}Formation: <span className="mono">{side.formation ?? "not available"}</span>
+      </p>
+      <p className="small" style={{ margin: "0 0 8px" }}>
+        Form (last {side.previous.length}, oldest → newest):{" "}
+        <span className="mono" style={{ fontWeight: 600 }}>{side.form.split("").join(" ") || "–"}</span>
+      </p>
+      {side.predicted_xi && side.predicted_xi.length ? (
+        <div className="xi">
+          {arrangeXi(side).map((row, i) => (
+            <div className="xi-row" key={i}>
+              {row.map((p) => (
+                <span className="xi-player" key={p} title={p}>{shortName(p)}</span>
+              ))}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <Empty>No predicted XI for this team.</Empty>
+      )}
+      {side.xi_source && <p className="faint small" style={{ marginTop: 8 }}>{side.xi_source}</p>}
+      {!side.for_this_match && (
+        <p className="faint small" style={{ marginTop: 4 }}>
+          This is the prediction for {side.team}&apos;s next match, not this fixture.
+        </p>
+      )}
+      {side.confidence != null && (
+        <p className="small" style={{ marginTop: 4 }}>
+          Confidence <span className="mono" style={{ fontWeight: 600 }}>{Math.round(side.confidence * 100)}%</span>
+        </p>
+      )}
+      {side.notes && side.notes.length > 0 && (
+        <ul className="plain-list small faint" style={{ marginTop: 6 }}>
+          {side.notes.map((n) => <li key={n}>{n}</li>)}
+        </ul>
+      )}
+      <h4 style={{ margin: "14px 0 6px", fontSize: ".9rem" }}>Last 5 matches</h4>
+      {side.previous.length ? (
+        <ul className="form-list">
+          {side.previous.map((m) => (
+            <li className="form-row" key={m.id}>
+              <span className={`form-res form-res-${m.result}`}>{m.result}</span>
+              <span className="form-score mono">{m.score}</span>
+              <span className="form-venue">{m.venue === "home" ? "H" : "A"}</span>
+              <Crest team={m.opponent} />
+              <span className="form-opp">
+                {m.opponent}
+                {m.opponent_position != null && <span className="faint"> #{m.opponent_position}</span>}
+              </span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <Empty>No previous matches on record.</Empty>
+      )}
+    </div>
+  );
+}
+
+function InfoCard({ title, body }: { title: string; body: string }) {
+  return (
+    <section className="card">
+      <div className="card-head">
+        <h2>{title}</h2>
+      </div>
+      <p className="muted small" style={{ margin: 0 }}>{body}</p>
+    </section>
+  );
+}
+
 export function MatchView({ id }: { id: string }) {
   const { data, error } = useApi<FixtureDetail>(`/premier-league/fixtures/${pathSegment(id)}`, 60);
   const [models, setModels] = useState<Record<string, ModelResult> | null>(null);
@@ -75,6 +219,17 @@ export function MatchView({ id }: { id: string }) {
   const [running, setRunning] = useState(false);
   const [runError, setRunError] = useState<string | null>(null);
   const [progress, setProgress] = useState<{ done: number; total: number } | null>(null);
+  const [runStatus, setRunStatus] = useState("");
+  const [elapsed, setElapsed] = useState(0);
+
+  // Elapsed time while a run is going, so a slow start is visibly still working.
+  useEffect(() => {
+    if (!running) return;
+    const started = Date.now();
+    setElapsed(0);
+    const timer = setInterval(() => setElapsed(Math.floor((Date.now() - started) / 1000)), 500);
+    return () => clearInterval(timer);
+  }, [running]);
 
   // Show the stored run as soon as it loads; a live run replaces it.
   useEffect(() => {
@@ -90,11 +245,15 @@ export function MatchView({ id }: { id: string }) {
   if (error) return <ErrorBox message={error.message} />;
   if (!data) return <Loading />;
 
+  // Runs behind the figures on screen: the live count while running, otherwise the stored count.
+  const shownSims = running ? progress?.done || null : data.models_source?.simulations_per_model ?? null;
+
   const runModels = async () => {
     const total = Number(sims);
     setRunning(true);
     setRunError(null);
     setProgress({ done: 0, total });
+    setRunStatus("Connecting to the model server…");
     setSource(`Running… 0 of ${total} simulations per version`);
     try {
       const res = await fetch(`${API_BASE}/api/premier-league/fixtures/${pathSegment(id)}/run-stream?sims=${total}`);
@@ -115,6 +274,7 @@ export function MatchView({ id }: { id: string }) {
             const snap = JSON.parse(line) as RunSnapshot;
             if (snap.error) throw new Error(snap.error);
             if (snap.models) setModels(snap.models);
+            if (snap.status) setRunStatus(snap.status);
             setProgress({ done: snap.done, total: snap.total });
             setSource(
               snap.finished
@@ -130,21 +290,30 @@ export function MatchView({ id }: { id: string }) {
     } finally {
       setRunning(false);
       setProgress(null);
+      setRunStatus("");
     }
   };
 
   return (
     <>
       <header className="page-head">
-        <Link className="back" href="/upcoming/">
+        <Link prefetch={false} className="back" href="/upcoming/">
           ← Upcoming fixtures
         </Link>
         <span className="eyebrow">
           {data.competition_name}
           {data.matchday ? ` · Gameweek ${data.matchday}` : ""}
         </span>
-        <h1>
-          {data.home} v {data.away}
+        <h1 className="fixture-title">
+          <span className="fixture-team">
+            <Crest team={data.home} large />
+            <span>{data.home}</span>
+          </span>
+          <span className="fixture-v">v</span>
+          <span className="fixture-team">
+            <Crest team={data.away} large />
+            <span>{data.away}</span>
+          </span>
         </h1>
         <p>{fmtDate(data.date)}</p>
       </header>
@@ -182,22 +351,57 @@ export function MatchView({ id }: { id: string }) {
           </button>
         </div>
         {running && progress && (
-          <div className="run-progress" aria-live="polite">
-            <div className="bar-track" role="presentation">
-              <div className="bar-fill" style={{ width: `${(progress.done / progress.total) * 100}%` }} />
+          <div className="run-status" aria-live="polite">
+            <div className="run-progress">
+              <div className="bar-track" role="presentation">
+                <div
+                  className={progress.done ? "bar-fill" : "bar-fill bar-wait"}
+                  style={progress.done ? { width: `${(progress.done / progress.total) * 100}%` } : undefined}
+                />
+              </div>
+              <span className="small mono muted">
+                {progress.done} / {progress.total} · {elapsed}s
+              </span>
             </div>
-            <span className="small mono muted">
-              {progress.done} / {progress.total}
-            </span>
+            <p className="small muted" style={{ margin: "0 0 14px" }}>
+              {runStatus || "Starting…"}
+            </p>
           </div>
         )}
         {runError && <ErrorBox message={runError} />}
         <div className="model-grid">
           {MODEL_KEYS.map((k) => (
-            <ModelCard key={k} name={k} p={models?.[k]} />
+            <ModelCard key={k} name={k} p={models?.[k]} sims={shownSims} />
           ))}
         </div>
       </section>
+
+      <section className="card" style={{ marginTop: 16 }}>
+        <div className="card-head">
+          <h2>Predicted lineups</h2>
+          <span className="muted small">Model XI from squad data, not a team sheet</span>
+        </div>
+        <div className="grid grid-2">
+          <LineupCard side={data.lineups.home} />
+          <LineupCard side={data.lineups.away} />
+        </div>
+      </section>
+
+      <section className="card" style={{ marginTop: 16 }}>
+        <div className="card-head">
+          <h2>Key players</h2>
+          <span className="muted small">Top Fantasy points this season</span>
+        </div>
+        <div className="grid grid-2">
+          <KeyPlayerList team={data.home} players={data.key_players?.home ?? []} />
+          <KeyPlayerList team={data.away} players={data.key_players?.away ?? []} />
+        </div>
+      </section>
+
+      <div style={{ marginTop: 16 }}>
+        <InfoCard title="Injuries and availability" body={data.injuries.note} />
+      </div>
+
     </>
   );
 }
@@ -233,7 +437,7 @@ export function TeamView({ name }: { name: string }) {
               <h1 style={{ fontSize: "clamp(1.5rem, 4vw, 2.2rem)" }}>{data.name}</h1>
             </div>
           </div>
-          <Link href="/matches/" className="pill">
+          <Link prefetch={false} href="/matches/" className="pill">
             All matches
           </Link>
         </div>

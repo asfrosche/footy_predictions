@@ -8,6 +8,7 @@ const LINKS = [
   { href: "/matches/", label: "Matches", match: (p: string) => p.startsWith("/matches") },
   { href: "/premier-league/", label: "Premier League", match: (p: string) => p.startsWith("/premier-league") },
   { href: "/upcoming/", label: "Upcoming", match: (p: string) => p.startsWith("/upcoming") || p.startsWith("/match/") },
+  { href: "/players/", label: "Players", match: (p: string) => p.startsWith("/players") },
   { href: "/world-cup/", label: "World Cup", match: (p: string) => p.startsWith("/world-cup") },
 ];
 
@@ -16,7 +17,7 @@ export function SiteNav() {
   return (
     <nav className="nav" aria-label="Primary">
       {LINKS.map((link) => (
-        <Link
+        <Link prefetch={false}
           key={link.href}
           href={link.href}
           aria-current={link.match(pathname) ? "page" : undefined}

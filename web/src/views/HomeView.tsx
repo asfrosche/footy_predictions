@@ -67,17 +67,18 @@ export function HomeView() {
   return (
     <>
       <section className="hero">
+        <img className="hero-logo" src="/img/logo.png" alt="Footy Predictions" width={112} height={112} />
         <span className="eyebrow">Football stats &amp; odds</span>
-        <h1>Match probabilities, straight from the prices.</h1>
+        <h1>Match probabilities, <span className="text-gradient">straight from the prices.</span></h1>
         <p>
           Fixtures, results, tables and bookmaker odds for the Premier League and World Cup. Probabilities are worked
           out from the odds with the margin removed.
         </p>
         <div className="hero-actions">
-          <Link className="btn primary" href="/premier-league/">
+          <Link prefetch={false} className="btn primary" href="/premier-league/">
             Premier League
           </Link>
-          <Link className="btn" href="/matches/">
+          <Link prefetch={false} className="btn" href="/matches/">
             All fixtures
           </Link>
         </div>
@@ -168,7 +169,7 @@ export function HomeView() {
       </div>
       <div className="toolkit">
         {TOOLKIT.map((t) => (
-          <Link className="tool" href={t.href} key={t.title}>
+          <Link prefetch={false} className="tool" href={t.href} key={t.title}>
             <h3>{t.title}</h3>
             <p>{t.text}</p>
           </Link>

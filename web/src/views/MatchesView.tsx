@@ -6,8 +6,8 @@ import { useApi } from "@/lib/api";
 import type { MatchSummary } from "@/lib/types";
 import { Empty, ErrorBox, Loading, MatchRow } from "@/components/ui";
 
-// Upcoming matches first, soonest at the top. Then finished matches, most recent at the top.
-function closestToToday(list: MatchSummary[]): MatchSummary[] {
+// Upcoming matches, soonest first. Past matches, most recent first.
+function splitByDate(list: MatchSummary[]): { upcoming: MatchSummary[]; past: MatchSummary[] } {
   const now = new Date().toISOString();
   const upcoming = list
     .filter((m) => (m.date ?? "") >= now)
@@ -15,7 +15,7 @@ function closestToToday(list: MatchSummary[]): MatchSummary[] {
   const past = list
     .filter((m) => (m.date ?? "") < now)
     .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
-  return [...upcoming, ...past];
+  return { upcoming, past };
 }
 
 export function MatchesView() {
@@ -29,6 +29,7 @@ export function MatchesView() {
 
   const [teamText, setTeamText] = useState(team);
   const [open, setOpen] = useState(false);
+  const [showPast, setShowPast] = useState(false);
 
   const qs = new URLSearchParams();
   if (competition) qs.set("competition", competition);
@@ -67,14 +68,17 @@ export function MatchesView() {
     update({ team: name });
   };
 
-  const list = data ? closestToToday(data) : null;
+  const split = data ? splitByDate(data) : null;
+  // Past results are hidden by default, unless the status filter asks for completed matches.
+  const pastVisible = showPast || status === "completed";
+  const shownCount = split ? split.upcoming.length + (pastVisible ? split.past.length : 0) : 0;
 
   return (
     <>
       <header className="page-head">
         <span className="eyebrow">Fixtures &amp; results</span>
         <h1>Matches</h1>
-        <p>{list ? `${list.length} match${list.length === 1 ? "" : "es"} match your filters.` : "Loading…"}</p>
+        <p>{split ? `${shownCount} match${shownCount === 1 ? "" : "es"} shown.` : "Loading…"}</p>
       </header>
 
       <div className="filters">
@@ -163,14 +167,51 @@ export function MatchesView() {
 
       {error ? (
         <ErrorBox message={error.message} />
-      ) : !list ? (
+      ) : !split ? (
         <Loading />
-      ) : list.length ? (
-        <div className="match-list">
-          {list.map((m) => (
-            <MatchRow key={m.id} m={m} />
-          ))}
-        </div>
+      ) : split.upcoming.length || split.past.length ? (
+        <>
+          {status !== "completed" && (
+            <>
+              <h2 className="list-head">Upcoming</h2>
+              {split.upcoming.length ? (
+                <div className="match-list">
+                  {split.upcoming.map((m) => (
+                    <MatchRow key={m.id} m={m} />
+                  ))}
+                </div>
+              ) : (
+                <Empty>No upcoming matches for these filters.</Empty>
+              )}
+            </>
+          )}
+
+          {status !== "scheduled" && split.past.length > 0 && (
+            <div className="past-section">
+              {status !== "completed" && (
+                <button
+                  type="button"
+                  className="past-toggle"
+                  aria-expanded={showPast}
+                  onClick={() => setShowPast((v) => !v)}
+                >
+                  {showPast ? "Hide past matches" : `Show past matches (${split.past.length})`}
+                  <span aria-hidden="true">{showPast ? " ▴" : " ▾"}</span>
+                </button>
+              )}
+              {pastVisible && (
+                <>
+                  <h2 className="list-head">Past results</h2>
+                  <div className="match-list">
+                    {split.past.map((m) => (
+                      <MatchRow key={m.id} m={m} />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+        </>
       ) : (
         <Empty>No matches for these filters.</Empty>
       )}
