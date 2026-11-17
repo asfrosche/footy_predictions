@@ -1,0 +1,28 @@
+{
+  "source": "Wikipedia, '2026–27 Premier League', 'Personnel and kits' table (manager column)",
+  "source_url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Premier_League",
+  "retrieved": "2026-11-17",
+  "note": "Manager names as listed in the article on the retrieval date. The article cites club announcements for recent changes.",
+  "managers": {
+    "Arsenal": "Mikel Arteta",
+    "Aston Villa": "Unai Emery",
+    "Bournemouth": "Marco Rose",
+    "Brentford": "Keith Andrews",
+    "Brighton & Hove Albion": "Fabian Hürzeler",
+    "Chelsea": "Xabi Alonso",
+    "Coventry City": "Frank Lampard",
+    "Crystal Palace": "Thomas Frank",
+    "Everton": "David Moyes",
+    "Fulham": "Álvaro Arbeloa",
+    "Hull City": "Sergej Jakirović",
+    "Ipswich Town": "Gary O'Neil",
+    "Leeds United": "Daniel Farke",
+    "Liverpool": "Andoni Iraola",
+    "Manchester City": "Enzo Maresca",
+    "Manchester United": "Mauricio Pochettino",
+    "Newcastle United": "Matthias Jaissle",
+    "Nottingham Forest": "Oliver Glasner",
+    "Sunderland": "Régis Le Bris",
+    "Tottenham Hotspur": "Roberto De Zerbi"
+  }
+}
