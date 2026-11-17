@@ -9,6 +9,7 @@ from ..engines.v3_dynamic_engine import V3DynamicEngine
 from ..engines.v4_tactical_engine import V4TacticalEngine
 from ..engines.v5_match_state_engine import V5MatchStateEngine
 from ..engines.v6_evaluation_engine import V6AdaptiveEngine
+from ..engines.vcopy1_engine import VCopy1Engine
 from ._match_config import MATCHES_TEAM_MAP, update_elo_from_matches
 from .orchestrator import LeagueOrchestrator, TournamentOrchestrator
 from .tournament_form_service import TournamentFormService
@@ -90,6 +91,7 @@ def _build_squads(config):
             rosters_file=config.rosters_file,
             players_file=config.players_file,
             squads_file=config.squads_file,
+            fitness_file=HERE.parent / "data" / "generated" / "fpl_players.json",
         )
     return load_v2_squads(data_dir=HERE)
 
@@ -141,6 +143,10 @@ def _competition_engine(model: str, config, tournament_form: dict[str, float] | 
         return V5MatchStateEngine(data_dir=HERE, squads=squads, team_metrics=metrics, tournament_form=tournament_form, **scope)
     if normalized_model == "v6":
         return V6AdaptiveEngine(data_dir=HERE, squads=squads, team_metrics=metrics, tournament_form=tournament_form, **scope)
+    if normalized_model == "vcopy1":
+        if config.format != "league":
+            raise ValueError("vcopy1 is trained on Premier League club results only")
+        return VCopy1Engine(extra_csv_paths=[HERE.parent / "data" / "raw" / "football_data_E0_2627.csv"])
     raise ValueError(f"Unknown simulation model: {model}")
 
 
@@ -173,7 +179,7 @@ def run_simulation(model="v1", debug=False, competition="worldcup"):
     # Club competitions must not read country-keyed (World Cup) data sources.
     with _competition_scope(config):
         # Update ELO/PELE from real match results for all models
-        update_elo_from_matches(metrics, config.matches_file, config.team_name_map)
+        update_elo_from_matches(metrics, config.matches_file, config.team_name_map, ratings_as_of=config.ratings_as_of)
         # Compute Tournament Form once (per-competition cache, never shared)
         tfs = TournamentFormService(
             metrics,
@@ -211,7 +217,7 @@ def simulate_stage(model="v1", stage="Group Stage", competition="worldcup", debu
             f"expected one of {config.stage_names}"
         )
     with _competition_scope(config):
-        update_elo_from_matches(config.team_metrics, config.matches_file, config.team_name_map)
+        update_elo_from_matches(config.team_metrics, config.matches_file, config.team_name_map, ratings_as_of=config.ratings_as_of)
         tfs = TournamentFormService(
             config.team_metrics,
             matches_file=config.matches_file,
@@ -238,7 +244,7 @@ def run_monte_carlo(model="v5", n=100, verbose=True, competition="worldcup"):
 
     config = get_competition(competition, HERE)
     metrics = config.team_metrics
-    update_elo_from_matches(metrics, config.matches_file, config.team_name_map)
+    update_elo_from_matches(metrics, config.matches_file, config.team_name_map, ratings_as_of=config.ratings_as_of)
 
     tfs = TournamentFormService(metrics, matches_file=config.matches_file, team_name_map=config.team_name_map)
     tfs.compute()

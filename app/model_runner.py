@@ -1,4 +1,4 @@
-"""Run the six model versions (v1-v6) on one Premier League fixture.
+"""Run the model versions (v1-v6 and vcopy1) on one Premier League fixture.
 
 The engines come from simulator/. They are built once, on first use, because
 building them takes a few seconds. A lock keeps two requests from running the
@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-MODELS = ["v1", "v2", "v3", "v4", "v5", "v6"]
+MODELS = ["v1", "v2", "v3", "v4", "v5", "v6", "vcopy1"]
 
 _lock = threading.Lock()
 _engines: dict | None = None
@@ -34,6 +34,17 @@ def _load() -> None:
     config = get_pl_config()
     _teams = set(config.teams)
     _engines = {model: svc._competition_engine(model, config) for model in MODELS}
+
+
+def warm_up() -> None:
+    """Load the engines in a background thread so the first model run does not wait for them."""
+    def run() -> None:
+        try:
+            with _lock:
+                _load()
+        except Exception:  # the first real run will report the error to the page
+            pass
+    threading.Thread(target=run, daemon=True, name="model-warm-up").start()
 
 
 def _check_teams(home: str, away: str) -> None:
@@ -80,9 +91,20 @@ def predict_stream(home: str, away: str, sims: int = 200, chunk: int = 10) -> It
     Each yielded snapshot holds the results so far for every version, so the page can
     show the percentages moving. The last snapshot has finished=True.
     """
+    def status(done: int, text: str) -> dict:
+        # Status-only snapshot: tells the page what the server is doing right now.
+        return {"done": done, "total": sims, "finished": False, "status": text}
+
+    if _lock.locked():
+        yield status(0, "Another model run is in progress. This one starts when it finishes.")
     with _lock:
+        if _engines is None:
+            yield status(0, "Loading the model engines. This happens once after the server starts: "
+                            "it reads the Premier League squads, Elo ratings and team data.")
         _load()
         _check_teams(home, away)
+        yield status(0, f"Engines ready. Running {sims} simulations for each of the {len(MODELS)} versions, "
+                        f"in batches of {chunk}.")
         wins = {m: Counter() for m in MODELS}
         scores = {m: Counter() for m in MODELS}
         done = 0
@@ -99,5 +121,7 @@ def predict_stream(home: str, away: str, sims: int = 200, chunk: int = 10) -> It
                 "done": done,
                 "total": sims,
                 "finished": done == sims,
+                "status": (f"Simulated {done} of {sims} matches for each version."
+                           if done < sims else "All simulations finished."),
                 "models": {m: _summarize(wins[m], scores[m], done) for m in MODELS},
             }

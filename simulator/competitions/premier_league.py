@@ -158,29 +158,29 @@ THREE_LETTER_CODES: dict[str, str] = {
     "Wolverhampton Wanderers": "WOL",
 }
 
-# ClubElo-style season-start ratings (2026-27 snapshot). Live data (ClubElo)
-# overrides these when available via data/club_elo.json.
+# ClubElo ratings, read from the club pages at clubelo.com on 2026-11-17.
+# Fallback only: the live values are in simulator/data/epl_teams.json.
 EPL_ELO: dict[str, float] = {
-    "Arsenal": 1954,
-    "Aston Villa": 1892,
-    "Bournemouth": 1857,
-    "Brentford": 1846,
-    "Brighton & Hove Albion": 1864,
-    "Chelsea": 1938,
-    "Coventry City": 1740,
-    "Crystal Palace": 1844,
-    "Everton": 1800,
-    "Fulham": 1835,
-    "Hull City": 1735,
-    "Ipswich Town": 1745,
-    "Leeds United": 1785,
-    "Liverpool": 2015,
-    "Manchester City": 1993,
-    "Manchester United": 1899,
-    "Newcastle United": 1907,
-    "Nottingham Forest": 1878,
-    "Sunderland": 1770,
-    "Tottenham Hotspur": 1896,
+    "Arsenal": 2047,
+    "Aston Villa": 1899,
+    "Bournemouth": 1892,
+    "Brentford": 1848,
+    "Brighton & Hove Albion": 1910,
+    "Chelsea": 1885,
+    "Coventry City": 1701,
+    "Crystal Palace": 1802,
+    "Everton": 1831,
+    "Fulham": 1800,
+    "Hull City": 1640,
+    "Ipswich Town": 1699,
+    "Leeds United": 1812,
+    "Liverpool": 1937,
+    "Manchester City": 2003,
+    "Manchester United": 1851,
+    "Newcastle United": 1853,
+    "Nottingham Forest": 1801,
+    "Sunderland": 1727,
+    "Tottenham Hotspur": 1814,
 }
 
 HOME_ELO_BONUS = 45.0
@@ -368,6 +368,7 @@ def get_pl_config(data_dir: str | Path | None = None) -> CompetitionConfig:
         form_cache_file=str(base / "data" / "pl_form_cache.json"),
         national_data=False,
         home_elo_bonus=HOME_ELO_BONUS,
+        ratings_as_of="2026-11-17",
         matchdays=LEAGUE_MATCHDAYS,
         competition_label=_competition_label(base),
         stage_names=["Premier League Season", "Standings Resolution"],

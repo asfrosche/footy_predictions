@@ -2,122 +2,142 @@
   "Arsenal": {
     "name": "Arsenal",
     "code": "ARS",
-    "elo": 1963,
-    "fpl_id": 1
+    "elo": 2047,
+    "fpl_id": 1,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Aston Villa": {
     "name": "Aston Villa",
     "code": "AVL",
-    "elo": 1862,
-    "fpl_id": 2
+    "elo": 1899,
+    "fpl_id": 2,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Bournemouth": {
     "name": "Bournemouth",
     "code": "BOU",
-    "elo": 1846,
-    "fpl_id": 3
+    "elo": 1892,
+    "fpl_id": 3,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Brentford": {
     "name": "Brentford",
     "code": "BRE",
-    "elo": 1888,
-    "fpl_id": 4
+    "elo": 1848,
+    "fpl_id": 4,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Brighton & Hove Albion": {
     "name": "Brighton & Hove Albion",
     "code": "BHA",
-    "elo": 1916,
-    "fpl_id": 5
+    "elo": 1910,
+    "fpl_id": 5,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Chelsea": {
     "name": "Chelsea",
     "code": "CHE",
-    "elo": 1917,
-    "fpl_id": 6
+    "elo": 1885,
+    "fpl_id": 6,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Coventry City": {
     "name": "Coventry City",
     "code": "COV",
-    "elo": 1774,
-    "fpl_id": 7
+    "elo": 1701,
+    "fpl_id": 7,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Crystal Palace": {
     "name": "Crystal Palace",
     "code": "CRY",
-    "elo": 1815,
-    "fpl_id": 8
+    "elo": 1802,
+    "fpl_id": 8,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Everton": {
     "name": "Everton",
     "code": "EVE",
-    "elo": 1830,
-    "fpl_id": 9
+    "elo": 1831,
+    "fpl_id": 9,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Fulham": {
     "name": "Fulham",
     "code": "FUL",
-    "elo": 1813,
-    "fpl_id": 10
+    "elo": 1800,
+    "fpl_id": 10,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Hull City": {
     "name": "Hull City",
     "code": "HUL",
-    "elo": 1824,
-    "fpl_id": 11
+    "elo": 1640,
+    "fpl_id": 11,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Ipswich Town": {
     "name": "Ipswich Town",
     "code": "IPS",
-    "elo": 1788,
-    "fpl_id": 12
+    "elo": 1699,
+    "fpl_id": 12,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Leeds United": {
     "name": "Leeds United",
     "code": "LEE",
-    "elo": 1829,
-    "fpl_id": 13
+    "elo": 1812,
+    "fpl_id": 13,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Liverpool": {
     "name": "Liverpool",
     "code": "LIV",
-    "elo": 2016,
-    "fpl_id": 14
+    "elo": 1937,
+    "fpl_id": 14,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Manchester City": {
     "name": "Manchester City",
     "code": "MCI",
-    "elo": 2027,
-    "fpl_id": 15
+    "elo": 2003,
+    "fpl_id": 15,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Manchester United": {
     "name": "Manchester United",
     "code": "MUN",
-    "elo": 1885,
-    "fpl_id": 16
+    "elo": 1851,
+    "fpl_id": 16,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Newcastle United": {
     "name": "Newcastle United",
     "code": "NEW",
-    "elo": 1902,
-    "fpl_id": 17
+    "elo": 1853,
+    "fpl_id": 17,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Nottingham Forest": {
     "name": "Nottingham Forest",
     "code": "NFO",
-    "elo": 1866,
-    "fpl_id": 18
+    "elo": 1801,
+    "fpl_id": 18,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Sunderland": {
     "name": "Sunderland",
     "code": "SUN",
-    "elo": 1763,
-    "fpl_id": 20
+    "elo": 1727,
+    "fpl_id": 20,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "Tottenham Hotspur": {
     "name": "Tottenham Hotspur",
     "code": "TOT",
-    "elo": 1849,
-    "fpl_id": 19
+    "elo": 1814,
+    "fpl_id": 19,
+    "elo_source": "clubelo.com club page, retrieved 2026-11-17"
   },
   "_competition": {
     "competition": "Premier League 2026/2027",

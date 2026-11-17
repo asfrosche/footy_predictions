@@ -43,6 +43,7 @@ def get_worldcup_config(data_dir: str | Path | None = None) -> CompetitionConfig
         team_name_map=MATCHES_TEAM_MAP,
         matches_file=str(base / "data" / "matches.json"),
         competition_label="FIFA World Cup 2026",
+        ratings_as_of="2026-11-17",
         stage_names=[
             "Group Stage",
             "Round of 32",

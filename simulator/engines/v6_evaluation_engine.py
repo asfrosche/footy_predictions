@@ -119,43 +119,6 @@ def _elo_draw_prob(elo_a: float, elo_b: float, home_advantage: float = 50.0) -> 
     return 0.15 + 0.13 * math.exp(-diff / 200.0)
 
 
-def compute_synthetic_odds(
-    home: str,
-    away: str,
-    team_metrics: dict[str, dict[str, float]] | None = None,
-    home_advantage: float = 50.0,
-) -> dict[str, float]:
-    from simulator.services.simulation_service import TEAM_METRICS
-    metrics = team_metrics or TEAM_METRICS
-    home_data = metrics.get(home, {})
-    away_data = metrics.get(away, {})
-    elo_home = home_data.get("ELO", 1500)
-    elo_away = away_data.get("ELO", 1500)
-    home_win = _elo_win_prob(elo_home, elo_away, home_advantage)
-    draw = _elo_draw_prob(elo_home, elo_away, home_advantage)
-    away_win = _elo_win_prob(elo_away, elo_home, 0.0)
-    total = home_win + draw + away_win
-    home_win /= total
-    draw /= total
-    away_win /= total
-    if home_win > away_win:
-        favorite = home
-        favorite_prob = home_win
-    elif away_win > home_win:
-        favorite = away
-        favorite_prob = away_win
-    else:
-        favorite = "Draw"
-        favorite_prob = draw
-    return {
-        "home_win": round(home_win, 4),
-        "draw": round(draw, 4),
-        "away_win": round(away_win, 4),
-        "favorite": favorite,
-        "favorite_prob": round(favorite_prob, 4),
-    }
-
-
 def load_market_odds_from_file(path: Path) -> dict[str, dict[str, Any]]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -210,7 +173,7 @@ def load_market_odds(
         if key in real_odds:
             market[key] = real_odds[key]
         else:
-            market[key] = compute_synthetic_odds(home, away, team_metrics)
+            market[key] = None  # no sourced odds: no market, never a synthetic one
     return market
 
 
@@ -295,7 +258,12 @@ def classify_all_matches(
         home = m["home"]
         away = m["away"]
         key = f"{home} vs {away}"
-        mkt = market.get(key, {})
+        mkt = market.get(key)
+        if not mkt:
+            m.update({"upset_category": "No market", "upset_label": "No market odds supplied",
+                      "favorite_strength": "Unknown", "v5_agrees_with_market": None,
+                      "market_favorite": None, "market_favorite_prob": None})
+            continue
         market_fav = mkt.get("favorite", "Draw")
         market_fav_prob = mkt.get("favorite_prob", 0.50)
         result = classify_upset(
@@ -904,6 +872,8 @@ def _plot_stage_accuracy(tournament_summary: dict, out: Path) -> str | None:
 
 
 def _plot_market_comparison(valid: list[dict], out: Path) -> str | None:
+    if not any(m.get("market_favorite_prob") is not None for m in valid):
+        return None
     fig, ax = plt.subplots(figsize=(10, 8))
     v5_probs = []
     mkt_probs = []
@@ -1072,8 +1042,8 @@ def generate_v6_report(
         w(f"4. **Draw Prediction:** V5 correctly identifies only {draw_acc:.0f}% "
           f"of actual draws ({da.get('draw_predictions_correct', 0)}/{da.get('actual_draws', 0)}).")
     mkt_agree = analysis.get("market_v5_agreement", 0)
-    if n > 0:
-        w(f"5. **Market Agreement:** V5 agrees with ELO market in {mkt_agree}/{n} "
+    if n > 0 and analysis.get("market_available"):
+        w(f"5. **Market Agreement:** V5 agrees with supplied market in {mkt_agree}/{n} "
           f"matches ({mkt_agree/n:.1%}).")
     w("")
 
@@ -1125,25 +1095,29 @@ def generate_v6_report(
 
     w("## 3. V5 vs Market")
     w("")
-    w("Market probabilities are synthetic (ELO-based). No real sportsbook odds provided.")
-    w("")
-    w(f"- **V5 agrees with market favorite:** {mkt_agree}/{n} ({mkt_agree/n:.1%})")
-    avg_diff = analysis.get("market_v5_avg_diff", 0)
-    w(f"- **Mean |V5 - Market| probability difference:** {avg_diff:.3f}")
-    w("")
-    w("### Where V5 and Market Disagree Most")
-    w("")
-    disagreements = sorted(valid,
-                           key=lambda m: abs(m.get("v5_favorite_prob", 0.5) - m.get("market_favorite_prob", 0.5)),
-                           reverse=True)
-    w("| Match | V5 Fav | V5 Prob | Market Fav | Market Prob | Delta | Actual |")
-    w("|-------|--------|---------|-----------|------------|-------|--------|")
-    for m in disagreements[:10]:
-        delta = abs(m.get("v5_favorite_prob", 0.5) - m.get("market_favorite_prob", 0.5))
-        w(f"| {m['home']} vs {m['away']} "
-          f"| {m.get('v5_favorite', '?')} | {m.get('v5_favorite_prob', 0):.3f} "
-          f"| {m.get('market_favorite', '?')} | {m.get('market_favorite_prob', 0):.3f} "
-          f"| {delta:.3f} | {m.get('actual_winner', '?')} |")
+    if not analysis.get("market_available"):
+        w("No market odds were supplied, so the market comparison is not reported.")
+    else:
+        w("Market prices are the supplied odds only (no synthetic odds).")
+        w("")
+        w(f"- **V5 agrees with market favorite:** {mkt_agree}/{n} ({mkt_agree/n:.1%})")
+        avg_diff = analysis.get("market_v5_avg_diff") or 0
+        w(f"- **Mean |V5 - Market| probability difference:** {avg_diff:.3f}")
+        w("")
+        w("### Where V5 and Market Disagree Most")
+        w("")
+        priced = [m for m in valid if m.get("market_favorite_prob") is not None]
+        disagreements = sorted(priced,
+                               key=lambda m: abs(m.get("v5_favorite_prob", 0.5) - m["market_favorite_prob"]),
+                               reverse=True)
+        w("| Match | V5 Fav | V5 Prob | Market Fav | Market Prob | Delta | Actual |")
+        w("|-------|--------|---------|-----------|------------|-------|--------|")
+        for m in disagreements[:10]:
+            delta = abs(m.get("v5_favorite_prob", 0.5) - m["market_favorite_prob"])
+            w(f"| {m['home']} vs {m['away']} "
+              f"| {m.get('v5_favorite', '?')} | {m.get('v5_favorite_prob', 0):.3f} "
+              f"| {m.get('market_favorite', '?')} | {m['market_favorite_prob']:.3f} "
+              f"| {delta:.3f} | {m.get('actual_winner', '?')} |")
     w("")
 
     w("## 4. Upset Analysis")
@@ -1656,7 +1630,8 @@ class V6AdaptiveEngine(MatchEngine):
             v5_fav = m.get("v5_favorite", "Draw")
             actual = m.get("actual_winner", "Draw")
             m["v5_winner_correct"] = (v5_fav == actual)
-            m["v5_agrees_with_market"] = (v5_fav == m.get("market_favorite", "Draw"))
+            mf = m.get("market_favorite")
+            m["v5_agrees_with_market"] = None if mf is None else (v5_fav == mf)
 
         tournament_summary = compute_tournament_summary(match_metrics)
 
@@ -1667,11 +1642,11 @@ class V6AdaptiveEngine(MatchEngine):
 
         print("[4/8] Computing market probabilities...")
         market = load_market_odds(matches, odds_file, team_metrics)
-        print(f"  Loaded odds for {len(market)} matches")
+        print(f"  Loaded odds for {sum(1 for v in market.values() if v)} matches")
         if odds_file and odds_file.exists():
             print(f"  Source: {odds_file}")
         else:
-            print("  Source: Synthetic (ELO-based)")
+            print("  Source: none supplied (no market comparison)")
         print()
 
         print("[5/8] Classifying upsets...")
@@ -1762,12 +1737,10 @@ class V6AdaptiveEngine(MatchEngine):
         xg_a_errs = [m.get("xg_away_error", 0) for m in valid]
         xg_a_test = one_sample_t_test(xg_a_errs, hypothesized_mean=0.0)
 
-        mkt_v5_diffs = []
-        for m in valid:
-            v5_p = m.get("v5_favorite_prob", 0.5)
-            mkt_p = m.get("market_favorite_prob", 0.5)
-            mkt_v5_diffs.append(abs(v5_p - mkt_p))
-        mkt_v5_avg_diff = sum(mkt_v5_diffs) / len(mkt_v5_diffs) if mkt_v5_diffs else 0
+        mkt_v5_diffs = [abs(m.get("v5_favorite_prob", 0.5) - m["market_favorite_prob"])
+                        for m in valid if m.get("market_favorite_prob") is not None]
+        market_available = bool(mkt_v5_diffs)
+        mkt_v5_avg_diff = sum(mkt_v5_diffs) / len(mkt_v5_diffs) if mkt_v5_diffs else None
 
         mkt_agreement = sum(1 for m in valid if m.get("v5_agrees_with_market"))
 
@@ -1788,7 +1761,10 @@ class V6AdaptiveEngine(MatchEngine):
         print(f"  Home advantage: actual {home_win_pct:.0f}% H wins, V5 avg home adv: {v5_avg_home_adv:+.3f}")
         print(f"  Draw accuracy: {draw_analysis['draw_accuracy']:.0f}% "
               f"(avg V5 draw prob: {avg_v5_draw_prob:.3f})")
-        print(f"  V5 vs Market avg |diff|: {mkt_v5_avg_diff:.3f}, agreement: {mkt_agreement}/{len(valid)}")
+        if market_available:
+            print(f"  V5 vs Market avg |diff|: {mkt_v5_avg_diff:.3f}, agreement: {mkt_agreement}/{len(valid)}")
+        else:
+            print("  V5 vs Market: not reported (no odds supplied)")
         print(f"  Chi-square: chi2={chi2_test.get('chi2', 0):.2f}, p={chi2_test.get('p_approx', 1):.4f} "
               f"({'SIGNIFICANT' if chi2_test.get('significant') else 'not significant'})")
         print(f"  Detected {len(biases)} systematic bias(es)")
@@ -1803,7 +1779,8 @@ class V6AdaptiveEngine(MatchEngine):
         analysis = {
             "home_advantage": home_adv_analysis,
             "draw_analysis": draw_analysis,
-            "market_v5_avg_diff": round(mkt_v5_avg_diff, 4),
+            "market_v5_avg_diff": round(mkt_v5_avg_diff, 4) if market_available else None,
+            "market_available": market_available,
             "market_v5_agreement": mkt_agreement,
         }
 

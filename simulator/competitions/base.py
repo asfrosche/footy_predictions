@@ -37,6 +37,9 @@ class CompetitionConfig:
     form_cache_file: str | None = None
     national_data: bool = True
     home_elo_bonus: float = 0.0
+    # Date (YYYY-MM-DD) that team_metrics ELO values are current to. Completed matches on or
+    # before this date are already reflected in those values, so they are not applied again.
+    ratings_as_of: str | None = None
     matchdays: int = 0
     competition_label: str = ""
     stage_names: list[str] = field(default_factory=list)

@@ -13,6 +13,8 @@ class Squad:
     formation: str
     preferred_starting_xi: list[Player]
     current_starting_xi: list[Player] = field(init=False)
+    lineup_confidence: float | None = None
+    lineup_notes: list[str] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         self.current_starting_xi = list(self.preferred_starting_xi)

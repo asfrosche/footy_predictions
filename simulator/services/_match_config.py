@@ -29,6 +29,7 @@ def update_elo_from_matches(
     matches_file: str | None = None,
     team_name_map: dict[str, str] | None = None,
     matches: dict[str, Any] | None = None,
+    ratings_as_of: str | None = None,
 ) -> None:
     """Update ELO/PELE ratings based on completed match results.
 
@@ -46,6 +47,9 @@ def update_elo_from_matches(
     else:
         name_map = team_name_map if team_name_map is not None else MATCHES_TEAM_MAP
     completed = matches.get("completed", [])
+    if ratings_as_of:
+        # Matches up to ratings_as_of are already in the ratings; only later ones move them.
+        completed = [m for m in completed if not m.get("date") or str(m["date"])[:10] > ratings_as_of]
     k_elo = 20
     k_pele = 20
     for match in completed:

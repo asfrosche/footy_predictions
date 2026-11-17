@@ -15,6 +15,13 @@ from typing import Any
 from ..models.player import Availability, Player
 from ..models.squad import Squad
 from ..models.team_strength import infer_formation
+from .lineup_prediction import (
+    load_fitness,
+    make_fitness_lookup,
+    predict_lineup,
+    rest_days,
+    resolve_names,
+)
 
 HERE = Path(__file__).resolve().parents[1]
 
@@ -193,6 +200,7 @@ def load_v2_squads(
     rosters_file: str | os.PathLike[str] | None = None,
     players_file: str | os.PathLike[str] | None = None,
     squads_file: str | os.PathLike[str] | None = None,
+    fitness_file: str | os.PathLike[str] | None = None,
 ) -> dict[str, Squad]:
 
     from .lineup_service import LineupResult
@@ -221,6 +229,11 @@ def load_v2_squads(
             formation=formation,
             preferred_starting_xi=new_xi,
         )
+    fitness_table = (
+        load_fitness(fitness_file)
+        if fitness_file is not None and Path(fitness_file).exists()
+        else None
+    )
     base_dir = Path(data_dir) if data_dir else HERE
     matches_path = Path(matches_file) if matches_file else base_dir / "data" / "matches.json"
     players_path = Path(players_file) if players_file else base_dir / "data" / "players.json"
@@ -272,17 +285,39 @@ def load_v2_squads(
             lineup_names, formation = _lineup_from_known(team)
         if not lineup_names:
             lineup_names, formation = _preferred_lineup_from_raw(team, raw_records, players)
-        preferred_xi = _players_from_names(lineup_names, players)
+        unmatched: list[str] = []
+        if fitness_table is not None:
+            preferred_xi, unmatched = resolve_names(lineup_names, players)
+        else:
+            preferred_xi = _players_from_names(lineup_names, players)
         if len(preferred_xi) < 11:
             preferred_xi.extend(_fill_lineup(preferred_xi, players))
         preferred_xi = _dedupe_players(preferred_xi)[:11]
+        preferred_xi = _keep_one_keeper(preferred_xi, players)
         if not formation:
             formation = infer_formation(preferred_xi) if len(preferred_xi) == 11 else "4-3-3"
+        confidence: float | None = None
+        notes: list[str] = []
+        if fitness_table is not None:
+            prediction = predict_lineup(
+                players,
+                preferred_xi,
+                formation,
+                make_fitness_lookup(fitness_table, team),
+                days_rest=rest_days(team, matches_data),
+                unmatched=unmatched,
+            )
+            preferred_xi = prediction.starting_xi
+            formation = prediction.formation
+            confidence = prediction.confidence
+            notes = prediction.notes
         squad = Squad(
             country=team,
             players=players,
             formation=formation,
             preferred_starting_xi=preferred_xi,
+            lineup_confidence=confidence,
+            lineup_notes=notes,
         )
         if lineup_overrides and team in lineup_overrides:
             squad = _apply_lineup_override(squad, lineup_overrides[team])
@@ -427,70 +462,6 @@ def _extract_attributes(fantasy_player: dict[str, Any]) -> dict[str, float]:
         if isinstance(raw, dict):
             return {normalize_attribute_name(str(k)): float(v) for k, v in raw.items()}
     return {}
-
-
-def _synthetic_attributes(
-    position: str,
-    roster_rating: float | None,
-    fantasy_player: dict[str, Any] | None,
-) -> dict[str, float]:
-    base = float(roster_rating or 72)
-    if fantasy_player:
-        stats = fantasy_player.get("stats", {}) if isinstance(fantasy_player.get("stats", {}), dict) else {}
-        base += min(float(stats.get("totalPoints", 0) or 0) / 8.0, 8.0)
-        base += min(float(stats.get("form", 0) or 0), 4.0)
-        base += min(float(fantasy_player.get("price", 0) or 0) * 1.5, 8.0)
-    base = max(45.0, min(94.0, base))
-    spread = 3.0
-    normalized_position = RAW_POSITION_TO_PLAYER_POSITION.get(position.upper(), position.upper())
-    if normalized_position == "GK":
-        return {
-            "reflexes": base + spread,
-            "diving": base + 1,
-            "positioning": base + 2,
-            "handling": base,
-            "kicking": base - 2,
-        }
-    if normalized_position == "DEF":
-        return {
-            "defensive_awareness": base + 3,
-            "tackling": base + 2,
-            "strength": base + 1,
-            "pace": base - 1,
-            "reactions": base,
-            "interceptions": base + 2,
-            "physical": base + 1,
-            "crossing": base - 3,
-            "passing": base - 2,
-            "dribbling": base - 3,
-            "stamina": base,
-        }
-    if normalized_position == "MID":
-        return {
-            "passing": base + 3,
-            "vision": base + 2,
-            "dribbling": base + 1,
-            "stamina": base + 2,
-            "defending": base - 1,
-            "interceptions": base,
-            "physical": base,
-            "crossing": base - 2,
-            "pace": base - 1,
-            "finishing": base - 3,
-            "composure": base,
-            "shot_power": base - 2,
-            "positioning": base - 2,
-        }
-    return {
-        "finishing": base + 2,
-        "positioning": base + 1,
-        "shot_power": base + 1,
-        "pace": base + 2,
-        "composure": base,
-        "dribbling": base + 1,
-        "crossing": base - 1,
-        "vision": base - 2,
-    }
 
 
 def _parse_raw_record(record: tuple[Any, ...] | list[Any] | Any) -> tuple[str, str, float]:
@@ -671,13 +642,37 @@ def _players_from_names(names: list[str], players: list[Player]) -> list[Player]
     return selected
 
 
+def _is_keeper(player: Player) -> bool:
+    return any(tag in ("GK", "GKP") for tag in player.normalized_positions())
+
+
+def _keep_one_keeper(xi: list[Player], players: list[Player]) -> list[Player]:
+    """A starting XI has one goalkeeper. Extra keeper records (the same player under two
+    names, or a backup picked by name) are swapped for outfield players from the squad."""
+    keepers = [p for p in xi if _is_keeper(p)]
+    if len(keepers) <= 1:
+        return xi
+    extra_ids = {id(p) for p in keepers[1:]}
+    kept = [p for p in xi if id(p) not in extra_ids]
+    return kept + _fill_lineup(kept, players)
+
+
 def _fill_lineup(current: list[Player], players: list[Player]) -> list[Player]:
+    """Top up a short XI from the squad, never adding a second goalkeeper."""
     used = {normalize_name(player.name) for player in current}
-    return [
-        player
-        for player in players
-        if normalize_name(player.name) not in used
-    ][: 11 - len(current)]
+    has_keeper = any(_is_keeper(player) for player in current)
+    filled: list[Player] = []
+    for player in players:
+        if len(current) + len(filled) >= 11:
+            break
+        if normalize_name(player.name) in used:
+            continue
+        is_keeper = _is_keeper(player)
+        if has_keeper and is_keeper:
+            continue
+        has_keeper = has_keeper or is_keeper
+        filled.append(player)
+    return filled
 
 
 def _fallback_lineup_from_players(players: list[Player]) -> list[Player]:

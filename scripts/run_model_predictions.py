@@ -1,4 +1,4 @@
-"""Run model versions v1-v6 over upcoming Premier League fixtures.
+"""Run model versions v1-v6 and vcopy1 over upcoming Premier League fixtures.
 
 For each fixture and each version, the match is simulated N times with that
 version's own simulate_match(). The result is the share of home / draw / away
@@ -32,7 +32,7 @@ from simulator.services import simulation_service as svc  # noqa: E402
 
 FIXTURES = ROOT / "data" / "inputs" / "pl_matches.json"
 OUT = ROOT / "data" / "generated" / "model_predictions.json"
-MODELS = ["v1", "v2", "v3", "v4", "v5", "v6"]
+MODELS = ["v1", "v2", "v3", "v4", "v5", "v6", "vcopy1"]
 
 
 def upcoming_fixtures() -> list[dict]:
@@ -76,22 +76,35 @@ def main() -> int:
         print("Team names the engines do not know:", unknown)
         return 1
 
-    engines = {model: svc._competition_engine(model, config) for model in MODELS}
+    # Keep what is already stored for the same number of simulations, and only run
+    # the versions that are missing. Adding a new version does not repeat the old runs.
     payload = {
         "generated_at": None,
         "simulations_per_model": args.sims,
         "fixtures": {},
     }
+    if OUT.exists():
+        previous = json.loads(OUT.read_text(encoding="utf-8"))
+        if previous.get("simulations_per_model") == args.sims:
+            payload["fixtures"] = previous.get("fixtures", {})
+    missing = sorted({model for m in fixtures for model in MODELS
+                      if model not in payload["fixtures"].get(m["id"], {}).get("models", {})})
+    print("versions to run:", missing or "none (all stored)", flush=True)
+    engines = {model: svc._competition_engine(model, config) for model in missing}
+
     started = time.time()
     for i, m in enumerate(fixtures, start=1):
         home, away = m["home"]["name"], m["away"]["name"]
-        payload["fixtures"][m["id"]] = {
+        entry = payload["fixtures"].setdefault(m["id"], {
             "home": home,
             "away": away,
             "date": m["date"],
             "matchday": m["matchday"],
-            "models": {model: simulate(engines[model], home, away, args.sims) for model in MODELS},
-        }
+            "models": {},
+        })
+        for model in missing:
+            entry["models"][model] = simulate(engines[model], home, away, args.sims)
+        entry["models"] = {k: entry["models"][k] for k in MODELS if k in entry["models"]}
         payload["generated_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         save(payload)
         print(f"[{i}/{len(fixtures)}] {home} v {away} ({round(time.time() - started)}s)", flush=True)
