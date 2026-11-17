@@ -58,22 +58,22 @@
           <header class="sipoc-head"><span class="letter">S</span><div><h3>Suppliers</h3><p>Sources of data, services and resources</p></div></header>
           <ul class="sipoc-list">
             <li>
-              <p><strong>Match results and fixtures</strong> · <code>data/matches.json</code>, <code>data/pl_matches.json</code></p>
+              <p><strong>Match results and fixtures</strong> · <code>data/inputs/matches.json</code>, <code>data/inputs/pl_matches.json</code></p>
               <span class="tag tag-unverified">Origin not verifiable here</span>
               <p class="note">The fetch step that produced these files is not in this repo.</p>
             </li>
             <li>
-              <p><strong>Bookmaker odds</strong> · <code>data/epl_odds.json</code></p>
+              <p><strong>Bookmaker odds</strong> · <code>data/inputs/epl_odds.json</code></p>
               <span class="tag tag-unverified">Origin not verifiable here</span>
               <p class="note">Each entry is labelled <code>source: "builtin"</code>.</p>
             </li>
             <li>
-              <p><strong>Title odds</strong> · <code>data/epl_title_odds.json</code></p>
+              <p><strong>Title odds</strong> · <code>data/inputs/epl_title_odds.json</code></p>
               <span class="tag tag-unverified">Generator not in repo</span>
               <p class="note">Its note says it is an approximation from implied head-to-head probabilities.</p>
             </li>
             <li>
-              <p><strong>Team and tactical reference data</strong> · <code>data/epl_teams.json</code>, <code>data/tactical_profiles.json</code>, <code>data/national_strength_modifiers.json</code></p>
+              <p><strong>Team and tactical reference data</strong> · <code>data/inputs/epl_teams.json</code>, <code>data/inputs/tactical_profiles.json</code>, <code>data/inputs/national_strength_modifiers.json</code></p>
               <span class="tag tag-unverified">Origin not verifiable here</span>
             </li>
             <li>
@@ -127,7 +127,7 @@
             <li><strong>Remove margin</strong><span>Turn decimal odds into percentages that sum to 100 · <code>data.implied_probabilities</code></span></li>
             <li><strong>Assemble profiles</strong><span>Club or national view for one team · <code>data.team_profile</code></span></li>
             <li><strong>Serve</strong><span>JSON under <code>/api</code>, site at <code>/</code>, page at <code>/sipoc</code> · <code>app/main.py</code></span></li>
-            <li><strong>Render in browser</strong><span>Fetch, escape and draw each view · <code>static/js/app.js</code></span></li>
+            <li><strong>Render in browser</strong><span>Fetch, escape and draw each view · <code>web/src</code> (Next.js)</span></li>
           </ol>
           <p class="note split-note">Steps 1 to 7 run on the server. Step 8 runs in the visitor's browser.</p>
         </article>
@@ -252,7 +252,7 @@
       <article class="card">
         <h2>Not present in this code</h2>
         <ul class="plain">
-          <li>Predictions from the match engine. The earlier <code>fifa_data/</code> engines were not copied, so the site shows market odds and approximations only.</li>
+          <li>Predictions from the match engine. The earlier <code>simulator/</code> engines were not copied, so the site shows market odds and approximations only.</li>
           <li>Data fetching, scheduled refresh and provider integrations.</li>
           <li>Accounts, a database and any write operation.</li>
         </ul>

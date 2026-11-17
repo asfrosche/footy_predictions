@@ -8,9 +8,8 @@ from fastapi.staticfiles import StaticFiles
 from .routers.api import router as api_router
 
 ROOT = Path(__file__).resolve().parent.parent
-LEGACY_STATIC = Path(__file__).resolve().parent / "static"
-# The Next.js build (web/out) is the site. If it has not been built, fall back to the old pages.
-SITE_DIR = ROOT / "web" / "out" if (ROOT / "web" / "out" / "index.html").exists() else LEGACY_STATIC
+SITE_DIR = ROOT / "web" / "out"  # built by `npm run build` in web/
+LEGACY_DIR = Path(__file__).resolve().parent / "legacy"  # the SIPOC page and its stylesheets
 
 
 def create_app() -> FastAPI:
@@ -28,12 +27,14 @@ def create_app() -> FastAPI:
     )
     app.include_router(api_router, prefix="/api")
 
-    # The SIPOC page is still the original static file.
     @app.get("/sipoc", include_in_schema=False)
     def sipoc_page() -> FileResponse:
-        return FileResponse(LEGACY_STATIC / "sipoc.html", media_type="text/html")
+        return FileResponse(LEGACY_DIR / "sipoc.html", media_type="text/html")
 
-    # Mounted last so /api and /sipoc take precedence over the site.
+    # Stylesheets for the SIPOC page.
+    app.mount("/css", StaticFiles(directory=LEGACY_DIR / "css"), name="legacy-css")
+
+    # Mounted last so /api, /sipoc and /css take precedence over the site.
     app.mount("/", StaticFiles(directory=SITE_DIR, html=True), name="site")
     return app
 
