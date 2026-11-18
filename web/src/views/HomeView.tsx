@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useApi } from "@/lib/api";
-import { fmtDate, fmtPct } from "@/lib/format";
+import { fmtDate, fmtPct, pathSegment } from "@/lib/format";
 import type { HomeSummary, MatchSummary } from "@/lib/types";
-import { Bars, Empty, ErrorBox, Loading, MatchRow, OutcomeBar, ProbRow, TeamLink } from "@/components/ui";
+import { Bars, Crest, Empty, ErrorBox, Loading, MatchRow, OutcomeBar, ProbRow, TeamLink } from "@/components/ui";
 
 const TABS = ["favourites", "title", "results", "fixtures"] as const;
 type Tab = (typeof TABS)[number];
@@ -43,6 +43,37 @@ function FavouriteRow({ m }: { m: HomeSummary["favourites"][number] }) {
   );
 }
 
+// The next priced fixture, shown beside the hero so the top of the page carries live numbers.
+function Spotlight({ m }: { m: HomeSummary["featured"][number] }) {
+  const p = m.implied_probability;
+  const side = p.home >= p.away ? "home" : "away";
+  return (
+    <Link prefetch={false} className="spot" href={`/match/${pathSegment(m.id)}/`}>
+      <div className="spot-top">
+        <span className="pill">{m.competition_name}</span>
+        <span className="faint small">{fmtDate(m.date)}</span>
+      </div>
+      <div className="spot-teams">
+        <span className="spot-team">
+          <Crest team={m.home} large />
+          <span>{m.home}</span>
+        </span>
+        <span className="vs">vs</span>
+        <span className="spot-team">
+          <Crest team={m.away} large />
+          <span>{m.away}</span>
+        </span>
+      </div>
+      <OutcomeBar p={p} />
+      <ProbRow p={p} />
+      <div className="spot-foot small">
+        <span className="muted">Most likely: {side === "home" ? m.home : m.away}</span>
+        <span className="mono">{fmtPct(p[side])}</span>
+      </div>
+    </Link>
+  );
+}
+
 export function HomeView() {
   const { data: s, error } = useApi<HomeSummary>("/home", 60);
   const [tab, setTab] = useState<Tab>("favourites");
@@ -52,13 +83,15 @@ export function HomeView() {
 
   const panels: Record<Tab, React.ReactNode> = {
     favourites: s.favourites.length ? s.favourites.map((m) => <FavouriteRow key={m.id} m={m} />) : <Empty>No priced fixtures yet.</Empty>,
-    title: (
+    title: s.title_race.length ? (
       <>
         <div className="card-head">
           <span className="muted small">Model approximation</span>
         </div>
         <Bars items={s.title_race} />
       </>
+    ) : (
+      <Empty>No sourced title odds yet, so no title race is shown.</Empty>
     ),
     results: s.latest_results.length ? s.latest_results.map((m: MatchSummary) => <MatchRow key={m.id} m={m} />) : <Empty>No results yet.</Empty>,
     fixtures: s.next_fixtures.length ? s.next_fixtures.map((m: MatchSummary) => <MatchRow key={m.id} m={m} />) : <Empty>No upcoming fixtures.</Empty>,
@@ -66,22 +99,25 @@ export function HomeView() {
 
   return (
     <>
-      <section className="hero">
-        <img className="hero-logo" src="/img/logo.png" alt="Footy Predictions" width={112} height={112} />
-        <span className="eyebrow">Football stats &amp; odds</span>
-        <h1>Match probabilities, <span className="text-gradient">straight from the prices.</span></h1>
-        <p>
-          Fixtures, results, tables and bookmaker odds for the Premier League and World Cup. Probabilities are worked
-          out from the odds with the margin removed.
-        </p>
-        <div className="hero-actions">
-          <Link prefetch={false} className="btn primary" href="/premier-league/">
-            Premier League
-          </Link>
-          <Link prefetch={false} className="btn" href="/matches/">
-            All fixtures
-          </Link>
+      <section className="hero hero-grid">
+        <div className="hero-copy">
+          <img className="hero-logo" src="/img/logo.png" alt="Footy Predictions" width={72} height={72} />
+          <span className="eyebrow">Football stats &amp; odds</span>
+          <h1>Match probabilities, <span className="text-gradient">straight from the prices.</span></h1>
+          <p>
+            Fixtures, results, tables and bookmaker odds for the Premier League and World Cup. Probabilities are worked
+            out from the odds with the margin removed.
+          </p>
+          <div className="hero-actions">
+            <Link prefetch={false} className="btn primary" href="/premier-league/">
+              Premier League
+            </Link>
+            <Link prefetch={false} className="btn" href="/matches/">
+              All fixtures
+            </Link>
+          </div>
         </div>
+        {s.featured[0] ? <Spotlight m={s.featured[0]} /> : null}
       </section>
 
       <div className="stats">
@@ -112,8 +148,8 @@ export function HomeView() {
         <span className="muted small">Next priced fixtures · home, draw, away</span>
       </div>
       <div className="big-grid">
-        {s.featured.length ? (
-          s.featured.map((m) => (
+        {s.featured.length > 1 ? (
+          s.featured.slice(1).map((m) => (
             <article className="big-match" key={m.id}>
               <div className="big-match-top">
                 <span className="pill">{m.competition_name}</span>
@@ -133,7 +169,7 @@ export function HomeView() {
             </article>
           ))
         ) : (
-          <Empty>No priced fixtures coming up.</Empty>
+          <Empty>No other priced fixtures coming up.</Empty>
         )}
       </div>
 

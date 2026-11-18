@@ -200,6 +200,29 @@ main { flex: 1; padding-top: 28px; padding-bottom: 56px; width: 100%; }
   object-fit: contain;
 }
 .hero p { color: var(--text-muted); margin-top: 12px; max-width: 60ch; font-size: 1.05rem; }
+
+/* Hero: copy on the left, next priced match on the right from tablet width up */
+.hero-grid { display: grid; gap: 28px; align-items: center; padding-top: 28px; }
+.hero-copy .hero-logo { width: 72px; height: 72px; margin-bottom: 10px; }
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 40px; }
+}
+.spot {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  transition: border-color 0.15s;
+}
+.spot:hover { border-color: var(--border-strong); }
+.spot-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.spot-teams { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 12px; }
+.spot-team { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; font-weight: 700; text-align: center; overflow-wrap: anywhere; }
+.spot-team .crest-lg { width: 64px; height: 64px; }
+.spot-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 /* Mint-to-blue emphasis: hero headings only */
 .text-gradient {
   background: linear-gradient(90deg, var(--mint), var(--blue));
@@ -464,13 +487,6 @@ input[type="search"]::placeholder { color: var(--text-faint); }
   .kv { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-@media (min-width: 900px) {
-  .group-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-@media (min-width: 1400px) {
-  .group-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
 
 @media (min-width: 1024px) {
   .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -712,19 +728,47 @@ a.tool:hover { border-color: var(--border-strong); color: inherit; }
 .fixture-team { display: inline-flex; align-items: center; gap: 10px; min-width: 0; overflow-wrap: anywhere; }
 .fixture-v { opacity: 0.6; font-size: 0.7em; }
 
-/* Predicted XI, one row per line of the formation */
-.xi { display: grid; gap: 6px; }
-.xi-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+/* Predicted XI: both teams share each line's row, so keepers, defenders, midfielders
+   and forwards line up. Each side sits in its own column, so players stay in their row. */
+.xi { display: grid; min-width: 0; }
+.xi-line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+}
+.xi-heads { border-top: 0; padding: 0 0 8px; font-weight: 600; font-size: 0.9rem; }
+.xi-team { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; text-align: center; overflow-wrap: anywhere; }
+.xi-label { text-align: center; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-faint); }
+.xi-half { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; gap: 5px; min-width: 0; }
 .xi-player {
-  font-size: 0.8rem;
-  padding: 3px 9px;
+  font-size: 0.74rem;
+  padding: 3px 7px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--blue-soft);
   white-space: nowrap;
   max-width: 100%;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+@media (max-width: 639px) {
+  .xi-line { grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr); gap: 6px; }
+  .xi-half { gap: 4px; }
+  .xi-player {
+    font-size: 0.72rem;
+    padding: 3px 6px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+    line-height: 1.2;
+    border-radius: 12px;
+    text-align: center;
+  }
 }
 
 /* Last matches, compact */
@@ -792,9 +836,26 @@ button.btn:disabled { opacity: 0.6; cursor: wait; }
 }
 .past-toggle:hover { border-color: var(--blue); }
 
-/* World Cup group cards: keep names on whole words and the standings table readable */
-.group-grid table { min-width: 380px; }
-.group-grid .team { white-space: normal; }
+/* World Cup group cards: full team names on one line, no nested scroll on desktop.
+   Two cards per row from 1100px; the table only scrolls, as a whole, on narrow phones. */
+@media (min-width: 1100px) {
+  .group-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.group-grid .table-wrap { margin: 0; padding: 0; }
+.group-grid table { width: 100%; font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+.group-grid th,
+.group-grid td { padding: 9px 6px; white-space: nowrap; }
+.group-grid th:first-child,
+.group-grid td:first-child { padding-left: 0; }
+.group-grid th:last-child,
+.group-grid td:last-child { padding-right: 0; }
+.group-grid th.pos,
+.group-grid td.pos { width: 28px; padding-left: 0; }
+.group-grid th:not(.pos):not(.team),
+.group-grid td:not(.pos):not(.team) { width: 38px; text-align: right; }
+.group-grid th.team,
+.group-grid td.team { text-align: left; width: auto; white-space: nowrap; }
+.group-grid .team-link { white-space: nowrap; }
 .group-grid .match .team-name { font-size: 0.95rem; }
 
 /* Run-models status: what is loading, with an animated bar while it waits */

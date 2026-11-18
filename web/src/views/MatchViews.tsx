@@ -73,41 +73,53 @@ function shortName(full: string): string {
   return full.trim().split(/\s+/).slice(0, 2).join(" ");
 }
 
-// Orders the XI as a pitch read from the top: forwards at the top, keeper at the bottom.
-// Each outfield row is sized by the formation's numbers, e.g. 4-2-3-1.
-// Falls back to grouping by line when the XI doesn't fit the formation.
-function arrangeXi(side: LineupSide): string[][] {
-  const names = side.predicted_xi ?? [];
-  const lines = side.predicted_xi_lines ?? names.map(() => "MID");
-  const rank: Record<string, number> = { DEF: 0, MID: 1, FWD: 2 };
-  const keepers = names.filter((_, i) => lines[i] === "GK");
-  const outfield = names
-    .map((name, i) => ({ name, line: lines[i] }))
-    .filter((p) => p.line !== "GK")
-    .sort((a, b) => (rank[a.line] ?? 1) - (rank[b.line] ?? 1))
-    .map((p) => p.name);
+type PitchLine = "FWD" | "MID" | "DEF" | "GK";
+const PITCH_LINES: { line: PitchLine; label: string }[] = [
+  { line: "FWD", label: "Forwards" },
+  { line: "MID", label: "Midfield" },
+  { line: "DEF", label: "Defence" },
+  { line: "GK", label: "Keeper" },
+];
 
-  const sizes = (side.formation ?? "").split("-").map(Number);
-  const fits =
-    keepers.length === 1 &&
-    sizes.length > 0 &&
-    sizes.every((n) => Number.isInteger(n) && n > 0) &&
-    sizes.reduce((a, b) => a + b, 0) === outfield.length;
-
-  if (!fits) {
-    const groups = ["GK", "DEF", "MID", "FWD"].map((line) =>
-      names.filter((_, i) => lines[i] === line),
-    );
-    return groups.filter((g) => g.length).reverse();
-  }
-
-  const rows: string[][] = [keepers];
-  let cursor = 0;
-  for (const n of sizes) {
-    rows.push(outfield.slice(cursor, cursor + n));
-    cursor += n;
-  }
-  return rows.reverse();
+// Both teams' predicted XIs on shared rows: forwards at the top, keeper at the bottom.
+// Each row is its own grid line, with home on the left and away on the right, so every
+// player stays inside their own half of their row.
+function LineupPitch({ home, away }: { home: LineupSide; away: LineupSide }) {
+  const playersIn = (side: LineupSide, line: PitchLine): string[] => {
+    const names = side.predicted_xi ?? [];
+    const lines = side.predicted_xi_lines ?? names.map(() => "MID");
+    return names.filter((_, i) => lines[i] === line);
+  };
+  return (
+    <div className="xi">
+      <div className="xi-line xi-heads">
+        <span className="xi-team">
+          <Crest team={home.team} />
+          <span>{home.team}</span>
+        </span>
+        <span />
+        <span className="xi-team">
+          <Crest team={away.team} />
+          <span>{away.team}</span>
+        </span>
+      </div>
+      {PITCH_LINES.map(({ line, label }) => (
+        <div className="xi-line" key={line} data-line={line}>
+          <div className="xi-half">
+            {playersIn(home, line).map((p) => (
+              <span className="xi-player" key={p} title={p}>{shortName(p)}</span>
+            ))}
+          </div>
+          <span className="xi-label">{label}</span>
+          <div className="xi-half">
+            {playersIn(away, line).map((p) => (
+              <span className="xi-player" key={p} title={p}>{shortName(p)}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function KeyPlayerList({ team, players }: { team: string; players: KeyPlayer[] }) {
@@ -148,19 +160,7 @@ function LineupCard({ side }: { side: LineupSide }) {
         Form (last {side.previous.length}, oldest → newest):{" "}
         <span className="mono" style={{ fontWeight: 600 }}>{side.form.split("").join(" ") || "–"}</span>
       </p>
-      {side.predicted_xi && side.predicted_xi.length ? (
-        <div className="xi">
-          {arrangeXi(side).map((row, i) => (
-            <div className="xi-row" key={i}>
-              {row.map((p) => (
-                <span className="xi-player" key={p} title={p}>{shortName(p)}</span>
-              ))}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <Empty>No predicted XI for this team.</Empty>
-      )}
+      {!(side.predicted_xi && side.predicted_xi.length) && <Empty>No predicted XI for this team.</Empty>}
       {side.xi_source && <p className="faint small" style={{ marginTop: 8 }}>{side.xi_source}</p>}
       {!side.for_this_match && (
         <p className="faint small" style={{ marginTop: 4 }}>
@@ -381,7 +381,8 @@ export function MatchView({ id }: { id: string }) {
           <h2>Predicted lineups</h2>
           <span className="muted small">Model XI from squad data, not a team sheet</span>
         </div>
-        <div className="grid grid-2">
+        <LineupPitch home={data.lineups.home} away={data.lineups.away} />
+        <div className="grid grid-2" style={{ marginTop: 16 }}>
           <LineupCard side={data.lineups.home} />
           <LineupCard side={data.lineups.away} />
         </div>
