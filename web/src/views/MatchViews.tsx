@@ -329,6 +329,9 @@ export function MatchView({ id }: { id: string }) {
           <p className="faint small mono" style={{ marginTop: 10 }}>
             Decimal {data.market_prices.home} / {data.market_prices.draw} / {data.market_prices.away}
           </p>
+          <p className="faint small" style={{ marginTop: 6 }}>
+            How the margin is removed: <Link prefetch={false} href="/research/#odds">Research, odds and margin</Link>
+          </p>
         </section>
       )}
 
@@ -337,6 +340,10 @@ export function MatchView({ id }: { id: string }) {
           <h2>Six model versions</h2>
           <span className="muted small">{source}</span>
         </div>
+        <p className="faint small" style={{ margin: "0 0 12px" }}>
+          How these versions are evaluated and where they come from:{" "}
+          <Link prefetch={false} href="/research/#evaluation">Research</Link>
+        </p>
         <div className="run-bar">
           <label className="small muted" htmlFor="sims">
             Simulations per version

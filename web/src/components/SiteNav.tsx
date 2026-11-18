@@ -10,6 +10,7 @@ const LINKS = [
   { href: "/upcoming/", label: "Upcoming", match: (p: string) => p.startsWith("/upcoming") || p.startsWith("/match/") },
   { href: "/players/", label: "Players", match: (p: string) => p.startsWith("/players") },
   { href: "/world-cup/", label: "World Cup", match: (p: string) => p.startsWith("/world-cup") },
+  { href: "/research/", label: "Research", match: (p: string) => p.startsWith("/research") },
 ];
 
 export function SiteNav() {

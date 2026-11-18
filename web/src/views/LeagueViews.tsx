@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useApi } from "@/lib/api";
 import { fmtPct } from "@/lib/format";
 import type { MatchOdds, Standing, TitleOdds, WorldCupGroup } from "@/lib/types";
@@ -45,7 +46,8 @@ export function PremierLeagueView() {
             <span className="muted small">Margin removed</span>
           </div>
           <p className="faint small" style={{ marginBottom: 10 }}>
-            Decimal odds on the left, implied probability on the right.
+            Decimal odds on the left, implied probability on the right. How the margin is removed:{" "}
+            <Link prefetch={false} href="/research/#odds">Research, odds and margin</Link>
           </p>
           <div className="table-wrap">
             <table>
