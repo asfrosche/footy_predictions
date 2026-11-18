@@ -43,7 +43,86 @@ export type HomeSummary = {
   title_race: { team: string; probability: number }[];
   latest_results: MatchSummary[];
   next_fixtures: MatchSummary[];
+  insights: HomeInsights;
   generated_at: string;
+};
+
+export type OutcomeKey = "home" | "draw" | "away";
+
+export type PredictionRow = {
+  id: string;
+  date: string | null;
+  home: string;
+  away: string;
+  competition_name: string;
+  model_pct: Outcome;
+  market_pct: Outcome | null;
+  versions: number;
+};
+
+export type HomeInsights = {
+  overview: {
+    pl_leader: { team: string; points: number; played: number } | null;
+    fixtures_next_7_days: number;
+    fixtures_with_model_runs: number;
+    picks_window_days: number;
+    model_run_at: string | null;
+  };
+  model_picks: (PredictionRow & { pick: OutcomeKey; confidence: number; agree: number })[];
+  value_gaps: (PredictionRow & { outcome: OutcomeKey; gap: number })[];
+  league: {
+    table: (Standing & { form: ("W" | "D" | "L")[] })[];
+    best_attack: { team: string; goals_per_match: number }[];
+    best_defence: { team: string; goals_against_per_match: number }[];
+  };
+  trends: null | {
+    matches: number;
+    home_win_pct: number;
+    draw_pct: number;
+    away_win_pct: number;
+    btts_pct: number;
+    over_2_5_pct: number;
+    clean_sheet_pct: number;
+    goals_per_match: number;
+  };
+  players: null | {
+    top_points: PlayerCard[];
+    top_form: PlayerCard[];
+    top_expected_goals: PlayerCard[];
+    availability: { name: string; team: string; status: string; news: string; selected_by_percent: number | null }[];
+  };
+  formations: null | { clubs: number; note: string; counts: { formation: string; clubs: number; teams: string[] }[] };
+  model_performance: {
+    in_sample: null | {
+      matches: number | null;
+      simulations_per_model: number | null;
+      caveat: string | null;
+      rows: { name: string; accuracy_pct: number | null; brier: number | null; log_loss: number | null; exact_score_hits: number | null }[];
+    };
+    out_of_sample: null | {
+      matches: number;
+      model: Interval;
+      league_average: Interval;
+      uniform: Interval;
+      model_minus_league_average: Interval;
+      seasons: Record<string, { matches: number; model_log_loss: number; league_average_log_loss: number }>;
+    };
+  };
+  market_snapshot_at: string | null;
+};
+
+export type Interval = { mean: number; ci95: [number, number]; n: number };
+
+export type PlayerCard = {
+  id: number;
+  name: string;
+  team: string;
+  position: "GKP" | "DEF" | "MID" | "FWD";
+  price: number;
+  total_points: number;
+  form: number;
+  expected_goals: number;
+  selected_by_percent: number;
 };
 
 export type UpcomingFixture = {

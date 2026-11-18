@@ -44,6 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               Odds are bookmaker prices with the margin removed. Model results are simulations, not
               guarantees. Nothing here is betting advice.
             </p>
+            <p>
+              <a href="/research/">Research, evaluation and data sources</a>
+            </p>
           </div>
         </footer>
       </body>
