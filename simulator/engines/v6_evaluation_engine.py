@@ -1443,7 +1443,8 @@ class V6AdaptiveEngine(MatchEngine):
         self._corrections: dict[str, float] = {}
         self._goals_scored: dict[str, list[float]] = {}
         self._xg_when_attacking: dict[str, list[float]] = {}
-        self._pending_predictions: dict[str, float] = {}
+        # Baseline xG of simulated matches, keyed by (team1, team2), until the real result arrives.
+        self._pending_predictions: dict[tuple[str, str], tuple[float, float]] = {}
         self._real_matches_observed: int = 0
 
         self._min_matches = 5
@@ -1478,7 +1479,7 @@ class V6AdaptiveEngine(MatchEngine):
         s1 = self._v5._v4._v3.get_team_strength(team1)
         s2 = self._v5._v4._v3.get_team_strength(team2)
         base1, base2 = self._orig_eg(s1, s2)
-        self._pending_predictions = {team1: base1, team2: base2}
+        self._pending_predictions[(team1, team2)] = (base1, base2)
         return self._v5.simulate_match(team1, team2, can_draw)
 
     def simulate_match_debug(
@@ -1490,7 +1491,7 @@ class V6AdaptiveEngine(MatchEngine):
         s1 = self._v5._v4._v3.get_team_strength(team1)
         s2 = self._v5._v4._v3.get_team_strength(team2)
         base1, base2 = self._orig_eg(s1, s2)
-        self._pending_predictions = {team1: base1, team2: base2}
+        self._pending_predictions[(team1, team2)] = (base1, base2)
         return self._v5.simulate_match_debug(team1, team2, can_draw)
 
     def simulate_match_detailed(
@@ -1503,7 +1504,7 @@ class V6AdaptiveEngine(MatchEngine):
         s1 = self._v5._v4._v3.get_team_strength(team1)
         s2 = self._v5._v4._v3.get_team_strength(team2)
         base1, base2 = self._orig_eg(s1, s2)
-        self._pending_predictions = {team1: base1, team2: base2}
+        self._pending_predictions[(team1, team2)] = (base1, base2)
         return self._v5.simulate_match_detailed(team1, team2, can_draw, context)
 
     def notify_match(
@@ -1518,9 +1519,17 @@ class V6AdaptiveEngine(MatchEngine):
         if not is_real:
             return
 
-        base1 = self._pending_predictions.get(team1, 1.2)
-        base2 = self._pending_predictions.get(team2, 1.2)
-        self._pending_predictions = {}
+        pending = self._pending_predictions.pop((team1, team2), None)
+        if pending is None:
+            pending = self._pending_predictions.pop((team2, team1), None)
+            if pending is not None:
+                pending = (pending[1], pending[0])
+        if pending is None:
+            # No baseline was stored for this match, so the residual would be measured against
+            # an unknown xG. Skip it rather than use a constant.
+            self._unscored_real_matches = getattr(self, "_unscored_real_matches", 0) + 1
+            return
+        base1, base2 = pending
 
         self._observe(team1, goals1, base1)
         self._observe(team2, goals2, base2)

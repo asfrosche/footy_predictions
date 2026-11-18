@@ -631,11 +631,18 @@ class LeagueOrchestrator:
         original = entry.get("ELO")
         if original is None:
             return self.match_engine.simulate_match(home, away, can_draw=True)
+        # The v1 engine averages ELO and PELE, so the bonus must go into both,
+        # otherwise the home side only receives half of it.
+        original_pele = entry.get("PELE")
         entry["ELO"] = original + self.home_elo_bonus
+        if original_pele is not None:
+            entry["PELE"] = original_pele + self.home_elo_bonus
         try:
             return self.match_engine.simulate_match(home, away, can_draw=True)
         finally:
             entry["ELO"] = original
+            if original_pele is not None:
+                entry["PELE"] = original_pele
 
     def _real_results(self) -> dict[tuple[str, str], tuple[int, int]]:
         data = self._load_matches()

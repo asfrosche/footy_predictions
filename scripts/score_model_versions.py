@@ -17,6 +17,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import math
 import sys
@@ -29,6 +30,32 @@ sys.path.insert(0, str(ROOT))
 from app.model_runner import MODELS, predict  # noqa: E402
 
 MATCHES = ROOT / "simulator" / "data" / "pl_matches.json"
+ODDS_CSV = ROOT / "data" / "inputs" / "external" / "football-data-E0-2627.csv"
+
+# football-data.co.uk short names -> names used in pl_matches.json
+ODDS_NAME_MAP = {
+    "Man City": "Manchester City", "Man United": "Manchester United",
+    "Nott'm Forest": "Nottingham Forest", "Brighton": "Brighton & Hove Albion",
+    "Hull": "Hull City", "Ipswich": "Ipswich Town", "Leeds": "Leeds United",
+    "Newcastle": "Newcastle United", "Tottenham": "Tottenham Hotspur", "Coventry": "Coventry City",
+}
+
+
+def load_market() -> dict[tuple[str, str, str], tuple[float, float, float]]:
+    """Bookmaker average 1X2 odds, margin removed, keyed by (date, home, away)."""
+    from datetime import datetime as dt
+    out = {}
+    with ODDS_CSV.open(encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            if not row.get("AvgH"):
+                continue
+            date = dt.strptime(row["Date"], "%d/%m/%Y").date().isoformat()
+            home = ODDS_NAME_MAP.get(row["HomeTeam"], row["HomeTeam"])
+            away = ODDS_NAME_MAP.get(row["AwayTeam"], row["AwayTeam"])
+            inv = [1 / float(row["AvgH"]), 1 / float(row["AvgD"]), 1 / float(row["AvgA"])]
+            total = sum(inv)
+            out[(date, home, away)] = tuple(x / total for x in inv)
+    return out
 OUT = ROOT / "data" / "generated" / "model_scores_pl.json"
 
 
@@ -64,7 +91,31 @@ def main() -> None:
             })
         print(f"[{i}/{len(completed)}] {home} {hs}-{as_} {away}", flush=True)
 
+    market = load_market()
     summary = {}
+    matched = []
+    for m in completed:
+        key = (m["date"][:10], m["home"]["name"], m["away"]["name"])
+        if key in market:
+            matched.append((m, market[key]))
+    if matched:
+        mb = 0.0
+        ml = 0.0
+        mpick = 0
+        for m, probs in matched:
+            real = outcome(int(m["home"]["score"]), int(m["away"]["score"]))
+            pr = dict(zip(("home", "draw", "away"), probs))
+            mb += sum((pr[k] - (1.0 if k == real else 0.0)) ** 2 for k in pr)
+            ml += -math.log(max(pr[real], 1e-3))
+            mpick += max(pr, key=lambda k: (pr[k], k == "home", k == "draw")) == real
+        k = len(matched)
+        summary["bookmaker_avg_odds"] = {
+            "matches": k,
+            "accuracy_pct": round(100 * mpick / k, 1),
+            "brier": round(mb / k, 4),
+            "log_loss": round(ml / k, 4),
+            "exact_score_hits": None,
+        }
     for model in MODELS:
         data = rows[model]
         n = len(data)
@@ -97,6 +148,7 @@ def main() -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "simulations_per_model": args.sims,
         "matches_scored": n,
+        "market_matches_joined": len(matched),
         "caveat": "Elo and form ratings are current to 2026-11-17, so they already contain these results. "
                   "This is an in-sample score, not a true out-of-sample test.",
         "summary": summary,
@@ -105,7 +157,8 @@ def main() -> None:
     print(f"\n{'model':<10}{'acc%':>7}{'brier':>9}{'logloss':>9}{'exact':>7}")
     for name, s in summary.items():
         acc = "-" if s["accuracy_pct"] is None else f"{s['accuracy_pct']:.1f}"
-        print(f"{name:<10}{acc:>7}{s['brier']:>9.4f}{s['log_loss']:>9.4f}{s['exact_score_hits']:>7}")
+        exact = "-" if s["exact_score_hits"] is None else str(s["exact_score_hits"])
+        print(f"{name:<10}{acc:>7}{s['brier']:>9.4f}{s['log_loss']:>9.4f}{exact:>7}")
     print(f"\nwrote {OUT}")
 
 
