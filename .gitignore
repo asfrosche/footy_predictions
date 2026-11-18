@@ -21,13 +21,15 @@ data/backups/
 # Personal data kept out of git (Discord draft bot). See archive/draft_bot/.
 archive/draft_bot/private/
 
-# Local build output and dependencies
-web/out/
+# Local build output and dependencies (web/out is committed: Vercel serves it, see README)
 web/.next/
 web/node_modules/
 
 # Written by scripts/ (live odds cache, stored model results). Regenerated, not versioned.
-data/generated/
+data/generated/*
+!data/generated/fpl_players.json
+!data/generated/lineups.json
+!data/generated/model_predictions.json
 
 # Third-party datasets: licence terms restrict redistribution (see data/inputs/external/MANIFEST.md)
 data/inputs/external/
