@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+from datetime import datetime, timedelta, timezone
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -278,6 +279,7 @@ def home_summary() -> dict:
         "title_race": title_odds()[:5],
         "latest_results": list(reversed(completed))[:6],
         "next_fixtures": upcoming[:6],
+        "insights": homepage_insights(matches, upcoming, odds),
         "generated_at": now,
     }
 
@@ -478,3 +480,197 @@ def fpl_players() -> list[dict]:
         return []
     with path.open(encoding="utf-8") as fh:
         return json.load(fh)["players"]
+
+
+# ---------------------------------------------------------------------------
+# Homepage insights. Every figure is computed from files in the repo. Where we
+# lack the data (xG for teams, corners, cards, odds history), the payload omits
+# it and the page shows "Data unavailable" instead.
+# ---------------------------------------------------------------------------
+
+OUTCOMES = ("home", "draw", "away")
+AVAILABILITY_LABELS = {"i": "Injured", "d": "Doubtful", "s": "Suspended"}
+
+
+def _generated_json(name: str) -> dict | None:
+    """A file written by scripts/, or None if that script has not been run."""
+    path = GENERATED_DIR / name
+    if not path.exists():
+        return None
+    with path.open(encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def _consensus(models: dict[str, dict]) -> dict[str, float]:
+    """Average of the model versions' home / draw / away percentages."""
+    return {k: round(sum(models[v][k] for v in models) / len(models), 1) for k in OUTCOMES}
+
+
+def _model_picks(upcoming: list[dict], preds: dict, odds: dict) -> tuple[list[dict], list[dict]]:
+    """Upcoming fixtures ranked by consensus confidence, and the largest model-vs-market gaps."""
+    picks: list[dict] = []
+    gaps: list[dict] = []
+    for m in upcoming:
+        pred = preds.get(m["id"])
+        if not pred or not pred.get("models"):
+            continue
+        models = pred["models"]
+        consensus = _consensus(models)
+        pick = max(OUTCOMES, key=lambda k: consensus[k])
+        agree = sum(1 for v in models.values() if max(OUTCOMES, key=lambda k: v[k]) == pick)
+        row = odds.get((m["home"], m["away"]))
+        market = row["implied_probability"] if row else None
+        base = {"id": m["id"], "date": m["date"], "home": m["home"], "away": m["away"],
+                "competition_name": m["competition_name"], "model_pct": consensus,
+                "market_pct": market, "versions": len(models)}
+        picks.append({**base, "pick": pick, "confidence": consensus[pick], "agree": agree})
+        if market:
+            best = max(OUTCOMES, key=lambda k: consensus[k] - market[k])
+            gaps.append({**base, "outcome": best, "gap": round(consensus[best] - market[best], 1)})
+    picks.sort(key=lambda r: (-r["confidence"], r["date"] or ""))
+    gaps.sort(key=lambda r: -r["gap"])
+    return picks, gaps
+
+
+def _season_trends(pl_completed: list[dict]) -> dict | None:
+    n = len(pl_completed)
+    if not n:
+        return None
+
+    def share(count: int) -> float:
+        return round(100 * count / n, 1)
+
+    clean = sum((m["away_score"] == 0) + (m["home_score"] == 0) for m in pl_completed)
+    return {
+        "matches": n,
+        "home_win_pct": share(sum(m["result"] == "home" for m in pl_completed)),
+        "draw_pct": share(sum(m["result"] == "draw" for m in pl_completed)),
+        "away_win_pct": share(sum(m["result"] == "away" for m in pl_completed)),
+        "btts_pct": share(sum(m["home_score"] > 0 and m["away_score"] > 0 for m in pl_completed)),
+        "over_2_5_pct": share(sum(m["home_score"] + m["away_score"] > 2 for m in pl_completed)),
+        "clean_sheet_pct": round(100 * clean / (2 * n), 1),
+        "goals_per_match": round(sum(m["home_score"] + m["away_score"] for m in pl_completed) / n, 2),
+    }
+
+
+def _player_card(p: dict) -> dict:
+    return {k: p.get(k) for k in ("id", "name", "team", "position", "price", "total_points",
+                                  "form", "expected_goals", "selected_by_percent")}
+
+
+def _formation_counts() -> list[dict]:
+    lineups = _generated_json("lineups.json")
+    if not lineups:
+        return []
+    groups: dict[str, list[str]] = {}
+    for team, info in lineups.get("teams", {}).items():
+        if info.get("formation"):
+            groups.setdefault(info["formation"], []).append(team)
+    return sorted(
+        ({"formation": f, "clubs": len(teams), "teams": sorted(teams)} for f, teams in groups.items()),
+        key=lambda r: (-r["clubs"], r["formation"]),
+    )
+
+
+def _model_performance() -> dict:
+    scores = _generated_json("model_scores_pl.json")
+    walk = _generated_json("pl_walkforward.json")
+    out: dict = {"in_sample": None, "out_of_sample": None}
+    if scores:
+        out["in_sample"] = {
+            "matches": scores.get("matches_scored"),
+            "simulations_per_model": scores.get("simulations_per_model"),
+            "caveat": scores.get("caveat"),
+            "rows": [
+                {"name": name, **{k: s.get(k) for k in ("accuracy_pct", "brier", "log_loss", "exact_score_hits")}}
+                for name, s in scores.get("summary", {}).items()
+            ],
+        }
+    if walk:
+        pooled = walk.get("pooled", {})
+        out["out_of_sample"] = {
+            "matches": pooled.get("matches"),
+            "model": pooled.get("logloss_model"),
+            "league_average": pooled.get("logloss_league_average"),
+            "uniform": pooled.get("logloss_uniform"),
+            "model_minus_league_average": pooled.get("logloss_model_minus_league_average"),
+            "seasons": {
+                season: {
+                    "matches": v["evaluation"]["matches"],
+                    "model_log_loss": v["evaluation"]["logloss_model"]["mean"],
+                    "league_average_log_loss": v["evaluation"]["logloss_league_average"]["mean"],
+                }
+                for season, v in walk.get("seasons", {}).items() if v.get("evaluation")
+            },
+        }
+    return out
+
+
+def homepage_insights(matches: list[dict], upcoming: list[dict], odds: dict) -> dict:
+    now = datetime.now(timezone.utc)
+    week_ahead = (now + timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    model_file = model_predictions()
+    preds = model_file["fixtures"]
+    pl_upcoming = [m for m in upcoming if m["competition"] == "premier-league"]
+    pl_completed = [m for m in matches if m["competition"] == "premier-league"
+                    and m["status"] == "completed" and m["home_score"] is not None]
+
+    picks_all, gaps_all = _model_picks(pl_upcoming, preds, odds)
+    # The homepage shows the next two weeks only; the whole season is far too wide for a ranking.
+    two_weeks = (now + timedelta(days=14)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    picks = [r for r in picks_all if (r["date"] or "") <= two_weeks]
+    gaps = [r for r in gaps_all if (r["date"] or "") <= two_weeks]
+    table = premier_league_standings()
+    played_rows = [r for r in table if r["played"]]
+
+    form = {row["team"]: [r["result"] for r in reversed(previous_matches(row["team"], 5))] for row in table[:8]}
+    attack = sorted(played_rows, key=lambda r: (-r["gf"] / r["played"], -r["gf"]))[:5]
+    defence = sorted(played_rows, key=lambda r: (r["ga"] / r["played"], -r["gd"]))[:5]
+
+    players = fpl_players()
+    available = sorted(
+        (p for p in players if p.get("status") in AVAILABILITY_LABELS),
+        key=lambda p: -(p.get("selected_by_percent") or 0),
+    )
+    formations = _formation_counts()
+    lineups = _generated_json("lineups.json") or {}
+    odds_file = _generated_json("odds_live.json") or {}
+
+    return {
+        "overview": {
+            "pl_leader": ({"team": table[0]["team"], "points": table[0]["points"], "played": table[0]["played"]}
+                          if table and table[0]["played"] else None),
+            "fixtures_next_7_days": sum(1 for m in pl_upcoming if (m["date"] or "") <= week_ahead),
+            "fixtures_with_model_runs": len(picks_all),
+            "picks_window_days": 14,
+            "model_run_at": model_file.get("generated_at"),
+        },
+        "model_picks": picks[:6],
+        "value_gaps": gaps[:5],
+        "league": {
+            "table": [{**r, "form": form.get(r["team"], [])} for r in table[:8]],
+            "best_attack": [{"team": r["team"], "goals_per_match": round(r["gf"] / r["played"], 2)} for r in attack],
+            "best_defence": [{"team": r["team"], "goals_against_per_match": round(r["ga"] / r["played"], 2)}
+                             for r in defence],
+        },
+        "trends": _season_trends(pl_completed),
+        "players": {
+            "top_points": [_player_card(p) for p in sorted(players, key=lambda p: -p["total_points"])[:5]],
+            "top_form": [_player_card(p) for p in sorted(players, key=lambda p: -(p.get("form") or 0))[:5]],
+            "top_expected_goals": [
+                _player_card(p) for p in sorted(players, key=lambda p: -(p.get("expected_goals") or 0))[:5]
+            ],
+            "availability": [
+                {"name": p["name"], "team": p["team"], "status": AVAILABILITY_LABELS[p["status"]],
+                 "news": p.get("news") or "", "selected_by_percent": p.get("selected_by_percent")}
+                for p in available[:6]
+            ],
+        } if players else None,
+        "formations": {
+            "clubs": len(lineups.get("teams", {})),
+            "note": "Predicted from each club's last match and FPL availability, not confirmed team sheets.",
+            "counts": formations,
+        } if formations else None,
+        "model_performance": _model_performance(),
+        "market_snapshot_at": odds_file.get("generated_at"),
+    }
